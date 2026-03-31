@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppHeader } from "@/components/AppHeader";
 import Index from "./pages/Index.tsx";
 import Copilot from "./pages/Copilot.tsx";
+import VSCodeExtension from "./pages/VSCodeExtension.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();

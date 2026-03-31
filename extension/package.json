@@ -1,0 +1,118 @@
+{
+  "name": "solana-dev-copilot",
+  "displayName": "Solana Dev Copilot",
+  "description": "AI-powered Solana developer assistant with 1000+ glossary terms, hover tooltips, code explanations, and an intelligent copilot — all inside VS Code.",
+  "version": "1.0.0",
+  "publisher": "solana-dev-copilot",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Programming Languages", "Education", "Other"],
+  "keywords": ["solana", "blockchain", "web3", "developer", "copilot", "glossary"],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onLanguage:rust",
+    "onLanguage:markdown",
+    "onLanguage:json",
+    "onLanguage:toml",
+    "onView:solanaCopilot.glossary"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "solanaCopilot.ask",
+        "title": "Solana Copilot: Ask a Question",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "solanaCopilot.explainFile",
+        "title": "Solana Copilot: Explain Current File",
+        "icon": "$(book)"
+      },
+      {
+        "command": "solanaCopilot.explainSelection",
+        "title": "Solana Copilot: Explain Selection",
+        "icon": "$(lightbulb)"
+      },
+      {
+        "command": "solanaCopilot.searchGlossary",
+        "title": "Solana Copilot: Search Glossary",
+        "icon": "$(search)"
+      },
+      {
+        "command": "solanaCopilot.toggleHighlighting",
+        "title": "Solana Copilot: Toggle Term Highlighting"
+      },
+      {
+        "command": "solanaCopilot.openInWebApp",
+        "title": "Solana Copilot: Open in Web App"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "solanaCopilot",
+          "title": "Solana Dev Copilot",
+          "icon": "$(symbol-misc)"
+        }
+      ]
+    },
+    "views": {
+      "solanaCopilot": [
+        {
+          "type": "webview",
+          "id": "solanaCopilot.glossary",
+          "name": "Glossary Search"
+        }
+      ]
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "solanaCopilot.explainSelection",
+          "when": "editorHasSelection",
+          "group": "solanaCopilot"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Solana Dev Copilot",
+      "properties": {
+        "solanaCopilot.enableHighlighting": {
+          "type": "boolean",
+          "default": true,
+          "description": "Highlight Solana glossary terms in the editor"
+        },
+        "solanaCopilot.webAppUrl": {
+          "type": "string",
+          "default": "https://solana-aura-guide.lovable.app",
+          "description": "URL of the Solana Dev Copilot web app"
+        },
+        "solanaCopilot.aiEndpoint": {
+          "type": "string",
+          "default": "",
+          "description": "Custom AI endpoint URL (leave empty to use glossary-only mode)"
+        },
+        "solanaCopilot.language": {
+          "type": "string",
+          "enum": ["en", "pt"],
+          "default": "en",
+          "description": "Language for glossary terms"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "npx @vscode/vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  }
+}

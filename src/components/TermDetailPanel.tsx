@@ -1,6 +1,7 @@
 import { GlossaryTerm, getRelatedTerms } from "@/lib/solana-glossary";
 import { motion } from "framer-motion";
 import { X, ArrowRight, BookOpen, Tag } from "lucide-react";
+import { UsageExample } from "@/components/UsageExample";
 
 interface TermDetailPanelProps {
   term: GlossaryTerm;
@@ -61,7 +62,9 @@ export function TermDetailPanel({ term, onClose, onNavigate }: TermDetailPanelPr
         </div>
       )}
 
-      <p className="text-sm text-foreground/90 leading-relaxed mb-5">{term.definition}</p>
+      <p className="text-sm text-foreground/90 leading-relaxed mb-4">{term.definition}</p>
+
+      <UsageExample term={term} onTermClick={onNavigate} />
 
       {related.length > 0 && (
         <div>

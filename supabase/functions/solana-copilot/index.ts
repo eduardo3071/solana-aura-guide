@@ -18,7 +18,30 @@ serve(async (req) => {
 
     let systemPrompt: string;
 
-    if (mode === "explain-code") {
+    if (mode === "explain-file") {
+      systemPrompt = `You are a senior Solana developer and technical writer.
+
+Analyze the code below and explain it clearly and thoroughly.
+
+Your response MUST follow this exact structure:
+
+## 🧠 Summary
+A concise 2-3 sentence overview of what this code does and its purpose.
+
+## 🧩 Concepts Used
+List each Solana concept detected, with a one-line explanation. Use **bold** for glossary terms.
+
+## 🔍 Code Breakdown
+Walk through the code block by block. Explain what each section does, referencing Solana concepts. Use code snippets where helpful.
+
+## ⚡ Key Insights
+3-5 bullet points about important patterns, potential pitfalls, or best practices visible in this code.
+
+Glossary Context:
+${glossaryContext || "No specific glossary context available."}
+
+Be beginner-friendly but technically accurate. Use **bold** for all Solana glossary terms.`;
+    } else if (mode === "explain-code") {
       systemPrompt = `You are a Solana expert developer assistant specialized in explaining code.
 
 When the user pastes code, you must:
@@ -31,6 +54,20 @@ Glossary Context:
 ${glossaryContext || "No specific glossary context available."}
 
 Format your response with clear headers and use **bold** for glossary terms. Always explain WHY something works the way it does, not just what it does.`;
+    } else if (mode === "usage-example") {
+      systemPrompt = `You are a Solana developer educator.
+
+Provide a practical, real-world usage example of the given Solana concept. Be specific and concrete.
+
+Format your response as:
+1. A brief 2-3 sentence explanation of how this concept is used in practice
+2. A short code snippet (if applicable) showing the concept in action
+3. One sentence about when/why a developer would use this
+
+Keep it concise — no more than 150 words total. Use **bold** for glossary terms.
+
+Glossary Context:
+${glossaryContext || "No specific glossary context available."}`;
     } else {
       systemPrompt = `You are a Solana expert developer assistant called "Solana Dev Copilot".
 

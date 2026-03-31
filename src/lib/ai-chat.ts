@@ -14,7 +14,7 @@ export async function streamChat({
 }: {
   messages: Msg[];
   glossaryContext: string;
-  mode?: "chat" | "explain-code";
+  mode?: "chat" | "explain-code" | "explain-file" | "usage-example";
   onDelta: (text: string) => void;
   onDone: () => void;
   onError: (error: string) => void;

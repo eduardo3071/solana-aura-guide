@@ -1,16 +1,106 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { SearchBar } from "@/components/SearchBar";
+import { TermCard } from "@/components/TermCard";
+import { CategoryGrid } from "@/components/CategoryGrid";
+import { TermDetailPanel } from "@/components/TermDetailPanel";
+import { getAllTerms, getTermsByCategory, GlossaryTerm, GlossaryCategory } from "@/lib/solana-glossary";
+import { AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { MessageSquare, Zap, BookOpen, Search } from "lucide-react";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [selectedTerm, setSelectedTerm] = useState<GlossaryTerm | null>(null);
+  const [activeCategory, setActiveCategory] = useState<GlossaryCategory | null>(null);
+  const navigate = useNavigate();
+
+  const terms = activeCategory ? getTermsByCategory(activeCategory) : getAllTerms();
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-[calc(100vh-3.5rem)]">
+      {/* Hero */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(162_72%_46%_/_0.08),_transparent_60%)]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-8 relative">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-medium mb-4">
+              <Zap className="h-3 w-3" />
+              Powered by Solana Glossary SDK
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 tracking-tight">
+              Your <span className="gradient-text">Solana</span> Development Companion
+            </h1>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
+              Instantly search, learn, and understand Solana concepts. Use the AI Copilot for deeper explanations.
+            </p>
+          </div>
+
+          <div className="max-w-xl mx-auto mb-6">
+            <SearchBar onSelect={setSelectedTerm} />
+          </div>
+
+          <div className="flex justify-center gap-3">
+            <button
+              onClick={() => navigate("/copilot")}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:opacity-90 transition-all"
+            >
+              <MessageSquare className="h-3.5 w-3.5" />
+              Open Copilot
+            </button>
+            <a
+              href="#glossary"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-secondary text-secondary-foreground text-xs font-medium hover:bg-surface-hover transition-all"
+            >
+              <BookOpen className="h-3.5 w-3.5" />
+              Browse Glossary
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Content */}
+      <section id="glossary" className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
+        <div className="mb-6">
+          <h2 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+            <Search className="h-3.5 w-3.5 text-primary" />
+            Categories
+          </h2>
+          <CategoryGrid onSelectCategory={setActiveCategory} activeCategory={activeCategory} />
+        </div>
+
+        <div className="flex gap-6">
+          {/* Terms grid */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-sm font-semibold text-foreground">
+                {activeCategory ? `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)} Terms` : "All Terms"}
+              </h2>
+              <span className="text-xs text-muted-foreground">{terms.length} results</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+              {terms.map((term, i) => (
+                <TermCard key={term.id} term={term} onClick={setSelectedTerm} index={i} />
+              ))}
+            </div>
+          </div>
+
+          {/* Detail panel */}
+          <AnimatePresence>
+            {selectedTerm && (
+              <div className="hidden lg:block w-80 shrink-0">
+                <div className="sticky top-[4.5rem]">
+                  <TermDetailPanel
+                    term={selectedTerm}
+                    onClose={() => setSelectedTerm(null)}
+                    onNavigate={setSelectedTerm}
+                  />
+                </div>
+              </div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;

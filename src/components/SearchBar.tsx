@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { searchTerms, GlossaryTerm } from "@/lib/solana-glossary";
 import { Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,24 +8,45 @@ interface SearchBarProps {
   placeholder?: string;
 }
 
-export function SearchBar({ onSelect, placeholder = "Search Solana terms…" }: SearchBarProps) {
+const categoryColors: Record<string, string> = {
+  "core-protocol": "bg-primary/20 text-primary",
+  "programming-model": "bg-blue-500/20 text-blue-400",
+  "token-ecosystem": "bg-yellow-500/20 text-yellow-400",
+  "defi": "bg-emerald-500/20 text-emerald-400",
+  "zk-compression": "bg-violet-500/20 text-violet-400",
+  "infrastructure": "bg-orange-500/20 text-orange-400",
+  "security": "bg-red-500/20 text-red-400",
+  "dev-tools": "bg-cyan-500/20 text-cyan-400",
+  "network": "bg-teal-500/20 text-teal-400",
+  "blockchain-general": "bg-slate-500/20 text-slate-400",
+  "web3": "bg-pink-500/20 text-pink-400",
+  "programming-fundamentals": "bg-indigo-500/20 text-indigo-400",
+  "ai-ml": "bg-purple-500/20 text-purple-400",
+  "solana-ecosystem": "bg-accent/20 text-accent",
+};
+
+export function SearchBar({ onSelect, placeholder = "Search 1001 Solana terms…" }: SearchBarProps) {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<GlossaryTerm[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
+
+  // Debounced search for performance with 1001 terms
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedQuery(query), 100);
+    return () => clearTimeout(t);
+  }, [query]);
+
+  const results = useMemo(() => {
+    if (!debouncedQuery.trim()) return [];
+    return searchTerms(debouncedQuery).slice(0, 20);
+  }, [debouncedQuery]);
 
   useEffect(() => {
-    if (query.length > 0) {
-      setResults(searchTerms(query));
-      setIsOpen(true);
-      setSelectedIndex(-1);
-    } else {
-      setResults([]);
-      setIsOpen(false);
-    }
-  }, [query]);
+    setIsOpen(results.length > 0 && query.length > 0);
+    setSelectedIndex(-1);
+  }, [results, query]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowDown") {
@@ -44,17 +65,6 @@ export function SearchBar({ onSelect, placeholder = "Search Solana terms…" }: 
     }
   };
 
-  const categoryColors: Record<string, string> = {
-    core: "bg-primary/20 text-primary",
-    consensus: "bg-accent/20 text-accent",
-    defi: "bg-emerald-500/20 text-emerald-400",
-    development: "bg-blue-500/20 text-blue-400",
-    networking: "bg-orange-500/20 text-orange-400",
-    security: "bg-red-500/20 text-red-400",
-    token: "bg-yellow-500/20 text-yellow-400",
-    storage: "bg-cyan-500/20 text-cyan-400",
-  };
-
   return (
     <div className="relative w-full">
       <div className="relative">
@@ -64,7 +74,7 @@ export function SearchBar({ onSelect, placeholder = "Search Solana terms…" }: 
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
-          onFocus={() => query && setIsOpen(true)}
+          onFocus={() => results.length > 0 && setIsOpen(true)}
           placeholder={placeholder}
           className="w-full h-12 pl-11 pr-10 bg-secondary border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all text-sm"
         />
@@ -81,7 +91,6 @@ export function SearchBar({ onSelect, placeholder = "Search Solana terms…" }: 
       <AnimatePresence>
         {isOpen && results.length > 0 && (
           <motion.div
-            ref={listRef}
             initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
@@ -96,18 +105,20 @@ export function SearchBar({ onSelect, placeholder = "Search Solana terms…" }: 
                   setQuery("");
                   setIsOpen(false);
                 }}
-                className={`w-full px-4 py-3 text-left flex items-start gap-3 transition-colors ${
+                className={`w-full px-4 py-2.5 text-left flex items-start gap-3 transition-colors ${
                   i === selectedIndex ? "bg-surface-hover" : "hover:bg-surface-elevated"
                 }`}
               >
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-foreground truncate">{term.term}</span>
-                    <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${categoryColors[term.category] || "bg-muted text-muted-foreground"}`}>
+                    <span className="text-xs font-medium text-foreground truncate">{term.term}</span>
+                    <span className={`text-[9px] font-medium px-1.5 py-0.5 rounded-full ${categoryColors[term.category] || "bg-muted text-muted-foreground"}`}>
                       {term.category}
                     </span>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">{term.shortDefinition}</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5 line-clamp-1">
+                    {term.definition.slice(0, 100)}
+                  </p>
                 </div>
               </button>
             ))}

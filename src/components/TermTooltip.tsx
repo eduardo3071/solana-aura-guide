@@ -48,7 +48,9 @@ export function TermTooltip({ termId, children, onNavigate }: TermTooltipProps) 
             className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-3 bg-card border border-border rounded-lg shadow-xl"
           >
             <p className="text-xs font-semibold text-foreground mb-1">{term.term}</p>
-            <p className="text-[11px] text-muted-foreground leading-relaxed">{term.shortDefinition}</p>
+            <p className="text-[11px] text-muted-foreground leading-relaxed">
+              {term.definition.slice(0, 150)}{term.definition.length > 150 ? "…" : ""}
+            </p>
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-card border-r border-b border-border rotate-45" />
           </motion.div>
         )}

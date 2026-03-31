@@ -7,9 +7,8 @@ let enabled = true;
 
 export function initHighlighting(context: vscode.ExtensionContext): void {
   decorationType = vscode.window.createTextEditorDecorationType({
-    borderBottom: "1px dotted",
-    borderColor: new vscode.ThemeColor("editorLink.activeForeground"),
-    cursor: "pointer",
+    textDecoration: "underline dotted",
+    overviewRulerColor: new vscode.ThemeColor("editorLink.activeForeground"),
   });
 
   enabled = vscode.workspace

@@ -63,7 +63,9 @@ export function TermDetailPanel({ term, onClose, onNavigate }: TermDetailPanelPr
         </div>
       )}
 
-      <p className="text-sm text-foreground/90 leading-relaxed mb-5">{term.definition}</p>
+      <p className="text-sm text-foreground/90 leading-relaxed mb-4">{term.definition}</p>
+
+      <UsageExample term={term} onTermClick={onNavigate} />
 
       {related.length > 0 && (
         <div>

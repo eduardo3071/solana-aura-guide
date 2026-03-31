@@ -239,6 +239,12 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
 
       {/* Input */}
       <div className="border-t border-border p-4">
+        {/* Real-time term detection */}
+        {input.trim().length > 2 && (
+          <div className="mb-2">
+            <TermInputHighlighter text={input} onTermClick={onTermClick} />
+          </div>
+        )}
         <div className="relative flex items-end gap-2">
           <textarea
             ref={inputRef}

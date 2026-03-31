@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AppHeader } from "@/components/AppHeader";
 import Index from "./pages/Index.tsx";
 import Copilot from "./pages/Copilot.tsx";
+import VSCodeExtension from "./pages/VSCodeExtension.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/copilot" element={<Copilot />} />
+          <Route path="/vscode" element={<VSCodeExtension />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

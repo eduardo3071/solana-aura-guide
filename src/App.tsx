@@ -21,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/copilot" element={<Copilot />} />
+          <Route path="/vscode" element={<VSCodeExtension />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

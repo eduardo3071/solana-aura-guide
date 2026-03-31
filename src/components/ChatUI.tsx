@@ -3,7 +3,8 @@ import { searchTerms, GlossaryTerm, allTerms, getTerm } from "@/lib/solana-gloss
 import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
 import { Send, Bot, User, Sparkles, Loader2, Code2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ReactMarkdown from "react-markdown";
+import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
+import { TermInputHighlighter } from "@/components/TermInputHighlighter";
 
 interface Message {
   id: string;

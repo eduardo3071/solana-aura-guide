@@ -1,6 +1,8 @@
 import { GlossaryTerm, getRelatedTerms } from "@/lib/solana-glossary";
 import { motion } from "framer-motion";
 import { X, ArrowRight, BookOpen, Tag } from "lucide-react";
+import { UsageExample } from "@/components/UsageExample";
+import { X, ArrowRight, BookOpen, Tag } from "lucide-react";
 
 interface TermDetailPanelProps {
   term: GlossaryTerm;

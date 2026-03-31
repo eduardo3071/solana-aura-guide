@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect } from "react";
-import { searchTerms, GlossaryTerm } from "@/lib/solana-glossary";
-import { Send, Bot, User, Sparkles, Loader2 } from "lucide-react";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { searchTerms, GlossaryTerm, allTerms, getTerm } from "@/lib/solana-glossary";
+import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
+import { Send, Bot, User, Sparkles, Loader2, Code2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 
@@ -8,11 +9,11 @@ interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
-  glossaryContext?: GlossaryTerm[];
 }
 
 interface ChatUIProps {
   onTermClick?: (term: GlossaryTerm) => void;
+  mode?: "chat" | "explain-code";
 }
 
 const DEMO_QUESTIONS = [
@@ -20,41 +21,78 @@ const DEMO_QUESTIONS = [
   "Explain accounts like I'm a beginner",
   "How does Proof of History work?",
   "What's the difference between Tower BFT and traditional PBFT?",
+  "What is an AMM and how does it work on Solana?",
+  "Explain ZK Compression in Solana",
 ];
 
-// Simple local AI that uses glossary context to generate responses
-function generateResponse(input: string, context: GlossaryTerm[]): string {
-  if (context.length === 0) {
-    return `I don't have specific glossary information about that topic. Try asking about Solana concepts like **PDA**, **Proof of History**, **Accounts**, **Staking**, **AMM**, or other blockchain terms.\n\nYou can also browse the glossary using the search bar or category filters above.`;
-  }
+const CODE_EXAMPLES = [
+  {
+    label: "Explain PDA derivation",
+    code: `let (pda, bump) = Pubkey::find_program_address(
+  &[b"vault", user.key().as_ref()],
+  ctx.program_id
+);`,
+  },
+  {
+    label: "Explain token transfer",
+    code: `token::transfer(
+  CpiContext::new(
+    ctx.accounts.token_program.to_account_info(),
+    Transfer {
+      from: ctx.accounts.from.to_account_info(),
+      to: ctx.accounts.to.to_account_info(),
+      authority: ctx.accounts.authority.to_account_info(),
+    },
+  ),
+  amount,
+)?;`,
+  },
+];
 
-  const mainTerm = context[0];
-  let response = `## ${mainTerm.term}\n\n${mainTerm.definition}\n\n`;
-
-  if (mainTerm.aliases.length > 0) {
-    response += `**Also known as:** ${mainTerm.aliases.join(", ")}\n\n`;
-  }
-
-  if (mainTerm.relatedTerms.length > 0) {
-    response += `**Related concepts:** ${mainTerm.relatedTerms.map(t => `\`${t}\``).join(", ")}\n\n`;
-  }
-
-  if (context.length > 1) {
-    response += `---\n\n### Related Terms\n\n`;
-    context.slice(1, 4).forEach((t) => {
-      response += `- **${t.term}**: ${t.shortDefinition}\n`;
-    });
-  }
-
-  response += `\n> 💡 **Difficulty:** ${mainTerm.difficulty} | **Category:** ${mainTerm.category}`;
-
-  return response;
+/** Highlight glossary terms in AI responses by wrapping them in clickable spans */
+function TermHighlightedMarkdown({
+  content,
+  onTermClick,
+}: {
+  content: string;
+  onTermClick?: (term: GlossaryTerm) => void;
+}) {
+  return (
+    <div className="prose prose-sm prose-invert max-w-none [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-foreground [&_h2]:mt-0 [&_h2]:mb-2 [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:text-foreground [&_p]:text-xs [&_p]:text-foreground/80 [&_li]:text-xs [&_li]:text-foreground/80 [&_code]:text-primary [&_code]:bg-primary/10 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-[11px] [&_blockquote]:border-primary/30 [&_blockquote]:text-muted-foreground [&_blockquote]:text-[11px] [&_strong]:text-foreground [&_hr]:border-border [&_pre]:bg-secondary [&_pre]:border [&_pre]:border-border">
+      <ReactMarkdown
+        components={{
+          strong: ({ children }) => {
+            const text = String(children);
+            const foundTerm = getTerm(text) || allTerms.find(
+              (t) => t.term.toLowerCase() === text.toLowerCase() ||
+                t.aliases?.some((a) => a.toLowerCase() === text.toLowerCase())
+            );
+            if (foundTerm && onTermClick) {
+              return (
+                <strong
+                  className="text-primary cursor-pointer underline decoration-primary/30 underline-offset-2 hover:decoration-primary transition-colors"
+                  onClick={() => onTermClick(foundTerm)}
+                  title={foundTerm.definition.slice(0, 100)}
+                >
+                  {children}
+                </strong>
+              );
+            }
+            return <strong>{children}</strong>;
+          },
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    </div>
+  );
 }
 
-export function ChatUI({ onTermClick }: ChatUIProps) {
+export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -66,37 +104,53 @@ export function ChatUI({ onTermClick }: ChatUIProps) {
     scrollToBottom();
   }, [messages]);
 
-  const handleSend = async (text?: string) => {
+  const handleSend = useCallback(async (text?: string) => {
     const msgText = text || input.trim();
-    if (!msgText) return;
+    if (!msgText || isStreaming) return;
 
-    const glossaryResults = searchTerms(msgText);
-
+    setError(null);
     const userMsg: Message = {
       id: crypto.randomUUID(),
       role: "user",
       content: msgText,
     };
 
-    setMessages((prev) => [...prev, userMsg]);
+    const updatedMessages = [...messages, userMsg];
+    setMessages(updatedMessages);
     setInput("");
-    setIsTyping(true);
+    setIsStreaming(true);
 
-    // Simulate typing delay
-    await new Promise((r) => setTimeout(r, 600 + Math.random() * 800));
+    const glossaryContext = buildGlossaryContext(msgText);
+    let assistantContent = "";
 
-    const response = generateResponse(msgText, glossaryResults);
-
-    const assistantMsg: Message = {
-      id: crypto.randomUUID(),
-      role: "assistant",
-      content: response,
-      glossaryContext: glossaryResults,
-    };
-
-    setMessages((prev) => [...prev, assistantMsg]);
-    setIsTyping(false);
-  };
+    await streamChat({
+      messages: updatedMessages.map((m) => ({ role: m.role, content: m.content })),
+      glossaryContext,
+      mode,
+      onDelta: (chunk) => {
+        assistantContent += chunk;
+        setMessages((prev) => {
+          const last = prev[prev.length - 1];
+          if (last?.role === "assistant") {
+            return prev.map((m, i) =>
+              i === prev.length - 1 ? { ...m, content: assistantContent } : m
+            );
+          }
+          return [
+            ...prev,
+            { id: crypto.randomUUID(), role: "assistant", content: assistantContent },
+          ];
+        });
+      },
+      onDone: () => {
+        setIsStreaming(false);
+      },
+      onError: (err) => {
+        setError(err);
+        setIsStreaming(false);
+      },
+    });
+  }, [input, isStreaming, messages, mode]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -105,6 +159,8 @@ export function ChatUI({ onTermClick }: ChatUIProps) {
     }
   };
 
+  const isExplainCode = mode === "explain-code";
+
   return (
     <div className="flex flex-col h-full">
       {/* Messages */}
@@ -112,22 +168,43 @@ export function ChatUI({ onTermClick }: ChatUIProps) {
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full text-center px-4">
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-              <Sparkles className="h-6 w-6 text-primary" />
+              {isExplainCode ? (
+                <Code2 className="h-6 w-6 text-primary" />
+              ) : (
+                <Sparkles className="h-6 w-6 text-primary" />
+              )}
             </div>
-            <h3 className="text-base font-semibold text-foreground mb-1">Solana Dev Copilot</h3>
+            <h3 className="text-base font-semibold text-foreground mb-1">
+              {isExplainCode ? "Explain Solana Code" : "Solana Dev Copilot"}
+            </h3>
             <p className="text-sm text-muted-foreground mb-6 max-w-sm">
-              Ask me anything about Solana development. I'll use the glossary to give you accurate, contextual answers.
+              {isExplainCode
+                ? "Paste any Solana/Anchor code and I'll explain every concept using the official glossary with 1001 terms."
+                : "Ask me anything about Solana development. I use the official glossary (1001 terms) + AI to give you accurate, contextual answers."
+              }
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-lg">
-              {DEMO_QUESTIONS.map((q) => (
-                <button
-                  key={q}
-                  onClick={() => handleSend(q)}
-                  className="text-left px-3 py-2.5 bg-secondary border border-border rounded-lg text-xs text-foreground hover:bg-surface-hover hover:border-primary/20 transition-all"
-                >
-                  {q}
-                </button>
-              ))}
+              {isExplainCode
+                ? CODE_EXAMPLES.map((ex) => (
+                    <button
+                      key={ex.label}
+                      onClick={() => handleSend(ex.code)}
+                      className="text-left px-3 py-2.5 bg-secondary border border-border rounded-lg text-xs text-foreground hover:bg-surface-hover hover:border-primary/20 transition-all"
+                    >
+                      <span className="text-primary font-medium">{ex.label}</span>
+                      <pre className="text-[10px] text-muted-foreground mt-1 font-mono line-clamp-2 whitespace-pre-wrap">{ex.code.slice(0, 60)}…</pre>
+                    </button>
+                  ))
+                : DEMO_QUESTIONS.map((q) => (
+                    <button
+                      key={q}
+                      onClick={() => handleSend(q)}
+                      className="text-left px-3 py-2.5 bg-secondary border border-border rounded-lg text-xs text-foreground hover:bg-surface-hover hover:border-primary/20 transition-all"
+                    >
+                      {q}
+                    </button>
+                  ))
+              }
             </div>
           </div>
         )}
@@ -153,11 +230,9 @@ export function ChatUI({ onTermClick }: ChatUIProps) {
                 }`}
               >
                 {msg.role === "assistant" ? (
-                  <div className="prose prose-sm prose-invert max-w-none [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-foreground [&_h2]:mt-0 [&_h2]:mb-2 [&_h3]:text-xs [&_h3]:font-semibold [&_h3]:text-foreground [&_p]:text-xs [&_p]:text-foreground/80 [&_li]:text-xs [&_li]:text-foreground/80 [&_code]:text-primary [&_code]:bg-primary/10 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-[11px] [&_blockquote]:border-primary/30 [&_blockquote]:text-muted-foreground [&_blockquote]:text-[11px] [&_strong]:text-foreground [&_hr]:border-border">
-                    <ReactMarkdown>{msg.content}</ReactMarkdown>
-                  </div>
+                  <TermHighlightedMarkdown content={msg.content} onTermClick={onTermClick} />
                 ) : (
-                  <span className="text-xs">{msg.content}</span>
+                  <pre className="text-xs whitespace-pre-wrap font-sans">{msg.content}</pre>
                 )}
               </div>
               {msg.role === "user" && (
@@ -169,7 +244,7 @@ export function ChatUI({ onTermClick }: ChatUIProps) {
           ))}
         </AnimatePresence>
 
-        {isTyping && (
+        {isStreaming && messages[messages.length - 1]?.role !== "assistant" && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -185,6 +260,17 @@ export function ChatUI({ onTermClick }: ChatUIProps) {
           </motion.div>
         )}
 
+        {error && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-3">
+            <div className="w-7 h-7 rounded-lg bg-destructive/10 flex items-center justify-center shrink-0">
+              <AlertCircle className="h-3.5 w-3.5 text-destructive" />
+            </div>
+            <div className="bg-destructive/10 border border-destructive/20 rounded-lg px-4 py-3">
+              <p className="text-xs text-destructive">{error}</p>
+            </div>
+          </motion.div>
+        )}
+
         <div ref={messagesEndRef} />
       </div>
 
@@ -196,9 +282,9 @@ export function ChatUI({ onTermClick }: ChatUIProps) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask about Solana concepts…"
+            placeholder={isExplainCode ? "Paste Solana code to explain…" : "Ask about Solana concepts…"}
             rows={1}
-            className="flex-1 resize-none bg-secondary border border-border rounded-lg pl-4 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all min-h-[44px] max-h-32"
+            className="flex-1 resize-none bg-secondary border border-border rounded-lg pl-4 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all min-h-[44px] max-h-32 font-sans"
             style={{ height: "44px" }}
             onInput={(e) => {
               const target = e.target as HTMLTextAreaElement;
@@ -208,7 +294,7 @@ export function ChatUI({ onTermClick }: ChatUIProps) {
           />
           <button
             onClick={() => handleSend()}
-            disabled={!input.trim() || isTyping}
+            disabled={!input.trim() || isStreaming}
             className="h-11 w-11 rounded-lg bg-primary text-primary-foreground flex items-center justify-center hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-all shrink-0"
           >
             <Send className="h-4 w-4" />

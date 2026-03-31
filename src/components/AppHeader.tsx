@@ -1,12 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
-import { MessageSquare, BookOpen, Sparkles } from "lucide-react";
+import { MessageSquare, BookOpen, Sparkles, Code2 } from "lucide-react";
 
 export function AppHeader() {
   const location = useLocation();
 
   const navItems = [
-    { path: "/", label: "Dashboard", icon: BookOpen },
+    { path: "/", label: "Glossary", icon: BookOpen },
     { path: "/copilot", label: "Copilot", icon: MessageSquare },
+    { path: "/copilot?mode=explain-code", label: "Explain Code", icon: Code2 },
   ];
 
   return (
@@ -22,7 +23,9 @@ export function AppHeader() {
         <nav className="flex items-center gap-1">
           {navItems.map((item) => {
             const Icon = item.icon;
-            const isActive = location.pathname === item.path;
+            const isActive = item.path.includes("?")
+              ? location.pathname + location.search === item.path
+              : location.pathname === item.path && !location.search;
             return (
               <Link
                 key={item.path}
@@ -34,7 +37,7 @@ export function AppHeader() {
                 }`}
               >
                 <Icon className="h-3.5 w-3.5" />
-                {item.label}
+                <span className="hidden sm:inline">{item.label}</span>
               </Link>
             );
           })}

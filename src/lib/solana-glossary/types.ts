@@ -1,20 +1,24 @@
+export type Category =
+  | "core-protocol"
+  | "programming-model"
+  | "token-ecosystem"
+  | "defi"
+  | "zk-compression"
+  | "infrastructure"
+  | "security"
+  | "dev-tools"
+  | "network"
+  | "blockchain-general"
+  | "web3"
+  | "programming-fundamentals"
+  | "ai-ml"
+  | "solana-ecosystem";
+
 export interface GlossaryTerm {
   id: string;
   term: string;
   definition: string;
-  shortDefinition: string;
-  category: GlossaryCategory;
-  aliases: string[];
-  relatedTerms: string[];
-  difficulty: "beginner" | "intermediate" | "advanced";
+  category: Category;
+  related?: string[];
+  aliases?: string[];
 }
-
-export type GlossaryCategory =
-  | "core"
-  | "consensus"
-  | "defi"
-  | "development"
-  | "networking"
-  | "security"
-  | "token"
-  | "storage";

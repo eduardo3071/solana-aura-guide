@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect, useMemo } from "react";
-import { searchTerms, GlossaryTerm } from "@/lib/solana-glossary";
+import { GlossaryTerm } from "@/lib/solana-glossary";
 import { Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
+import { useGlossary } from "@/hooks/useGlossary";
 
 interface SearchBarProps {
   onSelect: (term: GlossaryTerm) => void;

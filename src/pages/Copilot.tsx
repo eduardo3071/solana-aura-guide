@@ -25,15 +25,12 @@ const TAB_KEYS = {
 
 const Copilot = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialTab = searchParams.get("mode") as TabId || "chat";
-  const [activeTab, setActiveTab] = useState<TabId>(
-    TAB_IDS.includes(initialTab as any) ? initialTab : "chat"
-  );
+  const modeParam = searchParams.get("mode") as TabId || "chat";
+  const activeTab: TabId = TAB_IDS.includes(modeParam as any) ? modeParam : "chat";
   const [selectedTerm, setSelectedTerm] = useState<GlossaryTerm | null>(null);
   const { t } = useI18n();
 
   const handleTabChange = (tab: TabId) => {
-    setActiveTab(tab);
     if (tab === "chat") {
       setSearchParams({});
     } else {

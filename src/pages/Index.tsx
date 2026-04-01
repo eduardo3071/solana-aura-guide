@@ -18,10 +18,11 @@ const Index = () => {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const navigate = useNavigate();
   const { t } = useI18n();
+  const glossary = useGlossary();
 
   const terms = useMemo(() => {
-    return activeCategory ? getTermsByCategory(activeCategory) : getAllTerms();
-  }, [activeCategory]);
+    return activeCategory ? glossary.getTermsByCategory(activeCategory) : glossary.getAllTerms();
+  }, [activeCategory, glossary]);
 
   const visibleTerms = useMemo(() => terms.slice(0, visibleCount), [terms, visibleCount]);
 

@@ -7,6 +7,7 @@ import { getAllTerms, getTermsByCategory, GlossaryTerm, Category, allTerms } fro
 import { AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { MessageSquare, Zap, BookOpen, Search, Code2 } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 const ITEMS_PER_PAGE = 60;
 
@@ -15,6 +16,7 @@ const Index = () => {
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   const terms = useMemo(() => {
     return activeCategory ? getTermsByCategory(activeCategory) : getAllTerms();
@@ -37,13 +39,13 @@ const Index = () => {
           <div className="text-center max-w-2xl mx-auto mb-6">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-medium mb-3">
               <Zap className="h-3 w-3" />
-              {allTerms.length} terms · 14 categories · Official Solana Glossary
+              {allTerms.length} {t("hero.badge")}
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2.5 tracking-tight">
-              Understand <span className="gradient-text">Solana</span> instantly — powered by real protocol knowledge
+              {t("hero.title.before")} <span className="gradient-text">{t("hero.title.solana")}</span> {t("hero.title.after")}
             </h1>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
-              Instantly search, learn, and understand Solana concepts. Powered by the official @stbr/solana-glossary SDK with real AI assistance.
+              {t("hero.subtitle")}
             </p>
           </div>
 
@@ -57,21 +59,21 @@ const Index = () => {
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:opacity-90 transition-all"
             >
               <MessageSquare className="h-3.5 w-3.5" />
-              AI Copilot
+              {t("btn.copilot")}
             </button>
             <button
               onClick={() => navigate("/copilot?mode=explain-code")}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-accent-foreground text-xs font-medium hover:opacity-90 transition-all"
             >
               <Code2 className="h-3.5 w-3.5" />
-              Explain Code
+              {t("btn.explain_code")}
             </button>
             <a
               href="#glossary"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-secondary text-secondary-foreground text-xs font-medium hover:bg-surface-hover transition-all"
             >
               <BookOpen className="h-3.5 w-3.5" />
-              Browse Glossary
+              {t("btn.browse_glossary")}
             </a>
           </div>
         </div>

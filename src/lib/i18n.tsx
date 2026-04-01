@@ -74,6 +74,9 @@ const translations = {
     "file.explain_btn": "Explain Entire File",
     "file.paste_placeholder": "Paste your Solana / Anchor / Rust / TypeScript code here...",
     "file.empty_hint": "Paste code above and click \"Explain Entire File\" to get a structured breakdown with glossary-powered insights.",
+    "file.upload_btn": "Upload File",
+    "file.export_btn": "Export Explanation",
+    "file.drop_hint": "Drop a code file here",
     // Term detail
     "term.related": "Related Terms",
     "term.usage": "Used in Context",

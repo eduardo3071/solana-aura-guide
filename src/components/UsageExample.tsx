@@ -37,7 +37,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
     setIsLoading(true);
     setError(false);
 
-    const glossaryContext = buildGlossaryContext(term.term);
+    const glossaryContext = buildGlossaryContext(term.term, locale);
     let content = "";
 
     streamChat({
@@ -48,6 +48,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
         },
       ],
       glossaryContext,
+      locale,
       mode: "usage-example",
       onDelta: (chunk) => {
         if (abortRef.current) return;

@@ -19,7 +19,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const abortRef = useRef(false);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   useEffect(() => {
     abortRef.current = false;

@@ -31,7 +31,7 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
   const [result, setResult] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const handleAnalyze = useCallback(async (inputCode?: string) => {
     const codeToAnalyze = inputCode || code;

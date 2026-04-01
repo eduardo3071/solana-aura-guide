@@ -1,603 +1,603 @@
 {
   "llm": {
     "term": "LLM (Modelo de Linguagem Grande)",
-    "definition": "A neural network trained on vast text corpora to understand and generate human language. LLMs (GPT-4, Claude, Llama, Gemini) use transformer architectures with billions of parameters. They power chatbots, code generation, summarization, and reasoning tasks. In blockchain development, LLMs assist with smart contract writing, audit review, documentation, and code explanation."
+    "definition": "Uma rede neural treinada em vastos corpora de texto para entender e gerar linguagem humana. LLMs (GPT-4, Claude, Llama, Gemini) usam arquiteturas transformer com bilhões de parâmetros. Eles alimentam chatbots, geração de código, sumarização e tarefas de raciocínio. No desenvolvimento de blockchain, LLMs auxiliam na escrita de smart contracts, revisão de auditoria, documentação e explicação de código."
   },
   "transformer": {
     "term": "Transformer",
-    "definition": "The neural network architecture underlying modern LLMs, introduced in 'Attention Is All You Need' (2017). Transformers use self-attention mechanisms to process input sequences in parallel (unlike recurrent networks). Key components: multi-head attention, positional encoding, feedforward layers, and layer normalization. Variants include encoder-only (BERT), decoder-only (GPT), and encoder-decoder (T5)."
+    "definition": "A arquitetura de rede neural subjacente aos LLMs modernos, introduzida em 'Attention Is All You Need' (2017). Transformers usam mecanismos de autoatenção para processar sequências de entrada em paralelo (ao contrário das redes recorrentes). Componentes chave: atenção multi-cabeça, codificação posicional, camadas feedforward e normalização de camada. As variantes incluem apenas codificador (BERT), apenas decodificador (GPT) e codificador-decodificador (T5)."
   },
   "attention-mechanism": {
-    "term": "Attention Mechanism",
-    "definition": "A neural network component that allows models to weigh the relevance of different parts of the input when producing output. Self-attention computes query-key-value dot products across all positions, enabling each token to 'attend' to every other token. Multi-head attention runs multiple attention functions in parallel. Attention is O(n²) in sequence length, driving context window research."
+    "term": "Mecanismo de Atenção",
+    "definition": "Um componente de rede neural que permite aos modelos ponderar a relevância de diferentes partes da entrada ao produzir uma saída. A autoatenção calcula produtos escalares de query-key-value em todas as posições, permitindo que cada token 'atenda' a todos os outros tokens. A atenção multi-cabeça executa múltiplas funções de atenção em paralelo. A atenção é O(n²) no comprimento da sequência, impulsionando a pesquisa da janela de contexto."
   },
   "foundation-model": {
-    "term": "Foundation Model",
-    "definition": "A large AI model trained on broad data that can be adapted for many downstream tasks. Foundation models (GPT-4, Claude, Llama 3, Gemini) are pre-trained on internet-scale text/code and can be fine-tuned, prompted, or used via APIs for specific applications. The term emphasizes that one base model serves as the foundation for diverse use cases rather than training task-specific models."
+    "term": "Modelo de Fundação",
+    "definition": "Um modelo de IA grande treinado em dados amplos que pode ser adaptado para muitas tarefas downstream. Modelos de fundação (GPT-4, Claude, Llama 3, Gemini) são pré-treinados em texto/código em escala de internet e podem ser ajustados, solicitados ou usados via APIs para aplicações específicas. O termo enfatiza que um modelo base serve como fundação para diversos casos de uso, em vez de treinar modelos específicos para cada tarefa."
   },
   "prompt-engineering": {
     "term": "Engenharia de Prompt",
-    "definition": "The practice of crafting input text (prompts) to guide LLM behavior and output quality. Techniques include: zero-shot (direct instruction), few-shot (providing examples), chain-of-thought (step-by-step reasoning), system prompts (setting context/persona), and structured output formatting. Effective prompts are specific, provide context, and include constraints. Critical for AI-assisted blockchain development."
+    "definition": "A prática de criar texto de entrada (prompts) para guiar o comportamento do LLM e a qualidade da saída. As técnicas incluem: zero-shot (instrução direta), few-shot (fornecer exemplos), chain-of-thought (raciocínio passo a passo), system prompts (definir contexto/persona) e formatação de saída estruturada. Prompts eficazes são específicos, fornecem contexto e incluem restrições. Crítico para o desenvolvimento de blockchain assistido por IA."
   },
   "context-window": {
-    "term": "Context Window",
-    "definition": "The maximum amount of text (measured in tokens) an LLM can process in a single interaction. Larger windows enable processing more code/documentation at once. Sizes vary: GPT-4 (128K tokens), Claude (200K tokens), Gemini (1M+ tokens). One token ≈ 4 characters in English. Context window limits affect how much codebase an AI can analyze in a single request."
+    "term": "Janela de Contexto",
+    "definition": "A quantidade máxima de texto (medida em tokens) que um LLM pode processar em uma única interação. Janelas maiores permitem o processamento de mais código/documentação de uma só vez. Os tamanhos variam: GPT-4 (128K tokens), Claude (200K tokens), Gemini (1M+ tokens). Um token ≈ 4 caracteres em inglês. Os limites da janela de contexto afetam quanto do codebase uma IA pode analisar em uma única solicitação."
   },
   "token-ai": {
-    "term": "Token (AI/NLP)",
-    "definition": "The basic unit of text processed by language models—typically a word, subword, or character. Tokenizers (BPE, SentencePiece) split text into tokens for model input. 'Solana blockchain' might tokenize as ['Sol', 'ana', ' block', 'chain']. Token count determines context window usage and API billing. Not to be confused with blockchain tokens (cryptocurrency assets)."
+    "term": "Token (IA/PNL)",
+    "definition": "A unidade básica de texto processada por modelos de linguagem — tipicamente uma palavra, subpalavra ou caractere. Tokenizers (BPE, SentencePiece) dividem o texto em tokens para a entrada do modelo. 'Solana blockchain' pode ser tokenizado como ['Sol', 'ana', ' block', 'chain']. A contagem de tokens determina o uso da janela de contexto e a cobrança da API. Não confundir com tokens de blockchain (ativos de criptomoeda)."
   },
   "fine-tuning": {
-    "term": "Fine-Tuning",
-    "definition": "The process of further training a pre-trained model on a specialized dataset to improve performance on specific tasks. Fine-tuning adapts a foundation model's weights using domain-specific data (e.g., Solana documentation, smart contract code). Techniques include full fine-tuning, LoRA (Low-Rank Adaptation), and QLoRA. Fine-tuned models can outperform general models on narrow tasks."
+    "term": "Fine-Tuning (Ajuste Fino)",
+    "definition": "O processo de treinar ainda mais um modelo pré-treinado em um conjunto de dados especializado para melhorar o desempenho em tarefas específicas. O ajuste fino adapta os pesos de um modelo de fundação usando dados específicos do domínio (por exemplo, documentação Solana, código de smart contract). As técnicas incluem full fine-tuning, LoRA (Low-Rank Adaptation) e QLoRA. Modelos ajustados podem superar modelos gerais em tarefas específicas."
   },
   "rag": {
     "term": "RAG (Geração Aumentada por Recuperação)",
-    "definition": "An AI architecture that combines LLMs with external knowledge retrieval. Instead of relying solely on training data, RAG systems retrieve relevant documents from a knowledge base (using embeddings and vector search), then provide them as context to the LLM. RAG reduces hallucinations and enables up-to-date responses. Useful for blockchain documentation bots and developer assistants."
+    "definition": "Uma arquitetura de IA que combina LLMs com recuperação de conhecimento externo. Em vez de depender apenas dos dados de treinamento, os sistemas RAG recuperam documentos relevantes de uma base de conhecimento (usando embeddings e pesquisa vetorial) e os fornecem como contexto ao LLM. O RAG reduz as alucinações e permite respostas atualizadas. Útil para bots de documentação de blockchain e assistentes de desenvolvedor."
   },
   "embedding": {
     "term": "Embedding",
-    "definition": "A dense vector representation of text (or other data) in a continuous high-dimensional space where semantically similar items are closer together. Embedding models (OpenAI ada-002, Cohere, sentence-transformers) convert text to vectors of 256-3072 dimensions. Used in RAG for semantic search, in recommendation systems, and for clustering. Stored and queried via vector databases."
+    "definition": "Uma representação vetorial densa de texto (ou outros dados) em um espaço contínuo de alta dimensão onde itens semanticamente semelhantes estão mais próximos. Modelos de embedding (OpenAI ada-002, Cohere, sentence-transformers) convertem texto em vetores de 256-3072 dimensões. Usado em RAG para pesquisa semântica, em sistemas de recomendação e para agrupamento. Armazenado e consultado via bancos de dados vetoriais."
   },
   "vector-database": {
-    "term": "Vector Database",
-    "definition": "A database optimized for storing and querying high-dimensional vector embeddings using similarity search (cosine distance, dot product, Euclidean distance). Examples: Pinecone, Weaviate, Qdrant, ChromaDB, pgvector. Vector databases power RAG systems by quickly finding the most relevant documents for a given query embedding. Essential for AI-powered developer tools and documentation search."
+    "term": "Banco de Dados Vetorial",
+    "definition": "Um banco de dados otimizado para armazenar e consultar embeddings de vetores de alta dimensão usando pesquisa de similaridade (distância de cosseno, produto escalar, distância euclidiana). Exemplos: Pinecone, Weaviate, Qdrant, ChromaDB, pgvector. Bancos de dados vetoriais alimentam sistemas RAG, encontrando rapidamente os documentos mais relevantes para um determinado embedding de consulta. Essencial para ferramentas de desenvolvedor alimentadas por IA e pesquisa de documentação."
   },
   "agent-ai": {
     "term": "Agente de IA",
-    "definition": "An autonomous AI system that can plan, use tools, and take actions to accomplish goals. Agents use LLMs as the reasoning core and have access to tools (APIs, code execution, web browsing, database queries). In blockchain: agents can analyze smart contracts, execute transactions, monitor DeFi positions, and automate trading strategies. Frameworks: LangChain, CrewAI, Claude Agent SDK."
+    "definition": "Um sistema de IA autônomo que pode planejar, usar ferramentas e realizar ações para atingir objetivos. Os agentes usam LLMs como o núcleo de raciocínio e têm acesso a ferramentas (APIs, execução de código, navegação na web, consultas a bancos de dados). Em blockchain: agentes podem analisar smart contracts, executar transações, monitorar posições DeFi e automatizar estratégias de negociação. Frameworks: LangChain, CrewAI, Claude Agent SDK."
   },
   "tool-use": {
-    "term": "Tool Use (Function Calling)",
-    "definition": "An LLM capability where the model generates structured calls to external tools/functions rather than just text. The model decides which tool to invoke and with what parameters. Examples: calling an API, executing code, querying a database, or reading a file. Tool use enables agents to interact with the real world. Claude, GPT-4, and Gemini support native tool use."
+    "term": "Uso de Ferramentas (Chamada de Função)",
+    "definition": "Uma capacidade do LLM onde o modelo gera chamadas estruturadas para ferramentas/funções externas em vez de apenas texto. O modelo decide qual ferramenta invocar e com quais parâmetros. Exemplos: chamar uma API, executar código, consultar um banco de dados ou ler um arquivo. O uso de ferramentas permite que os agentes interajam com o mundo real. Claude, GPT-4 e Gemini suportam o uso nativo de ferramentas."
   },
   "hallucination": {
     "term": "Alucinação",
-    "definition": "When an AI model generates plausible-sounding but factually incorrect information. LLMs hallucinate because they predict likely token sequences, not verified facts. In blockchain development, hallucinations can be dangerous—incorrect API usage, nonexistent functions, or wrong program addresses. Mitigation: RAG for grounding, code verification, testing, and using models with lower hallucination rates."
+    "definition": "Quando um modelo de IA gera informações que parecem plausíveis, mas são factualmente incorretas. Os LLMs alucinam porque preveem sequências de tokens prováveis, não fatos verificados. No desenvolvimento de blockchain, alucinações podem ser perigosas — uso incorreto de API, funções inexistentes ou endereços de programa errados. Mitigação: RAG para fundamentação, verificação de código, testes e uso de modelos com taxas de alucinação mais baixas."
   },
   "inference": {
     "term": "Inference",
-    "definition": "The process of running a trained model on new inputs to generate predictions or outputs. Inference is the 'using' phase (vs. training). Inference cost depends on model size, input/output token count, and hardware (GPUs/TPUs). API providers (Anthropic, OpenAI) charge per token for inference. On-device inference (llama.cpp, GGUF) runs locally without API calls."
+    "definition": "O processo de executar um modelo treinado em novas entradas para gerar previsões ou saídas. A inferência é a fase de 'uso' (vs. treinamento). O custo da inferência depende do tamanho do modelo, da contagem de tokens de entrada/saída e do hardware (GPUs/TPUs). Provedores de API (Anthropic, OpenAI) cobram por token para inferência. A inferência no dispositivo (llama.cpp, GGUF) é executada localmente sem chamadas de API."
   },
   "training": {
-    "term": "Training (ML)",
-    "definition": "The process of optimizing a model's parameters by exposing it to data and adjusting weights to minimize a loss function. Pre-training on large datasets creates foundation models. Training LLMs requires massive compute (thousands of GPUs, weeks/months). Training data quality, diversity, and size directly impact model capabilities. Distinguished from fine-tuning (smaller scale, specific domain)."
+    "term": "Treinamento (ML)",
+    "definition": "O processo de otimizar os parâmetros de um modelo expondo-o a dados e ajustando pesos para minimizar uma função de perda. O pré-treinamento em grandes conjuntos de dados cria modelos de fundação. O treinamento de LLMs requer computação massiva (milhares de GPUs, semanas/meses). A qualidade, diversidade e tamanho dos dados de treinamento impactam diretamente as capacidades do modelo. Distingue-se do ajuste fino (escala menor, domínio específico)."
   },
   "rlhf": {
-    "term": "RLHF (Reinforcement Learning from Human Feedback)",
-    "definition": "A training technique that aligns LLM outputs with human preferences. Process: (1) train a reward model from human comparisons of outputs, (2) use reinforcement learning (PPO) to optimize the LLM against the reward model. RLHF makes models more helpful, harmless, and honest. Used by Claude, ChatGPT, and other assistants. Alternatives include DPO (Direct Preference Optimization) and Constitutional AI."
+    "term": "RLHF (Aprendizado por Reforço a partir de Feedback Humano)",
+    "definition": "Uma técnica de treinamento que alinha as saídas do LLM com as preferências humanas. Processo: (1) treinar um modelo de recompensa a partir de comparações humanas de saídas, (2) usar aprendizado por reforço (PPO) para otimizar o LLM contra o modelo de recompensa. O RLHF torna os modelos mais úteis, inofensivos e honestos. Usado por Claude, ChatGPT e outros assistentes. As alternativas incluem DPO (Direct Preference Optimization) e Constitutional AI."
   },
   "open-source-ai": {
-    "term": "Open-Source AI Models",
-    "definition": "AI models with publicly released weights that can be downloaded, modified, and self-hosted. Notable open models: Llama 3 (Meta), Mistral, Falcon, Gemma (Google), Phi (Microsoft). Open models enable privacy (data stays local), customization (fine-tuning), and cost control. Trade-off: generally less capable than frontier proprietary models but rapidly improving."
+    "term": "Modelos de IA de Código Aberto",
+    "definition": "Modelos de IA com pesos lançados publicamente que podem ser baixados, modificados e auto-hospedados. Modelos abertos notáveis: Llama 3 (Meta), Mistral, Falcon, Gemma (Google), Phi (Microsoft). Modelos abertos permitem privacidade (dados permanecem locais), personalização (ajuste fino) e controle de custos. Desvantagem: geralmente menos capazes do que os modelos proprietários de ponta, mas melhorando rapidamente."
   },
   "multimodal": {
-    "term": "Multimodal AI",
-    "definition": "AI models that can process and generate multiple data types: text, images, audio, video, and code. Modern multimodal models (GPT-4V, Claude, Gemini) can analyze screenshots of dApp UIs, read code from images, generate diagrams, and understand charts. In blockchain development, multimodal capabilities help analyze transaction visualizations, audit UI screenshots, and process documentation with images."
+    "term": "IA Multimodal",
+    "definition": "Modelos de IA que podem processar e gerar múltiplos tipos de dados: texto, imagens, áudio, vídeo e código. Modelos multimodais modernos (GPT-4V, Claude, Gemini) podem analisar capturas de tela de UIs de dApps, ler código de imagens, gerar diagramas e entender gráficos. No desenvolvimento de blockchain, as capacidades multimodais ajudam a analisar visualizações de transações, auditar capturas de tela de UI e processar documentação com imagens."
   },
   "ai-coding-assistant": {
-    "term": "AI Coding Assistant",
-    "definition": "An AI tool that helps developers write, debug, review, and explain code. Examples: GitHub Copilot (inline suggestions), Claude Code (agentic CLI), Cursor (AI-native editor), Cody (Sourcegraph). These tools use LLMs to understand codebases, generate implementations, fix bugs, and write tests. Particularly valuable for Solana development where boilerplate is significant."
+    "term": "Assistente de Codificação de IA",
+    "definition": "Uma ferramenta de IA que ajuda desenvolvedores a escrever, depurar, revisar e explicar código. Exemplos: GitHub Copilot (sugestões embutidas), Claude Code (CLI agente), Cursor (editor nativo de IA), Cody (Sourcegraph). Essas ferramentas usam LLMs para entender bases de código, gerar implementações, corrigir bugs e escrever testes. Particularmente valioso para o desenvolvimento Solana, onde o boilerplate é significativo."
   },
   "depin": {
     "term": "DePIN (Redes de Infraestrutura Física Descentralizada)",
-    "definition": "Blockchain protocols that coordinate and incentivize physical infrastructure through token rewards. DePIN projects on Solana include: Helium (wireless networks), Render (GPU rendering), Hivemapper (mapping), and io.net (distributed GPU compute for AI). Contributors provide physical resources (hardware, bandwidth) and earn tokens. DePIN bridges blockchain economics with real-world infrastructure."
+    "definition": "Protocolos de blockchain que coordenam e incentivam a infraestrutura física através de recompensas em tokens. Projetos DePIN em Solana incluem: Helium (redes sem fio), Render (renderização de GPU), Hivemapper (mapeamento) e io.net (computação de GPU distribuída para IA). Os contribuidores fornecem recursos físicos (hardware, largura de banda) e ganham tokens. DePIN une a economia blockchain com a infraestrutura do mundo real."
   },
   "gpu-compute": {
-    "term": "GPU Compute (Decentralized)",
-    "definition": "Blockchain-coordinated networks that aggregate GPU resources for AI training and inference. Projects like Render Network and io.net on Solana allow GPU owners to rent out compute to AI researchers and developers. This democratizes access to expensive GPU hardware needed for AI workloads. Token incentives align supply (GPU providers) with demand (AI developers)."
+    "term": "Computação de GPU (Descentralizada)",
+    "definition": "Redes coordenadas por blockchain que agregam recursos de GPU para treinamento e inferência de IA. Projetos como Render Network e io.net em Solana permitem que proprietários de GPU aluguem computação para pesquisadores e desenvolvedores de IA. Isso democratiza o acesso a hardware de GPU caro necessário para cargas de trabalho de IA. Incentivos em token alinham a oferta (provedores de GPU) com a demanda (desenvolvedores de IA)."
   },
   "ai-blockchain-integration": {
-    "term": "AI × Blockchain Integration",
-    "definition": "The convergence of AI and blockchain technologies. Key patterns: AI agents executing on-chain transactions autonomously, blockchain providing verifiable compute receipts for AI inference, decentralized GPU networks for AI training, on-chain governance of AI model parameters, NFTs for AI-generated content provenance, and LLMs as smart contract development assistants."
+    "term": "Integração de IA × Blockchain",
+    "definition": "A convergência das tecnologias de IA e blockchain. Padrões chave: agentes de IA executando transações on-chain autonomamente, blockchain fornecendo recibos verificáveis de computação para inferência de IA, redes de GPU descentralizadas para treinamento de IA, governança on-chain de parâmetros de modelos de IA, NFTs para proveniência de conteúdo gerado por IA e LLMs como assistentes de desenvolvimento de smart contracts."
   },
   "on-chain-ai": {
-    "term": "On-Chain AI / ML",
-    "definition": "Running AI/ML inference directly within blockchain smart contracts or verified through on-chain proofs. Current limitations: compute budgets on blockchains are tiny compared to AI needs. Approaches include: off-chain inference with on-chain verification (ZK proofs of inference), optimistic verification, and simplified models (decision trees, linear models) that fit within compute limits."
+    "term": "IA / ML On-Chain",
+    "definition": "Execução de inferência de IA/ML diretamente em smart contracts de blockchain ou verificado por provas on-chain. Limitações atuais: os orçamentos de computação em blockchains são minúsculos em comparação com as necessidades de IA. Abordagens incluem: inferência off-chain com verificação on-chain (provas ZK de inferência), verificação otimista e modelos simplificados (árvores de decisão, modelos lineares) que se encaixam nos limites de computação."
   },
   "tokenomics": {
     "term": "Tokenomics",
-    "definition": "The economic design of a cryptocurrency token: supply schedule, distribution, utility, incentive mechanisms, and value accrual. Key parameters: total/circulating supply, inflation/deflation, vesting schedules, staking rewards, fee burning, and governance rights. Good tokenomics aligns incentives between users, developers, and token holders. AI tools increasingly help analyze tokenomics models."
+    "definition": "O design econômico de um token de criptomoeda: cronograma de suprimento, distribuição, utilidade, mecanismos de incentivo e acumulação de valor. Parâmetros chave: suprimento total/circulante, inflação/deflação, cronogramas de vesting, recompensas de staking, queima de taxas e direitos de governança. Bons tokenomics alinham os incentivos entre usuários, desenvolvedores e detentores de tokens. Ferramentas de IA estão cada vez mais ajudando a analisar modelos de tokenomics."
   },
   "reasoning-model": {
-    "term": "Reasoning Model",
-    "definition": "A class of LLMs trained with reinforcement learning to generate step-by-step internal chain-of-thought before producing a final answer, enabling stronger performance on complex math, coding, and logic tasks. Pioneered by OpenAI's o1 (September 2024) and followed by o3, DeepSeek-R1, and Claude's extended thinking mode. Unlike standard LLMs that answer directly, reasoning models produce a variable-length internal CoT, allowing controllable compute at inference time."
+    "term": "Modelo de Raciocínio",
+    "definition": "Uma classe de LLMs treinados com aprendizado por reforço para gerar uma cadeia de pensamento interna passo a passo antes de produzir uma resposta final, permitindo um desempenho mais forte em tarefas complexas de matemática, codificação e lógica. Pioneirizado pelo o1 da OpenAI (setembro de 2024) e seguido por o3, DeepSeek-R1 e o modo de pensamento estendido de Claude. Ao contrário dos LLMs padrão que respondem diretamente, os modelos de raciocínio produzem uma CoT interna de comprimento variável, permitindo computação controlável no momento da inferência."
   },
   "chain-of-thought": {
-    "term": "Chain-of-Thought (CoT)",
-    "definition": "A prompting technique or model-native capability where the LLM produces intermediate reasoning steps before arriving at a final answer, improving accuracy on multi-step problems. Originally a prompting strategy ('think step by step'), CoT is now built directly into reasoning models like o1 and DeepSeek-R1 as an internal process. When combining CoT with structured output, developers should place reasoning fields before answer fields to avoid bypassing the reasoning process."
+    "term": "Cadeia de Pensamento (CoT)",
+    "definition": "Uma técnica de prompt ou capacidade nativa do modelo onde o LLM produz etapas de raciocínio intermediárias antes de chegar a uma resposta final, melhorando a precisão em problemas de múltiplas etapas. Originalmente uma estratégia de prompt ('pense passo a passo'), a CoT agora é incorporada diretamente em modelos de raciocínio como o1 e DeepSeek-R1 como um processo interno. Ao combinar CoT com structured output, os desenvolvedores devem colocar os campos de raciocínio antes dos campos de resposta para evitar o desvio do processo de raciocínio."
   },
   "system-prompt": {
     "term": "System Prompt",
-    "definition": "A persistent, developer-controlled instruction set provided to an LLM that defines its role, behavior, tone, constraints, and capabilities for a given application. Unlike user prompts that change per interaction, the system prompt remains constant and is sent via a separate 'system' role parameter in the API. System prompts establish application-wide behavior including brand voice, output formatting, safety constraints, and tool-use rules."
+    "definition": "Um conjunto de instruções persistente e controlado pelo desenvolvedor fornecido a um LLM que define sua função, comportamento, tom, restrições e capacidades para uma determinada aplicação. Ao contrário dos user prompts que mudam a cada interação, o system prompt permanece constante e é enviado através de um parâmetro de função 'system' separado na API. Os system prompts estabelecem o comportamento de toda a aplicação, incluindo a voz da marca, formatação de saída, restrições de segurança e regras de uso de ferramentas."
   },
   "structured-output": {
-    "term": "Structured Output",
-    "definition": "An LLM capability that constrains model output to conform to a predefined schema, typically JSON or XML, enabling reliable programmatic consumption of responses. Supported natively by OpenAI, Anthropic, and others via API parameters that enforce valid JSON matching a JSON Schema. Research shows strict format constraints can degrade reasoning quality, so a best practice is to include a 'reasoning' field before answer fields in the schema."
+    "term": "Saída Estruturada",
+    "definition": "Uma capacidade LLM que restringe a saída do modelo a se adequar a um esquema predefinido, tipicamente JSON ou XML, permitindo o consumo programático confiável de respostas. Suportado nativamente por OpenAI, Anthropic e outros via parâmetros API que aplicam JSON válido que corresponde a um JSON Schema. A pesquisa mostra que restrições de formato estritas podem degradar a qualidade do raciocínio, então uma boa prática é incluir um campo de 'reasoning' antes dos campos de resposta no esquema."
   },
   "claude-code": {
     "term": "Claude Code",
-    "definition": "Anthropic's terminal-based agentic coding tool launched in early 2025 alongside Claude 3.7 Sonnet. It accepts natural-language commands in the shell and autonomously performs multi-step coding tasks including file editing, git operations, test execution, and large-scale refactoring using a 200K token context window. Claude Code can be extended with hooks, MCP servers, and custom slash commands for project-specific workflows."
+    "definition": "A ferramenta de codificação agentic baseada em terminal da Anthropic lançada no início de 2025 junto com Claude 3.7 Sonnet. Ela aceita comandos de linguagem natural no shell e executa autonomamente tarefas de codificação de várias etapas, incluindo edição de arquivos, operações git, execução de testes e refatoração em larga escala usando uma janela de contexto de 200K tokens. O Claude Code pode ser estendido com hooks, MCP servers e custom slash commands para fluxos de trabalho específicos do projeto."
   },
   "cursor-ide": {
     "term": "Cursor",
-    "definition": "An AI-native code editor (VS Code fork) with integrated LLM capabilities including multi-file editing, Composer mode for autonomous agent workflows, and natural-language commands. With 360K+ paying users by 2025, Cursor popularized the concept of an 'agentic IDE' where AI can reason across an entire codebase, propose and apply multi-file changes, and run iterative coding loops."
+    "definition": "Um editor de código nativo de IA (VS Code fork) com capacidades LLM integradas, incluindo edição de múltiplos arquivos, modo Composer para fluxos de trabalho de agentes autônomos e comandos de linguagem natural. Com mais de 360 mil usuários pagantes até 2025, o Cursor popularizou o conceito de um 'IDE agêntico' onde a IA pode raciocinar em toda uma base de código, propor e aplicar mudanças em múltiplos arquivos e executar ciclos de codificação iterativos."
   },
   "windsurf": {
     "term": "Windsurf",
-    "definition": "An AI-powered code editor (VS Code fork) originally created by Codeium and later acquired by Cognition. Launched in November 2024 as a competitor to Cursor, it features the Cascade agent that indexes entire codebases for context-aware assistance. Positions itself as a 'next-generation agentic IDE' with full-codebase understanding, inline editing, and autonomous multi-step task execution."
+    "definition": "Um editor de código alimentado por IA (VS Code fork) originalmente criado pela Codeium e posteriormente adquirido pela Cognition. Lançado em novembro de 2024 como concorrente do Cursor, ele apresenta o agente Cascade que indexa bases de código inteiras para assistência com reconhecimento de contexto. Posiciona-se como um 'IDE agêntico de próxima geração' com compreensão de base de código completa, edição em linha e execução autônoma de tarefas de várias etapas."
   },
   "mcp": {
     "term": "Model Context Protocol (MCP)",
-    "definition": "An open standard introduced by Anthropic in November 2024 for connecting AI applications to external data sources, tools, and workflows via a unified protocol. Often described as 'USB-C for AI,' MCP eliminates the need for custom integrations per data source. Adopted by OpenAI in March 2025 and donated to the Linux Foundation's Agentic AI Foundation. MCP handles standardized tool/data connections while agent frameworks handle orchestration."
+    "definition": "Um padrão aberto introduzido pela Anthropic em novembro de 2024 para conectar aplicações de IA a fontes de dados externas, ferramentas e fluxos de trabalho através de um protocolo unificado. Frequentemente descrito como 'USB-C para IA', o MCP elimina a necessidade de integrações personalizadas por fonte de dados. Adotado pela OpenAI em março de 2025 e doado para a Agentic AI Foundation da Linux Foundation. O MCP lida com conexões padronizadas de ferramentas/dados, enquanto os frameworks de agentes lidam com a orquestração."
   },
   "langchain": {
     "term": "LangChain / LangGraph",
-    "definition": "LangChain is a popular open-source framework for building LLM-powered applications, providing abstractions for chains, tools, memory, and retrieval. LangGraph extends it with a graph-based runtime for building stateful, multi-step agent workflows with precise control over execution flow, state persistence, and error recovery. LangGraph is the production-grade choice for complex agentic applications requiring fine-grained state management."
+    "definition": "LangChain é um framework open-source popular para construir aplicações alimentadas por LLM, fornecendo abstrações para chains, tools, memory e retrieval. LangGraph o estende com um runtime baseado em grafo para construir fluxos de trabalho de agentes com estado e múltiplas etapas com controle preciso sobre o fluxo de execução, persistência de estado e recuperação de erros. LangGraph é a escolha de nível de produção para aplicações agênticas complexas que exigem gerenciamento de estado granular."
   },
   "crewai": {
     "term": "CrewAI",
-    "definition": "An open-source multi-agent orchestration framework that uses a role-based paradigm where developers define AI 'crews' of agents, each with specific roles, goals, and tools. CrewAI simplifies building collaborative agent teams—agents can delegate tasks to each other and coordinate toward shared objectives. It integrates with MCP for tool connections and LangChain tools."
+    "definition": "Um framework de orquestração multiagente de código aberto que usa um paradigma baseado em funções, onde os desenvolvedores definem 'equipes' de IA de agentes, cada um com funções, objetivos e ferramentas específicas. O CrewAI simplifica a construção de equipes de agentes colaborativas — os agentes podem delegar tarefas uns aos outros e coordenar para objetivos compartilhados. Ele se integra com o MCP para conexões de ferramentas e ferramentas LangChain."
   },
   "agent-loop": {
-    "term": "Agent Loop",
-    "definition": "The core iterative execution cycle of an agentic AI system: Perceive, Reason, Act, Observe, Repeat. At each iteration, the agent assembles context, invokes an LLM to reason and select an action, executes via tools, observes the result, and feeds it back into the next iteration—continuing until the task is complete. The agent loop is the architectural pattern that distinguishes AI agents from simple chatbots."
+    "term": "Ciclo do Agente",
+    "definition": "O ciclo de execução iterativo central de um sistema de IA agente: Perceber, Raciocinar, Agir, Observar, Repetir. A cada iteração, o agente reúne contexto, invoca um LLM para raciocinar e selecionar uma ação, executa através de ferramentas, observa o resultado e o alimenta de volta na próxima iteração — continuando até que a tarefa seja concluída. O ciclo do agente é o padrão arquitetônico que distingue os agentes de IA de chatbots simples."
   },
   "dpo": {
     "term": "DPO (Direct Preference Optimization)",
-    "definition": "A simplified alternative to RLHF that aligns LLM outputs with human preferences without training a separate reward model or using reinforcement learning. DPO directly optimizes a policy using pairs of preferred and dispreferred outputs, making it computationally cheaper and more stable than RLHF's multi-stage pipeline. Widely adopted in 2024-2025 for fine-tuning open-source models."
+    "definition": "Uma alternativa simplificada ao RLHF que alinha as saídas do LLM com as preferências humanas sem treinar um modelo de recompensa separado ou usar aprendizado por reforço. O DPO otimiza diretamente uma política usando pares de saídas preferidas e não preferidas, tornando-o computacionalmente mais barato e mais estável do que o pipeline de múltiplas etapas do RLHF. Amplamente adotado em 2024-2025 para fine-tuning de modelos open-source."
   },
   "synthetic-data": {
-    "term": "Synthetic Data (AI Training)",
-    "definition": "Artificially generated training data produced by LLMs or other AI models, used to augment or replace human-annotated datasets. Techniques include prompt-based generation, retrieval-augmented pipelines, and iterative self-refinement. Synthetic data slashes costs from $5-20 per human preference point to under $0.01 per sample and became central to post-training pipelines in 2024-2025."
+    "term": "Dados Sintéticos (Treinamento de IA)",
+    "definition": "Dados de treinamento gerados artificialmente produzidos por LLMs ou outros modelos de IA, usados para aumentar ou substituir conjuntos de dados anotados por humanos. As técnicas incluem geração baseada em prompt, pipelines aumentados por recuperação e autoaperfeiçoamento iterativo. Os dados sintéticos reduzem os custos de US$ 5-20 por ponto de preferência humana para menos de US$ 0,01 por amostra e tornaram-se centrais para os pipelines de pós-treinamento em 2024-2025."
   },
   "distillation": {
-    "term": "Knowledge Distillation",
-    "definition": "A technique for transferring capabilities from a large 'teacher' model to a smaller 'student' model, typically by having the teacher generate a synthetic dataset that the student is fine-tuned on. Distilled models can match or exceed teacher performance on specific tasks while being much cheaper to deploy. Common in 2024-2025 for creating efficient specialized models."
+    "term": "Destilação de Conhecimento",
+    "definition": "Uma técnica para transferir capacidades de um modelo 'professor' grande para um modelo 'aluno' menor, tipicamente fazendo com que o professor gere um conjunto de dados sintético no qual o aluno é fine-tuned. Modelos destilados podem igualar ou exceder o desempenho do professor em tarefas específicas, sendo muito mais baratos de implantar. Comum em 2024-2025 para a criação de modelos especializados eficientes."
   },
   "quantization": {
-    "term": "Quantization (AI)",
-    "definition": "A model compression technique that reduces weight precision (e.g., from 16-bit to 4-bit) to decrease model size and inference cost while preserving most quality. Three dominant formats in 2024-2025: GGUF (flexible CPU/GPU format for llama.cpp), GPTQ (GPU-optimized post-training quantization), and AWQ (activation-aware weight quantization). All keep quality within ~6% of full-precision at 4-bit."
+    "term": "Quantização (IA)",
+    "definition": "Uma técnica de compressão de modelo que reduz a precisão do peso (por exemplo, de 16 bits para 4 bits) para diminuir o tamanho do modelo e o custo de inferência, preservando a maior parte da qualidade. Três formatos dominantes em 2024-2025: GGUF (formato de CPU/GPU flexível para llama.cpp), GPTQ (quantização pós-treinamento otimizada para GPU) e AWQ (quantização de peso ciente de ativação). Todos mantêm a qualidade dentro de ~6% da precisão total em 4 bits."
   },
   "diffusion-model": {
-    "term": "Diffusion Model",
-    "definition": "A generative AI architecture that creates images, video, or audio by learning to reverse a noise-adding process—starting from pure noise and iteratively denoising to produce coherent output. Diffusion models power leading image generators (Stable Diffusion, DALL-E 3, Midjourney) and video generators (Sora). Key variants include latent diffusion (operating in compressed space) and diffusion transformers (DiT)."
+    "term": "Modelo de Difusão",
+    "definition": "Uma arquitetura de IA generativa que cria imagens, vídeo ou áudio aprendendo a reverter um processo de adição de ruído — começando do ruído puro e denoising iterativamente para produzir uma saída coerente. Modelos de difusão alimentam os principais geradores de imagem (Stable Diffusion, DALL-E 3, Midjourney) e geradores de vídeo (Sora). As principais variantes incluem latent diffusion (operando em espaço comprimido) e diffusion transformers (DiT)."
   },
   "stable-diffusion": {
     "term": "Stable Diffusion",
-    "definition": "An open-source image generation model by Stability AI that runs locally on consumer hardware, enabling privacy and customization without API costs. SD 3.5 (2024) ships in multiple variants for different hardware. Its open nature enables a vast ecosystem of community fine-tunes (LoRAs), control methods (ControlNet), and custom workflows (ComfyUI). Competitors include FLUX (Black Forest Labs) and Google Imagen."
+    "definition": "Um modelo de geração de imagens de código aberto da Stability AI que é executado localmente em hardware de consumidor, permitindo privacidade e personalização sem custos de API. O SD 3.5 (2024) é lançado em múltiplas variantes para diferentes hardwares. Sua natureza aberta permite um vasto ecossistema de fine-tunes da comunidade (LoRAs), métodos de controle (ControlNet) e fluxos de trabalho personalizados (ComfyUI). Os concorrentes incluem FLUX (Black Forest Labs) e Google Imagen."
   },
   "ai-alignment": {
-    "term": "AI Alignment",
-    "definition": "The practice of ensuring AI systems behave according to human intentions and values—being helpful, harmless, and honest. Alignment encompasses training-time techniques (RLHF, Constitutional AI, DPO), inference-time guardrails, and evaluation through red teaming. As models become more capable, alignment becomes critical to prevent harmful content generation or manipulation by bad actors."
+    "term": "Alinhamento de IA",
+    "definition": "A prática de garantir que os sistemas de IA se comportem de acordo com as intenções e valores humanos — sendo úteis, inofensivos e honestos. O alinhamento abrange técnicas de treinamento (RLHF, Constitutional AI, DPO), guardrails de tempo de inferência e avaliação através de red teaming. À medida que os modelos se tornam mais capazes, o alinhamento torna-se crítico para prevenir a geração de conteúdo prejudicial ou manipulação por maus atores."
   },
   "constitutional-ai": {
-    "term": "Constitutional AI",
-    "definition": "An alignment technique developed by Anthropic where an AI model is guided by a 'constitution'—a set of explicit principles defining allowed and disallowed behavior—rather than relying solely on human feedback. The model critiques and revises its own outputs against these principles. Constitutional Classifiers extend this by training input/output classifiers that detect policy violations at low compute cost."
+    "term": "IA Constitucional",
+    "definition": "Uma técnica de alinhamento desenvolvida pela Anthropic onde um modelo de IA é guiado por uma 'constituição' — um conjunto de princípios explícitos que definem o comportamento permitido e não permitido — em vez de depender apenas do feedback humano. O modelo critica e revisa suas próprias saídas contra esses princípios. Os Classificadores Constitucionais estendem isso treinando classificadores de entrada/saída que detectam violações de políticas com baixo custo computacional."
   },
   "mixture-of-experts": {
-    "term": "Mixture of Experts (MoE)",
-    "definition": "A neural network architecture that routes each input to a subset of specialized 'expert' sub-networks rather than activating all parameters, dramatically improving efficiency. Only a fraction of total parameters are active per token (e.g., DeepSeek-V3 has 671B total but ~37B active). MoE enables training much larger models at manageable compute costs. Used in production models like Mixtral, Jamba, and DeepSeek-V3."
+    "term": "Mistura de Especialistas (MoE)",
+    "definition": "Uma arquitetura de rede neural que roteia cada entrada para um subconjunto de sub-redes 'especialistas' em vez de ativar todos os parâmetros, melhorando dramaticamente a eficiência. Apenas uma fração do total de parâmetros está ativa por token (por exemplo, DeepSeek-V3 tem 671B no total, mas ~37B ativos). MoE permite treinar modelos muito maiores com custos computacionais gerenciáveis. Usado em modelos de produção como Mixtral, Jamba e DeepSeek-V3."
   },
   "state-space-model": {
-    "term": "State Space Model (Mamba)",
-    "definition": "An alternative to the Transformer architecture that processes sequences with linear O(n) complexity instead of quadratic O(n^2) attention, enabling efficient handling of very long sequences. Mamba introduced selective state spaces where the model dynamically filters information based on content. Hybrid architectures like Jamba combine SSM efficiency with attention's retrieval strength."
+    "term": "Modelo de Espaço de Estados (Mamba)",
+    "definition": "Uma alternativa à arquitetura Transformer que processa sequências com complexidade linear O(n) em vez de atenção quadrática O(n^2), permitindo o tratamento eficiente de sequências muito longas. Mamba introduziu espaços de estado seletivos onde o modelo filtra dinamicamente as informações com base no conteúdo. Arquiteturas híbridas como Jamba combinam a eficiência do SSM com a força de recuperação da atenção."
   },
   "bittensor": {
     "term": "Bittensor (TAO)",
-    "definition": "A blockchain protocol that decentralizes AI by creating an open marketplace for machine intelligence. Built on Substrate with a Yuma consensus mechanism, Bittensor rewards contributors with TAO tokens based on the quality of their AI outputs. The network hosts 100+ specialized subnets for different AI tasks. TAO supply is capped at 21M with Bitcoin-style halvings."
+    "definition": "Um protocolo blockchain que descentraliza a IA criando um mercado aberto para inteligência de máquina. Construído no Substrate com um mecanismo de consenso Yuma, o Bittensor recompensa os colaboradores com tokens TAO com base na qualidade de suas saídas de IA. A rede hospeda mais de 100 sub-redes especializadas para diferentes tarefas de IA. O fornecimento de TAO é limitado a 21M com halvings no estilo Bitcoin."
   },
   "decentralized-inference": {
-    "term": "Decentralized Inference",
-    "definition": "Running AI model inference across distributed networks of GPU providers rather than centralized cloud infrastructure, using blockchain for coordination, payment, and verification. Key verification approaches include ZKML (zero-knowledge proofs of correct inference) and trusted execution environments (TEEs). Projects include Bittensor, Render Network, and io.net on Solana."
+    "term": "Inferência Descentralizada",
+    "definition": "Execução da inferência de modelos de IA em redes distribuídas de provedores de GPU, em vez de infraestrutura de nuvem centralizada, usando blockchain para coordenação, pagamento e verificação. As principais abordagens de verificação incluem ZKML (provas de conhecimento zero de inferência correta) e trusted execution environments (TEEs). Os projetos incluem Bittensor, Render Network e io.net em Solana."
   },
   "deepseek": {
     "term": "DeepSeek",
-    "definition": "A Chinese AI lab that released DeepSeek-R1 in January 2025, a 671B-parameter open-weight reasoning model achieving performance comparable to OpenAI's o1 at significantly lower cost. DeepSeek-R1 generates visible chain-of-thought reasoning using GRPO training and demonstrated that pure RL with verifiable rewards can produce emergent reasoning. DeepSeek-V3 uses a MoE architecture with ~37B active parameters."
+    "definition": "Um laboratório de IA chinês que lançou o DeepSeek-R1 em janeiro de 2025, um modelo de raciocínio de código aberto com 671 bilhões de parâmetros que atinge desempenho comparável ao o1 da OpenAI a um custo significativamente menor. O DeepSeek-R1 gera raciocínio de cadeia de pensamento visível usando treinamento GRPO e demonstrou que o RL puro com recompensas verificáveis pode produzir raciocínio emergente. O DeepSeek-V3 usa uma arquitetura MoE com aproximadamente 37 bilhões de parâmetros ativos."
   },
   "github-copilot": {
     "term": "GitHub Copilot",
-    "definition": "The most widely deployed AI coding assistant with 15M+ developers, providing inline code suggestions, chat-based assistance, and agent capabilities across VS Code, JetBrains, and Neovim. At $10/month, Copilot offers mature enterprise features including SOC 2 compliance and IP indemnification. Pioneered the AI pair-programming paradigm in 2022."
+    "definition": "O assistente de codificação de IA mais amplamente implantado, com mais de 15 milhões de desenvolvedores, fornecendo sugestões de código em linha, assistência baseada em chat e funcionalidades de agente em VS Code, JetBrains e Neovim. Por US$ 10/mês, o Copilot oferece recursos empresariais maduros, incluindo conformidade com SOC 2 e indenização de IP. Pioneiro no paradigma de programação em par com IA em 2022."
   },
   "nosana": {
     "term": "Nosana",
-    "definition": "A decentralized GPU compute marketplace built on Solana that connects GPU providers with users needing compute for AI inference workloads. Node operators supply idle GPU capacity and earn NOS tokens for completed jobs. Nosana focuses on cost-effective AI inference rather than training, using Solana for job coordination, payment settlement, and reputation tracking. It supports containerized workloads across consumer and enterprise GPUs."
+    "definition": "Um marketplace descentralizado de computação de GPU construído em Solana que conecta provedores de GPU com usuários que precisam de computação para cargas de trabalho de inferência de IA. Operadores de nós fornecem capacidade de GPU ociosa e ganham tokens NOS por trabalhos concluídos. Nosana foca em inferência de IA de baixo custo, em vez de treinamento, usando Solana para coordenação de trabalhos, liquidação de pagamentos e rastreamento de reputação. Ele suporta cargas de trabalho conteinerizadas em GPUs de consumo e empresariais."
   },
   "solana-agent-kit": {
     "term": "Solana Agent Kit",
-    "definition": "An open-source toolkit developed by SendAI (formerly Sendai) that enables AI agents to interact with Solana protocols programmatically. The kit provides pre-built tools for token transfers, swaps, staking, NFT operations, and DeFi interactions that can be integrated into agent frameworks like LangChain and CrewAI. It abstracts Solana transaction building and signing, allowing LLM-powered agents to execute on-chain actions through natural language commands."
+    "definition": "Um kit de ferramentas de código aberto desenvolvido pela SendAI (anteriormente Sendai) que permite que agentes de IA interajam com protocolos Solana programaticamente. O kit fornece ferramentas pré-construídas para transferências de tokens, swaps, staking, operações NFT e interações DeFi que podem ser integradas em frameworks de agentes como LangChain e CrewAI. Ele abstrai a construção e assinatura de transações Solana, permitindo que agentes alimentados por LLM executem ações on-chain através de comandos de linguagem natural."
   },
   "io-net": {
     "term": "io.net",
-    "definition": "A decentralized GPU network built on Solana that aggregates underutilized GPU resources from data centers, crypto miners, and individual contributors into clusters for AI and machine learning workloads. io.net uses the IO token for payments and staking, and enables users to deploy GPU clusters on demand at costs significantly below centralized cloud providers. The network supports training, inference, and fine-tuning workflows."
+    "definition": "Uma rede descentralizada de GPU construída em Solana que agrega recursos de GPU subutilizados de data centers, mineradores de cripto e colaboradores individuais em clusters para cargas de trabalho de IA e machine learning. O io.net usa o token IO para pagamentos e staking, e permite que os usuários implantem clusters de GPU sob demanda a custos significativamente abaixo dos provedores de nuvem centralizados. A rede suporta fluxos de trabalho de treinamento, inferência e fine-tuning."
   },
   "grass-depin": {
     "term": "Grass",
-    "definition": "A DePIN protocol on Solana where users share unused internet bandwidth through a browser extension, contributing to a decentralized data pipeline for AI training datasets. Participants earn GRASS tokens for bandwidth contributions, which are used to scrape and structure publicly available web data. Grass addresses the growing demand for high-quality training data by creating an incentivized, distributed web crawling network."
+    "definition": "Um protocolo DePIN em Solana onde os usuários compartilham largura de banda de internet não utilizada através de uma extensão de navegador, contribuindo para um pipeline de dados descentralizado para conjuntos de dados de treinamento de IA. Os participantes ganham tokens GRASS por contribuições de largura de banda, que são usados para raspar e estruturar dados web publicamente disponíveis. O Grass aborda a crescente demanda por dados de treinamento de alta qualidade, criando uma rede de rastreamento web distribuída e incentivada."
   },
   "autonomous-on-chain-agent": {
-    "term": "Autonomous On-Chain Agent",
-    "definition": "An AI agent that holds its own blockchain wallet, autonomously signs transactions, and manages on-chain positions (DeFi yields, token trades, NFT operations) without human approval for each action. These agents combine LLM reasoning with blockchain tool use to monitor market conditions, execute strategies, and adapt to changing on-chain state. Key challenges include wallet security, transaction simulation, and defining behavioral guardrails to prevent loss of funds."
+    "term": "Agente Autônomo On-Chain",
+    "definition": "Um agente de IA que possui sua própria carteira blockchain, assina transações autonomamente e gerencia posições on-chain (rendimentos DeFi, negociações de tokens, operações NFT) sem aprovação humana para cada ação. Esses agentes combinam o raciocínio de LLM com o uso de ferramentas blockchain para monitorar as condições do mercado, executar estratégias e se adaptar ao estado on-chain em constante mudança. Os principais desafios incluem segurança da carteira, simulação de transações e definição de guardrails comportamentais para evitar a perda de fundos."
   },
   "blockchain": {
     "term": "Blockchain",
-    "definition": "A distributed, append-only ledger that records transactions in cryptographically linked blocks. Each block contains a hash of the previous block, forming an immutable chain. Nodes in the network maintain copies of the ledger and reach agreement through consensus mechanisms. Blockchains enable trustless, decentralized record-keeping without a central authority."
+    "definition": "Um livro-razão distribuído e somente para anexar que registra transações em blocos criptograficamente ligados. Cada bloco contém um hash do bloco anterior, formando uma cadeia imutável. Os nós na rede mantêm cópias do livro-razão e chegam a um acordo através de mecanismos de consenso. Blockchains permitem um registro descentralizado e sem confiança, sem uma autoridade central."
   },
   "consensus": {
     "term": "Mecanismo de Consenso",
-    "definition": "The protocol by which nodes in a distributed network agree on the current state of the ledger. Common mechanisms include Proof of Work (Bitcoin), Proof of Stake (Ethereum, Solana), and BFT variants. Consensus ensures all honest nodes converge on the same transaction history despite potential network delays or malicious actors."
+    "definition": "O protocolo pelo qual os nós em uma rede distribuída concordam com o estado atual do livro-razão. Mecanismos comuns incluem Proof of Work (Bitcoin), Proof of Stake (Ethereum, Solana) e variantes BFT. O consenso garante que todos os nós honestos convirjam para o mesmo histórico de transações, apesar de possíveis atrasos na rede ou atores maliciosos."
   },
   "proof-of-stake": {
     "term": "Prova de Participação (PoS)",
-    "definition": "A consensus mechanism where validators are selected to produce blocks based on the amount of cryptocurrency they have staked (locked) as collateral. PoS is energy-efficient compared to Proof of Work. Misbehaving validators risk losing their stake (slashing). Solana, Ethereum (post-Merge), Cosmos, and Cardano use PoS variants."
+    "definition": "Um mecanismo de consenso onde os validadores são selecionados para produzir blocos com base na quantidade de criptomoeda que eles apostaram (bloquearam) como garantia. O PoS é eficiente em termos de energia em comparação com o Proof of Work. Validadores que se comportam mal correm o risco de perder sua aposta (slashing). Solana, Ethereum (pós-Merge), Cosmos e Cardano usam variantes de PoS."
   },
   "proof-of-work": {
     "term": "Prova de Trabalho (PoW)",
-    "definition": "A consensus mechanism where miners compete to solve computationally expensive puzzles to produce blocks and earn rewards. PoW provides strong security (51% attack resistance) but is energy-intensive. Bitcoin and pre-Merge Ethereum use PoW. The difficulty adjusts to maintain target block times regardless of total network hash power."
+    "definition": "Um mecanismo de consenso onde mineradores competem para resolver quebra-cabeças computacionalmente caros para produzir blocos e ganhar recompensas. O PoW oferece forte segurança (resistência a ataques de 51%), mas é intensivo em energia. Bitcoin e o Ethereum pré-Merge usam PoW. A dificuldade se ajusta para manter os tempos de bloco alvo, independentemente do poder de hash total da rede."
   },
   "distributed-ledger": {
     "term": "Livro-Razão Distribuído",
-    "definition": "A database replicated and synchronized across multiple nodes in a network without central administration. All participants maintain identical copies of the ledger. Changes are propagated through consensus. Blockchains are the most common type of distributed ledger, but not all distributed ledgers use a chain-of-blocks structure."
+    "definition": "Um banco de dados replicado e sincronizado em vários nós em uma rede sem administração central. Todos os participantes mantêm cópias idênticas do livro-razão. As alterações são propagadas por consenso. Blockchains são o tipo mais comum de livro-razão distribuído, mas nem todos os livros-razão distribuídos usam uma estrutura de cadeia de blocos."
   },
   "hash-function": {
     "term": "Hash Function (Cryptographic)",
-    "definition": "A one-way mathematical function that maps arbitrary-length input to a fixed-size output (digest). Properties: deterministic, fast to compute, infeasible to reverse, collision-resistant. SHA-256 (used in Bitcoin, Solana PoH) produces 256-bit hashes. Keccak-256 is used in Ethereum. Hashes are used for block linking, Merkle trees, and data integrity."
+    "definition": "Uma função matemática unidirecional que mapeia entrada de comprimento arbitrário para uma saída de tamanho fixo (digest). Propriedades: determinística, rápida de computar, inviável de inverter, resistente a colisões. SHA-256 (usado em Bitcoin, Solana PoH) produz hashes de 256 bits. Keccak-256 é usado em Ethereum. Hashes são usados para vinculação de blocos, Merkle trees e integridade de dados."
   },
   "merkle-tree-general": {
     "term": "Merkle Tree",
-    "definition": "A binary tree where each leaf node is a hash of data and each internal node is the hash of its two children. The root hash (Merkle root) uniquely represents all underlying data. Merkle trees enable efficient proof of inclusion—proving a specific element exists requires only O(log n) hashes. Used in blockchains for transaction verification and state storage."
+    "definition": "Uma árvore binária onde cada nó folha é um hash de dados e cada nó interno é o hash de seus dois filhos. O hash raiz (Merkle root) representa unicamente todos os dados subjacentes. Merkle trees permitem prova eficiente de inclusão — provar que um elemento específico existe requer apenas O(log n) hashes. Usado em blockchains para verificação de transações e armazenamento de estado."
   },
   "smart-contract-general": {
     "term": "Contrato Inteligente",
-    "definition": "Self-executing code deployed on a blockchain that automatically enforces the terms of an agreement when conditions are met. Smart contracts are immutable once deployed (unless upgradeable), transparent, and trustless. On Solana they're called 'programs'; on Ethereum they're written in Solidity and run on the EVM. They enable DeFi, NFTs, DAOs, and other decentralized applications."
+    "definition": "Código autoexecutável implantado em uma blockchain que impõe automaticamente os termos de um acordo quando as condições são atendidas. Contratos inteligentes são imutáveis após a implantação (a menos que atualizáveis), transparentes e sem confiança. Em Solana, eles são chamados de 'programs'; no Ethereum, são escritos em Solidity e executados na EVM. Eles permitem DeFi, NFTs, DAOs e outros aplicativos descentralizados."
   },
   "gas": {
     "term": "Gas",
-    "definition": "A unit measuring the computational effort required to execute operations on a blockchain. On Ethereum, gas is priced in gwei (10^-9 ETH) and varies with network demand. Users set gas limits and gas prices; unused gas is refunded. Solana uses 'compute units' as its equivalent, with much lower costs (~$0.00025 per transaction vs. $1-100+ on Ethereum)."
+    "definition": "Uma unidade que mede o esforço computacional necessário para executar operações em uma blockchain. No Ethereum, o gas é precificado em gwei (10^-9 ETH) e varia com a demanda da rede. Os usuários definem limites de gas e preços de gas; o gas não utilizado é reembolsado. Solana usa 'compute units' como seu equivalente, com custos muito mais baixos (~$0.00025 por transação vs. $1-100+ no Ethereum)."
   },
   "transaction-fee-general": {
     "term": "Transaction Fee",
-    "definition": "The cost paid by the sender to have a transaction processed and included in a block. Fees compensate validators/miners for computation and prevent spam. Fee models vary: Ethereum uses dynamic gas pricing (EIP-1559 base fee + tip), Solana uses base fee (5,000 lamports) + optional priority fee, Bitcoin uses fee-per-byte."
+    "definition": "O custo pago pelo remetente para ter uma transação processada e incluída em um bloco. As taxas compensam validadores/mineradores pela computação e evitam spam. Os modelos de taxas variam: Ethereum usa precificação dinâmica de gas (taxa base EIP-1559 + gorjeta), Solana usa taxa base (5.000 lamports) + taxa de prioridade opcional, Bitcoin usa taxa por byte."
   },
   "block-time": {
     "term": "Block Time",
-    "definition": "The average time between consecutive blocks being produced. Bitcoin: ~10 minutes, Ethereum: ~12 seconds, Solana: ~400ms. Shorter block times enable faster transaction confirmation but increase orphan rates and storage requirements. Block time is a fundamental trade-off between speed and network overhead."
+    "definition": "O tempo médio entre a produção de blocos consecutivos. Bitcoin: ~10 minutos, Ethereum: ~12 segundos, Solana: ~400ms. Tempos de bloco mais curtos permitem confirmação mais rápida de transações, mas aumentam as taxas de órfãos e os requisitos de armazenamento. O tempo de bloco é um trade-off fundamental entre velocidade e sobrecarga da rede."
   },
   "throughput-tps": {
     "term": "Throughput (TPS)",
-    "definition": "The number of transactions a blockchain can process per second. Theoretical TPS is often much higher than sustained real-world performance. Bitcoin: ~7 TPS, Ethereum: ~15-30 TPS, Solana: ~2,000-5,000 non-vote TPS sustained (65,000 theoretical). Throughput depends on block size, block time, transaction size, and execution parallelism."
+    "definition": "O número de transações que uma blockchain pode processar por segundo. O TPS teórico é frequentemente muito maior do que o desempenho real sustentado. Bitcoin: ~7 TPS, Ethereum: ~15-30 TPS, Solana: ~2.000-5.000 TPS não-voto sustentado (65.000 teórico). O Throughput depende do tamanho do bloco, tempo do bloco, tamanho da transação e paralelismo de execução."
   },
   "scalability": {
     "term": "Scalability",
-    "definition": "A blockchain's ability to handle increasing transaction volume without degrading performance or decentralization. The scalability trilemma posits that blockchains can optimize at most two of: decentralization, security, and scalability. Solutions include Layer 2 rollups, sharding, parallel execution (Solana's Sealevel), and modular architectures."
+    "definition": "A capacidade de uma blockchain de lidar com um volume crescente de transações sem degradar o desempenho ou a descentralização. O trilema da escalabilidade postula que as blockchains podem otimizar no máximo duas de: descentralização, segurança e escalabilidade. As soluções incluem rollups de Layer 2, sharding, execução paralela (Sealevel de Solana) e arquiteturas modulares."
   },
   "layer-1": {
     "term": "Layer 1 (L1)",
-    "definition": "The base blockchain network that provides consensus, data availability, and execution. Bitcoin, Ethereum, and Solana are Layer 1 blockchains. L1s define the core protocol rules, security model, and native token. Scalability limitations on L1 have driven the development of Layer 2 solutions that inherit L1 security."
+    "definition": "A rede blockchain base que fornece consenso, disponibilidade de dados e execução. Bitcoin, Ethereum e Solana são blockchains Layer 1. As L1s definem as regras do protocolo central, o modelo de segurança e o token nativo. As limitações de escalabilidade nas L1 impulsionaram o desenvolvimento de soluções de Layer 2 que herdam a segurança das L1."
   },
   "layer-2": {
     "term": "Layer 2 (L2)",
-    "definition": "A scaling solution built on top of a Layer 1 blockchain that processes transactions off-chain while inheriting the security of the base layer. L2 types include optimistic rollups (Arbitrum, Optimism), ZK rollups (zkSync, StarkNet), state channels, and sidechains. L2s post transaction data or proofs back to L1 for finality."
+    "definition": "Uma solução de escalonamento construída sobre uma blockchain Layer 1 que processa transações off-chain, herdando a segurança da camada base. Os tipos de L2 incluem optimistic rollups (Arbitrum, Optimism), ZK rollups (zkSync, StarkNet), canais de estado e sidechains. As L2s postam dados de transação ou provas de volta para a L1 para finalidade."
   },
   "rollup": {
     "term": "Rollup",
-    "definition": "A Layer 2 scaling technique that executes transactions off-chain, bundles them, and posts compressed data back to L1. Optimistic rollups assume transactions are valid and use fraud proofs for disputes (7-day challenge period). ZK rollups generate cryptographic validity proofs for every batch. Rollups inherit L1 security while providing 10-100x throughput improvement."
+    "definition": "Uma técnica de escalonamento de Layer 2 que executa transações off-chain, as agrupa e posta dados compactados de volta para a L1. Optimistic rollups assumem que as transações são válidas e usam provas de fraude para disputas (período de desafio de 7 dias). ZK rollups geram provas de validade criptográficas para cada lote. Rollups herdam a segurança da L1, proporcionando uma melhoria de 10-100x no throughput."
   },
   "byzantine-fault-tolerance": {
     "term": "Byzantine Fault Tolerance (BFT)",
-    "definition": "The ability of a distributed system to reach consensus despite some nodes behaving arbitrarily (maliciously or failing). BFT algorithms tolerate up to f faulty nodes in a network of 3f+1 total nodes (1/3 threshold). Solana's Tower BFT, Tendermint, and PBFT are BFT consensus variants. BFT is essential for permissionless blockchains."
+    "definition": "A capacidade de um sistema distribuído de alcançar consenso apesar de alguns nós se comportarem arbitrariamente (maliciosamente ou falhando). Algoritmos BFT toleram até f nós defeituosos em uma rede de 3f+1 nós totais (limiar de 1/3). O Tower BFT de Solana, Tendermint e PBFT são variantes de consenso BFT. O BFT é essencial para blockchains permissionless."
   },
   "finality-general": {
     "term": "Finality (Blockchain)",
-    "definition": "The guarantee that a confirmed transaction is irreversible and cannot be altered. Probabilistic finality (Bitcoin) means reversal becomes exponentially unlikely over time. Deterministic finality (Solana finalized, Tendermint) provides absolute guarantees after a protocol-defined threshold. Finality time ranges from seconds (Solana) to ~60 minutes (Bitcoin, 6 confirmations)."
+    "definition": "A garantia de que uma transação confirmada é irreversível e não pode ser alterada. Finalidade probabilística (Bitcoin) significa que a reversão se torna exponencialmente improvável com o tempo. Finalidade determinística (Solana finalizada, Tendermint) oferece garantias absolutas após um limite definido pelo protocolo. O tempo de finalidade varia de segundos (Solana) a ~60 minutos (Bitcoin, 6 confirmações)."
   },
   "staking-general": {
     "term": "Staking",
-    "definition": "The process of locking cryptocurrency as collateral to participate in network consensus (validation) or to earn rewards. Stakers either run validators directly or delegate to existing validators. Staking provides economic security—validators risk losing staked tokens (slashing) for misbehavior. Annual staking yields typically range from 3-15% depending on the network."
+    "definition": "O processo de bloquear criptomoeda como garantia para participar do consenso da rede (validação) ou para ganhar recompensas. Os stakers executam validadores diretamente ou delegam a validadores existentes. O staking fornece segurança econômica — os validadores correm o risco de perder tokens apostados (slashing) por mau comportamento. Os rendimentos anuais de staking geralmente variam de 3-15% dependendo da rede."
   },
   "slashing-general": {
     "term": "Slashing",
-    "definition": "A penalty mechanism in Proof of Stake systems where validators lose a portion of their staked tokens for provable misbehavior (double-signing, extended downtime, invalid attestations). Slashing provides economic disincentive against attacks. Ethereum slashes a minimum of 1/32 of stake; Solana's slashing is planned but not yet enforced on mainnet as of 2025."
+    "definition": "Um mecanismo de penalidade em sistemas Proof of Stake onde os validadores perdem uma parte de seus tokens apostados por mau comportamento comprovável (assinatura dupla, tempo de inatividade estendido, atestações inválidas). O slashing fornece desincentivo econômico contra ataques. O Ethereum aplica um mínimo de 1/32 da aposta; o slashing de Solana está planejado, mas ainda não é aplicado na mainnet a partir de 2025."
   },
   "bridge": {
     "term": "Bridge (Cross-Chain)",
-    "definition": "A protocol that enables transferring assets or data between different blockchains. Bridges use mechanisms like lock-and-mint (lock on source, mint wrapped on destination), liquidity pools, or relay networks. Bridges are high-value attack targets—Wormhole ($320M, 2022), Ronin ($625M, 2022). Wormhole is Solana's primary bridge to Ethereum and other chains."
+    "definition": "Um protocolo que permite a transferência de ativos ou dados entre diferentes blockchains. Bridges usam mecanismos como lock-and-mint (bloquear na origem, cunhar embrulhado no destino), pools de liquidez ou redes de retransmissão. Bridges são alvos de ataque de alto valor — Wormhole (US$ 320 milhões, 2022), Ronin (US$ 625 milhões, 2022). Wormhole é a principal bridge de Solana para Ethereum e outras chains."
   },
   "evm": {
     "term": "EVM (Ethereum Virtual Machine)",
-    "definition": "The stack-based virtual machine that executes smart contracts on Ethereum and EVM-compatible chains (Polygon, Avalanche, BSC, Arbitrum). Programs are compiled to EVM bytecode from Solidity or Vyper. The EVM is single-threaded—all transactions execute sequentially. In contrast, Solana's SVM supports parallel execution and uses a register-based design."
+    "definition": "A máquina virtual baseada em pilha que executa smart contracts em Ethereum e chains compatíveis com EVM (Polygon, Avalanche, BSC, Arbitrum). Os programas são compilados para bytecode EVM a partir de Solidity ou Vyper. A EVM é single-threaded — todas as transações são executadas sequencialmente. Em contraste, a SVM de Solana suporta execução paralela e usa um design baseado em registradores."
   },
   "solidity": {
     "term": "Solidity",
-    "definition": "The primary programming language for Ethereum smart contracts. Solidity is statically typed, supports inheritance, and compiles to EVM bytecode. Unlike Solana's Rust-based development, Solidity uses a contract-oriented paradigm where code and state are co-located. Neon EVM enables running Solidity contracts on Solana by emulating the EVM."
+    "definition": "A principal linguagem de programação para smart contracts Ethereum. Solidity é estaticamente tipada, suporta herança e compila para bytecode EVM. Ao contrário do desenvolvimento baseado em Rust de Solana, Solidity usa um paradigma orientado a contratos onde código e estado estão co-localizados. Neon EVM permite executar contratos Solidity em Solana emulando a EVM."
   },
   "node": {
     "term": "Nó",
-    "definition": "A computer running blockchain client software that maintains a copy of the ledger and participates in the network. Node types: full node (validates all transactions, stores full state), archive node (stores complete history), light node (verifies headers only). On Solana, validator nodes require high-end hardware (256+ GB RAM for RPC nodes)."
+    "definition": "Um computador que executa software cliente de blockchain que mantém uma cópia do ledger e participa da rede. Tipos de nós: full node (valida todas as transações, armazena estado completo), archive node (armazena histórico completo), light node (verifica apenas cabeçalhos). Em Solana, os nós validadores exigem hardware de última geração (256+ GB de RAM para nós RPC)."
   },
   "immutability": {
     "term": "Imutabilidade",
-    "definition": "The property that once data is written to a blockchain, it cannot be altered or deleted. Immutability is enforced by cryptographic hash chaining—modifying any historical block changes its hash, breaking the chain. This provides tamper-proof audit trails. Note: smart contract state can be updated by authorized programs; immutability applies to the historical ledger."
+    "definition": "A propriedade de que, uma vez que os dados são gravados em uma blockchain, eles não podem ser alterados ou excluídos. A imutabilidade é imposta pelo encadeamento de hash criptográfico — modificar qualquer bloco histórico altera seu hash, quebrando a cadeia. Isso fornece trilhas de auditoria à prova de adulteração. Nota: o estado do smart contract pode ser atualizado por programas autorizados; a imutabilidade se aplica ao ledger histórico."
   },
   "block-explorer": {
     "term": "Block Explorer",
-    "definition": "A web application that indexes and displays blockchain data in a human-readable format. Explorers show transaction details, account balances, program interactions, and network statistics. Solana explorers include Solana Explorer (explorer.solana.com), Solscan, SolanaFM, and XRAY. Ethereum uses Etherscan. Essential tools for debugging and verification."
+    "definition": "Uma aplicação web que indexa e exibe dados de blockchain em um formato legível para humanos. Os explorers mostram detalhes de transações, saldos de contas, interações de programas e estatísticas da rede. Os explorers de Solana incluem Solana Explorer (explorer.solana.com), Solscan, SolanaFM e XRAY. Ethereum usa Etherscan. Ferramentas essenciais para depuração e verificação."
   },
   "testnet-devnet": {
     "term": "Testnet / Devnet",
-    "definition": "Non-production blockchain networks used for development and testing. Tokens on these networks have no monetary value and can be obtained via faucets (airdrops). Solana operates devnet (development, frequently reset) and testnet (stress testing, closer to mainnet specs). Ethereum has Sepolia and Holesky testnets. Always test on devnet before deploying to mainnet."
+    "definition": "Redes blockchain não-produtivas usadas para desenvolvimento e testes. Tokens nessas redes não têm valor monetário e podem ser obtidos via faucets (airdrops). Solana opera devnet (desenvolvimento, frequentemente reiniciada) e testnet (testes de estresse, mais próxima das especificações da mainnet). Ethereum tem as testnets Sepolia e Holesky. Sempre teste na devnet antes de implantar na mainnet."
   },
   "mainnet": {
     "term": "Mainnet",
-    "definition": "The production blockchain network where real-value transactions occur. Solana's production network is 'mainnet-beta'. Deploying to mainnet requires thorough testing on devnet/testnet, security audits for significant programs, and careful consideration of upgrade authority management. Mainnet state is permanent and transactions involve real financial value."
+    "definition": "A rede blockchain de produção onde ocorrem transações de valor real. A rede de produção de Solana é 'mainnet-beta'. A implantação na mainnet requer testes exaustivos na devnet/testnet, auditorias de segurança para programas significativos e consideração cuidadosa do gerenciamento de autoridade de upgrade. O estado da mainnet é permanente e as transações envolvem valor financeiro real."
   },
   "dao": {
     "term": "DAO (Decentralized Autonomous Organization)",
-    "definition": "An organization governed by smart contracts and token-holder voting rather than traditional management structures. Members propose and vote on decisions (treasury spending, protocol upgrades, parameter changes). On Solana, Realms (SPL Governance) and Jupiter DAO are major governance platforms. DAOs enable transparent, permissionless collective decision-making."
+    "definition": "Uma organização governada por smart contracts e votação de detentores de tokens, em vez de estruturas de gerenciamento tradicionais. Os membros propõem e votam em decisões (gastos de tesouraria, upgrades de protocolo, mudanças de parâmetros). Em Solana, Realms (SPL Governance) e Jupiter DAO são as principais plataformas de governança. DAOs permitem tomada de decisão coletiva transparente e sem permissão."
   },
   "governance-token": {
     "term": "Governance Token",
-    "definition": "A token that grants holders voting power over protocol decisions. Governance tokens enable decentralized control of DeFi protocols, DAOs, and blockchain parameters. Examples on Solana: JUP (Jupiter), MNDE (Marinade), RAY (Raydium). Voting power is typically proportional to token holdings, though some systems use quadratic voting or delegation."
+    "definition": "Um token que concede aos detentores poder de voto sobre as decisões do protocolo. Os governance tokens permitem o controle descentralizado de protocolos DeFi, DAOs e parâmetros de blockchain. Exemplos em Solana: JUP (Jupiter), MNDE (Marinade), RAY (Raydium). O poder de voto é tipicamente proporcional às posses de tokens, embora alguns sistemas usem votação quadrática ou delegação."
   },
   "airdrop-crypto": {
     "term": "Airdrop",
-    "definition": "A distribution of tokens to wallet addresses, typically as a reward for early usage, community participation, or ecosystem contribution. Notable Solana airdrops include JUP (Jupiter, Jan 2024), BONK, and W (Wormhole). Airdrop eligibility often involves on-chain activity criteria (transaction count, protocol interaction, holding duration). Sybil resistance is a key challenge."
+    "definition": "Uma distribuição de tokens para endereços de carteira, tipicamente como recompensa por uso antecipado, participação na comunidade ou contribuição para o ecossistema. Airdrops notáveis de Solana incluem JUP (Jupiter, Jan 2024), BONK e W (Wormhole). A elegibilidade para airdrop frequentemente envolve critérios de atividade on-chain (contagem de transações, interação com o protocolo, duração da posse). A resistência Sybil é um desafio fundamental."
   },
   "interoperability": {
-    "term": "Interoperability",
-    "definition": "The ability of different blockchains to communicate and share data or assets. Achieved through bridges (Wormhole), messaging protocols (LayerZero, Axelar), and shared standards. Cross-chain interoperability enables multi-chain DeFi, unified liquidity, and chain-agnostic applications. Solana connects to other chains primarily through Wormhole and Circle's CCTP."
+    "term": "Interoperabilidade",
+    "definition": "A capacidade de diferentes blockchains se comunicarem e compartilharem dados ou ativos. Alcançado através de bridges (Wormhole), protocolos de mensagens (LayerZero, Axelar) e padrões compartilhados. A interoperabilidade cross-chain permite DeFi multi-chain, liquidez unificada e aplicações agnósticas à chain. Solana se conecta a outras chains principalmente através de Wormhole e CCTP da Circle."
   },
   "sybil-resistance": {
     "term": "Sybil Resistance",
-    "definition": "A system's ability to prevent one entity from creating multiple fake identities to gain disproportionate influence. In blockchains, PoW achieves sybil resistance through computational cost, PoS through staked capital. In airdrops and governance, sybil resistance uses on-chain behavior analysis, identity verification, or social graph analysis to detect multi-wallet farming."
+    "definition": "A capacidade de um sistema impedir que uma entidade crie múltiplas identidades falsas para obter influência desproporcional. Em blockchains, PoW alcança a resistência Sybil através do custo computacional, PoS através do capital em stake. Em airdrops e governança, a resistência Sybil usa análise de comportamento on-chain, verificação de identidade ou análise de grafo social para detectar farming de várias carteiras."
   },
   "modular-blockchain": {
     "term": "Modular Blockchain",
-    "definition": "A blockchain architecture that separates core functions (execution, consensus, data availability, settlement) into specialized layers rather than handling all functions on a single monolithic chain. Modular designs allow each layer to be optimized independently, dramatically improving throughput and reducing costs. Celestia, EigenDA, and Avail serve as dedicated data availability layers, while rollups handle execution."
+    "definition": "Uma arquitetura de blockchain que separa funções centrais (execução, consenso, disponibilidade de dados, settlement) em camadas especializadas, em vez de lidar com todas as funções em uma única chain monolítica. Designs modulares permitem que cada camada seja otimizada independentemente, melhorando drasticamente o throughput e reduzindo custos. Celestia, EigenDA e Avail servem como camadas dedicadas de disponibilidade de dados, enquanto os rollups lidam com a execução."
   },
   "data-availability": {
     "term": "Data Availability (DA)",
-    "definition": "The guarantee that a block's transaction data has been published and can be downloaded by any network participant. In modular blockchains and rollups, DA layers ensure off-chain execution data remains visible, complete, and verifiable. Data availability sampling (DAS) allows light nodes to probabilistically verify availability by checking random chunks without downloading entire blocks."
+    "definition": "A garantia de que os dados de transação de um bloco foram publicados e podem ser baixados por qualquer participante da rede. Em blockchains modulares e rollups, as camadas DA garantem que os dados de execução off-chain permaneçam visíveis, completos e verificáveis. A amostragem de disponibilidade de dados (DAS) permite que light nodes verifiquem probabilisticamente a disponibilidade verificando blocos aleatórios sem baixar blocos inteiros."
   },
   "celestia": {
     "term": "Celestia",
-    "definition": "The first modular data availability network, launched in October 2023, that separates data availability and consensus from execution. Celestia uses data availability sampling (DAS) and namespaced Merkle trees so light nodes can verify data availability without downloading full blocks. Over 56 rollups use Celestia for DA, with support from Arbitrum Orbit, OP Stack, and Polygon CDK."
+    "definition": "A primeira rede modular de disponibilidade de dados, lançada em outubro de 2023, que separa a disponibilidade e o consenso de dados da execução. Celestia usa amostragem de disponibilidade de dados (DAS) e árvores Merkle nomeadas para que light nodes possam verificar a disponibilidade de dados sem baixar blocos completos. Mais de 56 rollups usam Celestia para DA, com suporte de Arbitrum Orbit, OP Stack e Polygon CDK."
   },
   "account-abstraction": {
     "term": "Account Abstraction",
-    "definition": "A design pattern that replaces the rigid externally-owned account (EOA) model with programmable smart contract wallets capable of custom authentication, gas sponsorship, and batched transactions. ERC-4337 implements this on Ethereum via UserOperations, bundlers, an EntryPoint contract, and paymasters. EIP-7702 (Pectra upgrade, May 2025) extends this by allowing EOAs to delegate to smart contract logic."
+    "definition": "Um padrão de design que substitui o rígido modelo de conta de propriedade externa (EOA) por carteiras de smart contract programáveis ​​capazes de autenticação personalizada, patrocínio de gas e transações em lote. ERC-4337 implementa isso em Ethereum via UserOperations, bundlers, um contrato EntryPoint e paymasters. EIP-7702 (upgrade Pectra, maio de 2025) estende isso permitindo que EOAs deleguem para a lógica do smart contract."
   },
   "blob-transaction": {
     "term": "Blob Transaction (EIP-4844)",
-    "definition": "An Ethereum transaction type introduced in the Dencun upgrade (March 2024) that carries binary large objects (blobs) of temporary off-chain data. Each blob is 128 KB, committed via KZG polynomial commitments, and stored for ~18 days before pruning. Blob transactions created a separate fee market and reduced Layer 2 rollup fees by 10-100x by providing cheap, temporary data availability."
+    "definition": "Um tipo de transação Ethereum introduzido no upgrade Dencun (março de 2024) que carrega binary large objects (blobs) de dados off-chain temporários. Cada blob tem 128 KB, comprometido via compromissos polinomiais KZG, e armazenado por ~18 dias antes de ser podado. As transações de blob criaram um mercado de taxas separado e reduziram as taxas de rollups Layer 2 em 10-100x, fornecendo disponibilidade de dados temporária e barata."
   },
   "proto-danksharding": {
     "term": "Proto-Danksharding",
-    "definition": "An intermediate Ethereum scaling upgrade (EIP-4844) that introduces blob-carrying transactions as a stepping stone toward full danksharding. Proto-danksharding implements the transaction format and KZG commitment scheme planned for full sharding but without actual data sharding—blobs are fully downloaded by all consensus nodes. It targets ~0.375 MB of blob data per block."
+    "definition": "Um upgrade de escalabilidade intermediário de Ethereum (EIP-4844) que introduz transações que carregam blobs como um passo em direção ao danksharding completo. O Proto-danksharding implementa o formato de transação e o esquema de compromisso KZG planejado para o sharding completo, mas sem o sharding de dados real — os blobs são totalmente baixados por todos os nós de consenso. Ele visa ~0,375 MB de dados de blob por bloco."
   },
   "based-rollup": {
     "term": "Based Rollup",
-    "definition": "A rollup whose transaction sequencing is driven by the Layer 1 base chain's proposers rather than a dedicated centralized sequencer. L1 proposers permissionlessly include rollup blocks as part of L1 blocks, inheriting Ethereum's censorship resistance, liveness, and decentralization. The trade-off is higher latency (constrained by L1 block times), addressed through preconfirmation mechanisms."
+    "definition": "Um rollup cuja sequenciação de transações é impulsionada pelos proposers da base chain Layer 1, em vez de um sequencer centralizado dedicado. Os proposers da L1 incluem blocos de rollup sem permissão como parte dos blocos da L1, herdando a resistência à censura, liveness e descentralização do Ethereum. O trade-off é uma latência maior (restrita pelos tempos de bloco da L1), abordada através de mecanismos de preconfirmation."
   },
   "sequencer": {
     "term": "Sequencer",
-    "definition": "The entity responsible for ordering, batching, and submitting transactions in a Layer 2 rollup. Most rollups currently use a single centralized sequencer operated by the rollup team. Decentralized and shared sequencer designs (Espresso, Astria) distribute this power across a network of operators, enabling cross-rollup atomic composability and reducing single points of failure."
+    "definition": "A entidade responsável por ordenar, agrupar e submeter transações em um rollup Layer 2. A maioria dos rollups atualmente usa um único sequencer centralizado operado pela equipe do rollup. Designs de sequenciadores descentralizados e compartilhados (Espresso, Astria) distribuem esse poder por uma rede de operadores, permitindo a composabilidade atômica cross-rollup e reduzindo pontos únicos de falha."
   },
   "shared-sequencing": {
     "term": "Shared Sequencing",
-    "definition": "An infrastructure layer that replaces individual rollup sequencers with a decentralized network providing ordering-as-a-service for multiple rollups simultaneously. Shared sequencers like Espresso and Astria enable cross-rollup atomic transactions, fair MEV distribution, and reduced centralization risk by coordinating transaction ordering across rollups."
+    "definition": "Uma camada de infraestrutura que substitui sequenciadores de rollup individuais por uma rede descentralizada que fornece ordenação como serviço para vários rollups simultaneamente. Sequenciadores compartilhados como Espresso e Astria permitem transações atômicas cross-rollup, distribuição justa de MEV e risco reduzido de centralização ao coordenar a ordenação de transações entre rollups."
   },
   "preconfirmation": {
     "term": "Preconfirmation",
-    "definition": "A credible, collateral-backed promise from a block proposer or sequencer that a transaction will be included in a future block, providing near-instant soft confirmation before on-chain finality. Preconfirmations address latency in based rollups where Ethereum's 12-second block time is too slow for UX. Implementations achieve sub-10ms guarantees, secured by restaked ETH with slashing for broken commitments."
+    "definition": "Uma promessa crível e com colateral de um proponente de bloco ou sequencer de que uma transação será incluída em um bloco futuro, fornecendo confirmação suave quase instantânea antes da finalidade on-chain. As preconfirmations abordam a latência em based rollups onde o tempo de bloco de 12 segundos do Ethereum é muito lento para a UX. As implementações alcançam garantias de menos de 10ms, protegidas por ETH restakeado com slashing para compromissos quebrados."
   },
   "passkey-wallet": {
     "term": "Passkey / WebAuthn Wallet",
-    "definition": "A blockchain wallet that uses the WebAuthn/FIDO2 standard for authentication via biometrics (fingerprint, face) or hardware security keys instead of seed phrases. Passkey wallets require smart contract accounts that verify P256 (secp256r1) signatures, as WebAuthn uses a different curve than Ethereum's native secp256k1. Coinbase Smart Wallet and Solana's native secp256r1 precompile are major implementations."
+    "definition": "Uma carteira blockchain que usa o padrão WebAuthn/FIDO2 para autenticação via biometria (impressão digital, rosto) ou chaves de segurança de hardware, em vez de seed phrases. Carteiras Passkey exigem contas de smart contract que verifiquem assinaturas P256 (secp256r1), pois WebAuthn usa uma curva diferente da curva nativa secp256k1 do Ethereum. Coinbase Smart Wallet e a precompilação nativa secp256r1 de Solana são as principais implementações."
   },
   "erc-6551": {
     "term": "ERC-6551 (Token-Bound Accounts)",
-    "definition": "An Ethereum standard that assigns a smart contract account (wallet) to every ERC-721 NFT, enabling NFTs to own other tokens, NFTs, and interact with protocols directly. Token-bound accounts (TBAs) are created through a permissionless registry using CREATE2 for deterministic addresses. Use cases include gaming inventories, bundled DeFi positions tradable as single NFTs, and identity-linked portfolios."
+    "definition": "Um padrão Ethereum que atribui uma conta de smart contract (carteira) a cada NFT ERC-721, permitindo que os NFTs possuam outros tokens, NFTs e interajam com protocolos diretamente. Contas token-bound (TBAs) são criadas através de um registro sem permissão usando CREATE2 para endereços determinísticos. Os casos de uso incluem inventários de jogos, posições DeFi agrupadas negociáveis como NFTs únicos e portfólios vinculados à identidade."
   },
   "bitcoin": {
     "term": "Bitcoin",
-    "definition": "The first decentralized cryptocurrency network, launched in 2009 by the pseudonymous Satoshi Nakamoto, using a Proof-of-Work consensus mechanism and a UTXO-based transaction model. Bitcoin's protocol enforces a fixed supply cap of 21 million BTC, with new coins issued through mining block rewards that halve approximately every four years. It serves as both a peer-to-peer electronic cash system and a store of value, with its scripting language enabling basic programmability such as multisig and timelocks."
+    "definition": "A primeira rede de criptomoeda descentralizada, lançada em 2009 pelo pseudônimo Satoshi Nakamoto, usando um mecanismo de consenso Proof-of-Work e um modelo de transação baseado em UTXO. O protocolo do Bitcoin impõe um limite de oferta fixa de 21 milhões de BTC, com novas moedas emitidas através de recompensas de bloco de mineração que são reduzidas pela metade aproximadamente a cada quatro anos. Ele serve tanto como um sistema de dinheiro eletrônico peer-to-peer quanto como uma reserva de valor, com sua linguagem de script permitindo programabilidade básica, como multisig e timelocks."
   },
   "utxo-model": {
-    "term": "UTXO Model",
-    "definition": "The accounting model used by Bitcoin (and derived chains like Litecoin and Zcash) where balances are represented as a set of unspent transaction outputs rather than account balances. Each transaction consumes one or more UTXOs as inputs and creates new UTXOs as outputs; the difference between input and output values constitutes the transaction fee. The UTXO model enables natural parallelism and simple verification but makes stateful smart contracts more complex compared to account-based models like Ethereum or Solana."
+    "term": "Modelo UTXO",
+    "definition": "O modelo de contabilidade usado pelo Bitcoin (e cadeias derivadas como Litecoin e Zcash) onde os saldos são representados como um conjunto de saídas de transações não gastas (unspent transaction outputs) em vez de saldos de conta. Cada transação consome uma ou mais UTXOs como inputs e cria novas UTXOs como outputs; a diferença entre os valores de input e output constitui a taxa de transação. O modelo UTXO permite paralelismo natural e verificação simples, mas torna os smart contracts com estado mais complexos em comparação com modelos baseados em contas como Ethereum ou Solana."
   },
   "bitcoin-script": {
     "term": "Bitcoin Script",
-    "definition": "Bitcoin's stack-based, intentionally non-Turing-complete scripting language used to define spending conditions for transaction outputs. Scripts are composed of opcodes that manipulate a stack to evaluate whether a transaction is authorized, supporting operations like signature verification (OP_CHECKSIG), multisig (OP_CHECKMULTISIG), timelocks (OP_CHECKLOCKTIMEVERIFY), and hash preimage checks. Its deliberate limitations (no loops, bounded execution) minimize attack surface."
+    "definition": "A linguagem de script do Bitcoin baseada em pilha, intencionalmente não Turing-completa, usada para definir condições de gasto para saídas de transação. Os Scripts são compostos de opcodes que manipulam uma pilha para avaliar se uma transação é autorizada, suportando operações como verificação de assinatura (OP_CHECKSIG), multisig (OP_CHECKMULTISIG), timelocks (OP_CHECKLOCKTIMEVERIFY) e verificações de preimage de hash. Suas limitações deliberadas (sem loops, execução limitada) minimizam a superfície de ataque."
   },
   "segwit": {
     "term": "SegWit (Segregated Witness)",
-    "definition": "A Bitcoin soft fork activated in August 2017 (BIP 141) that separates transaction signature data (witness) from the transaction body, fixing transaction malleability and increasing effective block capacity from 1 MB to approximately 4 MB via a weight unit system. SegWit introduced a versioned witness program structure that enabled future upgrades like Taproot without additional soft forks. It was a prerequisite for the Lightning Network's secure operation."
+    "definition": "Um soft fork do Bitcoin ativado em agosto de 2017 (BIP 141) que separa os dados de assinatura de transação (witness) do corpo da transação, corrigindo a maleabilidade da transação e aumentando a capacidade efetiva do bloco de 1 MB para aproximadamente 4 MB através de um sistema de unidade de peso. O SegWit introduziu uma estrutura de programa witness versionada que permitiu futuras atualizações como o Taproot sem soft forks adicionais. Foi um pré-requisito para a operação segura da Lightning Network."
   },
   "taproot": {
     "term": "Taproot",
-    "definition": "A Bitcoin soft fork activated in November 2021 (BIPs 340-342) introducing Schnorr signatures for efficient key/signature aggregation, MAST (Merkelized Abstract Syntax Trees) for committing complex spending conditions where only the exercised branch is revealed on-chain, and Tapscript extending Bitcoin Script with new opcodes. Taproot makes complex transactions (multisig, timelocks, conditional spending) indistinguishable from simple single-key transactions, improving privacy and efficiency."
+    "definition": "Um soft fork do Bitcoin ativado em novembro de 2021 (BIPs 340-342) que introduziu assinaturas Schnorr para agregação eficiente de chaves/assinaturas, MAST (Merkelized Abstract Syntax Trees) para comprometer condições de gasto complexas onde apenas o ramo exercido é revelado on-chain, e Tapscript estendendo o Bitcoin Script com novos opcodes. O Taproot torna as transações complexas (multisig, timelocks, gasto condicional) indistinguíveis de transações simples de chave única, melhorando a privacidade e a eficiência."
   },
   "lightning-network": {
     "term": "Lightning Network",
-    "definition": "A Layer 2 payment channel network built on Bitcoin that enables near-instant, low-cost transactions by conducting most activity off-chain. Two parties open a channel by locking BTC in a multisig transaction, then exchange signed commitment transactions off-chain; only the opening and closing transactions are broadcast on-chain. Payments can be routed across multiple channels using Hash Time-Locked Contracts (HTLCs), enabling trustless multi-hop transfers."
+    "definition": "Uma rede de canais de pagamento Layer 2 construída sobre o Bitcoin que permite transações quase instantâneas e de baixo custo, realizando a maior parte da atividade off-chain. Duas partes abrem um canal bloqueando BTC em uma transação multisig, e então trocam transações de compromisso assinadas off-chain; apenas as transações de abertura e fechamento são transmitidas on-chain. Os pagamentos podem ser roteados através de múltiplos canais usando Hash Time-Locked Contracts (HTLCs), permitindo transferências multi-hop sem confiança."
   },
   "bitcoin-ordinals": {
     "term": "Bitcoin Ordinals",
-    "definition": "A protocol created by Casey Rodarmor in January 2023 that assigns a unique serial number (ordinal) to each individual satoshi based on mining order, enabling satoshis to carry arbitrary data (inscriptions) stored in Taproot witness data. Inscriptions can contain images, text, HTML, or other media up to the ~4 MB block weight limit, creating non-fungible digital artifacts natively on Bitcoin. Over 63 million inscriptions were created by early 2024."
+    "definition": "Um protocolo criado por Casey Rodarmor em janeiro de 2023 que atribui um número de série único (ordinal) a cada satoshi individual com base na ordem de mineração, permitindo que os satoshis carreguem dados arbitrários (inscriptions) armazenados nos dados witness do Taproot. As inscriptions podem conter imagens, texto, HTML ou outras mídias até o limite de peso de bloco de ~4 MB, criando artefatos digitais não-fungíveis nativamente no Bitcoin. Mais de 63 milhões de inscriptions foram criadas até o início de 2024."
   },
   "brc-20": {
     "term": "BRC-20",
-    "definition": "An experimental fungible token standard on Bitcoin using Ordinals inscriptions in JSON format to deploy, mint, and transfer tokens. BRC-20 tokens store state in inscription data and require off-chain indexers to track balances, as Bitcoin has no native token state concept. The standard gained significant adoption in 2023-2024 but creates excessive junk UTXOs, leading to the development of the UTXO-native Runes protocol as an alternative."
+    "definition": "Um padrão experimental de token fungível no Bitcoin que usa inscriptions Ordinals em formato JSON para implantar, cunhar e transferir tokens. Os tokens BRC-20 armazenam o estado nos dados da inscription e exigem indexadores off-chain para rastrear saldos, pois o Bitcoin não tem um conceito nativo de estado de token. O padrão ganhou adoção significativa em 2023-2024, mas cria UTXOs inúteis excessivos, levando ao desenvolvimento do protocolo Runes nativo de UTXO como alternativa."
   },
   "runes-protocol": {
     "term": "Runes",
-    "definition": "A Bitcoin fungible token protocol created by Casey Rodarmor that launched at block 840,000 on April 20, 2024, coinciding with the fourth Bitcoin halving. Unlike BRC-20, Runes is UTXO-native, using OP_RETURN to store token data directly in transaction outputs without creating junk UTXOs. The protocol allows multiple token transfers in a single transaction and briefly accounted for over 80% of Bitcoin transactions in its first days."
+    "definition": "Um protocolo de token fungível do Bitcoin criado por Casey Rodarmor que foi lançado no bloco 840.000 em 20 de abril de 2024, coincidindo com o quarto halving do Bitcoin. Diferente do BRC-20, o Runes é nativo de UTXO, usando OP_RETURN para armazenar dados de token diretamente nas saídas de transação sem criar UTXOs inúteis. O protocolo permite múltiplas transferências de tokens em uma única transação e brevemente representou mais de 80% das transações do Bitcoin nos seus primeiros dias."
   },
   "bitcoin-halving": {
     "term": "Bitcoin Halving",
-    "definition": "A programmatic event occurring every 210,000 blocks (~4 years) that reduces the Bitcoin block reward by 50%, enforcing a disinflationary monetary policy converging on the 21 million BTC supply cap. The most recent halving occurred on April 20, 2024 (block 840,000), reducing the reward from 6.25 to 3.125 BTC per block. Halvings shift miner revenue composition toward transaction fees and have historically correlated with bull market cycles."
+    "definition": "Um evento programático que ocorre a cada 210.000 blocos (~4 anos) que reduz a recompensa do bloco Bitcoin em 50%, impondo uma política monetária disinflacionária convergindo para o limite de oferta de 21 milhões de BTC. O halving mais recente ocorreu em 20 de abril de 2024 (bloco 840.000), reduzindo a recompensa de 6,25 para 3,125 BTC por bloco. Os halvings mudam a composição da receita dos mineradores para taxas de transação e historicamente se correlacionaram com ciclos de bull market."
   },
   "proof-of-work-mining": {
-    "term": "Proof-of-Work Mining",
-    "definition": "The process by which miners expend computational resources to find a nonce producing a block header hash below the current difficulty target, earning the right to append a new block and collect the block reward plus fees. Bitcoin mining uses SHA-256d (double SHA-256) and adjusts difficulty every 2,016 blocks (~2 weeks) to maintain ~10-minute block times. Mining has evolved from CPUs to GPUs to ASICs, with industrial-scale operations dominating the network's hash rate."
+    "term": "Mineração Proof-of-Work",
+    "definition": "O processo pelo qual os mineradores gastam recursos computacionais para encontrar um nonce que produza um hash de cabeçalho de bloco abaixo do alvo de dificuldade atual, ganhando o direito de anexar um novo bloco e coletar a recompensa do bloco mais as taxas. A mineração de Bitcoin usa SHA-256d (SHA-256 duplo) e ajusta a dificuldade a cada 2.016 blocos (~2 semanas) para manter tempos de bloco de ~10 minutos. A mineração evoluiu de CPUs para GPUs para ASICs, com operações em escala industrial dominando a hash rate da rede."
   },
   "mempool": {
     "term": "Mempool",
-    "definition": "The memory pool maintained by each blockchain node containing unconfirmed transactions that have been validated but not yet included in a block. Miners/validators select transactions from the mempool typically prioritizing those with the highest fee rate. Each node's mempool is independent and may differ based on propagation delays; during high-demand periods, the mempool can grow significantly, causing fee spikes as users compete for limited block space."
+    "definition": "O pool de memória mantido por cada nó da blockchain contendo transações não confirmadas que foram validadas, mas ainda não incluídas em um bloco. Mineradores/validadores selecionam transações do mempool, geralmente priorizando aquelas com a maior taxa de gás. O mempool de cada nó é independente e pode diferir com base nos atrasos de propagação; durante períodos de alta demanda, o mempool pode crescer significativamente, causando picos de taxas à medida que os usuários competem por espaço limitado no bloco."
   },
   "satoshi-unit": {
     "term": "Satoshi",
-    "definition": "The smallest indivisible unit of Bitcoin, equal to 0.00000001 BTC (one hundred-millionth of a bitcoin), named after Bitcoin's pseudonymous creator Satoshi Nakamoto. All Bitcoin amounts are internally represented as integer counts of satoshis, avoiding floating-point precision issues. The Ordinals protocol assigns unique serial numbers to individual satoshis, enabling them to carry inscribed data."
+    "definition": "A menor unidade indivisível de Bitcoin, igual a 0.00000001 BTC (um centésimo de milionésimo de um bitcoin), nomeada em homenagem ao criador pseudônimo do Bitcoin, Satoshi Nakamoto. Todos os valores de Bitcoin são representados internamente como contagens inteiras de satoshis, evitando problemas de precisão de ponto flutuante. O protocolo Ordinals atribui números de série únicos a satoshis individuais, permitindo que eles carreguem dados inscritos."
   },
   "bitcoin-layer-2": {
     "term": "Bitcoin Layer 2",
-    "definition": "Scaling and programmability solutions built on top of Bitcoin's base layer that extend its functionality while inheriting some degree of Bitcoin's security. Major approaches include the Lightning Network (payment channels), Stacks (smart contracts via Proof of Transfer), Liquid Network (Blockstream's federated sidechain), and ZK-rollups like Citrea (using BitVM for settlement). These solutions address Bitcoin's limited throughput (~7 TPS) and restricted scripting."
+    "definition": "Soluções de escalabilidade e programabilidade construídas sobre a camada base do Bitcoin que estendem sua funcionalidade enquanto herdam algum grau da segurança do Bitcoin. As principais abordagens incluem a Lightning Network (canais de pagamento), Stacks (smart contracts via Proof of Transfer), Liquid Network (sidechain federada da Blockstream) e ZK-rollups como Citrea (usando BitVM para liquidação). Essas soluções abordam a baixa throughput do Bitcoin (~7 TPS) e a scriptagem restrita."
   },
   "bitvm": {
     "term": "BitVM",
-    "definition": "A computing paradigm proposed by Robin Linus in October 2023 that enables verification of arbitrary computations on Bitcoin without consensus rule changes, using an optimistic model similar to optimistic rollups. A prover claims a computation result, and any verifier can execute a fraud proof on-chain to penalize false claims. BitVM2 (2024) reduced dispute resolution to three on-chain transactions and enabled permissionless verification."
+    "definition": "Um paradigma de computação proposto por Robin Linus em outubro de 2023 que permite a verificação de computações arbitrárias no Bitcoin sem alterações nas regras de consenso, usando um modelo otimista semelhante aos optimistic rollups. Um provador afirma um resultado de computação, e qualquer verificador pode executar uma prova de fraude on-chain para penalizar alegações falsas. O BitVM2 (2024) reduziu a resolução de disputas para três transações on-chain e habilitou a verificação sem permissão."
   },
   "op-cat": {
     "term": "OP_CAT",
-    "definition": "A proposed Bitcoin opcode (BIP 347) that would reintroduce byte-string concatenation to Tapscript, originally disabled by Satoshi Nakamoto in 2010 due to DoS concerns now mitigated by Tapscript's 520-byte stack element limit. OP_CAT would enable covenants (spending conditions constraining future transactions), Merkle proof verification, and more expressive smart contracts on Bitcoin. The proposal was assigned BIP 347 in April 2024 and is live on Signet for testing."
+    "definition": "Um opcode Bitcoin proposto (BIP 347) que reintroduziria a concatenação de byte-strings no Tapscript, originalmente desabilitada por Satoshi Nakamoto em 2010 devido a preocupações de DoS agora mitigadas pelo limite de 520 bytes de elemento de pilha do Tapscript. OP_CAT permitiria covenants (condições de gasto que restringem transações futuras), verificação de prova Merkle e smart contracts mais expressivos no Bitcoin. A proposta foi atribuída ao BIP 347 em abril de 2024 e está ativa no Signet para testes."
   },
   "zcash": {
     "term": "Zcash",
-    "definition": "A privacy-focused cryptocurrency launched in October 2016 that pioneered the use of zk-SNARKs to enable fully shielded transactions where sender, receiver, and amount are cryptographically hidden on a public blockchain. Zcash uses a UTXO model derived from Bitcoin and maintains multiple value pools (transparent, Sapling, Orchard) with a turnstile mechanism ensuring supply integrity. Major upgrades include Sapling (2018) for efficient proofs and NU5/Orchard (2022) introducing Halo 2 to eliminate trusted setup."
+    "definition": "Uma criptomoeda focada em privacidade lançada em outubro de 2016 que foi pioneira no uso de zk-SNARKs para permitir transações totalmente blindadas onde o remetente, o destinatário e o valor são criptograficamente ocultados em uma blockchain pública. A Zcash usa um modelo UTXO derivado do Bitcoin e mantém múltiplos pools de valor (transparente, Sapling, Orchard) com um mecanismo de catraca garantindo a integridade do fornecimento. As principais atualizações incluem Sapling (2018) para provas eficientes e NU5/Orchard (2022) introduzindo Halo 2 para eliminar a configuração confiável."
   },
   "shielded-transaction": {
     "term": "Shielded Transaction",
-    "definition": "A Zcash transaction where sender address, receiver address, and amount are encrypted using zk-SNARKs, providing cryptographic privacy while allowing network nodes to verify validity without learning private details. Shielded transactions operate within dedicated value pools (Sapling or Orchard), each with independent circuit designs. Users can selectively disclose transaction details to third parties using viewing keys without compromising spending authority."
+    "definition": "Uma transação Zcash onde o endereço do remetente, o endereço do destinatário e o valor são criptografados usando zk-SNARKs, fornecendo privacidade criptográfica e permitindo que os nós da rede verifiquem a validade sem aprender detalhes privados. As shielded transactions operam dentro de pools de valor dedicados (Sapling ou Orchard), cada um com designs de circuito independentes. Os usuários podem divulgar seletivamente detalhes da transação a terceiros usando chaves de visualização sem comprometer a autoridade de gasto."
   },
   "viewing-key": {
     "term": "Viewing Key",
-    "definition": "A cryptographic key in Zcash enabling selective disclosure of shielded transaction information without granting spending authority. The key hierarchy includes Incoming Viewing Key (IVK) for detecting received payments, Outgoing Viewing Key (OVK) for viewing sent transactions, and Full Viewing Key (FVK) combining both. Viewing keys enable regulatory compliance and auditing by allowing designated third parties to monitor shielded account activity."
+    "definition": "Uma chave criptográfica na Zcash que permite a divulgação seletiva de informações de transações blindadas sem conceder autoridade de gasto. A hierarquia de chaves inclui Incoming Viewing Key (IVK) para detectar pagamentos recebidos, Outgoing Viewing Key (OVK) para visualizar transações enviadas e Full Viewing Key (FVK) combinando ambas. As viewing keys permitem conformidade regulatória e auditoria, permitindo que terceiros designados monitorem a atividade da conta blindada."
   },
   "unified-address": {
-    "term": "Unified Address",
-    "definition": "A Zcash address format (ZIP 316) that bundles multiple receiver types (transparent, Sapling, Orchard) into a single 'u1'-prefixed address, allowing the sender's wallet to automatically select the most private payment method. Unified Addresses eliminate the complexity of managing separate transparent and shielded addresses, and support diversified addresses for unlinkable payment reception from a single spending key."
+    "term": "Endereço Unificado",
+    "definition": "Um formato de endereço Zcash (ZIP 316) que agrupa múltiplos tipos de destinatários (transparente, Sapling, Orchard) em um único endereço prefixado com 'u1', permitindo que a carteira do remetente selecione automaticamente o método de pagamento mais privado. Os Endereços Unificados eliminam a complexidade de gerenciar endereços transparentes e blindados separados e suportam endereços diversificados para recebimento de pagamentos não-vinculáveis a partir de uma única chave de gasto."
   },
   "zcash-sapling": {
     "term": "Zcash Sapling",
-    "definition": "A major Zcash protocol upgrade activated in October 2018 that reduced proof generation from ~40 seconds to ~2 seconds and memory from 3 GB to ~40 MB, making shielded transactions practical on mobile devices. Sapling introduced new shielded addresses, full viewing keys, diversified addresses, and decoupled proof construction from transaction signing. Its cryptographic libraries (bellman, librustzcash) became foundational for the broader ZK ecosystem."
+    "definition": "Uma grande atualização do protocolo Zcash ativada em outubro de 2018 que reduziu a geração de provas de ~40 segundos para ~2 segundos e a memória de 3 GB para ~40 MB, tornando as transações blindadas práticas em dispositivos móveis. O Sapling introduziu novos endereços blindados, full viewing keys, endereços diversificados e desacoplou a construção da prova da assinatura da transação. Suas bibliotecas criptográficas (bellman, librustzcash) tornaram-se fundamentais para o ecossistema ZK mais amplo."
   },
   "turnstile-mechanism": {
-    "term": "Turnstile Mechanism",
-    "definition": "A Zcash consensus-level auditing mechanism that maintains supply integrity across shielded value pools by publicly tracking the net flow of ZEC entering and exiting each pool. Since shielded pool balances are encrypted and cannot be directly audited, the turnstile enforces (ZIP 209) that any block causing a pool balance to go negative is rejected. Transfers between shielded pools must pass through a transparent intermediate step for public verification."
+    "term": "Mecanismo Turnstile",
+    "definition": "Um mecanismo de auditoria em nível de consenso da Zcash que mantém a integridade da oferta entre os pools de valor blindados, rastreando publicamente o fluxo líquido de ZEC que entra e sai de cada pool. Como os saldos dos pools blindados são criptografados e não podem ser auditados diretamente, o turnstile impõe (ZIP 209) que qualquer bloco que cause um saldo do pool a ficar negativo seja rejeitado. As transferências entre pools blindados devem passar por uma etapa intermediária transparente para verificação pública."
   },
   "native-token": {
     "term": "Native Token",
-    "definition": "The base cryptocurrency of a blockchain network that is used to pay transaction fees, participate in consensus (staking), and compensate validators for securing the network. Native tokens are protocol-level assets — not created by smart contracts — and their issuance is governed by the blockchain's monetary policy. Examples: SOL (Solana), ETH (Ethereum), BTC (Bitcoin)."
+    "definition": "A criptomoeda base de uma rede blockchain que é usada para pagar taxas de transação, participar do consenso (staking) e compensar validadores pela segurança da rede. Os native tokens são ativos de nível de protocolo — não criados por smart contracts — e sua emissão é governada pela política monetária da blockchain. Exemplos: SOL (Solana), ETH (Ethereum), BTC (Bitcoin)."
   },
   "point": {
-    "term": "Point (Validator Rewards)",
-    "definition": "A weighted credit unit used in Solana's validator reward calculation regime. Points represent the product of a validator's vote credits and its active stake, determining its proportional share of the epoch's inflation rewards. Validators with more stake and more vote credits accumulate more points, translating to higher absolute rewards distributed at epoch boundaries."
+    "term": "Ponto (Recompensas do Validador)",
+    "definition": "Uma unidade de crédito ponderada usada no regime de cálculo de recompensas do validador do Solana. Os Pontos representam o produto dos créditos de voto de um validador e sua stake ativa, determinando sua participação proporcional nas recompensas de inflação da época. Validadores com mais stake e mais créditos de voto acumulam mais pontos, resultando em recompensas absolutas mais altas distribuídas nos limites da época."
   },
   "client-diversity": {
     "term": "Diversidade de Clientes",
-    "definition": "The practice of maintaining multiple independent validator client implementations for a blockchain network to reduce the risk of a single software bug causing network-wide failures. On Solana, client diversity is achieved through Agave (Rust, maintained by Anza) and Firedancer (C, maintained by Jump Crypto), with Frankendancer as a hybrid. Ethereum similarly encourages diversity across Geth, Nethermind, Besu, and Erigon to prevent correlated failures."
+    "definition": "A prática de manter múltiplas implementações independentes de cliente validador para uma rede blockchain para reduzir o risco de um único bug de software causar falhas em toda a rede. No Solana, a diversidade de clientes é alcançada através de Agave (Rust, mantido pela Anza) e Firedancer (C, mantido pela Jump Crypto), com Frankendancer como um híbrido. O Ethereum incentiva de forma semelhante a diversidade entre Geth, Nethermind, Besu e Erigon para evitar falhas correlacionadas."
   },
   "deterministic-execution": {
-    "term": "Deterministic Execution",
-    "definition": "The property that given identical inputs and initial state, a program will always produce the exact same output and state transitions regardless of which machine executes it. Deterministic execution is foundational to blockchain consensus because every validator must independently arrive at the same result when processing transactions. Sources of non-determinism (floating point, random numbers, system time) must be eliminated or controlled in blockchain runtimes."
+    "term": "Execução Determinística",
+    "definition": "A propriedade de que, dados inputs e estado inicial idênticos, um programa sempre produzirá exatamente a mesma saída e transições de estado, independentemente da máquina que o executa. A execução determinística é fundamental para o consenso de blockchain porque cada validador deve chegar independentemente ao mesmo resultado ao processar transações. Fontes de não-determinismo (ponto flutuante, números aleatórios, tempo do sistema) devem ser eliminadas ou controladas em tempos de execução de blockchain."
   },
   "economic-finality": {
-    "term": "Economic Finality",
-    "definition": "A practical finality guarantee where reversing a confirmed transaction would require an attacker to forfeit or spend more economic value (staked tokens, mining hardware) than the value of the transaction itself. Unlike absolute cryptographic finality, economic finality is probabilistic and depends on the cost of attack relative to the value at stake. In Proof of Stake systems, economic finality is achieved when enough staked capital backs the confirmed state that slashing penalties make reversal economically irrational."
+    "term": "Finalidade Econômica",
+    "definition": "Uma garantia de finalidade prática em que reverter uma transação confirmada exigiria que um atacante perdesse ou gastasse mais valor econômico (tokens em stake, hardware de mineração) do que o valor da própria transação. Ao contrário da finalidade criptográfica absoluta, a finalidade econômica é probabilística e depende do custo do ataque em relação ao valor em jogo. Em sistemas Proof of Stake, a finalidade econômica é alcançada quando capital em stake suficiente apoia o estado confirmado, de modo que as penalidades de slash tornam a reversão economicamente irracional."
   },
   "bls-signature": {
     "term": "BLS Signature",
-    "definition": "A digital signature scheme (Boneh-Lynn-Shacham) based on bilinear pairings over elliptic curves that uniquely enables signature aggregation: multiple signatures on the same or different messages can be combined into a single compact signature verifiable in one operation. BLS signatures are used in Ethereum 2.0 for aggregating validator attestations and are planned for Solana (SIMD-0134) to reduce vote transaction overhead. The aggregation property dramatically reduces bandwidth and storage costs for consensus."
+    "definition": "Um esquema de assinatura digital (Boneh-Lynn-Shacham) baseado em pareamentos bilineares sobre curvas elípticas que permite de forma única a agregação de assinaturas: múltiplas assinaturas na mesma mensagem ou em mensagens diferentes podem ser combinadas em uma única assinatura compacta verificável em uma única operação. As BLS signatures são usadas no Ethereum 2.0 para agregar atestações de validadores e estão planejadas para Solana (SIMD-0134) para reduzir a sobrecarga de transações de voto. A propriedade de agregação reduz drasticamente os custos de largura de banda e armazenamento para o consenso."
   },
   "on-curve-off-curve": {
     "term": "On-Curve / Off-Curve",
-    "definition": "In elliptic curve cryptography, a point is 'on-curve' if it satisfies the curve equation (e.g., Ed25519) and can serve as a valid public key with a corresponding private key. An 'off-curve' point does not lie on the curve and has no associated private key. Solana Program Derived Addresses (PDAs) are deliberately generated as off-curve points by appending a bump seed, guaranteeing that no private key exists and only the owning program can sign for the address."
+    "definition": "Na criptografia de curva elíptica, um ponto é 'on-curve' se satisfaz a equação da curva (por exemplo, Ed25519) e pode servir como uma chave pública válida com uma chave privada correspondente. Um ponto 'off-curve' não está na curva e não tem chave privada associada. Os Solana Program Derived Addresses (PDAs) são gerados deliberadamente como pontos off-curve anexando um 'bump seed', garantindo que nenhuma chave privada exista e que apenas o programa proprietário possa assinar o endereço."
   },
   "clearing-settlement": {
-    "term": "Clearing and Settlement",
-    "definition": "Two phases of completing a financial transaction. Clearing: reconciling orders and calculating net obligations. Settlement: actual exchange of securities and cash. Traditional markets: T+1/T+2. Blockchain enables atomic settlement — simultaneous instant exchange eliminating counterparty risk."
+    "term": "Compensação e Liquidação",
+    "definition": "Duas fases de conclusão de uma transação financeira. Compensação: reconciliar ordens e calcular as obrigações líquidas. Liquidação: troca real de títulos e dinheiro. Mercados tradicionais: T+1/T+2. Blockchain permite a liquidação atômica — troca instantânea simultânea, eliminando o risco de contraparte."
   },
   "dvp": {
     "term": "DvP (Delivery vs Payment)",
-    "definition": "Settlement mechanism ensuring security delivery occurs simultaneously and conditionally with payment. Blockchain's atomic transactions naturally implement DvP — a single transaction transfers tokenized security and USDC atomically."
+    "definition": "Mecanismo de liquidação que garante que a entrega do título ocorra simultaneamente e condicionalmente com o pagamento. As transações atômicas do blockchain naturalmente implementam o DvP — uma única transação transfere o título tokenizado e USDC atomicamente."
   },
   "csd": {
     "term": "CSD (Central Securities Depository)",
-    "definition": "Institution holding securities in electronic form as central ownership registry. Examples: DTCC (US), Euroclear (Europe). On blockchain, the token program serves as a permissionless alternative — the ledger itself maintains the ownership registry."
+    "definition": "Instituição que detém títulos em formato eletrônico como registro central de propriedade. Exemplos: DTCC (EUA), Euroclear (Europa). No blockchain, o programa de token serve como uma alternativa sem permissão — o próprio livro-razão mantém o registro de propriedade."
   },
   "post-trade-processing": {
-    "term": "Post-Trade Processing",
-    "definition": "All activities after trade execution: confirmation, clearing, settlement, custody, reconciliation. Traditional post-trade involves multiple intermediaries over days. Smart contracts automate these functions, reducing intermediary costs estimated at $20-30B annually for US equities."
+    "term": "Processamento Pós-Negociação",
+    "definition": "Todas as atividades após a execução da negociação: confirmação, compensação, liquidação, custódia, reconciliação. O pós-negociação tradicional envolve múltiplos intermediários ao longo de dias. Smart contracts automatizam essas funções, reduzindo os custos de intermediários estimados em US$ 20-30 bilhões anualmente para ações dos EUA."
   },
   "omnibus-account": {
-    "term": "Omnibus Account",
-    "definition": "Account pooling multiple clients' assets under one custodian name, with internal records tracking individual shares. Exposes clients to comingling risk if custodian fails. Blockchain wallets are inherently segregated — each address holds only its own tokens with no comingling."
+    "term": "Conta Omnibus",
+    "definition": "Conta que agrupa os ativos de múltiplos clientes sob um nome de custodiante, com registros internos rastreando as participações individuais. Expõe os clientes ao risco de mistura se o custodiante falhar. As carteiras de blockchain são inerentemente segregadas — cada endereço detém apenas seus próprios tokens, sem mistura."
   },
   "blockchain-trilemma": {
-    "term": "Blockchain Trilemma",
-    "definition": "Concept articulated by Vitalik Buterin that blockchains can optimize for only two of three properties: decentralization, security, and scalability. Solana prioritizes scalability and security with specialized hardware requirements, while Ethereum L2s sacrifice some sovereignty for throughput. No chain has definitively solved the trilemma."
+    "term": "Trilema do Blockchain",
+    "definition": "Conceito articulado por Vitalik Buterin de que blockchains podem otimizar apenas duas de três propriedades: descentralização, segurança e escalabilidade. Solana prioriza escalabilidade e segurança com requisitos de hardware especializados, enquanto os L2s do Ethereum sacrificam parte da soberania para o throughput. Nenhuma cadeia resolveu definitivamente o trilema."
   },
   "liveness-safety": {
-    "term": "Liveness and Safety",
-    "definition": "Two fundamental guarantees in distributed systems. Safety means the system never produces incorrect results (no double-spends, no conflicting blocks). Liveness means the system continues making progress (transactions eventually confirm). BFT systems like Solana's Tower BFT prioritize safety — the network halts rather than producing conflicting state."
+    "term": "Vitalidade e Segurança",
+    "definition": "Duas garantias fundamentais em sistemas distribuídos. Segurança significa que o sistema nunca produz resultados incorretos (sem gastos duplos, sem blocos conflitantes). Vitalidade significa que o sistema continua progredindo (as transações eventualmente confirmam). Sistemas BFT como o Tower BFT de Solana priorizam a segurança — a rede para em vez de produzir um estado conflitante."
   },
   "sharding": {
     "term": "Sharding",
-    "definition": "Scaling technique that partitions blockchain state and processing across multiple parallel chains (shards), each handling a subset of transactions. Used by Ethereum's roadmap (danksharding) and Near Protocol. Solana takes a different approach, using parallel execution on a single shard (via Sealevel) rather than splitting into multiple chains."
+    "definition": "Técnica de escalabilidade que particiona o estado e o processamento do blockchain em múltiplas cadeias paralelas (shards), cada uma lidando com um subconjunto de transações. Usado pelo roadmap do Ethereum (danksharding) e Near Protocol. Solana adota uma abordagem diferente, usando execução paralela em um único shard (via Sealevel) em vez de dividir em múltiplas cadeias."
   },
   "state-channel": {
     "term": "State Channel",
-    "definition": "Layer-2 scaling technique where participants open a channel, conduct many off-chain transactions between themselves, then settle the final state on-chain. Reduces fees and latency for repeated interactions between the same parties. Lightning Network (Bitcoin) is the most prominent example. Less common on Solana due to its already-low fees."
+    "definition": "Técnica de escalabilidade de Camada 2 onde os participantes abrem um canal, realizam muitas transações off-chain entre si e, em seguida, liquidam o estado final on-chain. Reduz taxas e latência para interações repetidas entre as mesmas partes. A Lightning Network (Bitcoin) é o exemplo mais proeminente. Menos comum em Solana devido às suas taxas já baixas."
   },
   "validator-economics": {
-    "term": "Validator Economics",
-    "definition": "The financial model governing validator profitability including staking rewards (inflation), transaction fee revenue, MEV tips, and operational costs (hardware, bandwidth, data center). On Solana, validators earn ~6-7% APY from inflation plus priority fees and Jito MEV tips, offset by costs of running high-spec hardware."
+    "term": "Economia do Validador",
+    "definition": "O modelo financeiro que governa a lucratividade do validador, incluindo recompensas de staking (inflação), receita de taxas de transação, gorjetas de MEV e custos operacionais (hardware, largura de banda, data center). Em Solana, os validadores ganham ~6-7% APY de inflação, além de taxas de prioridade e gorjetas Jito MEV, compensados pelos custos de execução de hardware de alta especificação."
   },
   "proof-of-history": {
     "term": "Prova de História (PoH)",
-    "definition": "A clock mechanism that cryptographically proves the passage of time between events. PoH uses a sequential SHA-256 hash chain where each output becomes the next input, creating a verifiable ordering of events without requiring consensus. The leader produces ~400,000 hashes per slot (~400ms), and any validator can verify the sequence in parallel, enabling Solana's high throughput by removing the need for validators to agree on time."
+    "definition": "Um mecanismo de relógio que prova criptograficamente a passagem do tempo entre eventos. PoH usa uma cadeia de hash SHA-256 sequencial onde cada saída se torna a próxima entrada, criando uma ordenação verificável de eventos sem exigir consenso. O líder produz ~400.000 hashes por slot (~400ms), e qualquer validador pode verificar a sequência em paralelo, permitindo o alto throughput de Solana, eliminando a necessidade de os validadores concordarem sobre o tempo."
   },
   "tower-bft": {
     "term": "Tower BFT",
-    "definition": "Solana's custom BFT consensus algorithm built on top of Proof of History. Tower BFT uses PoH as a clock to reduce communication overhead in traditional PBFT from O(n²) to O(n). Validators vote on forks with exponentially increasing lockout periods—each consecutive vote doubles the lockout, making rollbacks progressively more expensive. A fork is finalized when it reaches supermajority (66.7%+ of stake)."
+    "definition": "O algoritmo de consenso BFT personalizado de Solana, construído sobre a Prova de História. O Tower BFT usa PoH como um relógio para reduzir a sobrecarga de comunicação no PBFT tradicional de O(n²) para O(n). Os validadores votam em forks com períodos de bloqueio aumentando exponencialmente — cada voto consecutivo dobra o bloqueio, tornando as reversões progressivamente mais caras. Um fork é finalizado quando atinge uma supermaioria (66,7%+ de stake)."
   },
   "slot": {
     "term": "Slot",
-    "definition": "A time window during which a designated leader validator can produce a block. Each slot lasts approximately 400 milliseconds. Slots are numbered sequentially from genesis and grouped into epochs of 432,000 slots (~2-3 days). Not every slot produces a block—a skipped slot means the leader was offline or too slow."
+    "definition": "Uma janela de tempo durante a qual um validador líder designado pode produzir um bloco. Cada slot dura aproximadamente 400 milissegundos. Os slots são numerados sequencialmente desde o genesis e agrupados em epochs de 432.000 slots (~2-3 dias). Nem todo slot produz um bloco — um slot pulado significa que o líder estava offline ou muito lento."
   },
   "block": {
     "term": "Bloco",
-    "definition": "A set of entries produced by a leader during a single slot. A block contains transactions bundled into entries, each with a PoH hash proving ordering. Blocks are broken into shreds for network propagation via Turbine. Maximum block size is limited by compute units (48M CU cap per block) rather than byte size."
+    "definition": "Um conjunto de entries produzidas por um líder durante um único slot. Um bloco contém transações agrupadas em entries, cada uma com um hash PoH provando a ordenação. Os blocos são divididos em shreds para propagação na rede via Turbine. O tamanho máximo do bloco é limitado por compute units (limite de 48M CU por bloco) em vez do tamanho em bytes."
   },
   "epoch": {
     "term": "Época",
-    "definition": "A period of 432,000 slots (approximately 2-3 days) that defines a staking cycle. At each epoch boundary, the leader schedule is recalculated based on stake weights, stake activations/deactivations take effect, and inflation rewards are distributed to validators and delegators."
+    "definition": "Um período de 432.000 slots (aproximadamente 2-3 dias) que define um ciclo de staking. Em cada limite de época, o leader schedule é recalculado com base nos pesos de stake, as ativações/desativações de stake entram em vigor e as recompensas de inflação são distribuídas para validadores e delegadores."
   },
   "leader-schedule": {
     "term": "Agenda de Líderes",
-    "definition": "A deterministic mapping of slots to validators for an entire epoch, computed from stake weights. Validators with more stake are assigned proportionally more leader slots. The schedule is derived using a seed from the previous epoch's randomness, so all validators independently compute the same schedule without coordination."
+    "definition": "Um mapeamento determinístico de slots para validadores para uma época inteira, calculado a partir dos pesos de stake. Validadores com mais stake recebem proporcionalmente mais slots de líder. A agenda é derivada usando uma semente da aleatoriedade da época anterior, de modo que todos os validadores calculam independentemente a mesma agenda sem coordenação."
   },
   "validator": {
     "term": "Validador",
-    "definition": "A node that participates in the Solana network by validating transactions, voting on blocks, and (when selected as leader) producing new blocks. Validators run the Agave, Firedancer, or Jito client software, require significant hardware (128+ GB RAM, high-core CPU, NVMe SSD), and earn rewards from inflation and transaction fees."
+    "definition": "Um nó que participa da rede Solana validando transações, votando em blocos e (quando selecionado como líder) produzindo novos blocos. Os validadores executam o software cliente Agave, Firedancer ou Jito, exigem hardware significativo (128+ GB RAM, CPU de alta performance, NVMe SSD) e ganham recompensas de inflação e taxas de transação."
   },
   "vote-account": {
     "term": "Conta de Voto",
-    "definition": "An on-chain account that records a validator's Tower BFT votes and tracks their voting history. Each validator has one vote account that stores the last 32 vote slots with their confirmation counts. The vote account also tracks earned credits used to calculate epoch rewards. Vote transactions constitute ~70-80% of all transactions on Solana."
+    "definition": "Uma conta on-chain que registra os votos do Tower BFT de um validador e rastreia seu histórico de votação. Cada validador tem uma vote account que armazena os últimos 32 vote slots com suas contagens de confirmação. A vote account também rastreia os créditos ganhos usados para calcular as recompensas da época. As transações de voto constituem ~70-80% de todas as transações em Solana."
   },
   "stake": {
     "term": "Stake",
-    "definition": "SOL tokens that are delegated to a validator to increase its voting weight and earn staking rewards. Staking is non-custodial—stakers retain ownership of their SOL. Stake activates/deactivates at epoch boundaries with a warmup/cooldown period. Validators with more stake are assigned more leader slots and have proportionally more influence in consensus."
+    "definition": "Tokens SOL que são delegados a um validador para aumentar seu peso de votação e ganhar recompensas de staking. O staking não é custodial — os stakers mantêm a propriedade de seus SOL. O stake ativa/desativa nos limites das épocas com um período de warmup/cooldown. Validadores com mais stake recebem mais slots de líder e têm proporcionalmente mais influência no consenso."
   },
   "stake-account": {
     "term": "Conta de Stake",
-    "definition": "A dedicated on-chain account that holds delegated SOL for staking. Each stake account has a staker authority (can redelegate) and a withdrawer authority (can withdraw). A stake account can only delegate to one validator at a time, so users create multiple stake accounts to split across validators."
+    "definition": "Uma conta on-chain dedicada que mantém SOL delegado para staking. Cada stake account tem uma staker authority (pode redelegar) e uma withdrawer authority (pode retirar). Uma stake account só pode delegar a um validador por vez, então os usuários criam múltiplas stake accounts para dividir entre os validadores."
   },
   "delegator": {
     "term": "Delegador",
-    "definition": "A SOL holder who delegates tokens to a validator's stake without running a node themselves. Delegators earn a share of inflation rewards proportional to their stake, minus the validator's commission (typically 0-10%). Delegation is non-custodial—the delegator retains the ability to redelegate or withdraw at any time."
+    "definition": "Um detentor de SOL que delega tokens para o stake de um validador sem executar um nó. Os delegadores ganham uma parte das recompensas de inflação proporcional ao seu stake, menos a comissão do validador (normalmente 0-10%). A delegação não é custodial — o delegador mantém a capacidade de redelegar ou retirar a qualquer momento."
   },
   "fork": {
     "term": "Fork",

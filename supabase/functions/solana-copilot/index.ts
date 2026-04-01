@@ -12,7 +12,7 @@ serve(async (req) => {
   }
 
   try {
-    const { messages, glossaryContext, mode } = await req.json();
+    const { messages, glossaryContext, mode, locale = "en" } = await req.json();
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
@@ -20,8 +20,20 @@ serve(async (req) => {
       ? `\n\nGlossary Context (SOURCE OF TRUTH — do NOT hallucinate definitions outside this):\n${glossaryContext}`
       : "";
 
+    const languageInstructions = {
+      en: "Respond in English.",
+      pt: "Respond in Brazilian Portuguese (pt-BR).",
+      es: "Respond in Spanish (es).",
+    } as const;
+
     const corePersona = `You are a senior Solana protocol engineer and educator.
 You think like someone who has built real protocols. You explain with precision, clarity, and real-world engineering insight, using the Solana Glossary as your foundation.
+
+LANGUAGE:
+- ${languageInstructions[locale as keyof typeof languageInstructions] ?? languageInstructions.en}
+- Keep section headings, explanations, and prose in the requested language.
+- If glossary terms are translated in the provided context, prefer those translated term names.
+- Use **bold** for glossary terms exactly as they appear in the response language.
 
 CORE RULES:
 - Use the provided glossary context as the source of truth
@@ -29,7 +41,6 @@ CORE RULES:
 - Always connect concepts together (PDA → authority → signer → CPI)
 - Prioritize how the system works, not just definitions
 - Always explain why this design exists in real-world systems
-- Use **bold** for all Solana glossary terms
 - Write like a senior engineer mentoring a developer — concise but insightful`;
 
     let systemPrompt: string;

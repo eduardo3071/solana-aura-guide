@@ -31,7 +31,7 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
   const [result, setResult] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const handleAnalyze = useCallback(async (inputCode?: string) => {
     const codeToAnalyze = inputCode || code;
@@ -41,12 +41,13 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
     setResult("");
     setIsAnalyzing(true);
 
-    const glossaryContext = buildGlossaryContext(codeToAnalyze);
+    const glossaryContext = buildGlossaryContext(codeToAnalyze, locale);
 
     let content = "";
     await streamChat({
       messages: [{ role: "user", content: codeToAnalyze }],
       glossaryContext,
+      locale,
       mode: "explain-file",
       onDelta: (chunk) => {
         content += chunk;
@@ -58,7 +59,7 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
         setIsAnalyzing(false);
       },
     });
-  }, [code, isAnalyzing]);
+  }, [code, isAnalyzing, locale]);
 
   const detectedTerms = code.trim() ? searchTerms(code).slice(0, 8) : [];
 

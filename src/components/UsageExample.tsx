@@ -19,7 +19,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const abortRef = useRef(false);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   useEffect(() => {
     abortRef.current = false;
@@ -37,7 +37,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
     setIsLoading(true);
     setError(false);
 
-    const glossaryContext = buildGlossaryContext(term.term);
+    const glossaryContext = buildGlossaryContext(term.term, locale);
     let content = "";
 
     streamChat({
@@ -48,6 +48,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
         },
       ],
       glossaryContext,
+      locale,
       mode: "usage-example",
       onDelta: (chunk) => {
         if (abortRef.current) return;
@@ -69,7 +70,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
     return () => {
       abortRef.current = true;
     };
-  }, [term.id]);
+  }, [term.id, term.term, term.definition, locale]);
 
   if (error) return null;
 

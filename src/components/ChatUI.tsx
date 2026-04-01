@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { searchTerms, GlossaryTerm, allTerms, getTerm } from "@/lib/solana-glossary";
+import { GlossaryTerm } from "@/lib/solana-glossary";
 import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
 import { Send, Bot, User, Sparkles, Loader2, Code2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,7 +47,7 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const DEMO_QUESTIONS = [
     t("chat.demo.pda"),
@@ -87,12 +87,13 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
     setInput("");
     setIsStreaming(true);
 
-    const glossaryContext = buildGlossaryContext(msgText);
+    const glossaryContext = buildGlossaryContext(msgText, locale);
     let assistantContent = "";
 
     await streamChat({
       messages: updatedMessages.map((m) => ({ role: m.role, content: m.content })),
       glossaryContext,
+      locale,
       mode,
       onDelta: (chunk) => {
         assistantContent += chunk;
@@ -117,7 +118,7 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
         setIsStreaming(false);
       },
     });
-  }, [input, isStreaming, messages, mode]);
+  }, [input, isStreaming, messages, mode, locale]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {

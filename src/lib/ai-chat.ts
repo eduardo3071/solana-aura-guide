@@ -1,4 +1,9 @@
-import { searchTerms, allTerms, GlossaryTerm } from "@/lib/solana-glossary";
+import { type GlossaryTerm } from "@/lib/solana-glossary";
+import {
+  buildLocalizedGlossaryContext,
+  getLocalizedTerms,
+  type GlossaryLocale,
+} from "@/lib/solana-glossary/localized";
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/solana-copilot`;
 
@@ -7,6 +12,7 @@ type Msg = { role: "user" | "assistant"; content: string };
 export async function streamChat({
   messages,
   glossaryContext,
+  locale = "en",
   mode,
   onDelta,
   onDone,
@@ -14,6 +20,7 @@ export async function streamChat({
 }: {
   messages: Msg[];
   glossaryContext: string;
+  locale?: GlossaryLocale;
   mode?: "chat" | "explain-code" | "explain-file" | "usage-example";
   onDelta: (text: string) => void;
   onDone: () => void;
@@ -26,7 +33,12 @@ export async function streamChat({
         "Content-Type": "application/json",
         Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
       },
-      body: JSON.stringify({ messages, glossaryContext, mode: mode || "chat" }),
+      body: JSON.stringify({
+        messages,
+        glossaryContext,
+        locale,
+        mode: mode || "chat",
+      }),
     });
 
     if (!resp.ok) {
@@ -76,7 +88,6 @@ export async function streamChat({
       }
     }
 
-    // Flush remaining
     if (textBuffer.trim()) {
       for (let raw of textBuffer.split("\n")) {
         if (!raw) continue;
@@ -89,7 +100,9 @@ export async function streamChat({
           const parsed = JSON.parse(jsonStr);
           const content = parsed.choices?.[0]?.delta?.content as string | undefined;
           if (content) onDelta(content);
-        } catch { /* ignore */ }
+        } catch {
+          /* ignore */
+        }
       }
     }
 
@@ -99,21 +112,17 @@ export async function streamChat({
   }
 }
 
-/** Build glossary context from user input for RAG */
-export function buildGlossaryContext(input: string): string {
-  const results = searchTerms(input);
-  if (results.length === 0) return "";
-  return results
-    .slice(0, 10)
-    .map((t) => `${t.term}: ${t.definition}`)
-    .join("\n");
+export function buildGlossaryContext(input: string, locale: GlossaryLocale = "en"): string {
+  return buildLocalizedGlossaryContext(input, locale);
 }
 
-/** Find glossary term IDs mentioned in text */
-export function findTermsInText(text: string): GlossaryTerm[] {
+export function findTermsInText(
+  text: string,
+  locale: GlossaryLocale = "en"
+): GlossaryTerm[] {
   const lower = text.toLowerCase();
-  return allTerms.filter((t) => {
-    if (lower.includes(t.term.toLowerCase())) return true;
-    return t.aliases?.some((a) => lower.includes(a.toLowerCase()));
+  return getLocalizedTerms(locale).filter((term) => {
+    if (lower.includes(term.term.toLowerCase())) return true;
+    return term.aliases?.some((alias) => lower.includes(alias.toLowerCase()));
   });
 }

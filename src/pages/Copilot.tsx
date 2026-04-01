@@ -31,7 +31,6 @@ const Copilot = () => {
   const { t } = useI18n();
 
   const handleTabChange = (tab: TabId) => {
-    setActiveTab(tab);
     if (tab === "chat") {
       setSearchParams({});
     } else {

@@ -1,5 +1,6 @@
 import { GlossaryTerm } from "@/lib/solana-glossary";
 import { motion } from "framer-motion";
+import { useGlossary } from "@/hooks/useGlossary";
 
 interface TermCardProps {
   term: GlossaryTerm;

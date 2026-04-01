@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import { getTerm, GlossaryTerm } from "@/lib/solana-glossary";
+import { GlossaryTerm } from "@/lib/solana-glossary";
 import { motion, AnimatePresence } from "framer-motion";
+import { useGlossary } from "@/hooks/useGlossary";
 
 interface TermTooltipProps {
   termId: string;
@@ -10,7 +11,8 @@ interface TermTooltipProps {
 
 export function TermTooltip({ termId, children, onNavigate }: TermTooltipProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const term = getTerm(termId);
+  const glossary = useGlossary();
+  const term = glossary.getTerm(termId);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   const handleEnter = () => {

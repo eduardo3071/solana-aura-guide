@@ -3,11 +3,12 @@ import { SearchBar } from "@/components/SearchBar";
 import { TermCard } from "@/components/TermCard";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { TermDetailPanel } from "@/components/TermDetailPanel";
-import { getAllTerms, getTermsByCategory, GlossaryTerm, Category, allTerms } from "@/lib/solana-glossary";
+import { GlossaryTerm, Category } from "@/lib/solana-glossary";
 import { AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { MessageSquare, Zap, BookOpen, Search, Code2 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { useGlossary } from "@/hooks/useGlossary";
 
 const ITEMS_PER_PAGE = 60;
 
@@ -17,10 +18,11 @@ const Index = () => {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const navigate = useNavigate();
   const { t } = useI18n();
+  const glossary = useGlossary();
 
   const terms = useMemo(() => {
-    return activeCategory ? getTermsByCategory(activeCategory) : getAllTerms();
-  }, [activeCategory]);
+    return activeCategory ? glossary.getTermsByCategory(activeCategory) : glossary.getAllTerms();
+  }, [activeCategory, glossary]);
 
   const visibleTerms = useMemo(() => terms.slice(0, visibleCount), [terms, visibleCount]);
 
@@ -42,7 +44,7 @@ const Index = () => {
           <div className="text-center max-w-2xl mx-auto mb-6">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-medium mb-3">
               <Zap className="h-3 w-3" />
-              {allTerms.length} {t("hero.badge")}
+              {glossary.allTerms.length} {t("hero.badge")}
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2.5 tracking-tight">
               {t("hero.title.before")} <span className="gradient-text">{t("hero.title.solana")}</span> {t("hero.title.after")}

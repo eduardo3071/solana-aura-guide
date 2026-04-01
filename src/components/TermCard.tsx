@@ -1,5 +1,6 @@
 import { GlossaryTerm } from "@/lib/solana-glossary";
 import { motion } from "framer-motion";
+import { useGlossary } from "@/hooks/useGlossary";
 
 interface TermCardProps {
   term: GlossaryTerm;
@@ -24,7 +25,9 @@ const categoryColors: Record<string, string> = {
   "solana-ecosystem": "bg-accent/10 text-accent border-accent/20",
 };
 
-export function TermCard({ term, onClick, index = 0 }: TermCardProps) {
+export function TermCard({ term: rawTerm, onClick, index = 0 }: TermCardProps) {
+  const glossary = useGlossary();
+  const term = glossary.localizeTerm(rawTerm);
   const shortDef = term.definition.length > 120
     ? term.definition.slice(0, 120) + "…"
     : term.definition;

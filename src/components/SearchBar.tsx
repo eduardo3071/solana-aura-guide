@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect, useMemo } from "react";
-import { searchTerms, GlossaryTerm } from "@/lib/solana-glossary";
+import { GlossaryTerm } from "@/lib/solana-glossary";
 import { Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
+import { useGlossary } from "@/hooks/useGlossary";
 
 interface SearchBarProps {
   onSelect: (term: GlossaryTerm) => void;
@@ -32,6 +33,7 @@ export function SearchBar({ onSelect, placeholder }: SearchBarProps) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const { t } = useI18n();
+  const glossary = useGlossary();
 
   const resolvedPlaceholder = placeholder || t("search.placeholder");
 
@@ -44,8 +46,8 @@ export function SearchBar({ onSelect, placeholder }: SearchBarProps) {
 
   const results = useMemo(() => {
     if (!debouncedQuery.trim()) return [];
-    return searchTerms(debouncedQuery).slice(0, 20);
-  }, [debouncedQuery]);
+    return glossary.searchTerms(debouncedQuery).slice(0, 20);
+  }, [debouncedQuery, glossary]);
 
   useEffect(() => {
     setIsOpen(results.length > 0 && query.length > 0);

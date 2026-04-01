@@ -2341,7 +2341,7 @@
   },
   "bump": {
     "term": "Bump Seed",
-    "definition": "Um único byte (de 255 a 0) anexado aos PDA seeds para empurrar o endereço derivado para fora da curva Ed25519. find_program_address tenta bump=255 primeiro e decrementa até encontrar um PDA válido. O primeiro bump válido encontrado é o bump canônico. Sempre armazene e reutilize o bump canônico para evitar problemas de segurança."
+    "definition": "Um single byte (de 255 a 0) anexado aos PDA seeds para empurrar o endereço derivado para fora da curva Ed25519. find_program_address tenta bump=255 primeiro e decrementa até encontrar um PDA válido. O primeiro bump válido encontrado é o bump canônico. Sempre armazene e reutilize o bump canônico para evitar problemas de segurança."
   },
   "find-program-address": {
     "term": "find_program_address",
@@ -2481,7 +2481,7 @@
   },
   "discriminator": {
     "term": "Discriminador",
-    "definition": "Um identificador de 8 bytes prependido aos dados da conta e aos dados da instrução para distinguir tipos. O Anchor o calcula como os primeiros 8 bytes de `sha256('account:<AccountName>')` para contas e `sha256('global:<function_name>')` para instruções. Os discriminadores previnem ataques de type cosplay ao garantir que os dados sejam desserializados como o tipo correto."
+    "definition": "Um identificador de 8 bytes prependido aos dados da conta e aos dados da instrução para distinguir tipos. O Anchor o calcula como os primeiros 8 bytes de `sha256('account:<AccountName>')` para contas e `sha256('global:<function_name>')` para instruções. Os discriminadores prevenem ataques de type cosplay ao garantir que os dados sejam desserializados como o tipo correto."
   },
   "idl": {
     "term": "IDL (Linguagem de Definição de Interface)",
@@ -2857,7 +2857,7 @@
   },
   "dialect": {
     "term": "Dialect",
-    "definition": "Um protocolo de mensagens e notificações construído na Solana que permite a comunicação wallet-to-wallet e mensagens inteligentes dentro de dApps. O Dialect alimenta notificações on-chain para eventos DeFi (alertas de liquidação, votos de governança, preenchimentos de trade), group chats com token-gating e anúncios de protocolo. Ele se integra com carteiras Solana para entregar mensagens sensíveis ao contexto ligadas à atividade on-chain."
+    "definition": "Um protocolo de mensagens e notificações construído na Solana que permite a comunicação wallet-to-wallet e mensagens inteligentes dentro de dApps. O Dialect alimenta notificações on-chain para eventos DeFi (aler tas de liquidação, votos de governança, preenchimentos de trade), group chats com token-gating e anúncios de protocolo. Ele se integra com carteiras Solana para entregar mensagens sensíveis ao contexto ligadas à atividade on-chain."
   },
   "magic-eden": {
     "term": "Magic Eden",
@@ -2865,7 +2865,7 @@
   },
   "marginfi": {
     "term": "marginfi",
-    "definition": "Um protocolo de empréstimo e tomada de empréstimo descentralizado na Solana que permite aos usuários fornecer ativos para obter rendimento ou tomar empréstimos contra garantia. O marginfi apresenta um mecanismo de risco que avalia as correlações de ativos e o risco de concentração, pools de empréstimo isolados para ativos de maior risco e integração com a composabilidade DeFi da Solana. Ele se tornou um dos maiores protocolos de empréstimo na Solana por TVL durante 2023-2024."
+    "definition": "Um protocolo de empréstimo e tomada de empréstimo descentralizado na Solana que permite aos usuários fornecer ativos para obter rendimento ou tomar empréstimos contra garantia. O marginfi apresenta um mecanismo de risco que avalia as correlações de ativos e o risco de concentração, pools de empréstimo isolados para ativos de maior risco e integração com a composibilidade DeFi da Solana. Ele se tornou um dos maiores protocolos de empréstimo na Solana por TVL durante 2023-2024."
   },
   "solend-save": {
     "term": "Solend / Save",
@@ -3161,7 +3161,7 @@
   },
   "jump-crypto": {
     "term": "Jump Crypto",
-    "definition": "A divisão de criptomoedas da Jump Trading, uma importante empresa de negociação quantitativa. A Jump Crypto construiu o cliente validador Firedancer para Solana, representando um enorme investimento em infraestrutura na rede. A equipe também contribuiu para o desenvolvimento do Wormhole e tem sido um dos maiores contribuintes de engenharia e capital para o ecossistema Solana desde seus estágios iniciais."
+    "definition": "A divisão de criptomoedas da Jump Trading, uma importante empresa de negociação quantitativa. A Jump Crypto construiu o cliente validador Firedancer para Solana, representando um enorme investimento em infraestrutura na rede. A equipe também contribuiu para o desenvolvimento do Wormhole e tem sido um dos maiores contribuidores de engenharia e capital para o ecossistema Solana desde seus estágios iniciais."
   },
   "multicoin-capital": {
     "term": "Multicoin Capital",
@@ -3725,7 +3725,7 @@
   },
   "gm": {
     "term": "GM",
-    "definition": "Abreviação de 'Good morning' (Bom dia). Uma saudação cripto universal usada no Twitter e Discord independentemente da hora real do dia. Dizer 'gm' sinaliza pertencimento à comunidade e sentimento positivo. Responder 'gm' é um ritual que reconhece a participação compartilhada no espaço cripto. A saudação tornou-se tão difundida que gerou coleções de NFT e nomes de tokens."
+    "definition": "Abreviação de 'Good morning' (Bom dia). Uma saudação cripto universal usada no Twitter e Discord independentemente da hora real do dia. Dizer 'gm' sinaliza pertencimento à comunidade e sentimento positivo. Responder 'gm' é um ritual que reconhece a participação compartilhada no espaço cripto. A saudação tornou-se tão disseminada que gerou coleções de NFT e nomes de tokens."
   },
   "ser": {
     "term": "Ser",
@@ -3804,8 +3804,8 @@
     "definition": "Acrônimo para 'Let's F***ing Build.' Um grito de guerra da cultura construtiva que enfatiza entregar código e criar produtos em vez de especulação e trading. LFB sinaliza compromisso com o desenvolvimento e a construção em vez de ficar observando preços, distinguindo construtores de traders na comunidade Solana. Frequentemente usado durante hackathons, encontros de desenvolvedores e anúncios de entrega de projetos."
   },
   "supercycle": {
-    "term": "Supercycle",
-    "definition": "A tese de que o atual ou vindouro bull market de criptomoedas será excepcionalmente grande e prolongado, quebrando os padrões históricos de ciclos de quatro anos ligados aos halvings do Bitcoin. Os defensores do Supercycle argumentam que a adoção institucional, os fluxos para ETFs e a conscientização mainstream impulsionarão um crescimento sustentado para além dos picos anteriores. A tese é usada como justificativa para um posicionamento agressivo e para não realizar lucros nos topos de ciclo usuais."
+    "term": "Superciclo",
+    "definition": "A tese de que o atual ou vindouro bull market de criptomoedas será excepcionalmente grande e prolongado, quebrando os padrões históricos de ciclos de quatro anos ligados aos halvings do Bitcoin. Os defensores do Superciclo argumentam que a adoção institucional, os fluxos para ETFs e a conscientização mainstream impulsionarão um crescimento sustentado para além dos picos anteriores. A tese é usada como justificativa para um posicionamento agressivo e para não realizar lucros nos topos de ciclo usuais."
   },
   "jeet": {
     "term": "Jeet",
@@ -3965,7 +3965,7 @@
   },
   "bls12-381-syscall": {
     "term": "BLS12-381 Syscall",
-    "definition": "Uma syscall do runtime Solana que expõe operações de curva elíptica na curva de emparelhamento BLS12-381, incluindo adição de pontos, multiplicação escalar, multiplicação multi-escalar e verificações de emparelhamento. BLS12-381 é amplamente utilizado em sistemas modernos de prova ZK, assinaturas Ethereum 2.0 e outros protocolos criptográficos. Esta syscall permite a verificação on-chain de assinaturas BLS e provas ZK que usam a curva BLS12-381 sem o custo computacional proibitivo de uma implementação BPF pura."
+    "definition": "Uma syscall do runtime Solana que expõe operações de curva elíptica na curva de emparelhamento BLS12-381, incluindo adição de pontos, multiplicação escalar, multiplicação multi-escalar e verificações de emparelamento. BLS12-381 é amplamente utilizado em sistemas modernos de prova ZK, assinaturas Ethereum 2.0 e outros protocolos criptográficos. Esta syscall permite a verificação on-chain de assinaturas BLS e provas ZK que usam a curva BLS12-381 sem o custo computacional proibitivo de uma implementação BPF pura."
   },
   "alt-bn128-syscall": {
     "term": "alt_bn128 Syscall",

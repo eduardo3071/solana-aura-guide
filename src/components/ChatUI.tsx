@@ -5,6 +5,7 @@ import { Send, Bot, User, Sparkles, Loader2, Code2, AlertCircle } from "lucide-r
 import { motion, AnimatePresence } from "framer-motion";
 import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
 import { TermInputHighlighter } from "@/components/TermInputHighlighter";
+import { useI18n } from "@/lib/i18n";
 
 interface Message {
   id: string;
@@ -17,25 +18,14 @@ interface ChatUIProps {
   mode?: "chat" | "explain-code";
 }
 
-const DEMO_QUESTIONS = [
-  "What is PDA in Solana?",
-  "Explain accounts like I'm a beginner",
-  "How does Proof of History work?",
-  "What's the difference between Tower BFT and traditional PBFT?",
-  "What is an AMM and how does it work on Solana?",
-  "Explain ZK Compression in Solana",
-];
-
-const CODE_EXAMPLES = [
+const CODE_EXAMPLES_CODE = [
   {
-    label: "Explain PDA derivation",
     code: `let (pda, bump) = Pubkey::find_program_address(
   &[b"vault", user.key().as_ref()],
   ctx.program_id
 );`,
   },
   {
-    label: "Explain token transfer",
     code: `token::transfer(
   CpiContext::new(
     ctx.accounts.token_program.to_account_info(),
@@ -50,7 +40,6 @@ const CODE_EXAMPLES = [
   },
 ];
 
-// TermHighlightedMarkdown moved to its own file
 export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -58,6 +47,21 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const { t } = useI18n();
+
+  const DEMO_QUESTIONS = [
+    t("chat.demo.pda"),
+    t("chat.demo.accounts"),
+    t("chat.demo.poh"),
+    t("chat.demo.bft"),
+    t("chat.demo.amm"),
+    t("chat.demo.zk"),
+  ];
+
+  const CODE_EXAMPLES = [
+    { label: t("chat.code.pda_label"), code: CODE_EXAMPLES_CODE[0].code },
+    { label: t("chat.code.transfer_label"), code: CODE_EXAMPLES_CODE[1].code },
+  ];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -138,13 +142,10 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
               )}
             </div>
             <h3 className="text-base font-semibold text-foreground mb-1">
-              {isExplainCode ? "Explain Solana Code" : "Solana Dev Copilot"}
+              {isExplainCode ? t("chat.explain_title") : t("chat.title")}
             </h3>
             <p className="text-sm text-muted-foreground mb-6 max-w-sm">
-              {isExplainCode
-                ? "Paste any Solana/Anchor code and I'll explain every concept using the official glossary with 1001 terms."
-                : "Ask me anything about Solana development. I use the official glossary (1001 terms) + AI to give you accurate, contextual answers."
-              }
+              {isExplainCode ? t("chat.explain_subtitle") : t("chat.subtitle")}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-lg">
               {isExplainCode
@@ -218,7 +219,7 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
             </div>
             <div className="bg-secondary rounded-lg px-4 py-3 flex items-center gap-1.5">
               <Loader2 className="h-3 w-3 text-primary animate-spin" />
-              <span className="text-xs text-muted-foreground">Thinking…</span>
+              <span className="text-xs text-muted-foreground">{t("chat.thinking")}</span>
             </div>
           </motion.div>
         )}
@@ -251,7 +252,7 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder={isExplainCode ? "Paste Solana code to explain…" : "Ask about Solana concepts…"}
+            placeholder={isExplainCode ? t("chat.explain_placeholder") : t("chat.placeholder")}
             rows={1}
             className="flex-1 resize-none bg-secondary border border-border rounded-lg pl-4 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all min-h-[44px] max-h-32 font-sans"
             style={{ height: "44px" }}

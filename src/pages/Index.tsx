@@ -24,11 +24,14 @@ const Index = () => {
 
   const visibleTerms = useMemo(() => terms.slice(0, visibleCount), [terms, visibleCount]);
 
-  // Reset visible count on category change
   const handleCategoryChange = (cat: Category | null) => {
     setActiveCategory(cat);
     setVisibleCount(ITEMS_PER_PAGE);
   };
+
+  const categoryTitle = activeCategory
+    ? `${t(`cat.${activeCategory}` as any) || activeCategory} ${t("category.terms_suffix")}`
+    : t("category.all_terms");
 
   return (
     <div className="min-h-[calc(100vh-3.5rem)]">
@@ -84,7 +87,7 @@ const Index = () => {
         <div className="mb-5">
           <h2 className="text-sm font-semibold text-foreground mb-2.5 flex items-center gap-2">
             <Search className="h-3.5 w-3.5 text-primary" />
-            Categories
+            {t("category.categories")}
           </h2>
           <CategoryGrid onSelectCategory={handleCategoryChange} activeCategory={activeCategory} />
         </div>
@@ -94,11 +97,9 @@ const Index = () => {
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-sm font-semibold text-foreground">
-                {activeCategory
-                  ? `${activeCategory.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")} Terms`
-                  : "All Terms"}
+                {categoryTitle}
               </h2>
-              <span className="text-xs text-muted-foreground">{terms.length} terms</span>
+              <span className="text-xs text-muted-foreground">{terms.length} {t("category.terms_count")}</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
               {visibleTerms.map((term, i) => (
@@ -111,7 +112,7 @@ const Index = () => {
                   onClick={() => setVisibleCount((c) => c + ITEMS_PER_PAGE)}
                   className="px-6 py-2 rounded-lg bg-secondary border border-border text-sm font-medium text-foreground hover:bg-surface-hover transition-all"
                 >
-                  Load more ({terms.length - visibleCount} remaining)
+                  {t("category.load_more")} ({terms.length - visibleCount} {t("category.remaining")})
                 </button>
               </div>
             )}

@@ -2,6 +2,7 @@ import { GlossaryTerm, getRelatedTerms } from "@/lib/solana-glossary";
 import { motion } from "framer-motion";
 import { X, ArrowRight, BookOpen, Tag } from "lucide-react";
 import { UsageExample } from "@/components/UsageExample";
+import { useI18n } from "@/lib/i18n";
 
 interface TermDetailPanelProps {
   term: GlossaryTerm;
@@ -29,6 +30,7 @@ const categoryColors: Record<string, string> = {
 export function TermDetailPanel({ term, onClose, onNavigate }: TermDetailPanelProps) {
   const related = getRelatedTerms(term.id);
   const catColor = categoryColors[term.category] || "text-muted-foreground bg-muted";
+  const { t } = useI18n();
 
   return (
     <motion.div
@@ -41,7 +43,7 @@ export function TermDetailPanel({ term, onClose, onNavigate }: TermDetailPanelPr
         <div className="flex items-center gap-2">
           <BookOpen className="h-3.5 w-3.5 text-primary" />
           <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${catColor}`}>
-            {term.category}
+            {t(`cat.${term.category}` as any) || term.category}
           </span>
         </div>
         <button onClick={onClose} className="text-muted-foreground hover:text-foreground transition-colors">
@@ -69,7 +71,7 @@ export function TermDetailPanel({ term, onClose, onNavigate }: TermDetailPanelPr
       {related.length > 0 && (
         <div>
           <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-            Related Terms
+            {t("term.related")}
           </h3>
           <div className="space-y-1">
             {related.map((r) => (

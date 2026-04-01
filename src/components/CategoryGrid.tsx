@@ -4,39 +4,42 @@ import {
   Blocks, Shield, Coins, Code2, Globe, Lock, Database, Layers,
   Cpu, Network, Brain, Puzzle, Wrench, Boxes
 } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 interface CategoryGridProps {
   onSelectCategory: (category: Category | null) => void;
   activeCategory: Category | null;
 }
 
-const categoryMeta: Record<string, { icon: React.ElementType; label: string; color: string }> = {
-  "core-protocol": { icon: Blocks, label: "Core Protocol", color: "text-primary" },
-  "programming-model": { icon: Code2, label: "Programming Model", color: "text-blue-400" },
-  "token-ecosystem": { icon: Coins, label: "Token Ecosystem", color: "text-yellow-400" },
-  "defi": { icon: Layers, label: "DeFi", color: "text-emerald-400" },
-  "zk-compression": { icon: Cpu, label: "ZK Compression", color: "text-violet-400" },
-  "infrastructure": { icon: Network, label: "Infrastructure", color: "text-orange-400" },
-  "security": { icon: Shield, label: "Security", color: "text-red-400" },
-  "dev-tools": { icon: Wrench, label: "Dev Tools", color: "text-cyan-400" },
-  "network": { icon: Globe, label: "Network", color: "text-teal-400" },
-  "blockchain-general": { icon: Boxes, label: "Blockchain General", color: "text-slate-400" },
-  "web3": { icon: Puzzle, label: "Web3", color: "text-pink-400" },
-  "programming-fundamentals": { icon: Database, label: "Programming", color: "text-indigo-400" },
-  "ai-ml": { icon: Brain, label: "AI / ML", color: "text-purple-400" },
-  "solana-ecosystem": { icon: Lock, label: "Solana Ecosystem", color: "text-accent" },
+const categoryIcons: Record<string, { icon: React.ElementType; color: string }> = {
+  "core-protocol": { icon: Blocks, color: "text-primary" },
+  "programming-model": { icon: Code2, color: "text-blue-400" },
+  "token-ecosystem": { icon: Coins, color: "text-yellow-400" },
+  "defi": { icon: Layers, color: "text-emerald-400" },
+  "zk-compression": { icon: Cpu, color: "text-violet-400" },
+  "infrastructure": { icon: Network, color: "text-orange-400" },
+  "security": { icon: Shield, color: "text-red-400" },
+  "dev-tools": { icon: Wrench, color: "text-cyan-400" },
+  "network": { icon: Globe, color: "text-teal-400" },
+  "blockchain-general": { icon: Boxes, color: "text-slate-400" },
+  "web3": { icon: Puzzle, color: "text-pink-400" },
+  "programming-fundamentals": { icon: Database, color: "text-indigo-400" },
+  "ai-ml": { icon: Brain, color: "text-purple-400" },
+  "solana-ecosystem": { icon: Lock, color: "text-accent" },
 };
 
 export function CategoryGrid({ onSelectCategory, activeCategory }: CategoryGridProps) {
   const categories = getCategories();
+  const { t } = useI18n();
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
       {categories.map((cat, i) => {
-        const meta = categoryMeta[cat] || { icon: Blocks, label: cat, color: "text-muted-foreground" };
+        const meta = categoryIcons[cat] || { icon: Blocks, color: "text-muted-foreground" };
         const Icon = meta.icon;
         const count = getTermsByCategory(cat).length;
         const isActive = activeCategory === cat;
+        const label = t(`cat.${cat}` as any) || cat;
 
         return (
           <motion.button
@@ -52,7 +55,7 @@ export function CategoryGrid({ onSelectCategory, activeCategory }: CategoryGridP
             }`}
           >
             <Icon className={`h-3.5 w-3.5 mb-1 ${meta.color}`} />
-            <p className="text-[11px] font-medium text-foreground truncate">{meta.label}</p>
+            <p className="text-[11px] font-medium text-foreground truncate">{label}</p>
             <p className="text-[10px] text-muted-foreground">{count}</p>
           </motion.button>
         );

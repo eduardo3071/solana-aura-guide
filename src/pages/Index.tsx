@@ -3,11 +3,12 @@ import { SearchBar } from "@/components/SearchBar";
 import { TermCard } from "@/components/TermCard";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { TermDetailPanel } from "@/components/TermDetailPanel";
-import { getAllTerms, getTermsByCategory, GlossaryTerm, Category, allTerms } from "@/lib/solana-glossary";
+import { GlossaryTerm, Category } from "@/lib/solana-glossary";
 import { AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { MessageSquare, Zap, BookOpen, Search, Code2 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { useGlossary } from "@/hooks/useGlossary";
 
 const ITEMS_PER_PAGE = 60;
 

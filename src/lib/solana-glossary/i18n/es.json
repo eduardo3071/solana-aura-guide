@@ -600,804 +600,804 @@
     "definition": "Un poseedor de SOL que delega tokens al stake de un validador sin ejecutar un nodo él mismo. Los delegadores obtienen una parte de las recompensas por inflación proporcional a su stake, menos la comisión del validador (típicamente 0-10%). La delegación no es custodial: el delegador conserva la capacidad de redelegar o retirar en cualquier momento."
   },
   "fork": {
-    "term": "Fork",
-    "definition": "A divergence in the blockchain where two or more blocks are produced for the same slot or different validators build on different parent blocks. Forks are common during normal operation and are resolved by Tower BFT's fork-choice rule. Only one fork ultimately becomes the canonical chain; transactions on abandoned forks are dropped."
+    "term": "Bifurcación (Fork)",
+    "definition": "Una divergencia en la blockchain donde se producen dos o más bloques para el mismo slot o diferentes validadores construyen sobre diferentes bloques padre. Las bifurcaciones son comunes durante la operación normal y se resuelven mediante la regla de elección de bifurcación de Tower BFT. Solo una bifurcación se convierte finalmente en la cadena canónica; las transacciones en bifurcaciones abandonadas se descartan."
   },
   "fork-choice": {
-    "term": "Fork Choice",
-    "definition": "The algorithm validators use to decide which fork to build upon when multiple competing chains exist. Solana combines Tower BFT voting weight (stake-weighted votes with lockout) and a GHOST-like rule to select the fork with the heaviest cumulative stake support."
+    "term": "Elección de Bifurcación (Fork Choice)",
+    "definition": "El algoritmo que utilizan los validadores para decidir sobre qué bifurcación construir cuando existen múltiples cadenas competidoras. Solana combina el peso de votación de Tower BFT (votos ponderados por stake con bloqueo) y una regla tipo GHOST para seleccionar la bifurcación con el soporte acumulativo de stake más pesado."
   },
   "ghost": {
     "term": "GHOST (Greedy Heaviest Observed SubTree)",
-    "definition": "Greedy Heaviest Observed SubTree—a fork-choice rule where validators select the fork that has the most cumulative stake-weighted votes. Unlike longest-chain rules, GHOST considers all votes in the tree, not just the tip. Solana's implementation weighs votes by stake and factors in Tower BFT lockout periods."
+    "definition": "Greedy Heaviest Observed SubTree — una regla de elección de bifurcación donde los validadores seleccionan la bifurcación que tiene la mayor cantidad acumulativa de votos ponderados por stake. A diferencia de las reglas de cadena más larga, GHOST considera todos los votos en el árbol, no solo la punta. La implementación de Solana pondera los votos por stake y considera los períodos de bloqueo de Tower BFT."
   },
   "entry": {
     "term": "Entrada",
-    "definition": "An ordered unit within a block containing a mix of PoH ticks and transaction batches. Each entry includes a PoH hash, a count of hashes since the previous entry, and zero or more transactions. Entries without transactions are tick entries that advance the PoH clock; entries with transactions prove those transactions occurred between two points in time."
+    "definition": "Una unidad ordenada dentro de un bloque que contiene una mezcla de ticks de PoH y lotes de transacciones. Cada entrada incluye un hash PoH, un recuento de hashes desde la entrada anterior y cero o más transacciones. Las entradas sin transacciones son entradas de tick que avanzan el reloj PoH; las entradas con transacciones prueban que esas transacciones ocurrieron entre dos puntos en el tiempo."
   },
   "tick": {
     "term": "Tick",
-    "definition": "A PoH entry with zero transactions that advances the clock. There are 64 ticks per slot by default, each representing a fixed number of SHA-256 hash iterations. Ticks establish the passage of time even when no transactions are being processed, maintaining the PoH chain continuity."
+    "definition": "Una entrada PoH con cero transacciones que avanza el reloj. Hay 64 ticks por slot de forma predeterminada, cada uno representando un número fijo de iteraciones de hash SHA-256. Los ticks establecen el paso del tiempo incluso cuando no se están procesando transacciones, manteniendo la continuidad de la cadena PoH."
   },
   "shred": {
     "term": "Shred",
-    "definition": "The smallest unit of block data propagated through the network via Turbine. Blocks are split into shreds of up to 1,228 bytes each (fitting in a single UDP packet). Shreds are Reed-Solomon erasure coded—typically 32 data shreds produce 32 recovery shreds—so blocks can be reconstructed even if up to half the shreds are lost."
+    "definition": "La unidad más pequeña de datos de bloque propagada a través de la red vía Turbine. Los bloques se dividen en shreds de hasta 1,228 bytes cada uno (que caben en un solo paquete UDP). Los shreds se codifican con borrado Reed-Solomon —típicamente 32 shreds de datos producen 32 shreds de recuperación— para que los bloques puedan reconstruirse incluso si se pierde hasta la mitad de los shreds."
   },
   "turbine": {
     "term": "Turbine",
-    "definition": "Solana's block propagation protocol inspired by BitTorrent. Instead of the leader sending a full block to every validator, Turbine organizes validators into a layered tree and propagates shreds through successive tiers. Each node forwards shreds to a small fanout set, reducing the leader's bandwidth requirement from O(n) to O(log n)."
+    "definition": "El protocolo de propagación de bloques de Solana inspirado en BitTorrent. En lugar de que el líder envíe un bloque completo a cada validador, Turbine organiza a los validadores en un árbol en capas y propaga los shreds a través de niveles sucesivos. Cada nodo reenvía los shreds a un pequeño conjunto de fanout, reduciendo el requisito de ancho de banda del líder de O(n) a O(log n)."
   },
   "erasure-coding": {
-    "term": "Erasure Coding",
-    "definition": "A Reed-Solomon error-correction scheme applied to shreds during block propagation. The leader encodes each batch of 32 data shreds into 32 additional recovery (parity) shreds. Any 32 of the 64 total shreds are sufficient to reconstruct the original data, providing 50% loss tolerance during Turbine propagation."
+    "term": "Codificación por Borrado (Erasure Coding)",
+    "definition": "Un esquema de corrección de errores Reed-Solomon aplicado a los shreds durante la propagación de bloques. El líder codifica cada lote de 32 shreds de datos en 32 shreds de recuperación (paridad) adicionales. Cualquier 32 de los 64 shreds totales son suficientes para reconstruir los datos originales, proporcionando una tolerancia a pérdidas del 50% durante la propagación de Turbine."
   },
   "block-propagation": {
-    "term": "Block Propagation",
-    "definition": "The process of distributing a newly produced block from the leader to all validators in the cluster. Solana uses Turbine for fast propagation—the leader shreds the block, erasure-codes the shreds, and feeds them into the Turbine tree. Target propagation latency is under 200ms for the full cluster."
+    "term": "Propagación de Bloques (Block Propagation)",
+    "definition": "El proceso de distribuir un bloque recién producido desde el líder a todos los validadores en el cluster. Solana utiliza Turbine para una propagación rápida: el líder desmenuza el bloque, codifica por borrado los shreds y los introduce en el árbol Turbine. La latencia de propagación objetivo es inferior a 200 ms para todo el cluster."
   },
   "gossip": {
     "term": "Protocolo Gossip",
-    "definition": "A protocol used by validators to exchange metadata and discover peers without relying on a central server. Gossip propagates contact info, vote status, shred versions, epoch slots, and other protocol messages via CRDS. It does not carry transaction or block data—those use TPU and Turbine respectively."
+    "definition": "Un protocolo utilizado por los validadores para intercambiar metadatos y descubrir pares sin depender de un servidor central. Gossip propaga información de contacto, estado de voto, versiones de shred, slots de época y otros mensajes de protocolo a través de CRDS. No transporta datos de transacciones o bloques, esos utilizan TPU y Turbine, respectivamente."
   },
   "crds": {
     "term": "CRDS (Cluster Replicated Data Store)",
-    "definition": "Cluster Replicated Data Store—the data structure underlying Solana's gossip protocol. CRDS uses a push/pull model where validators exchange versioned, signed records (contact info, vote state, epoch slots). Records have wallclock timestamps and are pruned when stale. Each record is keyed by (source pubkey, label)."
+    "definition": "Cluster Replicated Data Store — la estructura de datos subyacente al protocolo gossip de Solana. CRDS utiliza un modelo push/pull donde los validadores intercambian registros versionados y firmados (información de contacto, estado de voto, slots de época). Los registros tienen marcas de tiempo de reloj de pared y se podan cuando están obsoletos. Cada registro se indexa por (public key de origen, etiqueta)."
   },
   "tpu": {
     "term": "TPU (Unidad de Procesamiento de Transacciones)",
-    "definition": "Transaction Processing Unit—the pipeline within a leader validator that ingests, verifies, and executes transactions. The TPU has stages: fetch (receive packets via QUIC), sigverify (verify Ed25519 signatures), banking (execute against current bank state), and broadcast (shred and send via Turbine). Non-leader validators forward transactions to the current leader's TPU."
+    "definition": "Transaction Processing Unit — la tubería dentro de un validador líder que ingesta, verifica y ejecuta transacciones. La TPU tiene etapas: fetch (recibir paquetes vía QUIC), sigverify (verificar firmas Ed25519), banking (ejecutar contra el estado actual del bank) y broadcast (desmenuzar y enviar vía Turbine). Los validadores no líderes reenvían las transacciones a la TPU del líder actual."
   },
   "tvu": {
     "term": "TVU (Unidad de Validación de Transacciones)",
-    "definition": "Transaction Validation Unit—the pipeline on non-leader validators that receives shreds, reconstructs blocks, and replays transactions. TVU stages include: shred-fetch, retransmit, replay (execute transactions and verify results), and vote (submit Tower BFT votes). TVU runs continuously on all validators."
+    "definition": "Transaction Validation Unit — el pipeline en validadores no líderes que recibe shreds, reconstruye bloques y reproduce transacciones. Las etapas de la TVU incluyen: shred-fetch, retransmisión, replay (ejecutar transacciones y verificar resultados) y voto (enviar votos Tower BFT). La TVU se ejecuta continuamente en todos los validadores."
   },
   "replay-stage": {
     "term": "Etapa de Replay",
-    "definition": "The TVU component that replays received blocks by re-executing all transactions against the bank state. Replay stage verifies that transaction results match the leader's claimed results, updates the bank, and generates Tower BFT votes for valid blocks. If a replayed block is invalid, the validator marks that fork as dead."
+    "definition": "El componente de la TVU que reproduce los bloques recibidos reejecutando todas las transacciones contra el estado del bank. La etapa de replay verifica que los resultados de las transacciones coincidan con los resultados reclamados por el líder, actualiza el bank y genera votos de Tower BFT para los bloques válidos. Si un bloque reproducido no es válido, el validador marca esa bifurcación como muerta."
   },
   "bank": {
     "term": "Bank",
-    "definition": "An in-memory representation of the accounts state at a specific slot. Each slot gets its own Bank that inherits from its parent slot's Bank. The Bank processes transactions, updates account balances, and tracks execution results. Once a slot is complete, the Bank is frozen and can be snapshotted or used as a parent for the next Bank."
+    "definition": "Una representación en memoria del estado de las cuentas en un slot específico. Cada slot tiene su propio Bank que hereda del Bank de su slot padre. El Bank procesa transacciones, actualiza los saldos de las cuentas y rastrea los resultados de la ejecución. Una vez que un slot se completa, el Bank se congela y puede ser guardado en un snapshot o utilizado como padre para el siguiente Bank."
   },
   "accounts-db": {
     "term": "AccountsDB",
-    "definition": "The persistent storage layer for all Solana accounts. AccountsDB stores account data in memory-mapped AppendVec files, indexed by pubkey and slot. It supports fast lookups, handles account deduplication across slots, and periodically cleans up dead accounts. AccountsDB is the largest consumer of validator disk space."
+    "definition": "La capa de almacenamiento persistente para todas las cuentas de Solana. AccountsDB almacena datos de cuentas en archivos AppendVec mapeados en memoria, indexados por pubkey y slot. Soporta búsquedas rápidas, maneja la deduplicación de cuentas entre slots y periódicamente limpia cuentas muertas. AccountsDB es el mayor consumidor de espacio en disco del validador."
   },
   "append-vec": {
     "term": "AppendVec",
-    "definition": "A memory-mapped, append-only file used by AccountsDB to store account data. Each AppendVec corresponds to a specific slot and contains serialized account entries (pubkey, lamports, data, owner, etc.). AppendVecs are immutable once the slot is rooted, enabling efficient snapshotting and cleanup."
+    "definition": "Un archivo mapeado en memoria, de solo adición, utilizado por AccountsDB para almacenar datos de cuentas. Cada AppendVec corresponde a un slot específico y contiene entradas de cuenta serializadas (pubkey, lamports, data, owner, etc.). Los AppendVecs son inmutables una vez que el slot estárooted, lo que permite la creación eficiente de snapshots y la limpieza."
   },
   "snapshot": {
     "term": "Snapshot",
-    "definition": "A serialized copy of the full accounts state at a rooted slot, used for fast validator bootstrapping. Full snapshots contain all accounts; incremental snapshots contain only accounts modified since the last full snapshot. New validators download a snapshot instead of replaying the entire ledger history, reducing sync time from days to minutes."
+    "definition": "Una copia serializada del estado completo de las cuentas en un slot rooted, utilizada para el arranque rápido de validadores. Los snapshots completos contienen todas las cuentas; los snapshots incrementales contienen solo las cuentas modificadas desde el último snapshot completo. Los nuevos validadores descargan un snapshot en lugar de reproducir todo el historial del ledger, reduciendo el tiempo de sincronización de días a minutos."
   },
   "blockstore": {
     "term": "Blockstore",
-    "definition": "A RocksDB-based database that stores raw shreds and block metadata on the validator's disk. Blockstore indexes shreds by slot and shred index, enabling block reconstruction and historical queries. It is separate from AccountsDB—Blockstore holds the ledger history while AccountsDB holds the current state."
+    "definition": "Una base de datos basada en RocksDB que almacena shreds y metadatos de bloques en el disco del validador. Blockstore indexa los shreds por slot y por índice de shred, lo que permite la reconstrucción de bloques y consultas históricas. Es independiente de AccountsDB: Blockstore guarda el historial del ledger, mientras que AccountsDB guarda el estado actual."
   },
   "ledger": {
     "term": "Libro Mayor (Ledger)",
-    "definition": "The complete ordered history of all transactions processed by the Solana cluster. The ledger is composed of sequential blocks (one per slot), each containing entries of transactions ordered by PoH. Validators store the ledger locally in Blockstore, and warehouse nodes or Bigtable archives provide long-term historical access."
+    "definition": "El historial completo y ordenado de todas las transacciones procesadas por el cluster de Solana. El ledger se compone de bloques secuenciales (uno por slot), cada uno conteniendo entradas de transacciones ordenadas por PoH. Los validadores almacenan el ledger localmente en Blockstore, y los nodos de almacén o los archivos de Bigtable proporcionan acceso histórico a largo plazo."
   },
   "genesis-block": {
     "term": "Bloque Génesis",
-    "definition": "The first block (slot 0) of a Solana cluster that defines initial configuration: the mint account, initial token supply, built-in program deployments, and cluster parameters. The genesis config is generated by the `solana-genesis` tool and shared among all validators to bootstrap a new cluster."
+    "definition": "El primer bloque (slot 0) de un cluster de Solana que define la configuración inicial: la cuenta minter, el suministro inicial de tokens, los despliegues de programas incorporados y los parámetros del cluster. La configuración de génesis es generada por la herramienta `solana-genesis` y compartida entre todos los validadores para arrancar un nuevo cluster."
   },
   "sealevel": {
     "term": "Sealevel",
-    "definition": "Solana's parallel transaction execution engine. Sealevel can process thousands of transactions simultaneously by analyzing each transaction's declared account inputs—transactions that don't touch the same writable accounts run in parallel across available CPU cores. This account-level parallelism is what enables Solana's high throughput."
+    "definition": "El motor de ejecución de transacciones paralelas de Solana. Sealevel puede procesar miles de transacciones simultáneamente analizando las entradas de cuentas declaradas de cada transacción; las transacciones que no tocan las mismas cuentas escribibles se ejecutan en paralelo a través de los núcleos de CPU disponibles. Este paralelismo a nivel de cuenta es lo que permite el alto rendimiento de Solana."
   },
   "svm": {
     "term": "SVM (Máquina Virtual Solana)",
-    "definition": "The Solana Virtual Machine—the execution environment that runs on-chain programs. SVM loads SBF bytecode, provides syscalls for account access and cryptographic operations, enforces compute budgets, and manages memory. The SVM is being modularized (via the SVM API) to enable use in rollups and other environments outside the main Solana validator."
+    "definition": "La Solana Virtual Machine: el entorno de ejecución que ejecuta programas en cadena. La SVM carga el bytecode SBF, proporciona syscalls para el acceso a cuentas y operaciones criptográficas, aplica presupuestos de cómputo y gestiona la memoria. La SVM se está modularizando (a través de la SVM API) para permitir su uso en rollups y otros entornos fuera del validador principal de Solana."
   },
   "bpf": {
     "term": "BPF (Berkeley Packet Filter)",
-    "definition": "Berkeley Packet Filter—the original bytecode format used for Solana programs, inherited from Linux's eBPF. Programs written in Rust or C are compiled to BPF bytecode and executed in a sandboxed VM. BPF has been superseded by SBF on Solana but the tooling names (BPF Loader, cargo build-bpf) persist for historical reasons."
+    "definition": "Berkeley Packet Filter — el formato de bytecode original utilizado para los programas de Solana, heredado del eBPF de Linux. Los programas escritos en Rust o C se compilan a bytecode BPF y se ejecutan en una VM en un entorno aislado. BPF ha sido superado por SBF en Solana, pero los nombres de las herramientas (BPF Loader, cargo build-bpf) persisten por razones históricas."
   },
   "sbf": {
     "term": "SBF (Formato de Bytecode Solana)",
-    "definition": "Solana Bytecode Format—Solana's customized evolution of BPF. SBF adds Solana-specific syscalls, modifies calling conventions, disables certain eBPF instructions, and adds features like position-independent code. Programs are compiled with `cargo build-sbf` and deployed as SBF ELF binaries. SBF replaced BPF as the canonical bytecode format."
+    "definition": "Solana Bytecode Format — la evolución personalizada de BPF de Solana. SBF añade syscalls específicos de Solana, modifica las convenciones de llamada, deshabilita ciertas instrucciones de eBPF y añade características como el código independiente de la posición. Los programas se compilan con `cargo build-sbf` y se implementan como binarios SBF ELF. SBF reemplazó a BPF como formato canónico de bytecode."
   },
   "vdf": {
     "term": "VDF (Función de Retardo Verificable)",
-    "definition": "Verifiable Delay Function—a function that takes a prescribed amount of sequential computation to evaluate but whose output can be quickly verified. Solana's Proof of History uses a SHA-256 hash chain as a practical VDF: computing the chain is inherently sequential, but verifying any segment can be parallelized across multiple cores."
+    "definition": "Función de Retardo Verificable: una función que requiere una cantidad prescrita de cómputo secuencial para ser evaluada, pero cuyo resultado puede verificarse rápidamente. La Proof of History de Solana utiliza una cadena de hash SHA-256 como una VDF práctica: calcular la cadena es inherentemente secuencial, pero verificar cualquier segmento se puede paralelizar en múltiples núcleos."
   },
   "sha256-hash-chain": {
     "term": "Cadena de Hash SHA-256",
-    "definition": "The core mechanism of Proof of History. A SHA-256 hash is computed sequentially—each hash takes the previous hash as input—creating an ordered, unforgeable timestamp sequence. The PoH generator runs approximately 400,000 hashes per slot. Data (transactions) can be inserted into the chain by mixing their hash with the current state."
+    "definition": "El mecanismo central de Proof of History. Un hash SHA-256 se calcula secuencialmente —cada hash toma como entrada el hash anterior— creando una secuencia de tiempo ordenada e inalterable. El generador de PoH ejecuta aproximadamente 400,000 hashes por slot. Los datos (transacciones) pueden insertarse en la cadena mezclando su hash con el estado actual."
   },
   "finality": {
     "term": "Finalidad",
-    "definition": "The guarantee that a transaction cannot be reversed. Solana offers two levels: optimistic confirmation (~400ms, 66.7%+ stake voted) and full finality (~12-13 seconds, 31+ confirmations rooted). Once a slot is rooted, its transactions are irreversible under the assumption that no more than 1/3 of stake is malicious."
+    "definition": "La garantía de que una transacción no puede ser revertida. Solana ofrece dos niveles: confirmación optimista (~400ms, 66.7%+ del stake votó) y finalidad completa (~12-13 segundos, 31+ confirmaciones rooted). Una vez que un slot está rooted, sus transacciones son irreversibles bajo el supuesto de que no más de 1/3 del stake es malicioso."
   },
   "confirmation": {
-    "term": "Confirmation",
-    "definition": "A vote by a validator on a block, weighted by the validator's stake. The more stake-weighted confirmations a slot receives, the higher the confidence it will be finalized. RPC methods accept commitment levels (processed, confirmed, finalized) to specify the required confirmation threshold."
+    "term": "Confirmación",
+    "definition": "Un voto de un validador sobre un bloque, ponderado por el stake del validador. Cuantas más confirmaciones ponderadas por stake recibe un slot, mayor es la confianza de que se finalizará. Los métodos RPC aceptan niveles de compromiso (processed, confirmed, finalized) para especificar el umbral de confirmación requerido."
   },
   "optimistic-confirmation": {
     "term": "Confirmación Optimista",
-    "definition": "A transaction confirmation level achieved when 66.7%+ of total stake has voted on the slot, typically within ~400ms. Optimistic confirmation provides high probability of finality without waiting for full root depth. It corresponds to the 'confirmed' commitment level in RPC queries."
+    "definition": "Un nivel de confirmación de transacción logrado cuando el 66.7%+ del stake total ha votado en el slot, típicamente dentro de ~400ms. La confirmación optimista proporciona una alta probabilidad de finalidad sin esperar la profundidad completa de root. Corresponde al nivel de compromiso 'confirmed' en las consultas RPC."
   },
   "rooted": {
     "term": "Rooted",
-    "definition": "A slot that has been finalized by achieving maximum lockout in Tower BFT—meaning 31+ consecutive confirmations have been built on top of it. Once rooted, a slot and its transactions are considered irreversible. Rooted corresponds to the 'finalized' commitment level and takes approximately 12-13 seconds."
+    "definition": "Un slot que ha sido finalizado al alcanzar el 'lockout' máximo en Tower BFT —lo que significa que se han construido 31+ confirmaciones consecutivas encima de él. Una vez rooted, un slot y sus transacciones se consideran irreversibles. Rooted corresponde al nivel de compromiso 'finalized' y toma aproximadamente 12-13 segundos."
   },
   "commitment-levels": {
     "term": "Niveles de Compromiso",
-    "definition": "The three transaction confirmation tiers exposed by Solana RPC: 'processed' (transaction executed by leader, not yet voted on), 'confirmed' (optimistic confirmation—66.7%+ stake voted, ~400ms), and 'finalized' (rooted—31+ confirmations, ~12-13s). Applications choose the level based on their security vs. latency requirements."
+    "definition": "Los tres niveles de confirmación de transacciones expuestos por Solana RPC: 'processed' (transacción ejecutada por el líder, aún no votada), 'confirmed' (confirmación optimista —66.7%+ del stake votó, ~400ms), y 'finalized' (rooted —31+ confirmaciones, ~12-13s). Las aplicaciones eligen el nivel basándose en sus requisitos de seguridad vs. latencia."
   },
   "lockout": {
     "term": "Lockout",
-    "definition": "The period during which a Tower BFT vote prevents a validator from switching to a competing fork. Lockouts double with each consecutive confirmation: vote depth 1 = 2-slot lockout, depth 2 = 4 slots, etc. This exponential lockout makes it increasingly expensive for validators to change their vote, providing economic finality."
+    "definition": "El período durante el cual un voto de Tower BFT impide que un validador cambie a un fork competidor. Los 'lockouts' se duplican con cada confirmación consecutiva: profundidad de voto 1 = 'lockout' de 2 slots, profundidad 2 = 4 slots, etc. Este 'lockout' exponencial hace que sea cada vez más costoso para los validadores cambiar su voto, proporcionando finalidad económica."
   },
   "supermajority": {
     "term": "Supermayoría",
-    "definition": "A threshold of more than 2/3 (66.7%) of total active stake agreeing on a particular fork. Supermajority is required for optimistic confirmation and, through sustained voting, for finality (rooting). If supermajority is lost (e.g., too many validators offline), the cluster halts until it recovers."
+    "definition": "Un umbral de más de 2/3 (66.7%) del stake activo total que está de acuerdo en un fork particular. Se requiere una supermayoría para la confirmación optimista y, a través de una votación sostenida, para la finalidad (rooting). Si se pierde la supermayoría (por ejemplo, demasiados validadores fuera de línea), el clúster se detiene hasta que se recupera."
   },
   "cluster": {
     "term": "Clúster",
-    "definition": "A set of validators working together to maintain a single Solana ledger. Solana operates three main clusters: mainnet-beta (production), devnet (development), and testnet (stress testing). Each cluster has its own genesis block, token supply, and independent validator set. Validators in a cluster discover each other via the gossip protocol."
+    "definition": "Un conjunto de validadores que trabajan juntos para mantener un único libro mayor de Solana. Solana opera tres clústeres principales: mainnet-beta (producción), devnet (desarrollo) y testnet (pruebas de estrés). Cada clúster tiene su propio bloque de génesis, suministro de tokens y conjunto de validadores independiente. Los validadores en un clúster se descubren entre sí a través del protocolo gossip."
   },
   "runtime": {
     "term": "Runtime",
-    "definition": "The component of the SVM responsible for loading programs, enforcing account access rules (ownership, writability, signer checks), managing compute budgets, and executing transactions. The runtime ensures programs can only modify accounts they own, charges rent, and enforces the 10MB per-transaction account data limit."
+    "definition": "El componente de la SVM responsable de cargar programas, hacer cumplir las reglas de acceso a las cuentas (propiedad, escriturabilidad, comprobaciones de firmante), gestionar los presupuestos de cómputo y ejecutar transacciones. El runtime asegura que los programas solo pueden modificar las cuentas de su propiedad, cobra alquiler y aplica el límite de 10MB de datos por cuenta por transacción."
   },
   "firedancer": {
     "term": "Firedancer",
-    "definition": "A from-scratch Solana validator client written in C by Jump Crypto. Firedancer aims for significant performance improvements through a tiled, zero-copy architecture and hardware-optimized networking. It provides client diversity—critical for network resilience—and targets 1M+ TPS. Frankendancer is the intermediate version running Firedancer's networking stack with the Agave execution engine."
+    "definition": "Un cliente validador de Solana escrito desde cero en C por Jump Crypto. Firedancer apunta a mejoras significativas de rendimiento a través de una arquitectura en mosaico, sin copias, y redes optimizadas para hardware. Proporciona diversidad de clientes —crítica para la resiliencia de la red— y apunta a más de 1M TPS. Frankendancer es la versión intermedia que ejecuta la pila de red de Firedancer con el motor de ejecución Agave."
   },
   "frankendancer": {
     "term": "Frankendancer",
-    "definition": "A hybrid Solana validator client that combines Firedancer's high-performance networking and block production components (written in C by Jump Crypto) with Agave's execution and replay engine. Frankendancer serves as a stepping stone toward full Firedancer, allowing validators to benefit from networking improvements while maintaining execution compatibility."
+    "definition": "Un cliente validador híbrido de Solana que combina los componentes de red de alto rendimiento y producción de bloques de Firedancer (escritos en C por Jump Crypto) con el motor de ejecución y reproducción de Agave. Frankendancer sirve como un paso intermedio hacia Firedancer completo, permitiendo a los validadores beneficiarse de las mejoras de red mientras mantienen la compatibilidad de ejecución."
   },
   "agave": {
     "term": "Agave",
-    "definition": "The Rust-based Solana validator client maintained by Anza (formerly Solana Labs). Agave is the original and most widely deployed validator implementation. It handles all aspects of validation: TPU, TVU, gossip, AccountsDB, and RPC. The name 'Agave' was adopted to distinguish it from the Firedancer client."
+    "definition": "El cliente validador de Solana basado en Rust mantenido por Anza (anteriormente Solana Labs). Agave es la implementación de validador original y más ampliamente desplegada. Maneja todos los aspectos de la validación: TPU, TVU, gossip, AccountsDB y RPC. El nombre 'Agave' se adoptó para distinguirlo del cliente Firedancer."
   },
   "jito-validator": {
     "term": "Jito Validator Client",
-    "definition": "A modified fork of the Agave validator client maintained by Jito Labs that adds an out-of-protocol block space auction. Jito's modifications include a block engine that accepts transaction bundles with tips, enabling MEV extraction while returning value to stakers. The majority of mainnet-beta stake runs the Jito client."
+    "definition": "Un fork modificado del cliente validador Agave mantenido por Jito Labs que agrega una subasta de espacio de bloque fuera de protocolo. Las modificaciones de Jito incluyen un motor de bloques que acepta bundles de transacciones con propinas, lo que permite la extracción de MEV mientras se devuelve valor a los stakers. La mayoría del stake de mainnet-beta utiliza el cliente Jito."
   },
   "simd": {
     "term": "SIMD (Solana Improvement Document)",
-    "definition": "A formal specification document describing proposed and accepted changes to the Solana protocol, analogous to Ethereum's EIPs. SIMDs are categorized as Standard (Core, Networking, Interface) or Meta, and require supermajority validator stake-weighted voting (66.67%) to pass. Notable SIMDs include SIMD-33 (Timely Vote Credits), SIMD-123 (Block Revenue Sharing), SIMD-228 (Market-Based Emissions), and SIMD-326 (Alpenglow)."
+    "definition": "Un documento de especificación formal que describe los cambios propuestos y aceptados para el protocolo Solana, análogo a los EIP de Ethereum. Los SIMD se clasifican como Estándar (Core, Networking, Interface) o Meta, y requieren una votación ponderada por stake de supermayoría de los validadores (66.67%) para ser aprobados. SIMD notables incluyen SIMD-33 (Timely Vote Credits), SIMD-123 (Block Revenue Sharing), SIMD-228 (Market-Based Emissions) y SIMD-326 (Alpenglow)."
   },
   "alpenglow": {
     "term": "Alpenglow",
-    "definition": "A next-generation consensus protocol proposed in SIMD-0326 that aims to collapse Solana's legacy systems (Proof of History, Tower BFT, gossip-based vote propagation) into two streamlined mechanisms: Rotor for data propagation and Votor for off-chain voting. Alpenglow targets reducing transaction finality from ~12.8 seconds to under 150 milliseconds, representing the most significant consensus overhaul in Solana's history."
+    "definition": "Un protocolo de consenso de próxima generación propuesto en SIMD-0326 que tiene como objetivo colapsar los sistemas heredados de Solana (Proof of History, Tower BFT, propagación de votos basada en gossip) en dos mecanismos simplificados: Rotor para la propagación de datos y Votor para la votación fuera de la cadena. Alpenglow apunta a reducir la finalidad de las transacciones de ~12.8 segundos a menos de 150 milisegundos, lo que representa la revisión de consenso más significativa en la historia de Solana."
   },
   "simd-123": {
     "term": "SIMD-123 (Block Revenue Sharing)",
-    "definition": "A protocol change enabling validators to automatically share block revenue (priority fees and MEV tips) with their delegators through an on-chain mechanism. Validators set a commission rate for block revenue, and the protocol distributes the remainder to delegators at epoch boundaries based on their stake proportion. Available in Agave 3.0+."
+    "definition": "Un cambio de protocolo que permite a los validadores compartir automáticamente los ingresos de los bloques (tarifas de prioridad y propinas de MEV) con sus delegados a través de un mecanismo on-chain. Los validadores establecen una tasa de comisión para los ingresos de los bloques, y el protocolo distribuye el resto a los delegados en los límites de la época en función de su proporción de stake. Disponible en Agave 3.0+."
   },
   "anza": {
     "term": "Anza",
-    "definition": "A development organization that spun out of Solana Labs in early 2024 to independently maintain and develop the Agave validator client and core Solana toolchain. Anza also maintains the @solana/kit SDK (formerly web3.js v2), the Anchor framework, and the SVM API. The spin-off was intended to decentralize Solana's core development and improve client diversity."
+    "definition": "Una organización de desarrollo que se separó de Solana Labs a principios de 2024 para mantener y desarrollar de forma independiente el cliente validador Agave y el conjunto de herramientas central de Solana. Anza también mantiene el SDK @solana/kit (anteriormente web3.js v2), el framework Anchor y la API de SVM. La escisión tenía como objetivo descentralizar el desarrollo central de Solana y mejorar la diversidad de clientes."
   },
   "eclipse": {
     "term": "Eclipse",
-    "definition": "A modular Layer-2 rollup launched on Ethereum mainnet in November 2024 that uses the Solana Virtual Machine (SVM) for execution, Celestia for data availability, and RISC Zero for zero-knowledge proofs. Eclipse brings SVM's parallel execution performance to Ethereum users with faster speeds and lower fees, hosting 60+ dApps across DeFi, gaming, and digital services."
+    "definition": "Un rollup modular Layer-2 lanzado en la mainnet de Ethereum en noviembre de 2024 que utiliza la Solana Virtual Machine (SVM) para la ejecución, Celestia para la disponibilidad de datos y RISC Zero para las pruebas de conocimiento cero. Eclipse lleva el rendimiento de ejecución paralela de SVM a los usuarios de Ethereum con velocidades más rápidas y tarifas más bajas, alojando más de 60 dApps en DeFi, juegos y servicios digitales."
   },
   "sonic-svm": {
     "term": "Sonic SVM",
-    "definition": "The first chain extension (appchain) on Solana, purpose-built for gaming applications using the HyperGrid framework. Sonic enables sovereign game economies that process millions of requests per second while settling back to Solana L1, reducing transaction costs by up to 100x compared to regular Solana transactions while maintaining native composability."
+    "definition": "La primera extensión de cadena (appchain) en Solana, construida específicamente para aplicaciones de juegos utilizando el framework HyperGrid. Sonic permite economías de juego soberanas que procesan millones de solicitudes por segundo mientras se liquidan de nuevo en Solana L1, reduciendo los costos de transacción hasta 100 veces en comparación con las transacciones regulares de Solana mientras se mantiene la composibilidad nativa."
   },
   "network-extension": {
     "term": "Network Extension",
-    "definition": "A Solana-native scaling paradigm where an appchain runs its own SVM execution environment but settles state back to Solana L1, maintaining composability with Solana's programs and liquidity. Unlike general-purpose rollups that settle to other chains, network extensions are designed to scale specific applications (gaming, DeFi) within the Solana ecosystem."
+    "definition": "Un paradigma de escalado nativo de Solana donde una appchain ejecuta su propio entorno de ejecución SVM pero establece el estado de nuevo en Solana L1, manteniendo la composibilidad con los programas y la liquidez de Solana. A diferencia de los rollups de propósito general que se establecen en otras cadenas, las extensiones de red están diseñadas para escalar aplicaciones específicas (gaming, DeFi) dentro del ecosistema de Solana."
   },
   "block-height": {
     "term": "Altura del Bloque",
-    "definition": "The number of blocks produced in the ledger since the genesis block. Block height increments only for slots that successfully produce a block (skipped slots do not increment it), so block height is always less than or equal to the current slot number. Block height is accessible via the getBlockHeight RPC method and the Clock sysvar."
+    "definition": "El número de bloques producidos en el ledger desde el bloque génesis. La altura del bloque solo se incrementa para los slots que producen un bloque con éxito (los slots omitidos no lo incrementan), por lo que la altura del bloque es siempre menor o igual al número de slot actual. La altura del bloque es accesible a través del método RPC getBlockHeight y la sysvar Clock."
   },
   "bootstrap-validator": {
     "term": "Bootstrap Validator",
-    "definition": "The first validator in a Solana cluster that produces the genesis block and bootstraps the initial ledger. The bootstrap validator generates the genesis configuration, creates the initial accounts (mint, vote, stake), and begins producing PoH entries and blocks. Other validators then join the cluster by connecting to the bootstrap validator via gossip and downloading a snapshot."
+    "definition": "El primer validador en un clúster de Solana que produce el bloque génesis e inicia el ledger inicial. El validador de arranque genera la configuración génesis, crea las cuentas iniciales (mint, vote, stake) y comienza a producir entradas y bloques PoH. Otros validadores se unen al clúster conectándose al validador de arranque a través de gossip y descargando una instantánea."
   },
   "confirmed-block": {
-    "term": "Confirmed Block",
-    "definition": "A block that has received votes from validators representing a supermajority (66.7%+) of the cluster's active stake, achieving optimistic confirmation. Confirmed blocks are highly likely to be finalized but are not yet irreversible — full finality requires the block to become rooted through 31+ consecutive confirmations in Tower BFT."
+    "term": "Bloque Confirmado",
+    "definition": "Un bloque que ha recibido votos de validadores que representan una supermayoría (66.7%+) del stake activo del clúster, logrando una confirmación optimista. Es muy probable que los bloques confirmados se finalicen, pero aún no son irreversibles; la finalidad completa requiere que el bloque se convierta en 'rooted' a través de más de 31 confirmaciones consecutivas en Tower BFT."
   },
   "control-plane": {
-    "term": "Control Plane",
-    "definition": "The gossip network that connects all nodes in a Solana cluster for metadata exchange, peer discovery, and protocol coordination. The control plane carries validator contact information, vote status, shred versions, epoch slots, and other protocol messages via the CRDS protocol. It operates separately from the data plane, which handles block data propagation."
+    "term": "Plano de Control",
+    "definition": "La red gossip que conecta todos los nodos en un clúster de Solana para el intercambio de metadatos, descubrimiento de pares y coordinación de protocolos. El plano de control transporta información de contacto del validador, estado de voto, versiones de shred, slots de época y otros mensajes de protocolo a través del protocolo CRDS. Opera por separado del plano de datos, que maneja la propagación de datos de bloque."
   },
   "data-plane": {
-    "term": "Data Plane",
-    "definition": "The high-throughput multicast network used for propagating block data (shreds) and forwarding transactions between validators. The data plane uses Turbine for block propagation and QUIC for transaction submission, optimized for bandwidth and low latency. It operates independently from the control plane (gossip), which handles metadata and coordination."
+    "term": "Plano de Datos",
+    "definition": "La red multicast de alto rendimiento utilizada para propagar datos de bloque (shreds) y reenviar transacciones entre validadores. El plano de datos utiliza Turbine para la propagación de bloques y QUIC para el envío de transacciones, optimizado para ancho de banda y baja latencia. Opera independientemente del plano de control (gossip), que maneja metadatos y coordinación."
   },
   "genesis-config": {
     "term": "Configuración Génesis",
-    "definition": "The configuration file that defines the initial state of a Solana cluster at genesis, including the initial token supply, built-in program deployments, cluster parameters (ticks per slot, slots per epoch), fee schedule, and rent configuration. The genesis config is generated by the solana-genesis tool and must be shared identically among all validators to bootstrap a cluster."
+    "definition": "El archivo de configuración que define el estado inicial de un clúster de Solana en su génesis, incluyendo el suministro inicial de tokens, implementaciones de programas incorporados, parámetros del clúster (ticks por slot, slots por época), tabla de tarifas y configuración de alquiler. La configuración génesis es generada por la herramienta solana-genesis y debe ser compartida de manera idéntica entre todos los validadores para arrancar un clúster."
   },
   "leader": {
-    "term": "Leader",
-    "definition": "The validator currently designated to produce blocks for a given slot, as determined by the leader schedule. The leader receives transactions via its TPU, orders them using Proof of History, executes them, and broadcasts the resulting block as shreds via Turbine. Each slot has exactly one assigned leader, and leaders rotate according to the stake-weighted schedule."
+    "term": "Líder",
+    "definition": "El validador actualmente designado para producir bloques para un slot dado, según lo determinado por el cronograma del líder. El líder recibe transacciones a través de su TPU, las ordena utilizando Proof of History, las ejecuta y transmite el bloque resultante como shreds a través de Turbine. Cada slot tiene exactamente un líder asignado, y los líderes rotan según el cronograma ponderado por participación."
   },
   "ledger-vote": {
-    "term": "Ledger Vote",
-    "definition": "A validator's on-chain attestation affirming that it has verified and replayed a specific block, recorded as a hash of the validator's state at that slot. Ledger votes are submitted as vote transactions to the Vote Program and form the basis of Tower BFT consensus. Each vote carries increasing lockout commitments that make fork-switching progressively more expensive."
+    "term": "Voto de Ledger",
+    "definition": "Una atestación en cadena de un validador que afirma que ha verificado y reproducido un bloque específico, registrado como un hash del estado del validador en ese slot. Los votos de ledger se envían como transacciones de voto al Vote Program y forman la base del consenso Tower BFT. Cada voto conlleva compromisos de bloqueo crecientes que hacen que el cambio de bifurcación sea progresivamente más costoso."
   },
   "root": {
     "term": "Raíz",
-    "definition": "A block that has reached maximum lockout depth in Tower BFT, meaning 31 or more consecutive confirmations have been built on top of it. Once a block becomes a root, it and all its ancestors are considered irreversibly finalized. The root corresponds to the 'finalized' commitment level in RPC queries and advances monotonically as the cluster processes new blocks."
+    "definition": "Un bloque que ha alcanzado la profundidad máxima de bloqueo en Tower BFT, lo que significa que se han construido 31 o más confirmaciones consecutivas sobre él. Una vez que un bloque se convierte en una raíz, este y todos sus ancestros se consideran finalizados de forma irreversible. La raíz corresponde al nivel de compromiso 'finalized' en las consultas RPC y avanza monótonamente a medida que el clúster procesa nuevos bloques."
   },
   "tick-height": {
-    "term": "Tick Height",
-    "definition": "The ordinal position of a tick in the ledger, counting from the first tick of the genesis block. With 64 ticks per slot, tick height advances at a faster rate than slot number and provides finer-grained time resolution within the PoH chain. Tick height is used internally by the validator for PoH timing and slot boundary detection."
+    "term": "Altura del Tick",
+    "definition": "La posición ordinal de un tick en el ledger, contando desde el primer tick del bloque génesis. Con 64 ticks por slot, la altura del tick avanza a un ritmo más rápido que el número de slot y proporciona una resolución de tiempo más fina dentro de la cadena PoH. La altura del tick es utilizada internamente por el validador para la temporización PoH y la detección de límites de slot."
   },
   "transactions-entry": {
-    "term": "Transactions Entry",
-    "definition": "An entry in a block that contains one or more transactions along with a PoH hash proving their temporal ordering. Unlike tick entries (which contain zero transactions and only advance the clock), transactions entries represent actual state changes. Transactions within a single entry are eligible for parallel execution if they do not share writable accounts."
+    "term": "Entrada de Transacciones",
+    "definition": "Una entrada en un bloque que contiene una o más transacciones junto con un hash PoH que prueba su ordenamiento temporal. A diferencia de las entradas de tick (que contienen cero transacciones y solo avanzan el reloj), las entradas de transacciones representan cambios de estado reales. Las transacciones dentro de una sola entrada son elegibles para ejecución paralela si no comparten cuentas escribibles."
   },
   "votor": {
     "term": "Votor",
-    "definition": "The vote-optimized transaction ordering component of the Alpenglow consensus protocol. Votor handles off-chain voting and certificate generation, replacing Tower BFT's on-chain vote transactions that currently account for 70-80% of Solana's transaction volume. By moving voting off-chain and using a structured protocol for collecting and aggregating validator votes, Votor enables sub-second finality while freeing on-chain bandwidth for user transactions."
+    "definition": "El componente de ordenamiento de transacciones optimizado para votos del protocolo de consenso Alpenglow. Votor maneja la votación fuera de cadena y la generación de certificados, reemplazando las transacciones de voto en cadena de Tower BFT que actualmente representan el 70-80% del volumen de transacciones de Solana. Al mover la votación fuera de cadena y utilizar un protocolo estructurado para recopilar y agregar los votos de los validadores, Votor permite una finalidad en sub-segundos al mismo tiempo que libera ancho de banda en cadena para las transacciones de los usuarios."
   },
   "alpenglow-certificate": {
-    "term": "Alpenglow Certificate",
-    "definition": "A fast finality certificate produced by the Alpenglow consensus protocol when a supermajority of validators (66.7%+ of stake) have attested to a block through Votor's off-chain voting mechanism. Once an Alpenglow certificate is formed, the block is considered final, reducing finality time from Tower BFT's ~12.8 seconds to a target of under 150 milliseconds. Certificates are compact proofs of consensus that can be verified by any node."
+    "term": "Certificado Alpenglow",
+    "definition": "Un certificado de finalidad rápida producido por el protocolo de consenso Alpenglow cuando una supermayoría de validadores (66.7%+ de participación) han atestiguado un bloque a través del mecanismo de votación off-chain de Votor. Una vez que se forma un certificado Alpenglow, el bloque se considera final, reduciendo el tiempo de finalidad de los ~12.8 segundos de Tower BFT a un objetivo de menos de 150 milisegundos. Los certificados son pruebas compactas de consenso que pueden ser verificadas por cualquier nodo."
   },
   "fast-finalization": {
-    "term": "Fast Finalization",
-    "definition": "The sub-second transaction finality goal of the Alpenglow consensus protocol, targeting approximately 150 milliseconds from block production to irreversible confirmation. Fast finalization is achieved by replacing Tower BFT's exponential lockout mechanism (which requires ~31 confirmations over ~12.8 seconds) with Alpenglow's certificate-based approach where a single round of supermajority voting produces an irrevocable finality proof."
+    "term": "Finalización Rápida",
+    "definition": "El objetivo de finalidad de transacciones en sub-segundos del protocolo de consenso Alpenglow, con el objetivo de aproximadamente 150 milisegundos desde la producción del bloque hasta la confirmación irreversible. La finalización rápida se logra reemplazando el mecanismo de bloqueo exponencial de Tower BFT (que requiere ~31 confirmaciones durante ~12.8 segundos) con el enfoque basado en certificados de Alpenglow, donde una sola ronda de votación por supermayoría produce una prueba de finalidad irrevocable."
   },
   "core-bpf-programs": {
-    "term": "Core BPF Programs",
-    "definition": "An initiative to migrate Solana's native programs (System Program, Stake Program, Vote Program, and others currently compiled into the validator binary) to BPF/SBF bytecode deployed on-chain. This migration enables these core programs to be upgraded via feature gates and governance without requiring validator software releases, improving protocol agility. The programs maintain the same addresses and interfaces while gaining the upgradeability of standard on-chain programs."
+    "term": "Programas Core BPF",
+    "definition": "Una iniciativa para migrar los programas nativos de Solana (System Program, Stake Program, Vote Program y otros actualmente compilados en el binario del validador) a bytecode BPF/SBF desplegado en cadena. Esta migración permite que estos programas core sean actualizados a través de feature gates y gobernanza sin requerir lanzamientos de software del validador, mejorando la agilidad del protocolo. Los programas mantienen las mismas direcciones e interfaces mientras ganan la capacidad de actualización de los programas en cadena estándar."
   },
   "loader-v4": {
     "term": "Loader v4",
-    "definition": "The next-generation Solana program loader designed to replace the current Upgradeable BPF Loader (v3). Loader v4 introduces improvements including a simpler deployment process (single-step instead of buffer + deploy), built-in finalization (replacing the separate upgrade authority revocation), and more efficient program management. It streamlines the program lifecycle while maintaining backward compatibility with existing SBF bytecode."
+    "definition": "El cargador de programas Solana de próxima generación diseñado para reemplazar el actual Upgradeable BPF Loader (v3). Loader v4 introduce mejoras que incluyen un proceso de despliegue más simple (un solo paso en lugar de buffer + despliegue), finalización incorporada (que reemplaza la revocación separada de la autoridad de actualización) y una gestión de programas más eficiente. Agiliza el ciclo de vida del programa manteniendo la compatibilidad con versiones anteriores del bytecode SBF existente."
   },
   "feature-gate": {
     "term": "Feature Gate",
-    "definition": "The mechanism for activating protocol changes on Solana's mainnet cluster. Each feature is identified by a unique pubkey and activated when validators representing a supermajority of stake signal support by creating a feature account. Feature gates control runtime behavior changes, new syscalls, parameter adjustments, and program upgrades. This system allows gradual, stake-weighted rollout of protocol changes without hard forks."
+    "definition": "El mecanismo para activar cambios de protocolo en el clúster mainnet de Solana. Cada característica es identificada por un pubkey único y se activa cuando los validadores que representan una supermayoría de participación señalan su apoyo creando una cuenta de característica. Las feature gates controlan cambios de comportamiento en tiempo de ejecución, nuevas syscalls, ajustes de parámetros y actualizaciones de programas. Este sistema permite un despliegue gradual y ponderado por participación de los cambios de protocolo sin bifurcaciones duras (hard forks)."
   },
   "secp256k1-precompile": {
-    "term": "Secp256k1 Precompile",
-    "definition": "A native Solana program (address: KeccakSecp256k11111111111111111111111111111) that verifies secp256k1 ECDSA signatures on-chain, enabling Ethereum-compatible signature verification within Solana programs. This precompile allows Solana dApps to verify signatures produced by Ethereum wallets (MetaMask, etc.), facilitating cross-chain identity verification, bridging, and interoperability without requiring users to create Solana-native keypairs."
+    "term": "Precompilación Secp256k1",
+    "definition": "Un programa nativo de Solana (dirección: KeccakSecp256k11111111111111111111111111111) que verifica firmas ECDSA secp256k1 en cadena, lo que permite la verificación de firmas compatible con Ethereum dentro de los programas de Solana. Esta precompilación permite a las dApps de Solana verificar firmas producidas por billeteras de Ethereum (MetaMask, etc.), facilitando la verificación de identidad entre cadenas, la conexión y la interoperabilidad sin requerir que los usuarios creen pares de claves nativos de Solana."
   },
   "secp256r1-precompile": {
-    "term": "Secp256r1 Precompile (P256)",
-    "definition": "A native Solana program for verifying ECDSA signatures on the secp256r1 (P-256/prime256v1) elliptic curve, enabling WebAuthn and passkey-based authentication directly on-chain. P-256 is the curve used by Apple Face ID/Touch ID, Android biometrics, and FIDO2 security keys. This precompile allows Solana dApps to authenticate users via device biometrics without managing traditional private keys, significantly improving wallet UX."
+    "term": "Precompilación Secp256r1 (P256)",
+    "definition": "Un programa nativo de Solana para verificar firmas ECDSA en la curva elíptica secp256r1 (P-256/prime256v1), lo que permite la autenticación WebAuthn y basada en passkeys directamente en cadena. P-256 es la curva utilizada por Apple Face ID/Touch ID, la biometría de Android y las claves de seguridad FIDO2. Esta precompilación permite a las dApps de Solana autenticar usuarios a través de la biometría del dispositivo sin gestionar claves privadas tradicionales, mejorando significativamente la UX de la billetera."
   },
   "ed25519-precompile": {
-    "term": "Ed25519 Precompile",
-    "definition": "A native Solana program (address: Ed25519SigVerify111111111111111111111111111) that enables batch verification of Ed25519 signatures within on-chain program logic. Unlike the runtime's built-in transaction signature verification, this precompile allows programs to verify arbitrary Ed25519 signatures over arbitrary data, useful for off-chain message verification, oracle attestations, and multi-party protocols. Multiple signatures can be verified in a single instruction."
+    "term": "Precompilación Ed25519",
+    "definition": "Un programa nativo de Solana (dirección: Ed25519SigVerify111111111111111111111111111) que permite la verificación por lotes de firmas Ed25519 dentro de la lógica del programa en cadena. A diferencia de la verificación de firmas de transacción incorporada en el tiempo de ejecución, esta precompilación permite a los programas verificar firmas Ed25519 arbitrarias sobre datos arbitrarios, útil para la verificación de mensajes fuera de cadena, atestaciones de oráculos y protocolos multipartitos. Se pueden verificar múltiples firmas en una sola instrucción."
   },
   "program-cache": {
-    "term": "Program Cache",
-    "definition": "A runtime cache that stores recently loaded and JIT-compiled program binaries in memory, avoiding the cost of re-loading and re-compiling SBF ELF binaries from AccountsDB on every invocation. The program cache significantly reduces execution latency for frequently called programs. Cache entries are keyed by program ID and slot, and entries are evicted based on usage patterns and slot advancement."
+    "term": "Caché de Programas",
+    "definition": "Una caché en tiempo de ejecución que almacena binarios de programas recién cargados y compilados JIT en la memoria, evitando el costo de volver a cargar y volver a compilar binarios SBF ELF desde AccountsDB en cada invocación. La caché de programas reduce significativamente la latencia de ejecución para programas invocados con frecuencia. Las entradas de la caché se clavean por ID de programa y slot, y las entradas se expulsan según los patrones de uso y el avance del slot."
   },
   "call-depth-limit": {
-    "term": "Call Depth Limit",
-    "definition": "The maximum depth of 4 nested cross-program invocations (CPIs) allowed within a single Solana transaction. Program A can call Program B, which can call Program C, which can call Program D, but no further nesting is permitted. This limit prevents unbounded recursion, stack overflows, and excessive compute consumption. The runtime enforces this limit and returns an error if exceeded."
+    "term": "Límite de Profundidad de Llamada",
+    "definition": "La profundidad máxima de 4 invocaciones de programas cruzados (CPIs) anidadas permitidas dentro de una sola transacción de Solana. El Programa A puede llamar al Programa B, que puede llamar al Programa C, que puede llamar al Programa D, pero no se permite un anidamiento posterior. Este límite previene la recursión ilimitada, los desbordamientos de pila y el consumo excesivo de computación. El tiempo de ejecución aplica este límite y devuelve un error si se excede."
   },
   "heap-memory": {
-    "term": "Heap Memory",
-    "definition": "The dynamic memory region available to SBF programs during execution, defaulting to 32KB. Programs use heap memory for dynamic allocations (Vec, String, Box). The heap size can be increased up to 256KB by requesting additional compute units via the Compute Budget Program's RequestHeapFrame instruction. Heap exhaustion causes the program to fail with an AccessViolation error. Efficient programs minimize heap usage through zero-copy patterns and stack-allocated buffers."
+    "term": "Memoria Heap",
+    "definition": "La región de memoria dinámica disponible para los programas SBF durante la ejecución, con un valor predeterminado de 32 KB. Los programas utilizan la memoria heap para asignaciones dinámicas (Vec, String, Box). El tamaño del heap se puede aumentar hasta 256 KB solicitando unidades de computación adicionales a través de la instrucción RequestHeapFrame del Compute Budget Program. El agotamiento del heap hace que el programa falle con un error AccessViolation. Los programas eficientes minimizan el uso del heap mediante patrones de copia cero y búferes asignados en la pila."
   },
   "nakamoto-consensus": {
-    "term": "Nakamoto Consensus",
-    "definition": "Consensus family where the longest (or heaviest) valid chain is considered canonical, originally used in Bitcoin's Proof of Work. Participants probabilistically converge on a single chain without explicit voting rounds. Solana's Tower BFT is not Nakamoto consensus — it uses explicit BFT voting with lockout periods rather than chain-length selection, providing deterministic rather than probabilistic finality."
+    "term": "Consenso Nakamoto",
+    "definition": "Familia de consenso donde la cadena válida más larga (o más pesada) se considera canónica, utilizada originalmente en la Prueba de Trabajo de Bitcoin. Los participantes convergen probabilísticamente en una sola cadena sin rondas de votación explícitas. Tower BFT de Solana no es un consenso Nakamoto, utiliza votación BFT explícita con períodos de bloqueo en lugar de selección por longitud de cadena, proporcionando finalidad determinista en lugar de probabilística."
   },
   "flp-impossibility": {
-    "term": "FLP Impossibility",
-    "definition": "Fischer-Lynch-Paterson impossibility result (1985): no deterministic consensus protocol can guarantee agreement in an asynchronous system with even one faulty process. All practical BFT protocols (including Tower BFT) circumvent FLP by introducing synchrony assumptions — Tower BFT uses Proof of History as a clock to break pure asynchrony."
+    "term": "Imposibilidad FLP",
+    "definition": "Resultado de imposibilidad de Fischer-Lynch-Paterson (1985): ningún protocolo de consenso determinista puede garantizar el acuerdo en un sistema asíncrono con incluso un proceso defectuoso. Todos los protocolos BFT prácticos (incluido Tower BFT) eluden FLP introduciendo supuestos de sincronía: Tower BFT utiliza Proof of History como un reloj para romper la asincronía pura."
   },
   "tendermint-consensus": {
-    "term": "Tendermint Consensus",
-    "definition": "BFT consensus protocol using two-phase voting (prevote + precommit) with a 2/3 supermajority threshold. Unlike Tower BFT which votes on a continuously growing PoH chain, Tendermint uses round-based block proposals. Tower BFT achieves lower latency by avoiding per-round communication overhead, leveraging PoH as a shared clock instead."
+    "term": "Consenso Tendermint",
+    "definition": "Protocolo de consenso BFT que utiliza votación en dos fases (prevote + precommit) con un umbral de supermayoría de 2/3. A diferencia de Tower BFT, que vota en una cadena PoH que crece continuamente, Tendermint utiliza propuestas de bloque basadas en rondas. Tower BFT logra una latencia menor al evitar la sobrecarga de comunicación por ronda, utilizando PoH como un reloj compartido en su lugar."
   },
   "sigma-protocol": {
-    "term": "Sigma Protocol",
-    "definition": "Three-move interactive proof (commit, challenge, response) proving knowledge of a secret without revealing it. Used in Solana's confidential transfers: the sender proves they have sufficient balance and the transfer is valid without revealing amounts. Can be made non-interactive via Fiat-Shamir heuristic."
+    "term": "Protocolo Sigma",
+    "definition": "Prueba interactiva de tres movimientos (commit, challenge, response) que demuestra el conocimiento de un secreto sin revelarlo. Se utiliza en las transferencias confidenciales de Solana: el remitente demuestra que tiene saldo suficiente y que la transferencia es válida sin revelar las cantidades. Puede hacerse no interactivo mediante la heurística de Fiat-Shamir."
   },
   "twisted-edwards-curve": {
-    "term": "Twisted Edwards Curve",
-    "definition": "Elliptic curve form optimized for fast addition operations, used by Ed25519 (Curve25519 in twisted Edwards form). Solana uses Ed25519 for all keypair generation and transaction signing. The curve's algebraic properties enable complete addition formulas (no edge cases), making implementations simpler and resistant to side-channel attacks."
+    "term": "Curva Twisted Edwards",
+    "definition": "Forma de curva elíptica optimizada para operaciones de suma rápidas, utilizada por Ed25519 (Curve25519 en forma Twisted Edwards). Solana utiliza Ed25519 para toda la generación de pares de claves y la firma de transacciones. Las propiedades algebraicas de la curva permiten fórmulas de suma completas (sin casos excepcionales), lo que simplifica las implementaciones y las hace resistentes a ataques de canal lateral."
   },
   "amm": {
     "term": "AMM (Creador de Mercado Automatizado)",
-    "definition": "A protocol that enables token swaps using algorithmic pricing against pooled liquidity instead of matching individual buyers and sellers. AMMs use mathematical formulas (typically constant product x*y=k) to determine prices based on the ratio of tokens in a liquidity pool. On Solana, major AMMs include Raydium, Orca, and Meteora."
+    "definition": "Un protocolo que permite intercambios de tokens utilizando precios algorítmicos contra liquidez agrupada en lugar de emparejar compradores y vendedores individuales. Los AMM utilizan fórmulas matemáticas (típicamente producto constante x*y=k) para determinar los precios basándose en la proporción de tokens en un pool de liquidez. En Solana, los AMM principales incluyen Raydium, Orca y Meteora."
   },
   "clmm": {
     "term": "CLMM (Concentrated Liquidity Market Maker)",
-    "definition": "An AMM design where liquidity providers concentrate their capital within specific price ranges instead of across the full 0-to-infinity range. CLMMs dramatically improve capital efficiency—LPs earn more fees per dollar deposited within their active range. If the price moves outside the range, the position becomes inactive. Orca Whirlpools and Raydium CLMM are leading implementations on Solana."
+    "definition": "Un diseño de AMM donde los proveedores de liquidez concentran su capital dentro de rangos de precios específicos en lugar de en todo el rango de 0 a infinito. Los CLMM mejoran drásticamente la eficiencia del capital: los LP ganan más comisiones por dólar depositado dentro de su rango activo. Si el precio se mueve fuera del rango, la posición se vuelve inactiva. Orca Whirlpools y Raydium CLMM son implementaciones líderes en Solana."
   },
   "liquidity-pool": {
     "term": "Pool de Liquidez",
-    "definition": "A smart-contract-held reserve of two or more tokens that enables trading via an AMM. Users deposit token pairs in specified ratios to become liquidity providers and earn trading fees. Pools are identified by their token pair and fee tier. Pool depth (total value locked) determines price impact for trades."
+    "definition": "Una reserva de dos o más tokens mantenida por un contrato inteligente que permite el comercio a través de un AMM. Los usuarios depositan pares de tokens en proporciones específicas para convertirse en proveedores de liquidez y ganar comisiones de negociación. Los pools se identifican por su par de tokens y nivel de comisión. La profundidad del pool (valor total bloqueado) determina el impacto del precio para las transacciones."
   },
   "lp-token": {
     "term": "LP Token",
-    "definition": "A token issued to liquidity providers representing their proportional share of a pool's reserves and accrued fees. LP tokens can be burned to withdraw the underlying assets. The value of LP tokens changes as the pool's token ratios shift and fees accumulate. LP tokens are often stakeable in yield farming programs for additional rewards."
+    "definition": "Un token emitido a los proveedores de liquidez que representa su participación proporcional en las reservas de un pool y las comisiones acumuladas. Los LP tokens se pueden quemar para retirar los activos subyacentes. El valor de los LP tokens cambia a medida que las proporciones de los tokens del pool se modifican y las comisiones se acumulan. Los LP tokens a menudo se pueden apostar en programas de yield farming para obtener recompensas adicionales."
   },
   "swap": {
     "term": "Intercambio (Swap)",
-    "definition": "The exchange of one token for another through a DEX, either via an AMM pool or an order book. The user specifies an input token/amount and receives output tokens at the current market rate minus slippage and fees. On Solana, swaps settle in a single transaction (~400ms) with fees typically 0.01-0.3% per trade."
+    "definition": "El intercambio de un token por otro a través de un DEX, ya sea mediante un pool AMM o un libro de órdenes. El usuario especifica un token/cantidad de entrada y recibe tokens de salida a la tasa de mercado actual menos el slippage y las comisiones. En Solana, los swaps se liquidan en una sola transacción (~400ms) con comisiones típicamente del 0.01-0.3% por transacción."
   },
   "dex": {
     "term": "DEX (Exchange Descentralizado)",
-    "definition": "A protocol for trading tokens directly on-chain without a centralized intermediary. Solana DEXs use either AMM pools (Raydium, Orca, Meteora) or on-chain order books (Phoenix, OpenBook). DEXs are composable—aggregators like Jupiter route through multiple DEXs for optimal pricing."
+    "definition": "Un protocolo para intercambiar tokens directamente on-chain sin un intermediario centralizado. Los DEX de Solana utilizan pools AMM (Raydium, Orca, Meteora) o libros de órdenes on-chain (Phoenix, OpenBook). Los DEX son componibles: los agregadores como Jupiter enrutan a través de múltiples DEX para una fijación de precios óptima."
   },
   "order-book": {
     "term": "Order Book (On-Chain)",
-    "definition": "A trading system that matches buy and sell orders at specified prices, implemented fully on-chain. Unlike AMMs, order books enable limit orders and don't require liquidity pools. Solana's high throughput makes on-chain order books viable. Phoenix uses a FIFO matching engine; OpenBook (Serum v4) uses a crank-based model."
+    "definition": "Un sistema de trading que empareja órdenes de compra y venta a precios especificados, implementado completamente on-chain. A diferencia de los AMM, los libros de órdenes permiten órdenes límite y no requieren pools de liquidez. El alto rendimiento de Solana hace viables los libros de órdenes on-chain. Phoenix utiliza un motor de emparejamiento FIFO; OpenBook (Serum v4) utiliza un modelo basado en crank."
   },
   "openbook": {
     "term": "OpenBook",
-    "definition": "A community-maintained on-chain order book DEX forked from Project Serum after its collapse. OpenBook v2 features a fully on-chain central limit order book (CLOB) with maker/taker fees. It supports limit orders, IOC (immediate-or-cancel), and post-only orders. Many Solana DEXs use OpenBook markets as a liquidity source."
+    "definition": "Un DEX de libro de órdenes on-chain mantenido por la comunidad, bifurcado de Project Serum después de su colapso. OpenBook v2 presenta un libro de órdenes límite central (CLOB) completamente on-chain con comisiones de maker/taker. Admite órdenes límite, IOC (immediate-or-cancel) y órdenes post-only. Muchos DEX de Solana utilizan los mercados de OpenBook como fuente de liquidez."
   },
   "phoenix": {
     "term": "Phoenix",
-    "definition": "A high-performance on-chain order book DEX on Solana with a fully on-chain FIFO matching engine. Phoenix is designed for low-latency trading without cranks—orders are matched atomically within the same transaction. It supports limit orders, market orders, and provides a maker rebate structure to incentivize liquidity."
+    "definition": "Un DEX de libro de órdenes on-chain de alto rendimiento en Solana con un motor de emparejamiento FIFO completamente on-chain. Phoenix está diseñado para el trading de baja latencia sin cranks; las órdenes se emparejan atómicamente dentro de la misma transacción. Admite órdenes límite, órdenes de mercado y proporciona una estructura de maker rebate para incentivar la liquidez."
   },
   "raydium": {
     "term": "Raydium",
-    "definition": "One of the largest DEXs on Solana, offering both constant-product AMM pools and concentrated liquidity (CLMM). Raydium's standard AMM integrates with OpenBook order books for shared liquidity. It also provides AcceleRaytor (launchpad) and farming incentives. Key pools include SOL/USDC and major token pairs."
+    "definition": "Uno de los DEX más grandes de Solana, que ofrece pools AMM de producto constante y liquidez concentrada (CLMM). El AMM estándar de Raydium se integra con los libros de órdenes de OpenBook para liquidez compartida. También proporciona AcceleRaytor (launchpad) e incentivos de farming. Los pools clave incluyen SOL/USDC y los principales pares de tokens."
   },
   "orca": {
     "term": "Orca",
-    "definition": "A leading Solana DEX focused on concentrated liquidity through its Whirlpool AMM. Orca emphasizes user experience and capital efficiency. Whirlpools allow LPs to set custom price ranges. Orca is a major liquidity source for Jupiter aggregation. It uses a tick-based CLMM similar to Uniswap v3 adapted for Solana's architecture."
+    "definition": "Un DEX líder en Solana centrado en la liquidez concentrada a través de su AMM Whirlpool. Orca enfatiza la experiencia del usuario y la eficiencia del capital. Los Whirlpools permiten a los LP establecer rangos de precios personalizados. Orca es una fuente importante de liquidez para la agregación de Jupiter. Utiliza un CLMM basado en ticks similar a Uniswap v3 adaptado a la arquitectura de Solana."
   },
   "whirlpool": {
     "term": "Whirlpool",
-    "definition": "Orca's concentrated liquidity AMM program on Solana. Whirlpools divide the price space into discrete ticks (configurable spacing: 1, 8, 64, 128), and LPs provide liquidity within specific tick ranges. Active tick positions earn fees proportional to their share of in-range liquidity. The program is open-source and widely integrated by aggregators."
+    "definition": "El programa AMM de liquidez concentrada de Orca en Solana. Los Whirlpools dividen el espacio de precios en ticks discretos (espaciado configurable: 1, 8, 64, 128), y los LP proporcionan liquidez dentro de rangos de ticks específicos. Las posiciones de tick activas ganan comisiones proporcionales a su parte de liquidez dentro del rango. El programa es de código abierto y ampliamente integrado por agregadores."
   },
   "jupiter": {
     "term": "Jupiter",
-    "definition": "The dominant DEX aggregator on Solana, routing trades across 20+ DEX protocols to find optimal pricing. Jupiter splits orders across multiple routes and pools to minimize price impact. It also offers limit orders, DCA, perpetuals (via Jupiter Perps), and a token launchpad (LFG). The JUP governance token was airdropped in January 2024."
+    "definition": "El agregador de DEX dominante en Solana, que enruta transacciones a través de más de 20 protocolos DEX para encontrar los precios óptimos. Jupiter divide las órdenes en múltiples rutas y pools para minimizar el impacto en el precio. También ofrece órdenes límite, DCA, perpetuos (a través de Jupiter Perps) y un launchpad de tokens (LFG). El token de gobernanza JUP se distribuyó en enero de 2024."
   },
   "dex-aggregator": {
     "term": "DEX Aggregator",
-    "definition": "A protocol that splits and routes token swaps across multiple DEXs to find the best execution price. The aggregator's routing algorithm considers pool depths, fees, and multi-hop paths (e.g., SOL→USDC→TARGET). Jupiter is the primary aggregator on Solana; others include Prism and DFlow. Aggregators are critical for large trades to minimize price impact."
+    "definition": "Un protocolo que divide y enruta los intercambios de tokens a través de múltiples DEX para encontrar el mejor precio de ejecución. El algoritmo de enrutamiento del agregador considera la profundidad de los pools, las comisiones y las rutas multi-salto (por ejemplo, SOL→USDC→TARGET). Jupiter es el agregador principal en Solana; otros incluyen Prism y DFlow. Los agregadores son críticos para grandes transacciones para minimizar el impacto en el precio."
   },
   "routing": {
     "term": "Routing (Swap)",
-    "definition": "The process of finding the optimal path for a swap across multiple DEX pools and intermediate tokens. A router may split a single swap into multiple routes (e.g., 60% through Orca, 40% through Raydium) or use multi-hop paths (e.g., SOL→USDC→mSOL) to achieve better pricing. Jupiter's Metis algorithm computes routes in real-time."
+    "definition": "El proceso de encontrar la ruta óptima para un swap a través de múltiples pools DEX y tokens intermedios. Un router puede dividir un solo swap en múltiples rutas (por ejemplo, 60% a través de Orca, 40% a través de Raydium) o usar rutas multi-salto (por ejemplo, SOL→USDC→mSOL) para lograr una mejor fijación de precios. El algoritmo Metis de Jupiter calcula las rutas en tiempo real."
   },
   "slippage": {
     "term": "Slippage",
-    "definition": "The difference between the expected price of a swap and the actual execution price due to pool ratio changes between submission and execution. Users set slippage tolerance (e.g., 0.5-1%) as a maximum acceptable deviation; the transaction reverts if exceeded. High slippage occurs in thin pools or large trades relative to pool depth."
+    "definition": "La diferencia entre el precio esperado de un swap y el precio de ejecución real debido a los cambios en la relación del pool entre el envío y la ejecución. Los usuarios establecen la tolerancia al slippage (por ejemplo, 0.5-1%) como una desviación máxima aceptable; la transacción se revierte si se excede. Se produce un alto slippage en pools poco profundos o en transacciones grandes en relación con la profundidad del pool."
   },
   "price-impact": {
     "term": "Price Impact",
-    "definition": "The percentage change in a token's price caused by executing a trade against a liquidity pool. Larger trades relative to pool depth cause greater price impact. For example, a $10K trade in a $1M pool causes minimal impact, while the same trade in a $50K pool would move the price significantly. Aggregators minimize price impact by splitting across pools."
+    "definition": "El cambio porcentual en el precio de un token causado por la ejecución de una transacción contra un pool de liquidez. Las transacciones más grandes en relación con la profundidad del pool causan un mayor impacto en el precio. Por ejemplo, una transacción de $10K en un pool de $1M causa un impacto mínimo, mientras que la misma transacción en un pool de $50K movería el precio significativamente. Los agregadores minimizan el impacto en el precio dividiendo las transacciones entre los pools."
   },
   "impermanent-loss": {
     "term": "Pérdida Impermanente",
-    "definition": "The unrealized loss an LP experiences when the price ratio of pooled tokens diverges from the ratio at deposit. If one token appreciates significantly, the LP holds less of that token than if they had simply held it. The loss is 'impermanent' because it reverses if prices return to the original ratio. For a 2x price change, IL is ~5.7%."
+    "definition": "La pérdida no realizada que experimenta un LP cuando la relación de precios de los tokens agrupados diverge de la relación en el momento del depósito. Si un token se aprecia significativamente, el LP posee menos de ese token que si simplemente lo hubiera mantenido. La pérdida es 'impermanente' porque se revierte si los precios vuelven a la relación original. Para un cambio de precio de 2x, la IL es de ~5.7%."
   },
   "constant-product": {
     "term": "Constant Product Formula (x*y=k)",
-    "definition": "The AMM pricing formula x * y = k, where x and y are the reserve quantities of two tokens and k is a constant. As one token is bought, its reserve decreases and price increases, following a hyperbolic curve. This ensures the pool never runs out of either token but causes increasing slippage for larger trades."
+    "definition": "La fórmula de precios AMM x * y = k, donde x e y son las cantidades de reserva de dos tokens y k es una constante. A medida que se compra un token, su reserva disminuye y el precio aumenta, siguiendo una curva hiperbólica. Esto asegura que el pool nunca se quede sin ninguno de los tokens, pero causa un slippage creciente para transacciones más grandes."
   },
   "oracle": {
     "term": "Oráculo",
-    "definition": "A service that provides external data (prices, randomness) to on-chain programs. DeFi protocols rely on oracles for accurate price feeds to calculate collateral ratios, liquidation thresholds, and swap rates. Solana's primary oracles are Pyth (high-frequency price feeds) and Switchboard (general-purpose data feeds and VRF)."
+    "definition": "Un servicio que proporciona datos externos (precios, aleatoriedad) a programas on-chain. Los protocolos DeFi dependen de los oráculos para obtener feeds de precios precisos para calcular ratios de garantía, umbrales de liquidación y tasas de swap. Los oráculos principales de Solana son Pyth (feeds de precios de alta frecuencia) y Switchboard (feeds de datos de propósito general y VRF)."
   },
   "pyth": {
     "term": "Pyth Network",
-    "definition": "A high-frequency oracle network publishing price feeds for crypto, equities, commodities, and FX. Pyth aggregates data from 90+ first-party publishers (market makers, exchanges) and updates prices every 400ms on Solana. Each price feed includes a price, confidence interval, and exponential moving average. Pyth uses a pull model with Hermes for cross-chain delivery."
+    "definition": "Una red de oráculos de alta frecuencia que publica feeds de precios para criptomonedas, acciones, commodities y divisas. Pyth agrega datos de más de 90 proveedores de primera parte (market makers, exchanges) y actualiza los precios cada 400ms en Solana. Cada feed de precios incluye un precio, un intervalo de confianza y una media móvil exponencial. Pyth utiliza un modelo pull con Hermes para la entrega cross-chain."
   },
   "switchboard": {
     "term": "Switchboard",
-    "definition": "A decentralized oracle network on Solana providing custom data feeds, verifiable random functions (VRF), and serverless compute (Functions). Unlike Pyth's publisher model, Switchboard uses a permissionless oracle queue where operators run jobs defined by feed creators. Supports any data source via its off-chain oracle job framework."
+    "definition": "Una red de oráculos descentralizada en Solana que proporciona feeds de datos personalizados, funciones aleatorias verificables (VRF) y computación sin servidor (Functions). A diferencia del modelo de publicador de Pyth, Switchboard utiliza una cola de oráculos sin permisos donde los operadores ejecutan trabajos definidos por los creadores de feeds. Admite cualquier fuente de datos a través de su framework de trabajos de oráculos off-chain."
   },
   "price-feed": {
     "term": "Feed de Precios",
-    "definition": "An on-chain account maintained by an oracle (Pyth or Switchboard) containing the current price, confidence interval, and timestamp for an asset pair (e.g., SOL/USD). DeFi programs read price feeds to calculate collateral values, trigger liquidations, and determine swap rates. Feed staleness must be checked to prevent using outdated prices."
+    "definition": "Una cuenta on-chain mantenida por un oráculo (Pyth o Switchboard) que contiene el precio actual, el intervalo de confianza y la marca de tiempo para un par de activos (por ejemplo, SOL/USD). Los programas DeFi leen los feeds de precios para calcular los valores de las garantías, activar liquidaciones y determinar las tasas de swap. Se debe verificar la obsolescencia del feed para evitar el uso de precios desactualizados."
   },
   "vrf": {
     "term": "VRF (Verifiable Random Function)",
-    "definition": "Verifiable Random Function—a cryptographic primitive that generates provably random outputs with a proof of correctness. On Solana, Switchboard VRF provides on-chain randomness for gaming, lotteries, and NFT reveals. The oracle computes a random value and proof off-chain; the program verifies the proof on-chain before using the result."
+    "definition": "Función aleatoria verificable: una primitiva criptográfica que genera salidas aleatorias demostrables con una prueba de corrección. En Solana, Switchboard VRF proporciona aleatoriedad on-chain para juegos, loterías y revelaciones de NFT. El oráculo calcula un valor aleatorio y una prueba off-chain; el programa verifica la prueba on-chain antes de usar el resultado."
   },
   "lending": {
     "term": "Préstamo",
-    "definition": "A DeFi protocol that enables users to deposit tokens to earn yield and borrow tokens against collateral. Key Solana lending protocols include Solend, MarginFi, Kamino, and Save (formerly Solend v2). Lending rates float based on utilization (borrowed/deposited). Deposits receive interest-bearing receipt tokens representing their share."
+    "definition": "Un protocolo DeFi que permite a los usuarios depositar tokens para obtener rendimiento y pedir prestados tokens contra garantía. Los protocolos de préstamo clave de Solana incluyen Solend, MarginFi, Kamino y Save (anteriormente Solend v2). Las tasas de préstamo flotan en función de la utilización (prestado/depositado). Los depósitos reciben tokens de recibo que devengan intereses que representan su participación."
   },
   "borrowing": {
     "term": "Toma de Préstamo",
-    "definition": "The act of taking a loan against deposited collateral in a lending protocol. Borrowers pay a variable interest rate that increases with pool utilization. The borrowed amount must stay below the maximum loan-to-value (LTV) ratio or the position becomes eligible for liquidation. Flash loans allow uncollateralized borrowing within a single transaction."
+    "definition": "El acto de tomar un préstamo contra garantía depositada en un protocolo de préstamo. Los prestatarios pagan una tasa de interés variable que aumenta con la utilización del pool. La cantidad prestada debe mantenerse por debajo de la relación máxima préstamo-valor (LTV) o la posición será elegible para liquidación. Los préstamos flash permiten el endeudamiento sin garantía dentro de una sola transacción."
   },
   "collateral": {
     "term": "Colateral",
-    "definition": "Assets deposited into a lending protocol to secure a loan. Each asset has a collateral factor (e.g., SOL at 80% means $100 of SOL supports $80 in borrows). If the collateral value drops below the maintenance threshold, the position is liquidated. Volatile assets have lower collateral factors than stablecoins."
+    "definition": "Activos depositados en un protocolo de préstamo para asegurar un préstamo. Cada activo tiene un factor de garantía (por ejemplo, SOL al 80% significa que $100 de SOL respaldan $80 en préstamos). Si el valor de la garantía cae por debajo del umbral de mantenimiento, la posición se liquida. Los activos volátiles tienen factores de garantía más bajos que las stablecoins."
   },
   "liquidation": {
     "term": "Liquidación",
-    "definition": "The process of repaying a borrower's debt by selling their collateral when their position's LTV exceeds the liquidation threshold. Liquidators (typically bots) repay a portion of the debt and receive the collateral at a discount (liquidation bonus, typically 5-10%). Liquidation keeps lending protocols solvent. On Solana, liquidation bots compete via Jito bundles."
+    "definition": "El proceso de repagar la deuda de un prestatario vendiendo su garantía cuando el LTV de su posición excede el umbral de liquidación. Los liquidadores (típicamente bots) pagan una porción de la deuda y reciben la garantía con un descuento (bonificación de liquidación, típicamente del 5-10%). La liquidación mantiene la solvencia de los protocolos de préstamo. En Solana, los bots de liquidación compiten a través de paquetes Jito."
   },
   "ltv": {
     "term": "LTV (Loan-to-Value)",
-    "definition": "Loan-to-Value ratio—the percentage of collateral value that can be borrowed. Each lending protocol sets max LTV per asset (e.g., 75% for SOL means $100 SOL collateral = max $75 borrow). If debt/collateral exceeds the liquidation LTV (e.g., 85%), the position is liquidatable. Conservative LTV settings protect against rapid price drops."
+    "definition": "Relación préstamo-valor: el porcentaje del valor de la garantía que se puede tomar prestado. Cada protocolo de préstamo establece el LTV máximo por activo (por ejemplo, 75% para SOL significa $100 de garantía de SOL = máximo $75 de préstamo). Si la deuda/garantía excede el LTV de liquidación (por ejemplo, 85%), la posición es liquidable. Las configuraciones conservadoras de LTV protegen contra caídas rápidas de precios."
   },
   "flash-loan": {
     "term": "Préstamo Flash",
-    "definition": "An uncollateralized loan that must be borrowed and repaid within the same transaction. If the loan isn't repaid by transaction end, the entire transaction reverts atomically. Flash loans enable arbitrage, collateral swaps, and self-liquidation with zero capital. On Solana, Solend and MarginFi offer flash loans; they're also used in sandwich attacks."
+    "definition": "Un préstamo sin garantía que debe pedirse prestado y devolverse dentro de la misma transacción. Si el préstamo no se devuelve al finalizar la transacción, toda la transacción se revierte atómicamente. Los préstamos flash permiten el arbitraje, los swaps de garantía y la autoliquidación sin capital. En Solana, Solend y MarginFi ofrecen préstamos flash; también se utilizan en ataques de sándwich."
   },
   "yield-farming": {
     "term": "Yield Farming",
-    "definition": "The practice of deploying tokens across DeFi protocols to maximize returns through trading fees, lending interest, and token incentive rewards. Farmers often move capital between protocols chasing the highest APY. On Solana, common strategies include LP provision on Orca/Raydium, lending on Kamino/MarginFi, and staking LP tokens in reward farms."
+    "definition": "La práctica de desplegar tokens en protocolos DeFi para maximizar los rendimientos a través de tarifas de negociación, intereses de préstamo y recompensas de incentivos de tokens. Los 'farmers' a menudo mueven capital entre protocolos persiguiendo la APY más alta. En Solana, las estrategias comunes incluyen la provisión de liquidez (LP) en Orca/Raydium, préstamos en Kamino/MarginFi y la staking de tokens LP en granjas de recompensas."
   },
   "liquid-staking": {
     "term": "Staking Líquido",
-    "definition": "A mechanism where staked SOL is represented by a transferable token (LST) that accrues staking rewards while remaining usable in DeFi. Instead of locking SOL with a validator, users deposit into a liquid staking pool and receive tokens like mSOL (Marinade), jitoSOL (Jito), or bSOL (BlazeStake). LSTs typically appreciate against SOL at the staking APY."
+    "definition": "Un mecanismo donde el SOL en staking está representado por un token transferible (LST) que acumula recompensas de staking mientras permanece utilizable en DeFi. En lugar de bloquear SOL con un validador, los usuarios depositan en un pool de staking líquido y reciben tokens como mSOL (Marinade), jitoSOL (Jito) o bSOL (BlazeStake). Los LST suelen apreciarse frente a SOL con la APY de staking."
   },
   "marinade": {
     "term": "Marinade Finance",
-    "definition": "The largest liquid staking protocol on Solana. Users deposit SOL and receive mSOL, a liquid staking token that appreciates as staking rewards accrue (~6-7% APY). Marinade delegates stake across 400+ validators using an automated scoring algorithm, promoting decentralization. It also offers Marinade Native for direct staking without an LST."
+    "definition": "El protocolo de staking líquido más grande en Solana. Los usuarios depositan SOL y reciben mSOL, un token de staking líquido que se aprecia a medida que se acumulan las recompensas de staking (~6-7% APY). Marinade delega stake en más de 400 validadores utilizando un algoritmo de puntuación automatizado, promoviendo la descentralización. También ofrece Marinade Native para staking directo sin un LST."
   },
   "jito-sol": {
     "term": "JitoSOL",
-    "definition": "The liquid staking token issued by Jito, representing staked SOL that earns both standard staking rewards and MEV tips. JitoSOL often offers higher APY (~7-8%) than other LSTs because Jito validators share MEV revenue with stakers. The underlying SOL is delegated to validators running the Jito client."
+    "definition": "El token de staking líquido emitido por Jito, que representa SOL en staking que gana tanto las recompensas de staking estándar como las propinas MEV. JitoSOL a menudo ofrece una APY más alta (~7-8%) que otros LST porque los validadores de Jito comparten los ingresos MEV con los stakers. El SOL subyacente se delega a validadores que ejecutan el cliente Jito."
   },
   "limit-order": {
-    "term": "Limit Order (On-Chain)",
-    "definition": "An on-chain order to buy or sell a token at a specific price or better, executed automatically when the market reaches the target price. Jupiter Limit Orders use a keeper network that monitors prices and executes orders. Unlike CEX limit orders, on-chain limits may have partial fills and rely on available DEX liquidity at the trigger price."
+    "term": "Orden Límite (On-Chain)",
+    "definition": "Una orden on-chain para comprar o vender un token a un precio específico o mejor, ejecutada automáticamente cuando el mercado alcanza el precio objetivo. Las Órdenes Límite de Jupiter utilizan una red 'keeper' que monitorea los precios y ejecuta las órdenes. A diferencia de las órdenes límite de CEX, las límites on-chain pueden tener ejecuciones parciales y dependen de la liquidez DEX disponible al precio de activación."
   },
   "dca": {
     "term": "DCA (Dollar Cost Averaging)",
-    "definition": "A strategy that automatically splits a large purchase into smaller periodic trades to reduce price impact and timing risk. Jupiter DCA allows users to set up recurring buys (e.g., buy $100 of SOL every day for 30 days). Orders execute via keeper bots. DCA reduces the risk of buying at a local peak."
+    "definition": "Una estrategia que divide automáticamente una compra grande en operaciones periódicas más pequeñas para reducir el impacto del precio y el riesgo de tiempo. Jupiter DCA permite a los usuarios configurar compras recurrentes (por ejemplo, comprar $100 de SOL todos los días durante 30 días). Las órdenes se ejecutan a través de bots 'keeper'. DCA reduce el riesgo de comprar en un pico local."
   },
   "perpetuals": {
     "term": "Perpetuals (Perps)",
-    "definition": "Derivatives contracts that track an asset's price without expiration, enabling leveraged long/short positions. On Solana, Drift Protocol and Jupiter Perps are the leading perps platforms. Traders deposit collateral and open positions at up to 10-100x leverage. Funding rates keep the contract price aligned with the spot price."
+    "definition": "Contratos de derivados que siguen el precio de un activo sin vencimiento, lo que permite posiciones apalancadas largas/cortas. En Solana, Drift Protocol y Jupiter Perps son las principales plataformas de perps. Los traders depositan garantías y abren posiciones con un apalancamiento de hasta 10-100x. Las tasas de financiación mantienen el precio del contrato alineado con el precio spot."
   },
   "drift": {
     "term": "Drift Protocol",
-    "definition": "A decentralized perpetuals and spot exchange on Solana featuring a hybrid order book + AMM model (DLOB). Drift offers up to 20x leverage on perpetual contracts, spot margin trading, and lending/borrowing. Its backstop AMM provides liquidity when the order book is thin. Drift also offers prediction markets and a BET token."
+    "definition": "Un intercambio descentralizado de perpetuos y spot en Solana que presenta un modelo híbrido de libro de órdenes + AMM (DLOB). Drift ofrece hasta 20x de apalancamiento en contratos de perpetuos, trading de margen spot y préstamos/empréstitos. Su AMM de respaldo proporciona liquidez cuando el libro de órdenes es escaso. Drift también ofrece mercados de predicción y un token BET."
   },
   "leverage": {
-    "term": "Leverage",
-    "definition": "Using borrowed funds to amplify trading exposure beyond deposited capital. In perps, 10x leverage means $100 collateral controls a $1,000 position. Gains and losses are multiplied proportionally. If losses approach the collateral amount, the position is liquidated. Higher leverage increases both potential returns and liquidation risk."
+    "term": "Apalancamiento",
+    "definition": "Uso de fondos prestados para amplificar la exposición comercial más allá del capital depositado. En perps, 10x de apalancamiento significa que $100 de garantía controlan una posición de $1,000. Las ganancias y pérdidas se multiplican proporcionalmente. Si las pérdidas se acercan a la cantidad de la garantía, la posición se liquida. Un mayor apalancamiento aumenta tanto los rendimientos potenciales como el riesgo de liquidación."
   },
   "margin": {
-    "term": "Margin",
-    "definition": "The collateral deposited to maintain a leveraged position. Initial margin is the minimum to open a position; maintenance margin is the minimum to keep it open. If the margin ratio drops below maintenance due to unrealized losses, the position faces liquidation. Margin can be cross (shared across positions) or isolated (per-position)."
+    "term": "Margen",
+    "definition": "La garantía depositada para mantener una posición apalancada. El margen inicial es el mínimo para abrir una posición; el margen de mantenimiento es el mínimo para mantenerla abierta. Si la relación de margen cae por debajo del mantenimiento debido a pérdidas no realizadas, la posición se enfrenta a la liquidación. El margen puede ser cruzado (compartido entre posiciones) o aislado (por posición)."
   },
   "arbitrage": {
-    "term": "Arbitrage",
-    "definition": "The practice of profiting from price differences for the same asset across different markets. On Solana, arbitrage bots exploit price discrepancies between DEXs (e.g., SOL/USDC on Orca vs Raydium) or between spot and perpetual prices. Arbitrage is often executed via Jito bundles for guaranteed atomic execution and front-running protection."
+    "term": "Arbitraje",
+    "definition": "La práctica de beneficiarse de las diferencias de precios para el mismo activo en diferentes mercados. En Solana, los bots de arbitraje explotan las discrepancias de precios entre DEX (por ejemplo, SOL/USDC en Orca vs Raydium) o entre precios spot y perpetuos. El arbitraje a menudo se ejecuta a través de paquetes Jito para una ejecución atómica garantizada y protección contra el front-running."
   },
   "twap": {
     "term": "TWAP (Time-Weighted Average Price)",
-    "definition": "Time-Weighted Average Price—an average price calculated over a specific time period, weighting each price equally by time. TWAP oracles reduce manipulation risk vs. spot prices. Some DEXs (e.g., Jupiter) offer TWAP execution that splits large orders over time. Pyth provides EMA (exponential moving average) prices as a similar anti-manipulation measure."
+    "definition": "Precio Promedio Ponderado por Tiempo: un precio promedio calculado durante un período de tiempo específico, ponderando cada precio por igual por tiempo. Los oráculos TWAP reducen el riesgo de manipulación en comparación con los precios spot. Algunos DEX (por ejemplo, Jupiter) ofrecen ejecución TWAP que divide grandes órdenes a lo largo del tiempo. Pyth proporciona precios EMA (media móvil exponencial) como una medida similar contra la manipulación."
   },
   "vault": {
-    "term": "Vault",
-    "definition": "A smart contract that automates a DeFi yield strategy on behalf of depositors. Users deposit tokens, receive vault shares, and the vault auto-compounds or rebalances. On Solana, Kamino (CLMM auto-rebalancing), Meteora (dynamic vaults), and Tulip offer vault products. Vaults simplify complex strategies like managing concentrated liquidity positions."
+    "term": "Bóveda",
+    "definition": "Un contrato inteligente que automatiza una estrategia de rendimiento DeFi en nombre de los depositantes. Los usuarios depositan tokens, reciben acciones de la bóveda y la bóveda recompone o reequilibra automáticamente. En Solana, Kamino (rebalanceo automático de CLMM), Meteora (bóvedas dinámicas) y Tulip ofrecen productos de bóveda. Las bóvedas simplifican estrategias complejas como la gestión de posiciones de liquidez concentrada."
   },
   "stablecoin": {
     "term": "Stablecoin",
-    "definition": "A token pegged to a stable asset, typically the US dollar. Major stablecoins on Solana include USDC (Circle, natively minted), USDT (Tether), and UXD (algorithmic). Stablecoins are critical DeFi primitives used as trading pairs, lending collateral, and yield farming. USDC on Solana uses the SPL Token program with freeze authority retained by Circle."
+    "definition": "Un token vinculado a un activo estable, típicamente el dólar estadounidense. Las principales stablecoins en Solana incluyen USDC (Circle, acuñado de forma nativa), USDT (Tether) y UXD (algorítmico). Las stablecoins son primitivas DeFi críticas utilizadas como pares comerciales, garantías de préstamo y yield farming. USDC en Solana utiliza el programa SPL Token con autoridad de congelación retenida por Circle."
   },
   "restaking": {
     "term": "Restaking",
-    "definition": "A mechanism where staked SOL or LSTs are used as economic security for additional protocols beyond Solana consensus. Restaking protocols (e.g., Solayer, Jito Restaking) allow stakers to opt-in to securing bridges, oracles, or rollups while earning additional yield. Slashing risk extends to these secondary protocols."
+    "definition": "Un mecanismo donde el SOL o los LST en staking se utilizan como seguridad económica para protocolos adicionales más allá del consenso de Solana. Los protocolos de restaking (por ejemplo, Solayer, Jito Restaking) permiten a los stakers optar por asegurar puentes, oráculos o rollups mientras obtienen un rendimiento adicional. El riesgo de 'slashing' se extiende a estos protocolos secundarios."
   },
   "meteora": {
     "term": "Meteora",
-    "definition": "A liquidity protocol on Solana (rebranded from Mercurial Finance) that introduced the Dynamic Liquidity Market Maker (DLMM) and Dynamic AMM, which automatically adjust fees and liquidity distribution based on real-time market activity. Meteora became a top-3 DEX by volume in 2025 driven by high-profile token launches using its concentrated liquidity pools."
+    "definition": "Un protocolo de liquidez en Solana (renombrado de Mercurial Finance) que introdujo el Dynamic Liquidity Market Maker (DLMM) y Dynamic AMM, que ajustan automáticamente las tarifas y la distribución de liquidez en función de la actividad del mercado en tiempo real. Meteora se convirtió en uno de los 3 principales DEX por volumen en 2025, impulsado por lanzamientos de tokens de alto perfil que utilizan sus pools de liquidez concentrada."
   },
   "pump-fun": {
     "term": "Pump.fun",
-    "definition": "A memecoin launchpad on Solana that uses a bonding curve mechanism for token creation and initial price discovery, allowing anyone to launch a token with no code in seconds. Tokens that 'graduate' (reach a market cap threshold) migrate to a DEX for open trading. Pump.fun generated over $300M in fees within its first year and launched PumpSwap, its own DEX, in March 2025."
+    "definition": "Una plataforma de lanzamiento de memecoins en Solana que utiliza un mecanismo de curva de vinculación para la creación de tokens y el descubrimiento de precios inicial, permitiendo a cualquiera lanzar un token sin código en segundos. Los tokens que 'se gradúan' (alcanzan un umbral de capitalización de mercado) migran a un DEX para el trading abierto. Pump.fun generó más de $300M en tarifas en su primer año y lanzó PumpSwap, su propio DEX, en marzo de 2025."
   },
   "kamino": {
     "term": "Kamino Finance",
-    "definition": "A DeFi protocol on Solana offering automated lending/borrowing, liquidity vaults, and an intents-based swap platform. Kamino reached over $2B TVL in 2024 and led Solana DeFi with 24% market share. Its Lend V2 introduced 'The Vault Layer' for aggregated liquidity and 'Scam Wick Protection' against unnecessary liquidations from price manipulation."
+    "definition": "Un protocolo DeFi en Solana que ofrece préstamos/empréstitos automatizados, bóvedas de liquidez y una plataforma de intercambio basada en intenciones. Kamino alcanzó más de $2B de TVL en 2024 y lideró el DeFi de Solana con una cuota de mercado del 24%. Su Lend V2 introdujo 'The Vault Layer' para liquidez agregada y 'Scam Wick Protection' contra liquidaciones innecesarias por manipulación de precios."
   },
   "sanctum": {
     "term": "Sanctum",
-    "definition": "A protocol that unifies fragmented liquidity across Solana's liquid staking token (LST) ecosystem by enabling instant swaps between any LSTs and providing the INF token as a unified liquid staking position. Sanctum solves the cold-start liquidity problem for new LST providers and allows validators to launch their own LSTs."
+    "definition": "Un protocolo que unifica la liquidez fragmentada en el ecosistema de tokens de staking líquido (LST) de Solana al permitir swaps instantáneos entre cualquier LST y proporcionar el token INF como una posición unificada de staking líquido. Sanctum resuelve el problema de la liquidez de arranque en frío para los nuevos proveedores de LST y permite a los validadores lanzar sus propios LST."
   },
   "tensor": {
     "term": "Tensor",
-    "definition": "A Solana NFT marketplace and trading protocol that launched the TNSR governance token in April 2024. Tensor provides advanced trading features including collection-level bidding, real-time price feeds, and lending against NFT collateral. It competes with Magic Eden as a primary NFT trading venue on Solana."
+    "definition": "Un mercado NFT y protocolo de trading en Solana que lanzó el token de gobernanza TNSR en abril de 2024. Tensor ofrece funciones de trading avanzadas que incluyen ofertas a nivel de colección, feeds de precios en tiempo real y préstamos contra garantías NFT. Compite con Magic Eden como un lugar principal de trading de NFT en Solana."
   },
   "intents": {
-    "term": "Intents",
-    "definition": "A transaction paradigm where users declare their desired outcome (e.g., 'swap 100 USDC for best SOL price') rather than specifying exact execution steps. Solvers compete to find the optimal execution path across protocols, chains, and liquidity sources. Intent-based architectures abstract away routing complexity, enable cross-chain execution, and shift MEV from adversarial extraction to competitive fulfillment."
+    "term": "Intenciones",
+    "definition": "Un paradigma de transacción donde los usuarios declaran el resultado deseado (por ejemplo, 'intercambiar 100 USDC por el mejor precio de SOL') en lugar de especificar los pasos exactos de ejecución. Los solucionadores compiten para encontrar la ruta de ejecución óptima a través de protocolos, cadenas y fuentes de liquidez. Las arquitecturas basadas en intenciones abstraen la complejidad del enrutamiento, permiten la ejecución entre cadenas y cambian el MEV de la extracción adversaria al cumplimiento competitivo."
   },
   "chain-abstraction": {
-    "term": "Chain Abstraction",
-    "definition": "A UX design philosophy and infrastructure layer that hides blockchain-specific complexity from end users, allowing them to interact with dApps without knowing which chain they are on. Chain abstraction aggregates cross-chain routing, gas payments, bridging, and account management into a seamless experience. Projects like Particle Network and NEAR's chain signatures enable users to operate across multiple chains through a single interface."
+    "term": "Abstracción de Cadena",
+    "definition": "Una filosofía de diseño de UX y una capa de infraestructura que oculta la complejidad específica de la cadena de bloques a los usuarios finales, permitiéndoles interactuar con dApps sin saber en qué cadena se encuentran. La abstracción de cadena agrega el enrutamiento entre cadenas, los pagos de gas, el puenteo y la gestión de cuentas en una experiencia fluida. Proyectos como Particle Network y las firmas de cadena de NEAR permiten a los usuarios operar en múltiples cadenas a través de una única interfaz."
   },
   "eigenlayer": {
     "term": "EigenLayer",
-    "definition": "The dominant restaking protocol on Ethereum that allows stakers to opt in to securing additional services (Actively Validated Services or AVSs) by restaking their ETH or liquid staking tokens. EigenLayer creates a shared security marketplace where smaller protocols can bootstrap validator sets. With over $18 billion TVL and 85%+ market share by 2025, EigenLayer underpins critical infrastructure including EigenDA, oracle networks, and bridges."
+    "definition": "El protocolo de restaking dominante en Ethereum que permite a los stakers optar por asegurar servicios adicionales (Actively Validated Services o AVSs) haciendo restaking de su ETH o tokens de staking líquidos. EigenLayer crea un mercado de seguridad compartido donde los protocolos más pequeños pueden arrancar conjuntos de validadores. Con más de $18 mil millones de TVL y más del 85% de cuota de mercado para 2025, EigenLayer sustenta infraestructura crítica incluyendo EigenDA, redes de oráculos y puentes."
   },
   "liquid-restaking-token": {
     "term": "Liquid Restaking Token (LRT)",
-    "definition": "A tokenized receipt representing restaked assets in protocols like EigenLayer, allowing users to maintain DeFi liquidity while earning restaking yields. When users restake LSTs via protocols like EtherFi (eETH) or Renzo (ezETH), they receive LRTs that can be used as collateral, traded, or deployed in additional DeFi strategies. LRTs reached $14 billion combined market cap by 2025."
+    "definition": "Un recibo tokenizado que representa activos con restaking en protocolos como EigenLayer, lo que permite a los usuarios mantener la liquidez DeFi mientras obtienen rendimientos de restaking. Cuando los usuarios hacen restaking de LSTs a través de protocolos como EtherFi (eETH) o Renzo (ezETH), reciben LRTs que pueden usarse como garantía, intercambiarse o implementarse en estrategias DeFi adicionales. Los LRTs alcanzaron una capitalización de mercado combinada de $14 mil millones para 2025."
   },
   "rwa-tokenization": {
-    "term": "Real-World Asset Tokenization (RWA)",
-    "definition": "The process of representing ownership of traditional financial assets (treasuries, private credit, real estate, equities) as tokens on a blockchain. Tokenized RWAs grew from ~$6 billion in 2022 to over $30 billion by 2025, led by BlackRock's BUIDL fund (tokenized treasuries) and Maple Finance (private credit). RWAs bridge traditional finance with DeFi composability."
+    "term": "Tokenización de Activos del Mundo Real (RWA)",
+    "definition": "El proceso de representar la propiedad de activos financieros tradicionales (bonos del tesoro, crédito privado, bienes raíces, acciones) como tokens en una cadena de bloques. Los RWAs tokenizados crecieron de ~$6 mil millones en 2022 a más de $30 mil millones para 2025, liderados por el fondo BUIDL de BlackRock (bonos del tesoro tokenizados) y Maple Finance (crédito privado). Los RWAs unen las finanzas tradicionales con la composabilidad DeFi."
   },
   "points-seasons": {
-    "term": "Points / Seasons",
-    "definition": "A gamified incentive mechanism where protocols award off-chain loyalty points for specific on-chain actions across time-limited campaign periods called 'seasons.' Points are typically converted to token allocations at a later token generation event (TGE). The off-chain and opaque nature of points tracking has drawn criticism for lack of transparency and sybil vulnerability."
+    "term": "Puntos / Temporadas",
+    "definition": "Un mecanismo de incentivos gamificado donde los protocolos otorgan puntos de lealtad fuera de la cadena por acciones específicas en la cadena durante períodos de campaña con límites de tiempo llamados 'temporadas'. Los puntos se convierten típicamente en asignaciones de tokens en un evento posterior de generación de tokens (TGE). La naturaleza fuera de la cadena y opaca del seguimiento de puntos ha generado críticas por falta de transparencia y vulnerabilidad a ataques sybil."
   },
   "mev-supply-chain": {
-    "term": "MEV Supply Chain",
-    "definition": "The multi-party pipeline through which maximal extractable value is captured: searchers identify profitable orderings, builders construct optimal blocks from bundles, relays facilitate trustless builder-proposer communication, and proposers select and finalize blocks. Over 90% of Ethereum L1 blocks flow through MEV-Boost. Proposer-builder separation (PBS) aims to formalize these roles at the protocol level."
+    "term": "Cadena de Suministro de MEV",
+    "definition": "La tubería multipartita a través de la cual se captura el valor máximo extraíble: los buscadores identifican órdenes rentables, los constructores construyen bloques óptimos a partir de paquetes, los relés facilitan la comunicación sin confianza entre el constructor y el proponente, y los proponentes seleccionan y finalizan los bloques. Más del 90% de los bloques L1 de Ethereum fluyen a través de MEV-Boost. La separación proponente-constructor (PBS) tiene como objetivo formalizar estos roles a nivel de protocolo."
   },
   "dlmm": {
     "term": "DLMM (Dynamic Liquidity Market Maker)",
-    "definition": "A concentrated liquidity AMM design pioneered by Meteora on Solana that organizes liquidity into discrete price bins rather than continuous tick ranges. Each bin holds liquidity at a single price, and trades move sequentially through bins. DLMM pools feature dynamic fees that adjust based on volatility, and LPs can choose from preset distribution shapes (spot, curve, bid-ask) to match their market outlook."
+    "definition": "Un diseño AMM de liquidez concentrada pionero de Meteora en Solana que organiza la liquidez en bins de precios discretos en lugar de rangos de ticks continuos. Cada bin mantiene liquidez a un precio único, y las operaciones se mueven secuencialmente a través de los bins. Los pools de DLMM presentan tarifas dinámicas que se ajustan en función de la volatilidad, y los LPs pueden elegir entre formas de distribución preestablecidas (spot, curva, bid-ask) para que coincidan con su perspectiva del mercado."
   },
   "virtual-amm": {
     "term": "Virtual AMM (vAMM)",
-    "definition": "An AMM that uses virtual (synthetic) reserves to facilitate perpetual contract trading without requiring real token liquidity in a pool. Traders deposit collateral and trade against the virtual reserves, with the AMM formula determining entry and exit prices. Drift Protocol on Solana uses a virtual AMM as a backstop liquidity source alongside its decentralized limit order book."
+    "definition": "Un AMM que utiliza reservas virtuales (sintéticas) para facilitar el comercio de contratos perpetuos sin requerir liquidez real de tokens en un pool. Los traders depositan garantía y operan contra las reservas virtuales, con la fórmula AMM determinando los precios de entrada y salida. Drift Protocol en Solana utiliza un AMM virtual como fuente de liquidez de respaldo junto con su libro de órdenes límite descentralizado."
   },
   "cpmm": {
     "term": "CPMM (Constant Product Market Maker)",
-    "definition": "The simplest and most widely used AMM model, based on the formula x * y = k where x and y are token reserves and k is an invariant. Every swap changes the ratio of reserves while keeping the product constant, producing a hyperbolic price curve. CPMMs provide liquidity across the full price range (0 to infinity) but are less capital-efficient than concentrated liquidity designs. Raydium's standard pools use this model."
+    "definition": "El modelo AMM más simple y ampliamente utilizado, basado en la fórmula x * y = k donde x e y son reservas de tokens y k es un invariante. Cada swap cambia la proporción de las reservas mientras mantiene el producto constante, produciendo una curva de precios hiperbólica. Los CPMMs proporcionan liquidez en todo el rango de precios (0 a infinito) pero son menos eficientes en capital que los diseños de liquidez concentrada. Los pools estándar de Raydium utilizan este modelo."
   },
   "utilization-rate": {
-    "term": "Utilization Rate",
-    "definition": "The percentage of total deposited assets currently borrowed in a lending protocol, calculated as total borrows divided by total deposits. Utilization rate is the primary input to interest rate models: higher utilization drives up borrow rates to incentivize repayment and attract new deposits. Most Solana lending protocols (Kamino, MarginFi) target an optimal utilization of 70-90%, with rates spiking sharply above this threshold."
+    "term": "Tasa de Utilización",
+    "definition": "El porcentaje de los activos depositados totales actualmente prestados en un protocolo de préstamo, calculado como el total de préstamos dividido por el total de depósitos. La tasa de utilización es el insumo principal de los modelos de tasas de interés: una mayor utilización eleva las tasas de préstamo para incentivar el reembolso y atraer nuevos depósitos. La mayoría de los protocolos de préstamo de Solana (Kamino, MarginFi) apuntan a una utilización óptima del 70-90%, con tasas que aumentan bruscamente por encima de este umbral."
   },
   "borrow-apy": {
-    "term": "Borrow APY",
-    "definition": "The annualized interest rate paid by borrowers in a lending protocol, expressed as annual percentage yield with compounding. Borrow APY is determined algorithmically by the interest rate model based on the pool's utilization rate. On Solana lending protocols like Kamino and MarginFi, borrow APY typically ranges from 2-15% for major assets but can spike above 100% during high utilization periods."
+    "term": "APY de Préstamo",
+    "definition": "La tasa de interés anualizada pagada por los prestatarios en un protocolo de préstamo, expresada como rendimiento porcentual anual con capitalización. El APY de préstamo se determina algorítmicamente por el modelo de tasa de interés basado en la tasa de utilización del pool. En los protocolos de préstamo de Solana como Kamino y MarginFi, el APY de préstamo suele oscilar entre el 2% y el 15% para los activos principales, pero puede superar el 100% durante períodos de alta utilización."
   },
   "supply-apy": {
-    "term": "Supply APY",
-    "definition": "The annualized interest rate earned by depositors (lenders) in a lending protocol. Supply APY equals the borrow APY multiplied by the utilization rate, minus any protocol fees. For example, if borrow APY is 10% and utilization is 80% with a 10% protocol cut, supply APY is approximately 7.2%. Depositors earn yield passively as borrowers pay interest on their loans."
+    "term": "APY de Suministro",
+    "definition": "La tasa de interés anualizada obtenida por los depositantes (prestamistas) en un protocolo de préstamo. El APY de suministro es igual al APY de préstamo multiplicado por la tasa de utilización, menos cualquier tarifa de protocolo. Por ejemplo, si el APY de préstamo es del 10% y la utilización es del 80% con un recorte del protocolo del 10%, el APY de suministro es aproximadamente del 7.2%. Los depositantes obtienen rendimiento pasivamente a medida que los prestatarios pagan intereses sobre sus préstamos."
   },
   "health-factor": {
-    "term": "Health Factor",
-    "definition": "A ratio that measures the safety of a borrowing position in a lending protocol, calculated as the risk-adjusted collateral value divided by the total borrow value. A health factor above 1 means the position is safe; at or below 1, the position becomes eligible for liquidation. Users monitor health factor to avoid liquidation, and protocols display it prominently as the primary risk indicator."
+    "term": "Factor de Salud",
+    "definition": "Una relación que mide la seguridad de una posición de préstamo en un protocolo de préstamo, calculada como el valor de la garantía ajustado al riesgo dividido por el valor total del préstamo. Un factor de salud superior a 1 significa que la posición es segura; en o por debajo de 1, la posición es elegible para liquidación. Los usuarios monitorean el factor de salud para evitar la liquidación, y los protocolos lo muestran prominentemente como el principal indicador de riesgo."
   },
   "interest-rate-model": {
-    "term": "Interest Rate Model",
-    "definition": "The algorithm a lending protocol uses to determine borrow and supply interest rates based on pool utilization. Most Solana lending protocols use a kinked (piecewise linear) model with a gentle slope below optimal utilization and a steep slope above it, creating urgency to repay when liquidity becomes scarce. Parameters include base rate, optimal utilization point, and slope values for each segment."
+    "term": "Modelo de Tasa de Interés",
+    "definition": "El algoritmo que utiliza un protocolo de préstamo para determinar las tasas de interés de préstamo y suministro en función de la utilización del pool. La mayoría de los protocolos de préstamo de Solana utilizan un modelo 'kinked' (lineal por partes) con una pendiente suave por debajo de la utilización óptima y una pendiente pronunciada por encima de ella, creando urgencia para reembolsar cuando la liquidez se vuelve escasa. Los parámetros incluyen la tasa base, el punto de utilización óptima y los valores de la pendiente para cada segmento."
   },
   "liquidation-bonus": {
-    "term": "Liquidation Bonus",
-    "definition": "A discount on collateral that incentivizes liquidators to repay the debt of unhealthy positions in lending protocols. When a position's health factor drops below 1, liquidators can repay a portion of the debt and receive the equivalent collateral value plus a bonus (typically 5-15%). The bonus must be large enough to cover transaction costs and risk, but not so large that borrowers suffer excessive losses."
+    "term": "Bono de Liquidación",
+    "definition": "Un descuento en la garantía que incentiva a los liquidadores a reembolsar la deuda de posiciones no saludables en los protocolos de préstamo. Cuando el factor de salud de una posición cae por debajo de 1, los liquidadores pueden reembolsar una parte de la deuda y recibir el valor equivalente de la garantía más un bono (normalmente del 5-15%). El bono debe ser lo suficientemente grande para cubrir los costos de transacción y el riesgo, pero no tan grande que los prestatarios sufran pérdidas excesivas."
   },
   "bad-debt": {
-    "term": "Bad Debt",
-    "definition": "Debt in a lending protocol where the collateral value has fallen below the outstanding borrow value, making the position impossible to liquidate profitably. Bad debt occurs during extreme market crashes when liquidators cannot act fast enough or when oracle prices become stale. The protocol or its insurance fund must absorb bad debt losses. Kamino's Scam Wick Protection aims to reduce bad debt from price manipulation."
+    "term": "Deuda Incobrable",
+    "definition": "Deuda en un protocolo de préstamo donde el valor de la garantía ha caído por debajo del valor pendiente del préstamo, lo que hace que la posición sea imposible de liquidar de forma rentable. La deuda incobrable ocurre durante caídas extremas del mercado cuando los liquidadores no pueden actuar lo suficientemente rápido o cuando los precios del oráculo quedan desactualizados. El protocolo o su fondo de seguro deben absorber las pérdidas por deuda incobrable. La protección Scam Wick de Kamino tiene como objetivo reducir la deuda incobrable por manipulación de precios."
   },
   "isolated-pools": {
-    "term": "Isolated Pools",
-    "definition": "Lending pools where risk is contained to specific asset pairs or groups, preventing a depeg or exploit in one asset from affecting the entire protocol. Each isolated pool has its own risk parameters, interest rates, and collateral factors. On Solana, MarginFi and Kamino use isolated pool architectures so that volatile or newer tokens can be listed without exposing core assets like SOL and USDC to additional risk."
+    "term": "Pools Aislados",
+    "definition": "Pools de préstamo donde el riesgo está contenido a pares o grupos de activos específicos, evitando que un despegue o exploit en un activo afecte a todo el protocolo. Cada pool aislado tiene sus propios parámetros de riesgo, tasas de interés y factores de garantía. En Solana, MarginFi y Kamino utilizan arquitecturas de pools aislados para que los tokens volátiles o más nuevos puedan listarse sin exponer activos principales como SOL y USDC a riesgos adicionales."
   },
   "cross-margin": {
-    "term": "Cross Margin",
-    "definition": "A margin mode where the entire account balance serves as collateral across all open positions. Unrealized profits from one position can offset losses in another, reducing overall liquidation risk. Cross margin is more capital-efficient but means a single bad position can threaten the entire account. Drift Protocol on Solana uses cross-margin by default for its perpetuals and spot margin trading."
+    "term": "Margen Cruzado",
+    "definition": "Un modo de margen donde todo el saldo de la cuenta sirve como garantía para todas las posiciones abiertas. Las ganancias no realizadas de una posición pueden compensar las pérdidas en otra, reduciendo el riesgo general de liquidación. El margen cruzado es más eficiente en capital pero significa que una sola posición mala puede amenazar toda la cuenta. Drift Protocol en Solana utiliza margen cruzado de forma predeterminada para sus perpetuos y el comercio de margen spot."
   },
   "isolated-margin": {
-    "term": "Isolated Margin",
-    "definition": "A margin mode where collateral is dedicated to a single position, limiting the maximum loss to only the margin allocated to that trade. Other positions and the remaining account balance are unaffected if the isolated position is liquidated. Traders use isolated margin for higher-risk trades to cap downside exposure. Most Solana perps platforms offer both cross and isolated margin options."
+    "term": "Margen Aislado",
+    "definition": "Un modo de margen donde la garantía se dedica a una sola posición, limitando la pérdida máxima solo al margen asignado a esa operación. Otras posiciones y el saldo restante de la cuenta no se ven afectados si la posición aislada se liquida. Los traders utilizan el margen aislado para operaciones de mayor riesgo para limitar la exposición a la baja. La mayoría de las plataformas de perpetuos de Solana ofrecen opciones de margen cruzado y aislado."
   },
   "funding-rate": {
-    "term": "Funding Rate",
-    "definition": "A periodic payment exchanged between holders of long and short perpetual contract positions to keep the perp price anchored to the spot price. When the perp trades above spot (positive funding), longs pay shorts; when below spot (negative funding), shorts pay longs. Funding is typically settled every hour on Solana perps platforms like Drift and Jupiter Perps. High funding rates create arbitrage opportunities."
+    "term": "Tasa de Financiamiento",
+    "definition": "Un pago periódico intercambiado entre los titulares de posiciones de contratos perpetuos largos y cortos para mantener el precio del perpetuo anclado al precio spot. Cuando el perpetuo se negocia por encima del spot (financiamiento positivo), los largos pagan a los cortos; cuando está por debajo del spot (financiamiento negativo), los cortos pagan a los largos. El financiamiento generalmente se liquida cada hora en plataformas de perpetuos de Solana como Drift y Jupiter Perps. Las altas tasas de financiamiento crean oportunidades de arbitraje."
   },
   "open-interest": {
-    "term": "Open Interest",
-    "definition": "The total value or number of outstanding derivative contracts (perpetuals, options) that have not been settled or closed. Open interest increases when new positions are opened and decreases when positions are closed. High open interest indicates active market participation and can signal strong conviction. Perps platforms use open interest caps to manage protocol risk exposure."
+    "term": "Interés Abierto",
+    "definition": "El valor total o el número de contratos de derivados pendientes (perpetuos, opciones) que no se han liquidado o cerrado. El interés abierto aumenta cuando se abren nuevas posiciones y disminuye cuando se cierran las posiciones. Un alto interés abierto indica una participación activa en el mercado y puede señalar una fuerte convicción. Las plataformas de perpetuos utilizan límites de interés abierto para gestionar la exposición al riesgo del protocolo."
   },
   "mark-price": {
-    "term": "Mark Price",
-    "definition": "The fair value price used by perpetual contract platforms to calculate unrealized PnL and trigger liquidations. Mark price is typically derived from a combination of the oracle index price and the order book or AMM mid-price, weighted to resist manipulation. Using mark price instead of last traded price prevents liquidation hunting through short-lived price spikes on thin markets."
+    "term": "Precio de Marca",
+    "definition": "El precio de valor justo utilizado por las plataformas de contratos perpetuos para calcular el PnL no realizado y activar las liquidaciones. El precio de marca se deriva típicamente de una combinación del precio del índice del oráculo y el precio medio del libro de órdenes o AMM, ponderado para resistir la manipulación. El uso del precio de marca en lugar del último precio negociado evita la búsqueda de liquidaciones a través de picos de precios de corta duración en mercados delgados."
   },
   "index-price": {
-    "term": "Index Price",
-    "definition": "The reference spot price sourced from oracle feeds (Pyth, Switchboard) used as the benchmark in derivatives trading. Index price represents the aggregate market price across major exchanges and is used to calculate funding rates and as a component of mark price. Accurate index prices are critical for fair liquidation and funding rate calculations in perps protocols."
+    "term": "Precio de Índice",
+    "definition": "El precio spot de referencia obtenido de las fuentes de oráculos (Pyth, Switchboard) utilizado como referencia en el comercio de derivados. El precio de índice representa el precio de mercado agregado en las principales bolsas y se utiliza para calcular las tasas de financiamiento y como un componente del precio de marca. Los precios de índice precisos son críticos para la liquidación justa y los cálculos de la tasa de financiamiento en los protocolos de perpetuos."
   },
   "fee-tier": {
-    "term": "Fee Tier",
-    "definition": "A predefined fee level applied to a liquidity pool or trading pair, typically expressed in basis points. Different fee tiers exist for different asset volatility profiles: stable pairs (e.g., USDC/USDT) use low fees (1-5 bps), major pairs (SOL/USDC) use moderate fees (5-30 bps), and volatile pairs use higher fees (30-100 bps). LPs select fee tiers based on expected trading volume and impermanent loss risk."
+    "term": "Nivel de Tarifa",
+    "definition": "Un nivel de tarifa predefinido aplicado a un liquidity pool o a un par de trading, generalmente expresado en puntos básicos. Existen diferentes niveles de tarifa para diferentes perfiles de volatilidad de activos: los pares estables (por ejemplo, USDC/USDT) utilizan tarifas bajas (1-5 bps), los pares principales (SOL/USDC) utilizan tarifas moderadas (5-30 bps) y los pares volátiles utilizan tarifas más altas (30-100 bps). Los LPs seleccionan los niveles de tarifa en función del volumen de trading esperado y el riesgo de pérdida impermanente."
   },
   "auto-compounding": {
-    "term": "Auto-Compounding",
-    "definition": "The automatic reinvestment of earned yields (trading fees, farming rewards, interest) back into a DeFi position to generate compound returns. Instead of manually claiming and restaking rewards, auto-compounding vaults or protocols handle this continuously. On Solana, Kamino vaults and Meteora dynamic vaults auto-compound concentrated liquidity fees and incentive rewards for their depositors."
+    "term": "Composición automática",
+    "definition": "La reinversión automática de los rendimientos obtenidos (comisiones de negociación, recompensas de farming, intereses) de nuevo en una posición DeFi para generar rendimientos compuestos. En lugar de reclamar y reinvertir manualmente las recompensas, las bóvedas o protocolos de composición automática lo gestionan continuamente. En Solana, las bóvedas de Kamino y las bóvedas dinámicas de Meteora autocomponen las tarifas de liquidez concentrada y las recompensas de incentivos para sus depositantes."
   },
   "rebalancing": {
-    "term": "Rebalancing",
-    "definition": "The process of adjusting a concentrated liquidity position's price range as the market price moves to keep the position active and earning fees. Manual rebalancing requires withdrawing liquidity and re-depositing at new tick ranges, incurring transaction costs and potential impermanent loss realization. Automated vault protocols like Kamino perform rebalancing algorithmically based on configurable triggers."
+    "term": "Reequilibrio",
+    "definition": "El proceso de ajustar el rango de precios de una posición de liquidez concentrada a medida que el precio de mercado se mueve para mantener la posición activa y generar tarifas. El reequilibrio manual requiere retirar liquidez y volver a depositarla en nuevos rangos de ticks, lo que incurre en costos de transacción y una posible realización de pérdidas impermanentes. Los protocolos de bóveda automatizados como Kamino realizan el reequilibrio algorítmicamente basándose en disparadores configurables."
   },
   "dynamic-fee": {
-    "term": "Dynamic Fee",
-    "definition": "A trading fee that automatically adjusts based on real-time market conditions such as volatility, volume, or liquidity depth. During high-volatility periods, dynamic fees increase to compensate LPs for greater impermanent loss risk; during calm markets, fees decrease to attract more trading volume. Meteora's DLMM pools pioneered dynamic fees on Solana, using a formula that factors in bin-crossing frequency."
+    "term": "Tarifa Dinámica",
+    "definition": "Una tarifa de negociación que se ajusta automáticamente en función de las condiciones del mercado en tiempo real, como la volatilidad, el volumen o la profundidad de la liquidez. Durante los períodos de alta volatilidad, las tarifas dinámicas aumentan para compensar a los LPs por un mayor riesgo de pérdida impermanente; durante los mercados tranquilos, las tarifas disminuyen para atraer más volumen de negociación. Los pools DLMM de Meteora fueron pioneros en las tarifas dinámicas en Solana, utilizando una fórmula que tiene en cuenta la frecuencia de cruce de bins."
   },
   "capital-efficiency": {
-    "term": "Capital Efficiency",
-    "definition": "A measure of how much trading volume or yield a unit of deposited liquidity can support. Higher capital efficiency means LPs earn more fees per dollar locked. Concentrated liquidity (CLMM/DLMM) dramatically improves capital efficiency over constant product AMMs by focusing liquidity in active price ranges. Capital efficiency is often expressed as the ratio of trading volume to TVL."
+    "term": "Eficiencia del Capital",
+    "definition": "Una medida de cuánto volumen de negociación o rendimiento puede soportar una unidad de liquidez depositada. Una mayor eficiencia del capital significa que los LPs obtienen más tarifas por dólar bloqueado. La liquidez concentrada (CLMM/DLMM) mejora drásticamente la eficiencia del capital sobre los AMM de producto constante al enfocar la liquidez en rangos de precios activos. La eficiencia del capital a menudo se expresa como la relación entre el volumen de negociación y el TVL."
   },
   "liquidity-depth": {
-    "term": "Liquidity Depth",
-    "definition": "The total amount of liquidity available at various price levels in a market or pool, indicating how much can be traded before causing significant price impact. Deep liquidity means large trades execute with minimal slippage; thin liquidity means even small trades move the price. Liquidity depth charts visualize available buy and sell liquidity across price ranges and are critical for assessing trade execution quality."
+    "term": "Profundidad de Liquidez",
+    "definition": "La cantidad total de liquidez disponible en varios niveles de precios en un mercado o pool, lo que indica cuánto se puede negociar antes de causar un impacto significativo en el precio. Una liquidez profunda significa que las grandes operaciones se ejecutan con un deslizamiento mínimo; una liquidez escasa significa que incluso las operaciones pequeñas mueven el precio. Los gráficos de profundidad de liquidez visualizan la liquidez de compra y venta disponible en los rangos de precios y son fundamentales para evaluar la calidad de la ejecución de las operaciones."
   },
   "yield-aggregator": {
-    "term": "Yield Aggregator",
-    "definition": "A protocol that automatically allocates user deposits across multiple DeFi strategies to optimize yield. Yield aggregators monitor rates across lending protocols, liquidity pools, and staking programs, rebalancing capital to the highest-returning opportunities. On Solana, Meteora dynamic vaults and Tulip Protocol serve as yield aggregators, abstracting strategy management and auto-compounding returns for depositors."
+    "term": "Agregador de Rendimiento",
+    "definition": "Un protocolo que asigna automáticamente los depósitos de los usuarios a través de múltiples estrategias DeFi para optimizar el rendimiento. Los agregadores de rendimiento monitorean las tasas en los protocolos de préstamo, los pools de liquidez y los programas de staking, reequilibrando el capital a las oportunidades de mayor retorno. En Solana, las bóvedas dinámicas de Meteora y Tulip Protocol sirven como agregadores de rendimiento, abstraendo la gestión de la estrategia y componiendo automáticamente los retornos para los depositantes."
   },
   "bonding-curve": {
-    "term": "Bonding Curve",
-    "definition": "A mathematical formula that determines a token's price as a function of its supply. As more tokens are purchased, the price rises along the curve; selling decreases supply and lowers the price. Pump.fun popularized bonding curves on Solana for token launches, using them for initial price discovery before a token graduates to a DEX. The curve shape determines how quickly price accelerates with demand."
+    "term": "Curva de Vinculación",
+    "definition": "Una fórmula matemática que determina el precio de un token en función de su oferta. A medida que se compran más tokens, el precio sube a lo largo de la curva; la venta disminuye la oferta y baja el precio. Pump.fun popularizó las curvas de vinculación en Solana para los lanzamientos de tokens, utilizándolas para el descubrimiento de precios inicial antes de que un token se gradúe a un DEX. La forma de la curva determina la rapidez con la que el precio se acelera con la demanda."
   },
   "graduation": {
-    "term": "Graduation",
-    "definition": "The process by which a token launched on a bonding curve platform like Pump.fun migrates to a standard DEX liquidity pool after reaching a predefined market cap threshold (typically ~$69K on Pump.fun). At graduation, the bonding curve liquidity is deposited into a Raydium or PumpSwap pool, enabling open market trading. Graduation signals initial market validation of a token launch."
+    "term": "Graduación",
+    "definition": "El proceso por el cual un token lanzado en una plataforma de curva de vinculación como Pump.fun migra a un pool de liquidez DEX estándar después de alcanzar un umbral de capitalización de mercado predefinido (típicamente ~$69K en Pump.fun). En la graduación, la liquidez de la curva de vinculación se deposita en un pool de Raydium o PumpSwap, lo que permite la negociación en el mercado abierto. La graduación señala la validación inicial del mercado de un lanzamiento de token."
   },
   "vesting": {
     "term": "Vesting",
-    "definition": "A token distribution mechanism that gradually unlocks tokens to recipients over a predefined schedule rather than all at once. Vesting aligns long-term incentives for team members, investors, and advisors by preventing immediate selling. Typical vesting schedules on Solana range from 1-4 years. On-chain vesting programs (e.g., Streamflow, Bonfida) lock tokens in escrow accounts and release them according to the schedule."
+    "definition": "Un mecanismo de distribución de tokens que desbloquea gradualmente los tokens a los receptores según un cronograma predefinido en lugar de todo a la vez. El vesting alinea los incentivos a largo plazo para los miembros del equipo, los inversores y los asesores al evitar la venta inmediata. Los cronogramas de vesting típicos en Solana varían de 1 a 4 años. Los programas de vesting en cadena (por ejemplo, Streamflow, Bonfida) bloquean los tokens en cuentas de depósito en garantía y los liberan según el cronograma."
   },
   "cliff-vesting": {
-    "term": "Cliff Vesting",
-    "definition": "A vesting structure with an initial lockup period (the cliff) during which no tokens are released, followed by gradual unlocking. For example, a 4-year vest with a 1-year cliff means zero tokens unlock for the first year, then remaining tokens vest linearly over the next 3 years. The cliff ensures minimum commitment before any tokens become available and is standard for team and investor allocations."
+    "term": "Vesting con Cliff",
+    "definition": "Una estructura de vesting con un período de bloqueo inicial (el cliff) durante el cual no se liberan tokens, seguido de un desbloqueo gradual. Por ejemplo, un vesting de 4 años con un cliff de 1 año significa que no se desbloquean tokens durante el primer año, luego los tokens restantes se invisten linealmente durante los siguientes 3 años. El cliff asegura un compromiso mínimo antes de que cualquier token esté disponible y es estándar para las asignaciones de equipo e inversores."
   },
   "tge": {
     "term": "TGE (Token Generation Event)",
-    "definition": "Token Generation Event—the moment when a project's token is first created and distributed on-chain. TGE typically involves deploying the token mint, distributing initial allocations (community, team, investors, treasury), and listing on DEXs. On Solana, TGE often coincides with an airdrop or launchpad sale. Vesting schedules begin at TGE for locked allocations."
+    "definition": "Evento de Generación de Token: el momento en que se crea y distribuye por primera vez el token de un proyecto en la cadena. El TGE típicamente implica desplegar la acuñación de tokens, distribuir las asignaciones iniciales (comunidad, equipo, inversores, tesorería) y listarlos en los DEXs. En Solana, el TGE a menudo coincide con un airdrop o una venta en Launchpad. Los cronogramas de vesting comienzan en el TGE para las asignaciones bloqueadas."
   },
   "max-supply": {
-    "term": "Max Supply",
-    "definition": "The absolute maximum number of tokens that can ever exist for a given token. Max supply is either enforced programmatically (by revoking mint authority after initial minting) or defined as a cap in the tokenomics design. For example, SOL has no hard max supply due to ongoing inflation, while many project tokens have a fixed max supply set at TGE. Max supply is used to calculate fully diluted valuation."
+    "term": "Suministro Máximo",
+    "definition": "El número máximo absoluto de tokens que pueden existir para un token dado. El suministro máximo se aplica programáticamente (revocando la autoridad de acuñación después de la acuñación inicial) o se define como un límite en el diseño de la tokenomía. Por ejemplo, SOL no tiene un suministro máximo fijo debido a la inflación continua, mientras que muchos tokens de proyectos tienen un suministro máximo fijo establecido en el TGE. El suministro máximo se utiliza para calcular la valoración totalmente diluida."
   },
   "circulating-supply": {
-    "term": "Circulating Supply",
-    "definition": "The number of tokens currently available and tradeable in the open market, excluding locked, vesting, or otherwise restricted tokens. Circulating supply is used to calculate market capitalization (price times circulating supply). It increases as vesting schedules unlock tokens and decreases as tokens are burned. The gap between circulating and max supply indicates future dilution potential."
+    "term": "Suministro Circulante",
+    "definition": "El número de tokens actualmente disponibles y negociables en el mercado abierto, excluyendo los tokens bloqueados, en vesting o restringidos de otro modo. El suministro circulante se utiliza para calcular la capitalización de mercado (precio por suministro circulante). Aumenta a medida que los cronogramas de vesting desbloquean tokens y disminuye a medida que se queman tokens. La brecha entre el suministro circulante y el máximo indica el potencial de dilución futura."
   },
   "fdv": {
-    "term": "FDV (Fully Diluted Valuation)",
-    "definition": "Fully Diluted Valuation—the theoretical market capitalization if all tokens (including locked, vesting, and unminted) were in circulation, calculated as current token price multiplied by maximum supply. FDV provides a forward-looking valuation metric. A large gap between market cap and FDV indicates significant future token emissions that could create sell pressure as locked tokens unlock."
+    "term": "FDV (Valoración Totalmente Diluida)",
+    "definition": "Valoración Totalmente Diluida: la capitalización de mercado teórica si todos los tokens (incluidos los bloqueados, en vesting y sin acuñar) estuvieran en circulación, calculada como el precio actual del token multiplicado por el suministro máximo. FDV proporciona una métrica de valoración prospectiva. Una gran brecha entre la capitalización de mercado y el FDV indica emisiones futuras significativas de tokens que podrían crear presión de venta a medida que se desbloquean los tokens bloqueados."
   },
   "market-cap": {
-    "term": "Market Cap (Crypto)",
-    "definition": "The total value of a token's circulating supply, calculated as the current price multiplied by circulating supply. Market cap is the most common metric for comparing the relative size of different tokens. It differs from FDV, which uses max supply instead. Market cap rankings (e.g., SOL as a top-5 token) reflect both price appreciation and supply dynamics."
+    "term": "Capitalización de Mercado (Cripto)",
+    "definition": "El valor total del suministro circulante de un token, calculado como el precio actual multiplicado por el suministro circulante. La capitalización de mercado es la métrica más común para comparar el tamaño relativo de diferentes tokens. Difiere del FDV, que utiliza el suministro máximo en su lugar. Las clasificaciones de capitalización de mercado (por ejemplo, SOL como uno de los 5 tokens principales) reflejan tanto la apreciación del precio como la dinámica de la oferta."
   },
   "token-burn": {
-    "term": "Token Burn",
-    "definition": "The permanent removal of tokens from circulation by sending them to a burn address or invoking the SPL Token Burn instruction, which reduces the mint's supply counter. Burns create deflationary pressure and are used for fee redistribution (burning a portion of transaction fees), buyback-and-burn mechanisms, and reducing supply post-TGE. On Solana, burned tokens are verifiable via the decreased supply on the mint account."
+    "term": "Quema de Tokens",
+    "definition": "La eliminación permanente de tokens de la circulación enviándolos a una dirección de quema o invocando la instrucción SPL Token Burn, que reduce el contador de suministro de la mint. Las quemas crean presión deflacionaria y se utilizan para la redistribución de tarifas (quemando una porción de las tarifas de transacción), mecanismos de recompra y quema, y la reducción del suministro posterior al TGE. En Solana, los tokens quemados son verificables a través de la disminución del suministro en la cuenta de la mint."
   },
   "emission-schedule": {
-    "term": "Emission Schedule",
-    "definition": "The planned rate at which new tokens are minted and distributed over time, typically defined in a project's tokenomics documentation. Emission schedules cover staking rewards, ecosystem incentives, and team/investor unlocks. SOL's emission schedule started at 8% annual inflation, decreasing 15% per year toward a long-term rate of 1.5%. High emissions relative to demand create sell pressure."
+    "term": "Cronograma de Emisión",
+    "definition": "La tasa planificada a la que se acuñan y distribuyen nuevos tokens a lo largo del tiempo, típicamente definida en la documentación de tokenomía de un proyecto. Los cronogramas de emisión cubren las recompensas de staking, los incentivos del ecosistema y los desbloqueos de equipo/inversores. El cronograma de emisión de SOL comenzó con una inflación anual del 8%, disminuyendo un 15% por año hacia una tasa a largo plazo del 1.5%. Las altas emisiones en relación con la demanda crean presión de venta."
   },
   "launchpad": {
     "term": "Launchpad",
-    "definition": "A platform that facilitates new token launches by providing infrastructure for initial token sales, price discovery, and liquidity bootstrapping. On Solana, launchpads include Jupiter LFG (community-voted launches), Raydium AcceleRaytor, and Pump.fun (bonding curve model). Launchpads typically handle token distribution, initial DEX liquidity provision, and anti-bot measures for fair participation."
+    "definition": "Una plataforma que facilita los nuevos lanzamientos de tokens al proporcionar infraestructura para las ventas iniciales de tokens, el descubrimiento de precios y el arranque de liquidez. En Solana, los launchpads incluyen Jupiter LFG (lanzamientos votados por la comunidad), Raydium AcceleRaytor y Pump.fun (modelo de curva de vinculación). Los launchpads típicamente manejan la distribución de tokens, la provisión inicial de liquidez DEX y las medidas antibot para una participación justa."
   },
   "fair-launch": {
-    "term": "Fair Launch",
-    "definition": "A token distribution method where there is no pre-mine, private sale, or insider allocation—all participants have equal opportunity to acquire tokens from the start. Fair launches aim to prevent concentrated ownership and VC dumping on retail buyers. On Solana, Pump.fun's bonding curve model approximates a fair launch, though early buyers still have a price advantage."
+    "term": "Lanzamiento Justo",
+    "definition": "Un método de distribución de tokens donde no hay pre-mine, venta privada o asignación interna; todos los participantes tienen la misma oportunidad de adquirir tokens desde el principio. Los lanzamientos justos tienen como objetivo evitar la propiedad concentrada y el dumping de VC a los compradores minoristas. En Solana, el modelo de curva de vinculación de Pump.fun se aproxima a un lanzamiento justo, aunque los compradores tempranos todavía tienen una ventaja de precio."
   },
   "usdc-native": {
-    "term": "USDC (Native Solana)",
-    "definition": "Circle-issued USDC minted directly on Solana through the SPL Token program, as opposed to bridged USDC from other chains. Native USDC (mint: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v) is the most widely used stablecoin on Solana with deep DeFi integration. Circle maintains freeze authority over the mint for regulatory compliance and supports CCTP for native cross-chain transfers."
+    "term": "USDC (Solana Nativo)",
+    "definition": "USDC emitido por Circle, acuñado directamente en Solana a través del programa SPL Token, a diferencia del USDC que se puentea desde otras cadenas. El USDC nativo (mint: EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTD1v) es la stablecoin más utilizada en Solana con una profunda integración DeFi. Circle mantiene la autoridad de congelación sobre la mint para el cumplimiento regulatorio y soporta CCTP para transferencias nativas entre cadenas."
   },
   "pyusd": {
-    "term": "PYUSD (PayPal USD on Solana)",
-    "definition": "PayPal's USD-backed stablecoin deployed natively on Solana, fully backed by US dollar deposits, US Treasuries, and similar cash equivalents. PYUSD on Solana launched in May 2024 and uses the SPL Token program. It aims to bridge traditional payment rails with DeFi, leveraging Solana's low fees and fast settlement. PYUSD integrates with major Solana DEXs and lending protocols."
+    "term": "PYUSD (PayPal USD en Solana)",
+    "definition": "La stablecoin respaldada por USD de PayPal desplegada de forma nativa en Solana, totalmente respaldada por depósitos en dólares estadounidenses, bonos del Tesoro de EE. UU. y equivalentes de efectivo similares. PYUSD en Solana se lanzó en mayo de 2024 y utiliza el programa SPL Token. Su objetivo es tender un puente entre los sistemas de pago tradicionales y DeFi, aprovechando las bajas tarifas y el rápido asentamiento de Solana. PYUSD se integra con los principales DEXs y protocolos de préstamo de Solana."
   },
   "algorithmic-stablecoin": {
-    "term": "Algorithmic Stablecoin",
-    "definition": "A stablecoin that maintains its peg through algorithmic mechanisms (mint/burn arbitrage, elastic supply) rather than being fully backed by reserves. Algorithmic stablecoins use smart contracts to expand or contract supply based on demand. The category carries significant risk after the UST/Luna collapse in 2022. On Solana, UXD Protocol attempted a delta-neutral algorithmic design."
+    "term": "Stablecoin Algorítmica",
+    "definition": "Una stablecoin que mantiene su paridad a través de mecanismos algorítmicos (arbitraje de mint/quemado, suministro elástico) en lugar de estar totalmente respaldada por reservas. Las stablecoins algorítmicas utilizan contratos inteligentes para expandir o contraer el suministro en función de la demanda. La categoría conlleva un riesgo significativo después del colapso de UST/Luna en 2022. En Solana, UXD Protocol intentó un diseño algorítmico delta-neutral."
   },
   "depeg": {
     "term": "Depeg",
-    "definition": "An event where a stablecoin's market price deviates significantly from its intended peg (typically $1.00). Depegs can result from loss of confidence in reserves, algorithmic failure, liquidity crises, or smart contract exploits. Even temporary depegs cause cascading liquidations across DeFi as collateral values drop. Notable depegs include UST (total collapse), USDC (briefly during SVB crisis), and various algorithmic stablecoins."
+    "definition": "Un evento en el que el precio de mercado de una stablecoin se desvía significativamente de su paridad prevista (típicamente $1.00). Los depegs pueden resultar de la pérdida de confianza en las reservas, fallos algorítmicos, crisis de liquidez o exploits de contratos inteligentes. Incluso los depegs temporales causan liquidaciones en cascada en DeFi a medida que el valor de los colaterales cae. Depegs notables incluyen UST (colapso total), USDC (brevemente durante la crisis del SVB) y varias stablecoins algorítmicas."
   },
   "cctp": {
     "term": "CCTP (Cross-Chain Transfer Protocol)",
-    "definition": "Circle's Cross-Chain Transfer Protocol that enables native USDC transfers between blockchains by burning USDC on the source chain and minting an equivalent amount on the destination chain. Unlike bridges that use wrapped tokens, CCTP transfers are native USDC on each chain, eliminating bridge risk and fragmented liquidity. CCTP supports Solana, Ethereum, and other major chains."
+    "definition": "El Cross-Chain Transfer Protocol de Circle que permite transferencias nativas de USDC entre blockchains quemando USDC en la cadena de origen y acuñando una cantidad equivalente en la cadena de destino. A diferencia de los puentes que utilizan tokens envueltos, las transferencias de CCTP son USDC nativas en cada cadena, lo que elimina el riesgo del puente y la liquidez fragmentada. CCTP soporta Solana, Ethereum y otras cadenas principales."
   },
   "pull-oracle-model": {
-    "term": "Pull Oracle Model",
-    "definition": "An oracle design where price updates are fetched on-demand by the consuming protocol rather than pushed to on-chain accounts at fixed intervals. Pyth pioneered the pull model on Solana: prices are published to an off-chain service (Hermes) and only written on-chain when a transaction needs them. This reduces costs since unused price updates are never posted, but requires transactions to include price update instructions."
+    "term": "Modelo de Oracle de Extracción",
+    "definition": "Un diseño de oracle donde las actualizaciones de precios son obtenidas bajo demanda por el protocolo consumidor en lugar de ser enviadas a cuentas on-chain a intervalos fijos. Pyth fue pionero en el modelo de extracción en Solana: los precios se publican en un servicio off-chain (Hermes) y solo se escriben on-chain cuando una transacción los necesita. Esto reduce los costos ya que las actualizaciones de precios no utilizadas nunca se publican, pero requiere que las transacciones incluyan instrucciones de actualización de precios."
   },
   "pyth-hermes": {
     "term": "Pyth Hermes",
-    "definition": "Pyth Network's off-chain price delivery web service that provides real-time price updates for the pull oracle model. Hermes aggregates publisher price submissions and serves them via REST and WebSocket APIs. When a Solana transaction needs a price, it fetches the latest update from Hermes and includes it as an instruction in the transaction, where the Pyth on-chain program verifies its authenticity."
+    "definition": "Servicio web de entrega de precios fuera de la cadena de Pyth Network que proporciona actualizaciones de precios en tiempo real para el modelo de oráculo pull. Hermes agrega las publicaciones de precios del editor y las sirve a través de las API REST y WebSocket. Cuando una transacción de Solana necesita un precio, recupera la última actualización de Hermes y la incluye como una instrucción en la transacción, donde el programa on-chain de Pyth verifica su autenticidad."
   },
   "confidence-interval": {
-    "term": "Confidence Interval (Oracle)",
-    "definition": "A measure of uncertainty published alongside each Pyth price feed, representing the range within which the true price likely falls. If SOL/USD is $150 with a confidence interval of $0.10, the price is between $149.90 and $150.10 with high probability. DeFi protocols should use confidence intervals to widen spreads or pause operations during periods of high uncertainty to avoid acting on imprecise prices."
+    "term": "Intervalo de Confianza (Oráculo)",
+    "definition": "Una medida de incertidumbre publicada junto con cada feed de precios de Pyth, que representa el rango dentro del cual es probable que caiga el precio real. Si SOL/USD es $150 con un intervalo de confianza de $0.10, el precio está entre $149.90 y $150.10 con alta probabilidad. Los protocolos DeFi deben usar intervalos de confianza para ampliar los spreads o pausar las operaciones durante períodos de alta incertidumbre para evitar actuar sobre precios imprecisos."
   },
   "ema-price": {
-    "term": "EMA Price (Oracle)",
-    "definition": "The exponential moving average price published by Pyth alongside the spot price for each feed. EMA price smooths out short-term price spikes and is more resistant to manipulation than the instantaneous price. Lending protocols often use EMA prices for liquidation calculations to prevent unnecessary liquidations from brief price wicks. The EMA window is typically configured for several minutes of price history."
+    "term": "Precio EMA (Oráculo)",
+    "definition": "El precio de la media móvil exponencial publicado por Pyth junto con el precio spot para cada feed. El precio EMA suaviza los picos de precios a corto plazo y es más resistente a la manipulación que el precio instantáneo. Los protocolos de préstamo a menudo utilizan los precios EMA para los cálculos de liquidación para evitar liquidaciones innecesarias debido a mechas de precios breves. La ventana EMA suele configurarse para varios minutos de historial de precios."
   },
   "switchboard-functions": {
     "term": "Switchboard Functions",
-    "definition": "A serverless compute feature of the Switchboard oracle network that allows developers to run custom off-chain code (written in Rust or TypeScript) inside secure enclaves (SGX/TDX) and post verified results on-chain. Functions enable arbitrary data feeds beyond standard price oracles—sports scores, weather data, complex computations—while providing cryptographic attestation that the code executed correctly in a trusted environment."
+    "definition": "Una característica de computación sin servidor de la red de oráculos Switchboard que permite a los desarrolladores ejecutar código off-chain personalizado (escrito en Rust o TypeScript) dentro de enclaves seguros (SGX/TDX) y publicar resultados verificados on-chain. Las funciones permiten feeds de datos arbitrarios más allá de los oráculos de precios estándar (resultados deportivos, datos meteorológicos, cálculos complejos), al tiempo que proporcionan una certificación criptográfica de que el código se ejecutó correctamente en un entorno de confianza."
   },
   "oracle-staleness": {
-    "term": "Oracle Staleness",
-    "definition": "The condition where an oracle price feed has not been updated within an acceptable time window, making the price data potentially unreliable. Stale prices can lead to incorrect liquidations, mispriced trades, or exploitable arbitrage. Solana DeFi protocols must check the timestamp of oracle updates and reject or pause operations when prices exceed a staleness threshold (e.g., 30 seconds for Pyth feeds)."
+    "term": "Caducidad del Oráculo",
+    "definition": "La condición en la que un feed de precios de oráculo no se ha actualizado dentro de una ventana de tiempo aceptable, lo que hace que los datos de precios sean potencialmente poco fiables. Los precios obsoletos pueden conducir a liquidaciones incorrectas, operaciones con precios erróneos o arbitraje explotable. Los protocolos Solana DeFi deben verificar la marca de tiempo de las actualizaciones de oráculos y rechazar o pausar las operaciones cuando los precios exceden un umbral de caducidad (por ejemplo, 30 segundos para los feeds de Pyth)."
   },
   "security-token": {
-    "term": "Security Token",
-    "definition": "Blockchain token representing a regulated financial security (equity, debt, fund share) subject to securities law. Requires KYC/AML, transfer restrictions, and regulatory reporting. On Solana, implemented with Token-2022's transfer hook and default account state extensions."
+    "term": "Token de Seguridad",
+    "definition": "Token de blockchain que representa un valor financiero regulado (acciones, deuda, participación en fondos) sujeto a la ley de valores. Requiere KYC/AML, restricciones de transferencia e informes regulatorios. En Solana, se implementa con la extensión de hooks de transferencia y los estados de cuenta predeterminados de Token-2022."
   },
   "asset-tokenization": {
-    "term": "Asset Tokenization",
-    "definition": "Process of issuing a blockchain token representing a claim on an off-chain asset. Involves legal structure (SPV/trust), custodian appointment, and minting redeemable tokens. Token-2022 extensions provide the programmable compliance layer institutional tokenization requires."
+    "term": "Tokenización de Activos",
+    "definition": "Proceso de emisión de un token de blockchain que representa un derecho sobre un activo off-chain. Implica una estructura legal (SPV/fideicomiso), el nombramiento de un custodio y la acuñación de tokens canjeables. Las extensiones Token-2022 proporcionan la capa de cumplimiento programable que requiere la tokenización institucional."
   },
   "fractional-ownership": {
-    "term": "Fractional Ownership",
-    "definition": "Division of a high-value asset into smaller token units, each representing proportional ownership. Enables investment in real estate, art, private equity without full asset purchase. Standard SPL token mechanics naturally support fractional representation."
+    "term": "Propiedad Fraccionada",
+    "definition": "División de un activo de alto valor en unidades de token más pequeñas, cada una de las cuales representa una propiedad proporcional. Permite la inversión en bienes raíces, arte, capital privado sin la compra completa del activo. La mecánica estándar de los tokens SPL naturalmente respalda la representación fraccionada."
   },
   "asset-backed-token": {
-    "term": "Asset-Backed Token",
-    "definition": "Token whose value is collateralized by a specific underlying asset held in reserve. Differs from algorithmic stablecoins in having a 1:1 real-world claim. USDC (fiat-backed), PAXG (gold-backed), and Ondo's USDY (treasury-backed) are examples."
+    "term": "Token Respaldado por Activos",
+    "definition": "Token cuyo valor está garantizado por un activo subyacente específico mantenido en reserva. Difiere de las stablecoins algorítmicas en que tiene un derecho 1:1 en el mundo real. USDC (respaldado por fiat), PAXG (respaldado por oro) y USDY de Ondo (respaldado por tesorería) son ejemplos."
   },
   "tokenized-treasury": {
-    "term": "Tokenized Treasury",
-    "definition": "Blockchain tokens representing ownership of US Treasury bills or money market funds invested in government debt. Fastest-growing RWA category ($5B+ by 2025). On Solana, Ondo Finance offers USDY backed by short-term US treasuries."
+    "term": "Tesorería Tokenizada",
+    "definition": "Tokens de blockchain que representan la propiedad de letras del Tesoro de EE. UU. o fondos del mercado monetario invertidos en deuda gubernamental. La categoría de RWA de más rápido crecimiento (más de $5 mil millones para 2025). En Solana, Ondo Finance ofrece USDY respaldado por letras del Tesoro de EE. UU. a corto plazo."
   },
   "private-credit": {
-    "term": "Private Credit",
-    "definition": "Debt financing provided directly by non-bank lenders to borrowers, bypassing public markets. On-chain protocols originate loans using DeFi capital pools. On Solana, Maple Finance provides institutional lending and Credix finances fintech in emerging markets."
+    "term": "Crédito Privado",
+    "definition": "Financiación de deuda proporcionada directamente por prestamistas no bancarios a prestatarios, sin pasar por los mercados públicos. Los protocolos on-chain originan préstamos utilizando fondos de capital DeFi. En Solana, Maple Finance ofrece préstamos institucionales y Credix financia fintech en mercados emergentes."
   },
   "nav": {
-    "term": "NAV (Net Asset Value)",
-    "definition": "Per-share/per-token value calculated as (total assets - liabilities) / outstanding tokens. Published daily by fund administrators, used to price mints and redemptions of tokenized fund shares. Discrepancies vs market price create arbitrage."
+    "term": "NAV (Valor Neto de Activos)",
+    "definition": "Valor por acción/por token calculado como (activos totales - pasivos) / tokens en circulación. Publicado diariamente por los administradores de fondos, utilizado para fijar el precio de las acuñaciones y los rescates de acciones de fondos tokenizados. Las discrepancias frente al precio de mercado crean arbitraje."
   },
   "redemption-mechanism": {
-    "term": "Redemption Mechanism",
-    "definition": "Process by which tokenized RWA holders exchange tokens for underlying asset or cash equivalent. Defines redemption windows, settlement time, minimums, and lock-ups. Burns the token and triggers off-chain asset liquidation. Some protocols support on-chain redemption to USDC."
+    "term": "Mecanismo de Redención",
+    "definition": "Proceso por el cual los titulares de RWA tokenizados intercambian tokens por el activo subyacente o su equivalente en efectivo. Define las ventanas de redención, el tiempo de liquidación, los mínimos y los bloqueos. Quema el token y activa la liquidación de activos off-chain. Algunos protocolos admiten la redención on-chain a USDC."
   },
   "spv": {
-    "term": "SPV (Special Purpose Vehicle)",
-    "definition": "Legally separate entity (LLC/trust) created to hold assets, isolating risk from parent organization. In RWA tokenization, SPV holds the actual asset while investors hold tokens representing SPV shares. Provides bankruptcy remoteness."
+    "term": "SPV (Vehículo de Propósito Especial)",
+    "definition": "Entidad legalmente separada (LLC/fideicomiso) creada para mantener activos, aislando el riesgo de la organización matriz. En la tokenización de RWA, el SPV posee el activo real mientras los inversores poseen tokens que representan acciones del SPV. Proporciona inmunidad a la quiebra."
   },
   "fixed-income": {
-    "term": "Fixed Income",
-    "definition": "Asset class comprising debt instruments paying regular, predetermined interest and returning principal at maturity. Includes government bonds, corporate bonds, T-bills, and money market instruments. Solana's RWA ecosystem is primarily fixed-income-focused."
+    "term": "Renta Fija",
+    "definition": "Clase de activos que comprende instrumentos de deuda que pagan intereses regulares y predeterminados y devuelven el principal al vencimiento. Incluye bonos gubernamentales, bonos corporativos, T-bills e instrumentos del mercado monetario. El ecosistema RWA de Solana se centra principalmente en la renta fija."
   },
   "t-bill": {
-    "term": "T-Bill (US Treasury Bill)",
-    "definition": "Short-term US government debt (4-52 week maturity) sold at discount, redeemed at par. Considered safest short-term investment. Most popular RWA category on-chain — Ondo's USDY and BlackRock's BUIDL hold T-bills."
+    "term": "T-Bill (Letra del Tesoro de EE. UU.)",
+    "definition": "Deuda del gobierno de EE. UU. a corto plazo (vencimiento de 4 a 52 semanas) vendida con descuento, canjeada a la par. Considerada la inversión a corto plazo más segura. La categoría de RWA más popular on-chain: USDY de Ondo y BUIDL de BlackRock mantienen T-bills."
   },
   "money-market-fund": {
-    "term": "Money Market Fund",
-    "definition": "Highly liquid fund holding short-term, high-quality debt (T-bills, commercial paper, repos). Targets stable $1/share NAV. BlackRock's BUIDL ($500M+ AUM) tokenizes money market fund shares as blockchain tokens."
+    "term": "Fondo del Mercado Monetario",
+    "definition": "Fondo altamente líquido que mantiene deuda a corto plazo y de alta calidad (T-bills, papel comercial, repos). Apunta a un NAV estable de $1/acción. BUIDL de BlackRock (más de $500 millones de AUM) tokeniza acciones de fondos del mercado monetario como tokens de blockchain."
   },
   "basis-points": {
-    "term": "Basis Points",
-    "definition": "Unit of measurement equal to 0.01% (one hundredth of a percentage point). 100 bps = 1%. Used across DeFi for swap fees, protocol fees, and yield spreads. Token-2022's transfer fee extension configures fees in basis points."
+    "term": "Puntos Básicos",
+    "definition": "Unidad de medida igual a 0.01% (una centésima de punto porcentual). 100 bps = 1%. Utilizado en DeFi para tarifas de swap, tarifas de protocolo y spreads de rendimiento. La extensión de tarifas de transferencia de Token-2022 configura las tarifas en puntos básicos."
   },
   "aum": {
-    "term": "AUM (Assets Under Management)",
-    "definition": "Total market value of assets managed by an institution or protocol. In DeFi, often synonymous with TVL though AUM more precisely refers to managed funds. BlackRock's BUIDL: $500M+ AUM; Ondo Finance: $600M+."
+    "term": "AUM (Activos Bajo Gestión)",
+    "definition": "Valor de mercado total de los activos gestionados por una institución o protocolo. En DeFi, a menudo sinónimo de TVL, aunque AUM se refiere con mayor precisión a los fondos gestionados. BUIDL de BlackRock: más de $500 millones de AUM; Ondo Finance: más de $600 millones."
   },
   "yield-curve": {
-    "term": "Yield Curve",
-    "definition": "Graph showing interest rates across different maturities for comparable debt. Normal curve slopes upward (longer = higher yield). When inverted (short > long), short-duration tokenized T-bills offer higher yields, explaining their dominance in Solana RWA."
+    "term": "Curva de Rendimiento",
+    "definition": "Gráfico que muestra las tasas de interés en diferentes vencimientos para deuda comparable. La curva normal se inclina hacia arriba (a mayor plazo, mayor rendimiento). Cuando se invierte (corto > largo), los T-bills tokenizados de corta duración ofrecen rendimientos más altos, lo que explica su dominio en el RWA de Solana."
   },
   "coupon-rate": {
-    "term": "Coupon Rate",
-    "definition": "Annual interest rate paid by a bond issuer as percentage of face value. A 5% coupon on $1,000 bond pays $50/year. In tokenized bonds, coupon payments are automated as on-chain distributions. T-bills are zero-coupon (purchased at discount, redeemed at par)."
+    "term": "Tasa de Cupón",
+    "definition": "Tasa de interés anual pagada por un emisor de bonos como porcentaje del valor nominal. Un cupón del 5% en un bono de $1,000 paga $50/año. En los bonos tokenizados, los pagos de cupón se automatizan como distribuciones on-chain. Los T-bills son de cupón cero (se compran con descuento, se canjean a la par)."
   },
   "maturity-date": {
-    "term": "Maturity Date",
-    "definition": "Date when a debt instrument expires and principal must be repaid. Ranges from overnight (repos) to 30 years (T-bonds). Short-maturity instruments dominate Solana RWA due to lower duration risk. On-chain protocols encode maturity in smart contract logic."
+    "term": "Fecha de Vencimiento",
+    "definition": "Fecha en que un instrumento de deuda vence y el principal debe ser reembolsado. Varía desde un día (repos) hasta 30 años (T-bonds). Los instrumentos de vencimiento corto dominan el RWA de Solana debido al menor riesgo de duración. Los protocolos on-chain codifican el vencimiento en la lógica del smart contract."
   },
   "bond-duration": {
-    "term": "Bond Duration",
-    "definition": "Measure of a bond's price sensitivity to interest rate changes, in years. A 5-year duration bond falls ~5% per 1% rate rise. Short-duration instruments (T-bills, MMFs) have minimal duration risk, explaining their dominance in on-chain RWA adoption."
+    "term": "Duración del Bono",
+    "definition": "Medida de la sensibilidad del precio de un bono a los cambios en las tasas de interés, en años. Un bono con una duración de 5 años cae aproximadamente un 5% por cada aumento del 1% en la tasa. Los instrumentos de corta duración (T-bills, MMFs) tienen un riesgo de duración mínimo, lo que explica su dominio en la adopción on-chain de RWA."
   },
   "credit-rating": {
-    "term": "Credit Rating",
-    "definition": "Assessment of creditworthiness by agencies (Moody's, S&P, Fitch). Ranges from AAA (near risk-free) to junk (BB+ and below). US Treasuries are AAA-rated. Private credit DeFi protocols must evaluate risk without formal ratings, a key risk factor."
+    "term": "Calificación Crediticia",
+    "definition": "Evaluación de la solvencia por parte de agencias (Moody's, S&P, Fitch). Varía de AAA (casi sin riesgo) a basura (BB+ y menos). Las letras del Tesoro de EE. UU. tienen calificación AAA. Los protocolos DeFi de crédito privado deben evaluar el riesgo sin calificaciones formales, un factor de riesgo clave."
   },
   "accredited-investor": {
-    "term": "Accredited Investor",
-    "definition": "SEC regulatory category: individuals with $1M+ net worth or $200K+ annual income permitted to participate in private securities offerings. Most tokenized security offerings on Solana restrict participation to accredited investors, requiring KYC and wallet whitelisting."
+    "term": "Inversor Acreditado",
+    "definition": "Categoría regulatoria de la SEC: individuos con un patrimonio neto de $1 millón o más o ingresos anuales de $200K o más permitidos para participar en ofertas de valores privados. La mayoría de las ofertas de valores tokenizados en Solana restringen la participación a inversores acreditados, lo que requiere KYC y whitelisting de la billetera."
   },
   "reg-d": {
     "term": "Regulación D (Reg D)",
@@ -1577,7 +1577,7 @@
   },
   "pinocchio": {
     "term": "Pinocchio",
-    "definition": "Un framework de Rust sin dependencias para escribir programas Solana que prioriza el rendimiento y el control preciso sobre la conveniencia. Pinocchio utiliza patrones zero-copy para acceder a las entradas del programa y no tiene dependencia de la biblioteca estándar, lo que reduce significativamente el uso de compute unit en comparación con solana-program o Anchor. No genera IDLs automáticamente, lo que requiere herramientas como Shank o Codama para la generación de clientes."
+    "definition": "Un framework de Rust sin dependencias para escribir programas Solana que prioriza el rendimiento y el control preciso sobre la conveniencia. Pinocchio utiliza patrones zero-copy para acceder a las entradas del programa y no tiene dependencia de la librería estándar, lo que reduce significativamente el uso de compute unit en comparación con solana-program o Anchor. No genera IDLs automáticamente, lo que requiere herramientas como Shank o Codama para la generación de clientes."
   },
   "steel": {
     "term": "Steel",

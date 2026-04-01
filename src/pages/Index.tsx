@@ -7,6 +7,7 @@ import { getAllTerms, getTermsByCategory, GlossaryTerm, Category, allTerms } fro
 import { AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { MessageSquare, Zap, BookOpen, Search, Code2 } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 const ITEMS_PER_PAGE = 60;
 

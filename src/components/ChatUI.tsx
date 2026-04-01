@@ -118,7 +118,7 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
         setIsStreaming(false);
       },
     });
-  }, [input, isStreaming, messages, mode]);
+  }, [input, isStreaming, messages, mode, locale]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {

@@ -41,12 +41,13 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
     setResult("");
     setIsAnalyzing(true);
 
-    const glossaryContext = buildGlossaryContext(codeToAnalyze);
+    const glossaryContext = buildGlossaryContext(codeToAnalyze, locale);
 
     let content = "";
     await streamChat({
       messages: [{ role: "user", content: codeToAnalyze }],
       glossaryContext,
+      locale,
       mode: "explain-file",
       onDelta: (chunk) => {
         content += chunk;

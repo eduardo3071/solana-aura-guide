@@ -40,7 +40,7 @@ const Index = () => {
               {allTerms.length} terms · 14 categories · Official Solana Glossary
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2.5 tracking-tight">
-              Your <span className="gradient-text">Solana</span> Development Companion
+              Understand <span className="gradient-text">Solana</span> instantly — powered by real protocol knowledge
             </h1>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
               Instantly search, learn, and understand Solana concepts. Powered by the official @stbr/solana-glossary SDK with real AI assistance.

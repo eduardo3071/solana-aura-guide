@@ -661,7 +661,7 @@
   },
   "accounts-db": {
     "term": "AccountsDB",
-    "definition": "A camada de armazenamento persistente para todas as contas Solana. O AccountsDB armazena dados de contas em arquivos AppendVec mapeados na memória, indexados por pubkey e slot. Ele suporta buscas rápidas, lida com a dedupicação de contas entre slots e periodicamente limpa contas inativas. O AccountsDB é o maior consumidor de espaço em disco do validador."
+    "definition": "A camada de armazenamento persistente para todas as contas Solana. O AccountsDB armazena dados de contas em arquivos AppendVec mapeados na memória, indexados por pubkey e slot. Ele suporta buscas rápidas, lida com a dedupicação de contas entre slots e periodicamente limpa contas inativas. O AccountsDB é o maior consumidor de espaço de disco do validador."
   },
   "append-vec": {
     "term": "AppendVec",
@@ -701,7 +701,7 @@
   },
   "vdf": {
     "term": "VDF (Função de Atraso Verificável)",
-    "definition": "Verifiable Delay Function—uma função que requer uma quantidade prescrita de computação sequencial para ser avaliada, mas cuja saída pode ser rapidamente verificada. O Proof of History da Solana usa uma cadeia de hash SHA-256 como uma VDF prática: calcular a cadeia é inerentemente sequencial, mas verificar qualquer segmento pode ser paralelizado em vários núcleos."
+    "definition": "Verifiable Delay Function—uma função que requer uma quantidade prescrita de computação sequencial para ser avaliada, mas cuja saída pode ser rapidamente verificada. O Proof of History da Solana usa uma cadeia de hash SHA-256 como uma VDF prática: calcular a cadeia é inerentemente sequencial, but verificar qualquer segmento pode ser paralelizado em vários núcleos."
   },
   "sha256-hash-chain": {
     "term": "Cadeia de Hash SHA-256",
@@ -865,7 +865,7 @@
   },
   "ed25519-precompile": {
     "term": "Ed25519 Precompile",
-    "definition": "Um programa nativo de Solana (endereço: Ed25519SigVerify111111111111111111111111111) que permite a verificação em lote de assinaturas Ed25519 dentro da lógica do programa on-chain. Ao contrário da verificação de assinatura de transação built-in do runtime, esse precompile permite que os programas verifiquem assinaturas Ed25519 arbitrárias sobre dados arbitrários, útil para verificação de mensagens off-chain, atestações de oráculos e protocolos multi-parte. Múltiplas assinaturas podem ser verificadas em uma única instrução."
+    "definition": "Um programa nativo de Solana (endereço: Ed25519SigVerify111111111111111111111111111) que permite a verificação em lote de assinaturas Ed25519 dentro da lógica do programa on-chain. Ao contrário da verificação de assinatura de transação built-in do runtime, esse precompile permite que os programas verifiquem assinaturas Ed25519 arbitrárias sobre dados arbitrários, útil para verificação de mensagens off-chain, atestações de oráculos e protocolos multi-partes. Múltiplas assinaturas podem ser verificadas em uma única instrução."
   },
   "program-cache": {
     "term": "Program Cache",
@@ -1089,7 +1089,7 @@
   },
   "kamino": {
     "term": "Kamino Finance",
-    "definition": "Um protocolo DeFi na Solana que oferece empréstimos/tomada de empréstimos automatizados, vaults de liquidez e uma plataforma de swap baseada em intenções. Kamino atingiu mais de US$2 bilhões em TVL em 2024 e liderou o DeFi da Solana com 24% de participação de mercado. Seu Lend V2 introduziu a 'The Vault Layer' para liquidez agregada e 'Scam Wick Protection' contra liquidações desnecessárias por manipulação de preços."
+    "definition": "Un protocolo DeFi na Solana que oferece empréstimos/tomada de empréstimos automatizados, vaults de liquidez e uma plataforma de swap baseada em intenções. Kamino atingiu mais de US$2 bilhões em TVL em 2024 e liderou o DeFi da Solana com 24% de participação de mercado. Seu Lend V2 introduziu a 'The Vault Layer' para liquidez agregada e 'Scam Wick Protection' contra liquidações desnecessárias por manipulação de preços."
   },
   "sanctum": {
     "term": "Sanctum",
@@ -1181,7 +1181,7 @@
   },
   "funding-rate": {
     "term": "Funding Rate",
-    "definition": "Um pagamento periódico trocado entre detentores de posições longas e curtas de contratos perpétuos para manter o preço do perpégua ancorado ao preço spot. Quando o perpégua negocia acima do spot (funding positivo), os longs pagam os shorts; quando abaixo do spot (funding negativo), os shorts pagam os longs. O funding é tipicamente liquidado a cada hora em plataformas de perps Solana como Drift e Jupiter Perps. Altas taxas de funding criam oportunidades de arbitragem."
+    "definition": "Um pagamento periódico trocado entre detentores de posições longas e curtas de contratos perpétuos para manter o preço do perpétua ancorado ao preço spot. Quando o perpétua negocia acima do spot (funding positivo), os longs pagam os shorts; quando abaixo do spot (funding negativo), os shorts pagam os longs. O funding é tipicamente liquidado a cada hora em plataformas de perps Solana como Drift e Jupiter Perps. Altas taxas de funding criam oportunidades de arbitragem."
   },
   "open-interest": {
     "term": "Open Interest",

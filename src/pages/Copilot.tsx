@@ -66,7 +66,7 @@ const Copilot = () => {
         </div>
         <AnimatePresence>
           {selectedTerm && (
-            <div className="hidden md:block w-80 shrink-0 border-l border-border p-4 overflow-y-auto">
+            <div className="hidden md:block w-80 shrink-0 border-l border-border p-4 overflow-y-auto overflow-x-hidden">
               <TermDetailPanel
                 term={selectedTerm}
                 onClose={() => setSelectedTerm(null)}

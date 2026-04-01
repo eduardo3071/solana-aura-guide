@@ -33,6 +33,7 @@ export function SearchBar({ onSelect, placeholder }: SearchBarProps) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const { t } = useI18n();
+  const glossary = useGlossary();
 
   const resolvedPlaceholder = placeholder || t("search.placeholder");
 
@@ -45,8 +46,8 @@ export function SearchBar({ onSelect, placeholder }: SearchBarProps) {
 
   const results = useMemo(() => {
     if (!debouncedQuery.trim()) return [];
-    return searchTerms(debouncedQuery).slice(0, 20);
-  }, [debouncedQuery]);
+    return glossary.searchTerms(debouncedQuery).slice(0, 20);
+  }, [debouncedQuery, glossary]);
 
   useEffect(() => {
     setIsOpen(results.length > 0 && query.length > 0);

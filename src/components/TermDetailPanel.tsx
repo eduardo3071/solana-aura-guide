@@ -28,10 +28,12 @@ const categoryColors: Record<string, string> = {
   "solana-ecosystem": "text-accent bg-accent/10",
 };
 
-export function TermDetailPanel({ term, onClose, onNavigate }: TermDetailPanelProps) {
-  const related = getRelatedTerms(term.id);
-  const catColor = categoryColors[term.category] || "text-muted-foreground bg-muted";
+export function TermDetailPanel({ term: rawTerm, onClose, onNavigate }: TermDetailPanelProps) {
   const { t } = useI18n();
+  const glossary = useGlossary();
+  const term = glossary.localizeTerm(rawTerm);
+  const related = glossary.getRelatedTerms(term.id);
+  const catColor = categoryColors[term.category] || "text-muted-foreground bg-muted";
 
   return (
     <motion.div

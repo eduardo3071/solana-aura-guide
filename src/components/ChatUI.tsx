@@ -87,12 +87,13 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
     setInput("");
     setIsStreaming(true);
 
-    const glossaryContext = buildGlossaryContext(msgText);
+    const glossaryContext = buildGlossaryContext(msgText, locale);
     let assistantContent = "";
 
     await streamChat({
       messages: updatedMessages.map((m) => ({ role: m.role, content: m.content })),
       glossaryContext,
+      locale,
       mode,
       onDelta: (chunk) => {
         assistantContent += chunk;

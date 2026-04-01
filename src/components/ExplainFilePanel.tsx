@@ -59,7 +59,7 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
         setIsAnalyzing(false);
       },
     });
-  }, [code, isAnalyzing]);
+  }, [code, isAnalyzing, locale]);
 
   const detectedTerms = code.trim() ? searchTerms(code).slice(0, 8) : [];
 

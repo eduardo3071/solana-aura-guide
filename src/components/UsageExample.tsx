@@ -70,7 +70,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
     return () => {
       abortRef.current = true;
     };
-  }, [term.id]);
+  }, [term.id, term.term, term.definition, locale]);
 
   if (error) return null;
 

@@ -2013,7 +2013,7 @@
   },
   "cooldown-period": {
     "term": "Período de Cooldown",
-    "definition": "O número de epochs após a desativação do stake durante o qual o SOL apostado permanece bloqueado e não pode ser sacado. Durante o cooldown, o stake progressivamente se torna disponível para saque ao longo de uma ou mais fronteiras de epoch. O mecanismo de cooldown impede o unstaking rápido que poderia desestabilizar o consenso, reduzindo repentinamente o peso do stake do validador."
+    "definition": "O número de epochs após a desativação do stake durante o qual o SOL apostado permanece bloqueado e não pode ser sacado. Durante o cooldown, o stake progressivamente se torna disponível para saque ao longo de uma ou mais fronteiras de epoch. O mecanismo de cooldown impede o unstaking rápido que poderia desestabilizar o consenso, reduzindo subitamente o peso do stake do validador."
   },
   "light-client": {
     "term": "Light Client",
@@ -2105,7 +2105,7 @@
   },
   "rust-lang": {
     "term": "Rust",
-    "definition": "Uma ভাষা de programação de sistemas que enfatiza a segurança de memória, abstrações de custo zero e concorrência sem um coletor de lixo. Rust usa um modelo de propriedade com borrow checking em tempo de compilação para evitar data races e bugs de ponteiro nulo. É a principal linguagem para o desenvolvimento de programas Solana (através de Anchor ou do crate solana-program nativo) e do cliente validador Agave."
+    "definition": "Uma linguagem de programação de sistemas que enfatiza a segurança de memória, abstrações de custo zero e concorrência sem um coletor de lixo. Rust usa um modelo de propriedade com borrow checking em tempo de compilação para evitar data races e bugs de ponteiro nulo. É a principal linguagem para o desenvolvimento de programas Solana (através de Anchor ou do crate solana-program nativo) e do cliente validador Agave."
   },
   "typescript": {
     "term": "TypeScript",

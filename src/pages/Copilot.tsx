@@ -71,6 +71,7 @@ const Copilot = () => {
             <ExplainFilePanel onTermClick={setSelectedTerm} />
           ) : (
             <ChatUI
+              key={activeTab}
               mode={activeTab === "explain-code" ? "explain-code" : "chat"}
               onTermClick={setSelectedTerm}
             />

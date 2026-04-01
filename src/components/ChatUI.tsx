@@ -47,7 +47,7 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const DEMO_QUESTIONS = [
     t("chat.demo.pda"),

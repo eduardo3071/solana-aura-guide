@@ -44,7 +44,7 @@ const Index = () => {
           <div className="text-center max-w-2xl mx-auto mb-6">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-medium mb-3">
               <Zap className="h-3 w-3" />
-              {allTerms.length} {t("hero.badge")}
+              {glossary.allTerms.length} {t("hero.badge")}
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2.5 tracking-tight">
               {t("hero.title.before")} <span className="gradient-text">{t("hero.title.solana")}</span> {t("hero.title.after")}

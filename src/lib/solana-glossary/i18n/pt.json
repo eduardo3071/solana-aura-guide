@@ -3001,403 +3001,403 @@
   },
   "symmetry": {
     "term": "Symmetry",
-    "definition": "An on-chain asset management protocol on Solana enabling creation of token baskets, indices, and actively managed funds using automated rebalancing. Symmetry allows anyone to create and manage diversified crypto portfolios as on-chain funds that others can invest in, with transparent rebalancing rules and fee structures enforced by smart contracts rather than centralized fund managers."
+    "definition": "Um protocolo de gestão de ativos on-chain na Solana que permite a criação de cestas de tokens, índices e fundos geridos ativamente usando rebalanceamento automatizado. O Symmetry permite que qualquer pessoa crie e gerencie portfólios cripto diversificados como fundos on-chain nos quais outros podem investir, com regras de rebalanceamento transparentes e estruturas de taxas aplicadas por smart contracts, em vez de gestores de fundos centralizados."
   },
   "rain-fi": {
     "term": "Rain.fi",
-    "definition": "An NFT lending protocol on Solana offering instant loans against NFT collateral with floor-price-based loan-to-value ratios. Rain.fi enables NFT holders to access liquidity without selling their assets by borrowing against collection floor prices. The protocol provides automated liquidation mechanisms and supports major Solana NFT collections as collateral for peer-to-pool lending."
+    "definition": "Um protocolo de empréstimo de NFT na Solana que oferece empréstimos instantâneos contra garantia de NFT com taxas de empréstimo-valor baseadas no preço mínimo. O Rain.fi permite que os detentores de NFT acessem liquidez sem vender seus ativos, solicitando empréstimos contra os preços mínimos de coleção. O protocolo fornece mecanismos de liquidação automatizados e suporta as principais coleções de NFT da Solana como garantia para empréstimos peer-to-pool."
   },
   "banx": {
     "term": "Banx",
-    "definition": "A peer-to-peer NFT lending platform on Solana enabling holders to borrow against NFTs using customizable loan terms and perpetual loan structures. Unlike pool-based lending, Banx connects individual lenders and borrowers directly, allowing negotiation of interest rates, durations, and LTV ratios. The platform supports perpetual loans that auto-renew until either party exits the position."
+    "definition": "Uma plataforma de empréstimo de NFT peer-to-peer na Solana que permite aos detentores solicitar empréstimos contra NFTs usando termos de empréstimo personalizáveis e estruturas de empréstimo perpétuas. Ao contrário dos empréstimos baseados em pool, o Banx conecta credores e mutuários individuais diretamente, permitindo a negociação de taxas de juros, durações e taxas LTV. A plataforma suporta empréstimos perpétuos que se renovam automaticamente até que uma das partes saia da posição."
   },
   "socean": {
     "term": "Socean",
-    "definition": "An early Solana liquid staking protocol that used algorithmic stake distribution to promote validator decentralization. Socean issued scnSOL as its liquid staking token and pioneered automated delegation strategies on Solana. The protocol merged into the Sanctum ecosystem in 2024, with its liquid staking functionality absorbed into Sanctum's unified LST infrastructure."
+    "definition": "Um protocolo inicial de liquid staking da Solana que usava distribuição algorítmica de stake para promover a descentralização do validador. O Socean emitiu scnSOL como seu token de liquid staking e foi pioneiro em estratégias de delegação automatizadas na Solana. O protocolo se fundiu com o ecossistema Sanctum em 2024, com sua funcionalidade de liquid staking absorvida pela infraestrutura LST unificada do Sanctum."
   },
   "cogent-staking": {
     "term": "Cogent Crypto",
-    "definition": "A high-performance Solana validator operator known for low commission rates, reliable infrastructure, and active community engagement. Cogent Crypto operates validator nodes and RPC infrastructure, contributing to Solana network security and decentralization. The team provides staking services for delegators seeking consistently performing validators with transparent operations and strong uptime records."
+    "definition": "Um operador de validador Solana de alto desempenho conhecido por baixas taxas de comissão, infraestrutura confiável e engajamento ativo da comunidade. A Cogent Crypto opera nós validadores e infraestrutura RPC, contribuindo para a segurança e descentralização da rede Solana. A equipe fornece serviços de staking para delegadores que buscam validadores com desempenho consistente, operações transparentes e fortes registros de uptime."
   },
   "laine-validator": {
     "term": "Laine",
-    "definition": "A prominent Solana validator operator and staking service provider known for building the StakeWiz analytics platform, participating in community governance, and advocating for validator ecosystem improvements. Laine operates high-performance validator infrastructure and actively contributes to Solana governance discussions around stake distribution, commission policies, and network decentralization."
+    "definition": "Um proeminente operador de validador Solana e provedor de serviços de staking conhecido por construir a plataforma de análise StakeWiz, participar da governança da comunidade e defender melhorias no ecossistema de validadores. A Laine opera infraestrutura de validador de alto desempenho e contribui ativamente para as discussões de governança da Solana sobre distribuição de stake, políticas de comissão e descentralização da rede."
   },
   "stakewiz": {
     "term": "StakeWiz",
-    "definition": "A Solana validator analytics platform built by Laine providing performance metrics, commission tracking, APY comparisons, and stake distribution data. StakeWiz helps delegators evaluate and choose validators based on historical performance, skip rates, voting records, and commission changes, serving as one of the primary tools for informed staking decisions on Solana."
+    "definition": "Uma plataforma de análise de validadores Solana construída por Laine, que fornece métricas de desempenho, rastreamento de comissão, comparações de APY e dados de distribuição de stake. O StakeWiz ajuda os delegadores a avaliar e escolher validadores com base no desempenho histórico, taxas de omissão de bloco, registros de votação e mudanças de comissão, servindo como uma das principais ferramentas para decisões informadas de staking na Solana."
   },
   "aurory": {
     "term": "Aurory",
-    "definition": "A play-to-earn RPG game on Solana featuring Aurorians NFT characters in tactical turn-based combat. Aurory combines on-chain asset ownership with gameplay through an NFT marketplace and token economy. Players can earn AURY tokens through gameplay, trade NFT characters and items, and participate in a player-driven economy built on Solana's low-fee infrastructure."
+    "definition": "Um jogo RPG play-to-earn na Solana com personagens NFT Aurorians em combate tático baseado em turnos. O Aurory combina a posse de ativos on-chain com a jogabilidade através de um marketplace de NFT e uma economia de tokens. Os jogadores podem ganhar tokens AURY através da jogabilidade, negociar personagens e itens NFT, e participar de uma economia impulsionada por jogadores, construída na infraestrutura de baixas taxas da Solana."
   },
   "genopets": {
     "term": "Genopets",
-    "definition": "A move-to-earn RPG on Solana combining physical activity tracking with game progression. Players evolve their Genopet NFTs by walking in the real world, with step data from mobile devices translated into in-game experience points and evolution stages. The game merges fitness incentives with blockchain gaming through habitat NFTs, crafting systems, and a dual-token economy on Solana."
+    "definition": "Um RPG move-to-earn na Solana que combina rastreamento de atividade física com progressão do jogo. Os jogadores evoluem seus Genopet NFTs caminhando no mundo real, com dados de passos de dispositivos móveis traduzidos em pontos de experiência no jogo e estágios de evolução. O jogo mescla incentivos de fitness com jogos blockchain através de NFTs de habitat, sistemas de criação e uma economia de token duplo na Solana."
   },
   "stepn": {
     "term": "STEPN",
-    "definition": "A move-to-earn fitness app originally launched on Solana where users purchase NFT sneakers and earn GST and GMT tokens by walking or running. STEPN reached peak activity in mid-2022 with millions of users, becoming one of the most visible Solana consumer applications. The project later expanded to multi-chain support but remains closely associated with the Solana ecosystem's mainstream adoption push."
+    "definition": "Um aplicativo fitness move-to-earn lançado originalmente na Solana, onde os usuários compram tênis NFT e ganham tokens GST e GMT caminhando ou correndo. O STEPN atingiu o pico de atividade em meados de 2022 com milhões de usuários, tornando-se uma das aplicações de consumo Solana mais visíveis. O projeto posteriormente expandiu para suporte multi-chain, mas permanece intimamente associado ao esforço de adoção mainstream do ecossistema Solana."
   },
   "nyan-heroes": {
     "term": "Nyan Heroes",
-    "definition": "A free-to-play hero shooter game built on Solana featuring cat characters piloting mechs in competitive multiplayer combat. Nyan Heroes integrates NFT-based cosmetics, in-game items, and a token economy while maintaining a free-to-play model that does not require crypto ownership to play. The game targets mainstream gamers with blockchain elements as optional enhancements rather than requirements."
+    "definition": "Um jogo de tiro de herói gratuito para jogar construído na Solana, apresentando personagens felinos pilotando mechs em combate multiplayer competitivo. O Nyan Heroes integra cosméticos baseados em NFT, itens no jogo e uma economia de tokens, mantendo um modelo free-to-play que não exige a posse de cripto para jogar. O jogo visa jogadores mainstream com elementos blockchain como aprimoramentos opcionais, em vez de requisitos."
   },
   "photo-finish": {
     "term": "Photo Finish LIVE",
-    "definition": "A horse racing game on Solana where players breed, train, and race NFT horses with real prize pools funded by entry fees. Photo Finish features genetic breeding mechanics that produce offspring with inherited traits, a functioning race economy, and player-owned stables. The game launched with a working game loop and demonstrates sustainable blockchain gaming economics on Solana."
+    "definition": "Um jogo de corrida de cavalos na Solana onde os jogadores criam, treinam e competem com cavalos NFT, com prêmios reais financiados por taxas de inscrição. O Photo Finish apresenta mecânicas de criação genética que produzem descendentes com traços herdados, uma economia de corrida funcional e estábulos de propriedade dos jogadores. O jogo foi lançado com um ciclo de jogo funcional e demonstra uma economia de jogos blockchain sustentável na Solana."
   },
   "drip-haus": {
     "term": "DRiP",
-    "definition": "A free digital art distribution platform on Solana delivering weekly compressed NFT drops from artists to collectors at no cost. DRiP uses Solana's state compression technology to mint and distribute millions of NFTs for fractions of a cent each, making it economically viable to give away art at scale. The platform has become a major onboarding tool, introducing hundreds of thousands of users to Solana wallets and NFTs."
+    "definition": "Uma plataforma gratuita de distribuição de arte digital na Solana que entrega drops semanais de NFT compactados de artistas para colecionadores sem custo. O DRiP usa a tecnologia de compressão de estado da Solana para cunhar e distribuir milhões de NFTs por frações de um centavo cada, tornando economicamente viável distribuir arte em grande escala. A plataforma se tornou uma importante ferramenta de onboarding, apresentando centenas de milhares de usuários a carteiras Solana e NFTs."
   },
   "okay-bears": {
     "term": "Okay Bears",
-    "definition": "A blue-chip Solana NFT collection of 10,000 bear PFPs that briefly became the top NFT collection across all blockchains by trading volume in April 2022. Known for its clean, minimalist art style, Okay Bears demonstrated that Solana NFT projects could compete with Ethereum collections at the highest level. The collection helped establish Solana as a viable chain for premium NFT launches."
+    "definition": "Uma coleção blue-chip de NFT da Solana de 10.000 PFPs de urso que se tornou brevemente a principal coleção de NFT em todas as blockchains por volume de negociação em abril de 2022. Conhecida por seu estilo de arte limpo e minimalista, a Okay Bears demonstrou que os projetos de NFT da Solana poderiam competir com as coleções do Ethereum no mais alto nível. A coleção ajudou a estabelecer a Solana como uma cadeia viável para lançamentos de NFT premium."
   },
   "solana-monkey-business": {
     "term": "Solana Monkey Business",
-    "definition": "One of the earliest Solana NFT collections, launched in June 2021 featuring 5,000 pixel art monkeys. Solana Monkey Business (SMB) pioneered the Solana NFT ecosystem and gave rise to MonkeDAO, the first NFT-holder DAO on Solana. The collection holds historical significance as a foundational project that proved the viability of NFTs on Solana before the ecosystem's rapid growth."
+    "definition": "Uma das primeiras coleções de NFT da Solana, lançada em junho de 2021, apresentando 5.000 macacos em pixel art. A Solana Monkey Business (SMB) foi pioneira no ecossistema NFT da Solana e deu origem à MonkeDAO, a primeira DAO de detentores de NFT na Solana. A coleção possui significado histórico como um projeto fundamental que comprovou a viabilidade dos NFTs na Solana antes do rápido crescimento do ecossistema."
   },
   "teleport": {
     "term": "Teleport",
-    "definition": "A decentralized rideshare protocol on Solana aiming to create a driver-owned alternative to centralized ride-hailing services like Uber and Lyft. Teleport uses token incentives to bootstrap a network of drivers and riders, with smart contracts handling payments and reputation. The protocol represents a DePIN approach to transportation, removing platform intermediary fees through decentralized coordination."
+    "definition": "Um protocolo descentralizado de compartilhamento de viagens na Solana com o objetivo de criar uma alternativa de propriedade dos motoristas aos serviços centralizados de transporte como Uber e Lyft. O Teleport usa incentivos de token para iniciar uma rede de motoristas e passageiros, com smart contracts gerenciando pagamentos e reputação. O protocolo representa uma abordagem DePIN para o transporte, removendo taxas de intermediários da plataforma através da coordenação descentralizada."
   },
   "roam": {
     "term": "Roam",
-    "definition": "A decentralized global WiFi roaming network on Solana where users share WiFi access points and earn tokens for providing connectivity. Roam creates a community-owned wireless layer by incentivizing individuals and businesses to open their WiFi networks to roaming users, building a decentralized alternative to traditional roaming agreements between telecom providers."
+    "definition": "Uma rede global descentralizada de roaming WiFi na Solana onde os usuários compartilham pontos de acesso WiFi e ganham tokens por fornecer conectividade. O Roam cria uma camada sem fio de propriedade da comunidade, incentivando indivíduos e empresas a abrir suas redes WiFi para usuários em roaming, construindo uma alternativa descentralizada aos acordos de roaming tradicionais entre provedores de telecomunicações."
   },
   "genesysgo": {
     "term": "GenesysGo",
-    "definition": "The infrastructure company behind Shadow Drive (decentralized storage) and Shadow RPC services on Solana. GenesysGo pivoted from validator operations to building decentralized infrastructure, with Shadow Drive providing an on-chain storage solution where files are stored across a distributed network of operators. The platform offers S3-compatible storage APIs with on-chain proof of storage verification."
+    "definition": "A empresa de infraestrutura por trás do Shadow Drive (armazenamento descentralizado) e dos serviços Shadow RPC na Solana. A GenesysGo mudou de operações de validador para a construção de infraestrutura descentralizada, com o Shadow Drive fornecendo uma solução de armazenamento on-chain onde os arquivos são armazenados em uma rede distribuída de operadores. A plataforma oferece APIs de armazenamento compatíveis com S3 com prova on-chain de verificação de armazenamento."
   },
   "bonfida": {
     "term": "Bonfida",
-    "definition": "The team behind Solana Name Service (SNS), enabling human-readable .sol domain names that map to wallet addresses on Solana. Bonfida also built early Serum DEX GUIs and trading bots during Solana's initial DeFi wave. The .sol domain system supports subdomains, records for social profiles and websites, and has registered hundreds of thousands of domains since launch."
+    "definition": "A equipe por trás do Solana Name Service (SNS), que permite nomes de domínio .sol legíveis por humanos que mapeiam para endereços de carteira na Solana. A Bonfida também construiu as primeiras GUIs do Serum DEX e bots de negociação durante a onda inicial de DeFi da Solana. O sistema de domínio .sol suporta subdomínios, registros para perfis sociais e sites, e registrou centenas de milhares de domínios desde o lançamento."
   },
   "solana-name-service": {
     "term": "Solana Name Service",
-    "definition": "A domain name system on Solana enabling .sol domains that map human-readable names to wallet addresses, built and maintained by Bonfida. SNS supports subdomains, custom records for social profiles, websites, and other metadata. Users can register, transfer, and trade .sol domains on secondary markets, providing a decentralized identity layer for the Solana ecosystem."
+    "definition": "Um sistema de nomes de domínio na Solana que permite domínios .sol que mapeiam nomes legíveis por humanos para endereços de carteira, construído e mantido pela Bonfida. O SNS suporta subdomínios, registros personalizados para perfis sociais, sites e outros metadados. Os usuários podem registrar, transferir e negociar domínios .sol em mercados secundários, fornecendo uma camada de identidade descentralizada para o ecossistema Solana."
   },
   "tiplink": {
     "term": "TipLink",
-    "definition": "A Solana payment link service that lets anyone send crypto via URL without requiring the recipient to have an existing wallet. Senders create a link containing tokens, and recipients claim them through a simple web interface that generates a wallet automatically. TipLink dramatically lowers the onboarding barrier for new crypto users by removing the need to install wallet software before receiving funds."
+    "definition": "Um serviço de link de pagamento Solana que permite a qualquer pessoa enviar cripto via URL sem exigir que o destinatário tenha uma carteira existente. Os remetentes criam um link contendo tokens, e os destinatários os reivindicam através de uma interface web simples que gera uma carteira automaticamente. O TipLink reduz drasticamente a barreira de onboarding para novos usuários de cripto, eliminando a necessidade de instalar software de carteira antes de receber fundos."
   },
   "sphere-pay": {
     "term": "Sphere",
-    "definition": "Payment infrastructure on Solana enabling merchants to accept crypto payments with fiat settlement, recurring billing, and customizable payment links. Sphere targets e-commerce and SaaS businesses with Stripe-like APIs for Solana payments, handling the complexity of on-chain transactions while providing merchants with familiar payment processing workflows and automatic currency conversion."
+    "definition": "Infraestrutura de pagamento na Solana que permite aos comerciantes aceitar pagamentos em cripto com liquidação em moeda fiduciária, cobrança recorrente e links de pagamento personalizáveis. O Sphere visa e-commerce e empresas SaaS com APIs semelhantes ao Stripe para pagamentos Solana, lidando com a complexidade das transações on-chain enquanto fornece aos comerciantes fluxos de trabalho de processamento de pagamento familiares e conversão automática de मुद्रा."
   },
   "helio-pay": {
     "term": "Helio",
-    "definition": "A Solana payment gateway used by e-commerce platforms, creators, and businesses for accepting crypto payments. Helio offers a Shopify plugin, pay links, subscription billing, and NFT-gated payment flows. The platform simplifies merchant onboarding to Solana payments with embeddable checkout widgets and supports multiple tokens including SOL, USDC, and other SPL tokens."
+    "definition": "Um gateway de pagamento Solana usado por plataformas de e-commerce, criadores e empresas para aceitar pagamentos em cripto. O Helio oferece um plugin Shopify, links de pagamento, cobrança de assinatura e fluxos de pagamento com acesso restrito a NFT. A plataforma simplifica o onboarding de comerciantes para pagamentos Solana com widgets de checkout incorporáveis e suporta múltiplos tokens, incluindo SOL, USDC e outros tokens SPL."
   },
   "code-app": {
     "term": "Code",
-    "definition": "A mobile payments app built on Solana using a privacy-preserving protocol with time-locked accounts for instant, fee-free payments. Code abstracts blockchain complexity behind a simple cash-like UX where users send and receive payments by scanning codes, without needing to understand wallets, gas fees, or transaction signing. The app targets mainstream consumers who want simple peer-to-peer payments."
+    "definition": "Um aplicativo de pagamentos móveis construído na Solana usando um protocolo que preserva a privacidade com contas bloqueadas por tempo para pagamentos instantâneos e sem taxas. O Code abstrai a complexidade da blockchain por trás de uma UX simples semelhante a dinheiro, onde os usuários enviam e recebem pagamentos escaneando códigos, sem a necessidade de entender carteiras, taxas de gás ou assinatura de transações. O aplicativo visa consumidores mainstream que desejam pagamentos peer-to-peer simples."
   },
   "grape-protocol": {
     "term": "Grape Protocol",
-    "definition": "A community management and identity verification tool on Solana enabling token-gated access, reputation scoring, and community analytics for DAOs and projects. Grape allows communities to set membership requirements based on token holdings, NFT ownership, or on-chain activity, creating verified community spaces with tiered access levels and contributor reputation tracking."
+    "definition": "Uma ferramenta de gestão de comunidade e verificação de identidade na Solana que permite acesso restrito por token, pontuação de reputação e análise de comunidade para DAOs e projetos. O Grape permite que as comunidades definam requisitos de associação com base na posse de tokens, propriedade de NFT ou atividade on-chain, criando espaços de comunidade verificados com níveis de acesso em camadas e rastreamento de reputação de colaboradores."
   },
   "monkedao": {
     "term": "MonkeDAO",
-    "definition": "The first NFT-holder DAO on Solana, created by Solana Monkey Business (SMB) NFT holders. MonkeDAO operates validator nodes generating staking revenue, organizes community events, and makes venture investments on behalf of its members. The DAO demonstrated that NFT communities could evolve beyond collectibles into functioning organizations with real economic activity and governance on Solana."
+    "definition": "A primeira DAO de detentores de NFT na Solana, criada pelos detentores de NFT da Solana Monkey Business (SMB). A MonkeDAO opera nós validadores gerando receita de staking, organiza eventos da comunidade e faz investimentos de risco em nome de seus membros. A DAO demonstrou que as comunidades de NFT poderiam evoluir além de colecionáveis para organizações funcionais com atividade econômica real e governança na Solana."
   },
   "jupiter-dao": {
     "term": "Jupiter DAO",
-    "definition": "The decentralized governance body for Jupiter Exchange using JUP tokens for voting on protocol decisions. Jupiter DAO conducts votes on protocol fees, ecosystem grants, token buybacks and burns, and strategic initiatives through an active governance process. The DAO represents one of the largest and most active governance communities on Solana with regular proposal cycles and high voter participation."
+    "definition": "O corpo de governança descentralizada para a Jupiter Exchange usando tokens JUP para votar nas decisões do protocolo. A Jupiter DAO conduz votações sobre taxas de protocolo, subsídios do ecossistema, recompras e queimas de tokens, e iniciativas estratégicas através de um processo de governança ativo. A DAO representa uma das maiores e mais ativas comunidades de governança na Solana, com ciclos de proposta regulares e alta participação dos eleitores."
   },
   "metaplex-foundation": {
     "term": "Metaplex Foundation",
-    "definition": "The organization stewarding the Metaplex protocol, which provides the core NFT standard infrastructure on Solana. The foundation manages development and governance of Token Metadata, Candy Machine (NFT minting), Bubblegum (compressed NFTs), and Core (next-gen asset standard). Metaplex standards underpin virtually all NFT activity on Solana and the foundation oversees the MPLX governance token."
+    "definition": "A organização que gerencia o protocolo Metaplex, que fornece a infraestrutura central de padrões NFT na Solana. A fundação gerencia o desenvolvimento e a governança de Token Metadata, Candy Machine (cunhagem de NFT), Bubblegum (NFTs compactados) e Core (padrão de ativos de próxima geração). Os padrões Metaplex sustentam praticamente toda a atividade de NFT na Solana e a fundação supervisiona o token de governança MPLX."
   },
   "birdeye": {
     "term": "Birdeye",
-    "definition": "A leading Solana token analytics platform providing real-time price charts, trading volume, holder distribution data, and wallet activity tracking across all Solana DEXes. Birdeye aggregates on-chain data to offer comprehensive market intelligence including new token discovery, trending pairs, and portfolio tracking. It serves as a primary research tool for Solana traders and investors."
+    "definition": "Uma plataforma líder de análise de tokens Solana que fornece gráficos de preços em tempo real, volume de negociação, dados de distribuição de detentores e rastreamento de atividade de carteira em todos os DEXes da Solana. O Birdeye agrega dados on-chain para oferecer inteligência de mercado abrangente, incluindo descoberta de novos tokens, pares em tendência e rastreamento de portfólio. Ele serve como uma ferramenta de pesquisa primária para traders e investidores da Solana."
   },
   "solscan": {
     "term": "Solscan",
-    "definition": "A popular Solana block explorer offering detailed transaction views, token analytics, account inspection, DeFi activity tracking, and developer API access. Solscan provides human-readable transaction parsing, labeled accounts for known protocols, and comprehensive token holder data. It is one of the most widely used tools for exploring Solana on-chain activity alongside the official Solana Explorer."
+    "definition": "Um popular explorador de blocos Solana que oferece visualizações detalhadas de transações, análises de tokens, inspeção de contas, rastreamento de atividades DeFi e acesso a API para desenvolvedores. O Solscan oferece parsing de transações legível por humanos, contas rotuladas para protocolos conhecidos e dados abrangentes de detentores de tokens. É uma das ferramentas mais utilizadas para explorar a atividade on-chain da Solana, juntamente com o explorador oficial da Solana."
   },
   "solanafm": {
     "term": "SolanaFM",
-    "definition": "A Solana block explorer and indexer providing human-readable transaction parsing, account labeling, and developer APIs for on-chain data access. SolanaFM differentiates itself with an IDL-aware transaction decoder that can parse program-specific instructions into readable formats, making complex DeFi transactions understandable for users and developers investigating on-chain activity."
+    "definition": "Um explorador de blocos e indexador Solana que fornece parsing de transações legíveis por humanos, rotulagem de contas e APIs para desenvolvedores para acesso a dados on-chain. A SolanaFM se diferencia com um decodificador de transações IDL-aware que pode analisar instruções específicas do programa em formatos legíveis, tornando transações DeFi complexas compreensíveis para usuários e desenvolvedores que investigam a atividade on-chain."
   },
   "xray-explorer": {
     "term": "XRAY",
-    "definition": "An open-source Solana transaction explorer built by Helius providing clean visualization of complex transactions with human-readable descriptions and labeled accounts. XRAY breaks down multi-instruction transactions into understandable steps, showing token transfers, program interactions, and account changes in an intuitive interface. Its open-source codebase allows community contributions and self-hosting."
+    "definition": "Um explorador de transações Solana de código aberto construído pela Helius que oferece visualização clara de transações complexas com descrições legíveis por humanos e contas rotuladas. O XRAY divide transações multi-instrução em etapas compreensíveis, mostrando transferências de tokens, interações de programas e mudanças de contas em uma interface intuitiva. Seu código-fonte aberto permite contribuições da comunidade e auto-hospedagem."
   },
   "dexscreener": {
     "term": "DEX Screener",
-    "definition": "A multi-chain DEX analytics platform widely used on Solana for tracking new token launches, price charts, liquidity data, and trading activity in real time. DEX Screener provides instant visibility into new trading pairs as they appear on Solana DEXes, making it an essential tool for traders monitoring token launches on platforms like Raydium, Orca, and Pump.fun."
+    "definition": "Uma plataforma de análise multi-chain DEX amplamente utilizada na Solana para rastrear lançamentos de novos tokens, gráficos de preços, dados de liquidez e atividade de negociação em tempo real. O DEX Screener fornece visibilidade instantânea de novos pares de negociação à medida que aparecem nos DEXes da Solana, tornando-o uma ferramenta essencial para traders que monitoram lançamentos de tokens em plataformas como Raydium, Orca e Pump.fun."
   },
   "rugcheck": {
     "term": "Rugcheck",
-    "definition": "A Solana token safety analysis tool that scans token contracts for red flags including concentrated holdings, unlocked liquidity, retained mint authority, frozen accounts, and other rug pull indicators. Rugcheck provides a risk score for any SPL token, helping traders evaluate token safety before investing. It became an essential due diligence tool during the 2024 memecoin trading surge on Solana."
+    "definition": "Uma ferramenta de análise de segurança de tokens Solana que verifica contratos de tokens em busca de bandeiras vermelhas, incluindo holdings concentradas, liquidez desbloqueada, autoridade de cunhagem retida, contas congeladas e outros indicadores de rug pull. O Rugcheck fornece uma pontuação de risco para qualquer token SPL, ajudando os traders a avaliar a segurança do token antes de investir. Tornou-se uma ferramenta de due diligence essencial durante o boom de negociação de memecoins em 2024 na Solana."
   },
   "defined-fi": {
     "term": "Defined.fi",
-    "definition": "A real-time DEX data and analytics API provider covering Solana and other chains. Defined.fi offers token price feeds, wallet analytics, trading pair data, and historical market data through developer-friendly APIs. The platform serves as infrastructure for trading bots, portfolio trackers, and analytics dashboards that need reliable, low-latency on-chain market data across multiple blockchains."
+    "definition": "Um provedor de API de dados e análises DEX em tempo real que cobre Solana e outras redes. O Defined.fi oferece feeds de preços de tokens, análises de carteiras, dados de pares de negociação e dados históricos de mercado através de APIs amigáveis para desenvolvedores. A plataforma serve como infraestrutura para bots de negociação, rastreadores de portfólio e painéis de análise que precisam de dados de mercado on-chain confiáveis e de baixa latência em várias blockchains."
   },
   "bubblemaps": {
     "term": "Bubblemaps",
-    "definition": "A visual token holder analysis tool that displays wallet clusters and concentration patterns as interactive bubble diagrams. On Solana, Bubblemaps is used to identify insider wallets, connected accounts, and supply distribution by mapping relationships between holders. Traders use it to detect potential manipulation by visualizing whether large portions of supply are controlled by related wallet clusters."
+    "definition": "Uma ferramenta visual de análise de detentores de tokens que exibe aglomerados e padrões de concentração de carteiras como diagramas de bolhas interativos. Na Solana, o Bubblemaps é usado para identificar carteiras internas, contas conectadas e distribuição de suprimento mapeando relacionamentos entre detentores. Traders o utilizam para detectar manipulações potenciais ao visualizar se grandes porções do suprimento são controladas por aglomerados de carteiras relacionados."
   },
   "mayan-finance": {
     "term": "Mayan Finance",
-    "definition": "A cross-chain swap protocol built on Wormhole enabling token transfers between Solana, Ethereum, and other chains with competitive rates through auction-based pricing. Mayan uses a relay system where solvers compete to fulfill cross-chain swaps at the best rates, combining Wormhole's messaging security with market-driven pricing to offer efficient cross-chain asset transfers."
+    "definition": "Um protocolo de swap cross-chain construído no Wormhole, que permite a transferência de tokens entre Solana, Ethereum e outras redes com taxas competitivas através de precificação baseada em leilão. O Mayan utiliza um sistema de revezamento onde os resolvedores competem para cumprir swaps cross-chain com as melhores taxas, combinando a segurança de mensagens do Wormhole com precificação orientada pelo mercado para oferecer transferências eficientes de ativos cross-chain."
   },
   "portal-bridge": {
     "term": "Portal Bridge",
-    "definition": "Wormhole's user-facing bridge interface for transferring tokens and NFTs between Solana and 20+ blockchains. Portal Bridge uses Wormhole's guardian network of 19 validators to verify cross-chain messages and secure asset transfers. It was one of the earliest production cross-chain bridges for Solana and remains a primary interface for moving assets between Solana and other ecosystems."
+    "definition": "A interface de ponte voltada para o usuário do Wormhole para transferir tokens e NFTs entre Solana e mais de 20 blockchains. O Portal Bridge usa a rede guardiã do Wormhole de 19 validadores para verificar mensagens cross-chain e proteger as transferências de ativos. Foi uma das primeiras pontes cross-chain de produção para Solana e continua sendo uma interface primária para movimentar ativos entre Solana e outros ecossistemas."
   },
   "hashflow": {
     "term": "Hashflow",
-    "definition": "A cross-chain DEX aggregator offering zero-slippage RFQ (Request for Quote) based trading across Solana and EVM chains. Hashflow uses professional market makers to provide guaranteed quotes rather than AMM-based pricing, eliminating slippage and MEV exposure for traders. The protocol enables cross-chain swaps without requiring traditional bridge transfers through its market maker network."
+    "definition": "Um agregador DEX cross-chain que oferece negociação de RFQ (Request for Quote) com slippage zero em Solana e cadeias EVM. O Hashflow usa formadores de mercado profissionais para fornecer cotações garantidas em vez de precificação baseada em AMM, eliminando slippage e exposição a MEV para traders. O protocolo permite swaps cross-chain sem a necessidade de transferências de ponte tradicionais por meio de sua rede de formadores de mercado."
   },
   "solana-labs": {
     "term": "Solana Labs",
-    "definition": "The original development company that created the Solana blockchain, co-founded by Anatoly Yakovenko and Raj Gokal in 2018. Solana Labs developed the initial validator client, designed Proof of History, and launched the network in March 2020. In 2024, the company spun off validator client development to Anza, shifting focus to ecosystem growth, incubation, and strategic initiatives."
+    "definition": "A empresa de desenvolvimento original que criou a blockchain Solana, co-fundada por Anatoly Yakovenko e Raj Gokal em 2018. A Solana Labs desenvolveu o cliente validador inicial, projetou o Proof of History e lançou a rede em março de 2020. Em 2024, a empresa separou o desenvolvimento do cliente validador para a Anza, mudando o foco para o crescimento do ecossistema, incubação e iniciativas estratégicas."
   },
   "jump-crypto": {
     "term": "Jump Crypto",
-    "definition": "The cryptocurrency division of Jump Trading, a major quantitative trading firm. Jump Crypto built the Firedancer validator client for Solana, representing a massive infrastructure investment in the network. The team also contributed to Wormhole's development and has been one of the most significant engineering and capital contributors to the Solana ecosystem since its early stages."
+    "definition": "A divisão de criptomoedas da Jump Trading, uma importante empresa de negociação quantitativa. A Jump Crypto construiu o cliente validador Firedancer para Solana, representando um enorme investimento em infraestrutura na rede. A equipe também contribuiu para o desenvolvimento do Wormhole e tem sido um dos maiores contribuintes de engenharia e capital para o ecossistema Solana desde seus estágios iniciais."
   },
   "multicoin-capital": {
     "term": "Multicoin Capital",
-    "definition": "A crypto-native venture fund and one of the earliest institutional Solana investors and advocates. Multicoin Capital led early funding rounds for Solana Labs and has backed numerous Solana ecosystem projects across DeFi, infrastructure, and consumer applications. The fund's public thesis on Solana's technical architecture helped attract developer and investor attention to the ecosystem during its growth phase."
+    "definition": "Um fundo de risco nativo de criptomoedas e um dos primeiros investidores e defensores institucionais da Solana. A Multicoin Capital liderou as rodadas iniciais de financiamento para a Solana Labs e apoiou inúmeros projetos do ecossistema Solana em DeFi, infraestrutura e aplicações de consumo. A tese pública do fundo sobre a arquitetura técnica da Solana ajudou a atrair a atenção de desenvolvedores e investidores para o ecossistema durante sua fase de crescimento."
   },
   "solana-ventures": {
     "term": "Solana Ventures",
-    "definition": "An investment arm focused on funding Solana ecosystem projects across DeFi, NFTs, gaming, and infrastructure. Solana Ventures co-launched the $100M Solana Gaming Fund and participated in numerous ecosystem investments to accelerate adoption. The fund operated as a strategic capital deployment vehicle to bootstrap critical ecosystem verticals during Solana's early growth period."
+    "definition": "Um braço de investimento focado em financiar projetos do ecossistema Solana em DeFi, NFTs, jogos e infraestrutura. A Solana Ventures co-lançou o Fundo de Jogos Solana de US$100 milhões e participou de inúmeros investimentos no ecossistema para acelerar a adoção. O fundo operou como um veículo estratégico de deployment de capital para impulsionar verticais críticas do ecossistema durante o período de crescimento inicial da Solana."
   },
   "glow-wallet": {
     "term": "Glow Wallet",
-    "definition": "A Solana wallet emphasizing speed and developer experience with a clean interface, built-in token swap functionality, and experimental features for power users. Glow Wallet focuses on fast transaction signing, minimal UI friction, and support for advanced Solana features, positioning itself as an alternative to Phantom for users who prioritize performance and developer-oriented tooling."
+    "definition": "Uma carteira Solana que enfatiza a velocidade e a experiência do desenvolvedor com uma interface limpa, funcionalidade de troca de tokens integrada e recursos experimentais para usuários avançados. A Glow Wallet foca na assinatura rápida de transações, mínima fricção da UI e suporte para recursos avançados da Solana, posicionando-se como uma alternativa ao Phantom para usuários que priorizam desempenho e ferramentas orientadas para desenvolvedores."
   },
   "stripe-solana": {
     "term": "Stripe Solana Integration",
-    "definition": "Payment processor Stripe's support for USDC on Solana, enabling businesses to accept and settle crypto payments through Stripe's existing merchant infrastructure. The integration allows millions of Stripe merchants to receive USDC payments on Solana with automatic fiat conversion, representing a major milestone for Solana's adoption in mainstream commerce and payment processing."
+    "definition": "O suporte do processador de pagamentos Stripe para USDC na Solana, permitindo que empresas aceitem e liquidem pagamentos cripto através da infraestrutura de comerciantes existente do Stripe. A integração permite que milhões de comerciantes do Stripe recebam pagamentos USDC na Solana com conversão automática para fiat, representando um grande marco para a adoção da Solana no comércio mainstream e processamento de pagamentos."
   },
   "shopify-solana": {
     "term": "Shopify Solana",
-    "definition": "Solana blockchain integration for Shopify stores enabling NFT-gated commerce, token-gated discounts, and crypto payments through Solana Pay and partner applications. The integration allows Shopify merchants to verify NFT ownership for exclusive product access, accept SOL and SPL token payments, and create blockchain-enhanced shopping experiences for their customers."
+    "definition": "Integração da blockchain Solana para lojas Shopify, permitindo comércio NFT-gated, descontos token-gated e pagamentos cripto através do Solana Pay e aplicativos parceiros. A integração permite que comerciantes Shopify verifiquem a propriedade de NFT para acesso exclusivo a produtos, aceitem pagamentos SOL e SPL token, e criem experiências de compra aprimoradas pela blockchain para seus clientes."
   },
   "dogwifhat": {
     "term": "dogwifhat",
-    "definition": "A major Solana memecoin (ticker: WIF) featuring a Shiba Inu dog wearing a pink knitted hat. Dogwifhat rose to become a top-5 memecoin by market cap in early 2024, symbolizing the resurgence of memecoin culture on Solana. The token became a cultural icon of Solana's vibrant trading community and helped establish Solana as the primary chain for memecoin activity."
+    "definition": "Uma das principais memecoins da Solana (ticker: WIF) apresentando um cachorro Shiba Inu usando um chapéu de malha rosa. Dogwifhat se tornou uma das 5 maiores memecoins por capitalização de mercado no início de 2024, simbolizando o ressurgimento da cultura memecoin na Solana. O token se tornou um ícone cultural da vibrante comunidade de negociação da Solana e ajudou a estabelecer a Solana como a principal rede para atividades de memecoin."
   },
   "samo": {
     "term": "SAMO",
-    "definition": "Solana's self-styled ambassador dog memecoin, launched in April 2021 as one of the earliest memecoins on the network. The SAMO community positions the project as an ecosystem education and adoption vehicle, hosting events, producing content, and onboarding new users to Solana. SAMO maintains one of the longest-running memecoin communities on Solana with a focus on positive ecosystem contribution."
+    "definition": "A memecoin do cachorro embaixador autodenominado da Solana, lançada em abril de 2021 como uma das primeiras memecoins na rede. A comunidade SAMO posiciona o projeto como um veículo de educação e adoção do ecossistema, organizando eventos, produzindo conteúdo e integrando novos usuários à Solana. A SAMO mantém uma das comunidades de memecoin mais antigas na Solana, com foco em contribuição positiva para o ecossistema."
   },
   "wormhole-queries": {
     "term": "Wormhole Queries",
-    "definition": "A feature of the Wormhole protocol enabling cross-chain data reads from Solana without requiring full bridge transfers. Wormhole Queries allows smart contracts on other chains to verify Solana on-chain state including account data, token balances, and program state by requesting attestations from Wormhole's guardian network, enabling lightweight cross-chain composability without moving assets."
+    "definition": "Um recurso do protocolo Wormhole que permite leituras de dados cross-chain da Solana sem exigir transferências completas de ponte. O Wormhole Queries permite que contratos inteligentes em outras cadeias verifiquem o estado on-chain da Solana, incluindo dados de conta, saldos de tokens e estado de programa, solicitando atestações da rede guardiã do Wormhole, permitindo uma componibilidade cross-chain leve sem mover ativos."
   },
   "jupiter-perpetuals": {
     "term": "Jupiter Perpetuals",
-    "definition": "Jupiter's perpetual futures trading platform using a pool-based model (JLP) where liquidity providers deposit assets to earn trading fees while traders access up to 100x leverage on SOL, ETH, and BTC. JLP holders earn real yield from trading fees and liquidations, making it one of the highest-yield opportunities on Solana. The platform integrates directly with Jupiter's swap infrastructure."
+    "definition": "A plataforma de negociação de futuros perpétuos da Jupiter usando um modelo baseado em pool (JLP) onde os provedores de liquidez depositam ativos para ganhar taxas de negociação, enquanto os traders acessam alavancagem de até 100x em SOL, ETH e BTC. Os detentores de JLP ganham rendimento real com taxas de negociação e liquidações, tornando-o uma das oportunidades de maior rendimento na Solana. A plataforma se integra diretamente com a infraestrutura de swap da Jupiter."
   },
   "sanctum-infinity": {
     "term": "Sanctum Infinity",
-    "definition": "Sanctum's multi-LST liquidity pool that accepts all Solana liquid staking tokens into a single unified pool, solving the liquidity fragmentation problem across dozens of LST providers. Sanctum Infinity issues the INF token representing a diversified basket of staked SOL across multiple validators and staking protocols, providing deep liquidity and instant swaps between any Solana LST."
+    "definition": "O pool de liquidez multi-LST da Sanctum que aceita todos os tokens de staking líquido de Solana em um único pool unificado, resolvendo o problema de fragmentação de liquidez em dezenas de provedores de LST. Sanctum Infinity emite o token INF, que representa uma cesta diversificada de SOL stakado em múltiplos validadores e protocolos de staking, fornecendo liquidez profunda e swaps instantâneos entre qualquer LST de Solana."
   },
   "famous-fox-federation": {
     "term": "Famous Fox Federation",
-    "definition": "A Solana NFT collection and ecosystem tools builder featuring fox-themed digital collectibles. The team created utility tools including token staking platforms, holder verification systems, and the Transdimensional Fox Federation collection. Famous Fox Federation contributed tooling infrastructure used by other Solana NFT projects and built one of the more engaged NFT communities on the network."
+    "definition": "Uma coleção NFT e construtora de ferramentas de ecossistema em Solana, apresentando colecionáveis digitais temáticos de raposas. A equipe criou ferramentas de utilidade, incluindo plataformas de staking de tokens, sistemas de verificação de titulares e a coleção Transdimensional Fox Federation. A Famous Fox Federation contribuiu com infraestrutura de ferramentas usada por outros projetos NFT de Solana e construiu uma das comunidades NFT mais engajadas na rede."
   },
   "streamflow": {
     "term": "Streamflow",
-    "definition": "A token vesting and payroll streaming protocol on Solana enabling time-locked token distribution, cliff vesting, and real-time payment streams for teams and DAOs. Streamflow handles token unlock schedules for project launches, employee compensation with linear or custom vesting curves, and continuous payment streaming where recipients can withdraw accumulated tokens at any time."
+    "definition": "Um protocolo de vesting de tokens e streaming de folha de pagamento em Solana que permite a distribuição de tokens com bloqueio de tempo, cliff vesting e fluxos de pagamento em tempo real para equipes e DAOs. O Streamflow gerencia cronogramas de desbloqueio de tokens para lançamentos de projetos, compensação de funcionários com curvas de vesting lineares ou personalizadas e streaming de pagamento contínuo, onde os beneficiários podem sacar tokens acumulados a qualquer momento."
   },
   "dual-finance": {
     "term": "Dual Finance",
-    "definition": "A DeFi options protocol on Solana enabling projects to distribute tokens through option-based incentive programs called Staking Options rather than direct airdrops. Dual Finance allows protocols to offer staking rewards as options contracts, giving recipients the right to purchase tokens at a discount. This model aligns incentives by rewarding committed stakeholders over passive airdrop recipients."
+    "definition": "Um protocolo de opções DeFi em Solana que permite aos projetos distribuir tokens através de programas de incentivo baseados em opções, chamados Staking Options, em vez de airdrops diretos. O Dual Finance permite que os protocolos ofereçam recompensas de staking como contratos de opções, dando aos beneficiários o direito de comprar tokens com desconto. Este modelo alinha os incentivos, recompensando as partes interessadas comprometidas em vez de beneficiários passivos de airdrop."
   },
   "jito-foundation": {
     "term": "Jito Foundation",
-    "definition": "The organization governing the Jito protocol ecosystem including JitoSOL liquid staking, MEV rewards distribution, and the JTO governance token. The Jito Foundation oversees protocol upgrades, manages the treasury, and conducts governance votes on fee structures and ecosystem grants. JitoSOL distinguishes itself by passing MEV rewards to stakers in addition to standard staking yield."
+    "definition": "A organização que governa o ecossistema do protocolo Jito, incluindo o staking líquido JitoSOL, a distribuição de recompensas MEV e o token de governança JTO. A Jito Foundation supervisiona as atualizações do protocolo, gerencia o tesouro e conduz votos de governança sobre estruturas de taxas e subsídios do ecossistema. O JitoSOL se distingue por repassar as recompensas MEV para os stakers, além do rendimento de staking padrão."
   },
   "chorusone": {
     "term": "Chorus One",
-    "definition": "A major institutional staking provider running Solana validators alongside 50+ other proof-of-stake networks. Chorus One is known for MEV research and development on Solana, operating the OPUS staking platform for institutional clients. The team contributes to Solana validator ecosystem improvements and provides enterprise-grade staking infrastructure for funds, exchanges, and custodians."
+    "definition": "Um grande provedor institucional de staking que executa validadores de Solana, juntamente com mais de 50 outras redes proof-of-stake. A Chorus One é conhecida por pesquisa e desenvolvimento de MEV em Solana, operando a plataforma de staking OPUS para clientes institucionais. A equipe contribui para melhorias no ecossistema de validadores de Solana e fornece infraestrutura de staking de nível empresarial para fundos, exchanges e custodiantes."
   },
   "everstake": {
     "term": "Everstake",
-    "definition": "One of the largest staking providers by number of networks supported, operating Solana validators with enterprise-grade infrastructure serving both institutional and retail delegators. Everstake manages billions in staked assets across multiple proof-of-stake networks and provides Solana users with reliable validator operations, staking analytics, and portfolio management tools for their delegated SOL."
+    "definition": "Um dos maiores provedores de staking em número de redes suportadas, operando validadores de Solana com infraestrutura de nível empresarial que atende delegadores institucionais e de varejo. A Everstake gerencia bilhões em ativos em staking em várias redes proof-of-stake e oferece aos usuários de Solana operações de validador confiáveis, análises de staking e ferramentas de gerenciamento de portfólio para seu SOL delegado."
   },
   "pyth-data-association": {
     "term": "Pyth Data Association",
-    "definition": "A Swiss-based entity governing the Pyth oracle network, managing the PYTH governance token, publisher onboarding, and protocol governance decisions. The association coordinates between data publishers (financial institutions, exchanges, trading firms) and consuming protocols to ensure oracle data quality, uptime, and accuracy across the Pyth network's multi-chain oracle infrastructure originating from Solana."
+    "definition": "Uma entidade com sede na Suíça que governa a rede oracle Pyth, gerenciando o token de governança PYTH, a integração de editores e as decisões de governança do protocolo. A associação coordena entre os editores de dados (instituições financeiras, exchanges, empresas de trading) e os protocolos consumidores para garantir a qualidade, o tempo de atividade e a precisão dos dados oracle em toda a infraestrutura oracle multi-chain da rede Pyth, originada em Solana."
   },
   "squads-labs": {
     "term": "Squads Labs",
-    "definition": "The company behind Squads Protocol (multisig smart accounts) and Fuse wallet on Solana. Squads Labs builds smart account infrastructure enabling teams to manage on-chain treasuries, program upgrades, and protocol governance through multi-signature authorization. The Fuse wallet extends this technology to individual users with social recovery and programmable account security features."
+    "definition": "A empresa por trás do Squads Protocol (contas inteligentes multisig) e da carteira Fuse em Solana. A Squads Labs constrói infraestrutura de contas inteligentes que permite às equipes gerenciar tesouros on-chain, atualizações de programas e governança de protocolo por meio de autorização multi-assinatura. A carteira Fuse estende esta tecnologia para usuários individuais com recursos de recuperação social e segurança de conta programável."
   },
   "helius-labs": {
     "term": "Helius Labs",
-    "definition": "A Solana infrastructure company providing RPC nodes, webhooks, DAS API (Digital Asset Standard), and developer tools. Helius is one of the most widely used Solana RPC and indexing providers, offering enhanced APIs for compressed NFTs, transaction parsing, and real-time event streaming. The team also built the XRAY explorer and contributes to Solana developer tooling and documentation."
+    "definition": "Uma empresa de infraestrutura de Solana que fornece nós RPC, webhooks, DAS API (Digital Asset Standard) e ferramentas de desenvolvedor. A Helius é um dos provedores de RPC e indexação de Solana mais usados, oferecendo APIs aprimoradas para NFTs compactados, análise de transações e streaming de eventos em tempo real. A equipe também construiu o explorador XRAY e contribui para as ferramentas e documentação de desenvolvedores de Solana."
   },
   "crossmint": {
     "term": "Crossmint",
-    "definition": "An NFT infrastructure-as-a-service platform on Solana and other chains providing APIs for minting, custodial wallets, and credit card NFT purchases. Crossmint enables enterprises and developers to integrate NFT functionality into applications without requiring users to hold crypto or manage wallets. The platform abstracts blockchain complexity for brands, games, and loyalty programs adopting digital collectibles."
+    "definition": "Uma plataforma de infraestrutura-como-serviço NFT em Solana e outras chains, fornecendo APIs para mintagem, carteiras de custódia e compras de NFT com cartão de crédito. A Crossmint permite que empresas e desenvolvedores integrem a funcionalidade NFT em aplicativos sem exigir que os usuários possuam cripto ou gerenciem carteiras. A plataforma abstrai a complexidade da blockchain para marcas, jogos e programas de fidelidade que adotam colecionáveis digitais."
   },
   "underdog-protocol": {
     "term": "Underdog Protocol",
-    "definition": "An NFT API platform on Solana enabling developers to create and manage compressed NFTs at scale through simple REST APIs without requiring blockchain development expertise. Underdog abstracts the complexity of Solana's state compression technology into familiar API calls for minting, transferring, and querying NFTs, making it accessible for web2 developers building NFT-powered applications."
+    "definition": "Uma plataforma de API NFT em Solana que permite aos desenvolvedores criar e gerenciar NFTs compactados em escala através de APIs REST simples, sem exigir experiência em desenvolvimento de blockchain. O Underdog abstrai a complexidade da tecnologia de compressão de estado de Solana em chamadas de API familiares para mintagem, transferência e consulta de NFTs, tornando-a acessível para desenvolvedores web2 que constroem aplicativos baseados em NFT."
   },
   "metadao": {
     "term": "MetaDAO",
-    "definition": "A governance experimentation project on Solana implementing futarchy, a decision-making model where conditional token markets determine policy outcomes instead of traditional voting. In MetaDAO's system, proposals are evaluated by market participants trading conditional tokens that represent outcomes if the proposal passes or fails. The market price signals which outcome the market expects to create more value."
+    "definition": "Um projeto de experimentação de governança em Solana implementando futarchy, um modelo de tomada de decisão onde os mercados de tokens condicionais determinam os resultados de políticas em vez da votação tradicional. No sistema da MetaDAO, as propostas são avaliadas por participantes do mercado que negociam tokens condicionais que representam resultados se a proposta for aprovada ou reprovada. O preço de mercado sinaliza qual resultado o mercado espera criar mais valor."
   },
   "cubik": {
     "term": "Cubik",
-    "definition": "A quadratic funding platform on Solana connecting open-source projects with community funding through matching pools, inspired by Gitcoin's model but built natively on Solana. Cubik uses quadratic funding mathematics where many small contributions receive larger matching amounts than fewer large donations, democratically amplifying community preferences for which public goods receive the most funding."
+    "definition": "Uma plataforma de financiamento quadrático em Solana que conecta projetos de código aberto com financiamento da comunidade através de matching pools, inspirada no modelo do Gitcoin, mas construída nativamente em Solana. O Cubik usa matemática de financiamento quadrático, onde muitas pequenas contribuições recebem maiores valores de correspondência do que menos grandes doações, ampliando democraticamente as preferências da comunidade sobre quais bens públicos recebem mais financiamento."
   },
   "ore": {
     "term": "Ore",
-    "definition": "A proof-of-work mining token on Solana where miners compete to find valid hashes using a smart contract that implements Bitcoin-style mining mechanics on a proof-of-stake chain. Ore mining involves submitting hash solutions to an on-chain program, with difficulty adjusting based on participation. The project attracted significant attention and briefly caused Solana network congestion due to high mining transaction volume."
+    "definition": "Um token de mineração proof-of-work em Solana, onde os mineradores competem para encontrar hashes válidos usando um contrato inteligente que implementa mecânicas de mineração estilo Bitcoin em uma chain proof-of-stake. A mineração de Ore envolve a submissão de soluções de hash para um programa on-chain, com a dificuldade ajustando-se com base na participação. O projeto atraiu atenção significativa e causou brevemente congestionamento na rede Solana devido ao alto volume de transações de mineração."
   },
   "send-token": {
     "term": "Send",
-    "definition": "A Solana-native messaging and payments token enabling wallet-to-wallet transfers through a simplified mobile interface focused on consumer accessibility. Send aims to make crypto payments as intuitive as messaging apps by combining a social graph with payment functionality, targeting mainstream users who want to send and receive tokens without navigating complex DeFi interfaces."
+    "definition": "Um token de mensagem e pagamentos nativo de Solana que permite transferências de carteira para carteira através de uma interface móvel simplificada focada na acessibilidade do consumidor. O Send visa tornar os pagamentos em cripto tão intuitivos quanto os aplicativos de mensagens, combinando um gráfico social com funcionalidade de pagamento, visando usuários comuns que desejam enviar e receber tokens sem navegar por interfaces DeFi complexas."
   },
   "tensor-foundation": {
     "term": "Tensor Foundation",
-    "definition": "The organization governing the Tensor NFT marketplace and its TNSR governance token. Tensor Foundation oversees protocol development, community grants, and ecosystem initiatives for the leading Solana NFT trading platform. The foundation manages TNSR token distribution and governance processes that guide Tensor's product roadmap and fee structures."
+    "definition": "A organização que governa o marketplace NFT Tensor e seu token de governança TNSR. A Tensor Foundation supervisiona o desenvolvimento do protocolo, subsídios da comunidade e iniciativas do ecossistema para a principal plataforma de negociação NFT de Solana. A fundação gerencia a distribuição de tokens TNSR e os processos de governança que guiam o roadmap de produtos do Tensor e as estruturas de taxas."
   },
   "backpack-exchange-eu": {
     "term": "Backpack MiFID License",
-    "definition": "Backpack Exchange's EU regulatory milestone, obtaining a MiFID II license through its acquisition of FTX EU in 2024. This made Backpack one of the few crypto-native exchanges with European regulated securities trading capabilities, enabling it to offer tokenized securities and regulated crypto products to EU customers alongside its Solana-focused spot and perpetual markets."
+    "definition": "O marco regulatório da UE da Backpack Exchange, obtendo uma licença MiFID II através de sua aquisição da FTX EU em 2024. Isso tornou a Backpack uma das poucas exchanges nativas de cripto com capacidades de negociação de valores mobiliários regulamentadas europeias, permitindo-lhe oferecer valores mobiliários tokenizados e produtos criptográficos regulamentados para clientes da UE, juntamente com seus mercados spot e perpétuos focados em Solana."
   },
   "solayer": {
     "term": "Solayer",
-    "definition": "A restaking protocol on Solana enabling users to restake their SOL or liquid staking tokens to secure additional services and earn extra yield. Solayer extends Solana's economic security model by allowing staked assets to simultaneously secure multiple protocols and infrastructure services, similar to EigenLayer on Ethereum but natively built for the Solana ecosystem."
+    "definition": "Um protocolo de restaking em Solana que permite aos usuários restake seu SOL ou tokens de staking líquido para proteger serviços adicionais e obter rendimento extra. O Solayer estende o modelo de segurança econômica de Solana, permitindo que os ativos em staking protejam simultaneamente múltiplos protocolos e serviços de infraestrutura, semelhante ao EigenLayer no Ethereum, mas construído nativamente para o ecossistema Solana."
   },
   "jito-restaking": {
     "term": "Jito Restaking",
-    "definition": "Jito's restaking infrastructure on Solana enabling staked SOL and JitoSOL to secure additional networks and services beyond Solana consensus. Jito Restaking creates a shared security marketplace where node consensus networks (NCNs) can leverage Solana's existing validator set and staked capital for their own security needs, paying rewards to restakers."
+    "definition": "A infraestrutura de restaking da Jito em Solana que permite que o SOL e o JitoSOL em staking protejam redes e serviços adicionais além do consenso de Solana. O Jito Restaking cria um marketplace de segurança compartilhada onde as redes de consenso de nós (NCNs) podem alavancar o conjunto de validadores existente de Solana e o capital em staking para suas próprias necessidades de segurança, pagando recompensas aos restakers."
   },
   "phoenix-wallet": {
     "term": "Phoenix Wallet",
-    "definition": "A Solana wallet focused on DeFi power users with built-in limit orders, DCA strategies, and advanced transaction simulation. Phoenix Wallet integrates directly with Jupiter's routing for optimal swap execution and provides real-time portfolio analytics alongside standard wallet functionality for daily Solana users."
+    "definition": "Uma carteira Solana focada em usuários avançados de DeFi com ordens limite integradas, estratégias DCA e simulação avançada de transações. A Phoenix Wallet integra-se diretamente com o roteamento do Jupiter para execução ideal de swaps e fornece análises de portfólio em tempo real, juntamente com a funcionalidade de carteira padrão para usuários diários de Solana."
   },
   "switchboard-on-demand": {
     "term": "Switchboard On-Demand",
-    "definition": "Switchboard's pull-based oracle model on Solana where data feeds are updated on-demand when requested by consuming protocols rather than pushed on a fixed schedule. This reduces costs for infrequently-used feeds while ensuring fresh data at the moment of consumption, complementing Switchboard's traditional push-based oracle feeds."
+    "definition": "O modelo oracle pull-based da Switchboard em Solana, onde os feeds de dados são atualizados sob demanda quando solicitados por protocolos consumidores, em vez de serem enviados em um cronograma fixo. Isso reduz os custos para feeds pouco usados, garantindo dados frescos no momento do consumo, complementando os feeds oracle tradicionais push-based da Switchboard."
   },
   "marinade-native-staking": {
     "term": "Marinade Native",
-    "definition": "Marinade Finance's non-custodial native staking product that distributes SOL across hundreds of validators without issuing a liquid staking token. Unlike mSOL (Marinade's liquid staking token), Marinade Native keeps stake in standard stake accounts owned by the user, providing decentralization benefits and MEV rewards while maintaining full custody without smart contract risk."
+    "definition": "O produto de staking nativo não custodial da Marinade Finance que distribui SOL em centenas de validadores sem emitir um token de staking líquido. Ao contrário do mSOL (o token de staking líquido da Marinade), o Marinade Native mantém o stake em contas de stake padrão de propriedade do usuário, proporcionando benefícios de descentralização e recompensas MEV, mantendo a custódia total sem risco de contrato inteligente."
   },
   "solana-actions-blinks": {
     "term": "Solana Actions & Blinks",
-    "definition": "The combination of Solana Actions (API endpoints returning signable transactions) and Blockchain Links (blinks — URLs that unfurl into interactive transaction interfaces). Together they enable any website, social media post, or QR code to embed Solana transaction capabilities. Users can swap tokens, mint NFTs, or make payments directly from Twitter posts, Discord messages, or any web surface."
+    "definition": "A combinação de Solana Actions (endpoints de API que retornam transações assináveis) e Blockchain Links (blinks — URLs que se desdobram em interfaces de transação interativas). Juntos, eles permitem que qualquer site, postagem em redes sociais ou código QR incorpore capacidades de transação de Solana. Os usuários podem trocar tokens, mintar NFTs ou fazer pagamentos diretamente de postagens do Twitter, mensagens do Discord ou qualquer superfície web."
   },
   "dune-analytics": {
     "term": "Dune Analytics (Solana)",
-    "definition": "A blockchain analytics platform that added Solana data support, enabling analysts to write SQL queries against indexed Solana transaction, account, and program data. Dune dashboards provide community-created visualizations of Solana DeFi metrics, protocol TVL, user activity, and network statistics used by researchers, protocols, and investors for on-chain analysis."
+    "definition": "Uma plataforma de análise de blockchain que adicionou suporte para dados de Solana, permitindo que analistas escrevam consultas SQL contra dados indexados de transações, contas e programas de Solana. Os painéis da Dune fornecem visualizações criadas pela comunidade de métricas DeFi de Solana, TVL de protocolo, atividade do usuário e estatísticas de rede usadas por pesquisadores, protocolos e investidores para análise on-chain."
   },
   "flipside": {
     "term": "Flipside Crypto",
-    "definition": "A blockchain analytics platform providing Solana on-chain data through SQL-queryable datasets and pre-built dashboards. Flipside incentivizes community analysts through bounty programs to create Solana ecosystem analytics covering DEX volumes, protocol metrics, wallet behavior, and network health indicators available to protocols and researchers."
+    "definition": "Uma plataforma de análise blockchain que fornece dados on-chain da Solana por meio de conjuntos de dados consultáveis por SQL e painéis pré-construídos. A Flipside incentiva analistas da comunidade por meio de programas de recompensa para criar análises do ecossistema Solana, cobrindo volumes DEX, métricas de protocolo, comportamento de carteira e indicadores de saúde da rede, disponíveis para protocolos e pesquisadores."
   },
   "phantom-mobile": {
     "term": "Phantom Mobile",
-    "definition": "Phantom's mobile wallet application for iOS and Android providing full Solana wallet functionality including token swaps via Jupiter, NFT management, staking, and a built-in dApp browser. Phantom Mobile uses biometric authentication and integrates with Mobile Wallet Adapter for seamless interaction with Solana mobile dApps."
+    "definition": "Aplicativo de carteira móvel da Phantom para iOS e Android que fornece funcionalidade completa de carteira Solana, incluindo swaps de tokens via Jupiter, gerenciamento de NFT, staking e um navegador dApp integrado. O Phantom Mobile usa autenticação biométrica e se integra com o Mobile Wallet Adapter para interação perfeita com dApps móveis Solana."
   },
   "helium-mobile": {
     "term": "Helium Mobile",
-    "definition": "A mobile carrier service built on the Helium network on Solana, offering cellular coverage through a combination of decentralized 5G hotspots and traditional carrier partnerships (T-Mobile). Subscribers earn MOBILE tokens for contributing to network coverage. Helium Mobile demonstrates a real consumer product powered by DePIN infrastructure on Solana."
+    "definition": "Um serviço de operadora móvel construído na rede Helium na Solana, oferecendo cobertura celular por meio de uma combinação de hotspots 5G descentralizados e parcerias com operadoras tradicionais (T-Mobile). Os assinantes ganham tokens MOBILE por contribuir com a cobertura da rede. O Helium Mobile demonstra um produto de consumo real alimentado pela infraestrutura DePIN na Solana."
   },
   "spl-token": {
     "term": "Programa SPL Token",
-    "definition": "The original Solana Program Library token program (TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA) that implements fungible and non-fungible token operations. It manages mints (token definitions) and token accounts (balances). Core instructions include InitializeMint, MintTo, Transfer, Burn, Approve (delegation), and Revoke. All SPL tokens on mainnet before Token-2022 use this program."
+    "definition": "O programa SPL Token original da Solana Program Library (TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA) que implementa operações de tokens fungíveis e não fungíveis. Ele gerencia 'mints' (definições de token) e 'token accounts' (saldos). As instruções principais incluem InitializeMint, MintTo, Transfer, Burn, Approve (delegação) e Revoke. Todos os tokens SPL na mainnet antes do Token-2022 usam este programa."
   },
   "spl": {
     "term": "Solana Program Library (SPL)",
-    "definition": "Solana Program Library—a collection of on-chain programs and client libraries maintained by Solana Labs. Key SPL programs include Token, Token-2022, Associated Token Account, Memo, Name Service, Stake Pool, and Account Compression. SPL programs are deployed to well-known addresses and serve as the standard building blocks for Solana applications."
+    "definition": "Solana Program Library — uma coleção de programas on-chain e bibliotecas cliente mantidas pela Solana Labs. Os principais programas SPL incluem Token, Token-2022, Associated Token Account, Memo, Name Service, Stake Pool e Account Compression. Os programas SPL são implantados em endereços conhecidos e servem como blocos de construção padrão para aplicativos Solana."
   },
   "token-2022": {
     "term": "Token-2022 (Extensões de Token)",
-    "definition": "The next-generation token program (TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb) that extends SPL Token with configurable extensions. Extensions include transfer fees, confidential transfers, transfer hooks, permanent delegate, non-transferable tokens, interest-bearing tokens, metadata, and more. Token-2022 is backwards-compatible with SPL Token for basic operations."
+    "definition": "O programa de token de próxima geração (TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb) que estende o SPL Token com extensões configuráveis. As extensões incluem taxas de transferência, transferências confidenciais, transfer hooks, delegado permanente, tokens não transferíveis, tokens com juros, metadados e muito mais. O Token-2022 é compatível com o SPL Token para operações básicas."
   },
   "mint": {
     "term": "Mint",
-    "definition": "An on-chain account defining a token type. A mint specifies: supply (total minted), decimals (0 for NFTs, 6 for USDC, 9 for most tokens), mint authority (who can mint), and optional freeze authority. Each unique token (USDC, JitoSOL, etc.) has exactly one mint account. Mint address serves as the token's unique identifier."
+    "definition": "Uma conta on-chain que define um tipo de token. Um 'mint' especifica: suprimento (total cunhado), decimais (0 para NFTs, 6 para USDC, 9 para a maioria dos tokens), 'mint authority' (quem pode cunhar) e 'freeze authority' opcional. Cada token único (USDC, JitoSOL, etc.) tem exatamente uma conta 'mint'. O endereço 'mint' serve como o identificador único do token."
   },
   "token-account": {
     "term": "Conta de Token",
-    "definition": "An account that holds a balance of a specific token for a specific owner. Token accounts store: mint (which token), owner (who controls it), amount (balance), delegate (optional), and state (initialized/frozen). Each wallet needs a separate token account per token type. Token accounts require ~165 bytes and rent-exempt minimum of ~0.002 SOL."
+    "definition": "Uma conta que mantém o saldo de um token específico para um proprietário específico. As contas de token armazenam: 'mint' (qual token), 'owner' (quem o controla), 'amount' (saldo), 'delegate' (opcional) e 'state' (inicializado/congelado). Cada carteira precisa de uma conta de token separada por tipo de token. As contas de token exigem ~165 bytes e um mínimo isento de aluguel de ~0.002 SOL."
   },
   "associated-token-account": {
     "term": "Conta de Token Associada (ATA)",
-    "definition": "A deterministically derived token account for a given wallet and mint, using the PDA seeds [wallet, token_program, mint]. ATAs provide a canonical address so anyone can send tokens to a wallet without the recipient creating an account first. The ATA program creates the account on first use, funded by the sender."
+    "definition": "Uma conta de token derivada deterministicamente para uma dada carteira e 'mint', usando as 'seeds' PDA [carteira, token_program, mint]. As ATAs fornecem um endereço canônico para que qualquer pessoa possa enviar tokens para uma carteira sem que o destinatário crie uma conta primeiro. O programa ATA cria a conta no primeiro uso, financiada pelo remetente."
   },
   "mint-authority": {
     "term": "Mint Authority",
-    "definition": "The pubkey authorized to mint new tokens via the MintTo instruction. Set at mint creation and can be changed or revoked (set to None) by the current authority. Revoking mint authority makes the supply fixed—critical for trust in fungible tokens. For NFTs, mint authority is typically revoked after minting the single token."
+    "definition": "A pubkey autorizada a cunhar novos tokens via instrução MintTo. Definida na criação do 'mint' e pode ser alterada ou revogada (definida como None) pela autoridade atual. A revogação da 'mint authority' torna o suprimento fixo — crítico para a confiança em tokens fungíveis. Para NFTs, a 'mint authority' é tipicamente revogada após a cunhagem do único token."
   },
   "freeze-authority": {
     "term": "Freeze Authority",
-    "definition": "The pubkey authorized to freeze and thaw token accounts, preventing transfers. Set optionally at mint creation. When a token account is frozen, no transfers, burns, or closes can occur until thawed. Used for regulatory compliance (e.g., USDC) and security (freezing compromised accounts). Can be revoked by setting to None."
+    "definition": "A pubkey autorizada a congelar e descongelar contas de token, impedindo transferências. Definida opcionalmente na criação do 'mint'. Quando uma conta de token é congelada, nenhuma transferência, queima ou fechamento pode ocorrer até que seja descongelada. Usado para conformidade regulatória (por exemplo, USDC) e segurança (congelamento de contas comprometidas). Pode ser revogada definindo-a como None."
   },
   "decimals": {
     "term": "Decimals",
-    "definition": "The number of decimal places for a token, stored on the mint account. Determines how raw integer amounts map to human-readable values: a mint with 6 decimals means 1,000,000 raw = 1.0 token. Common values: 0 (NFTs), 6 (USDC/USDT), 9 (SOL, most DeFi tokens). Cannot be changed after mint creation."
+    "definition": "O número de casas decimais para um token, armazenado na conta 'mint'. Determina como as quantidades inteiras brutas são mapeadas para valores legíveis por humanos: um 'mint' com 6 decimais significa que 1.000.000 brutos = 1.0 token. Valores comuns: 0 (NFTs), 6 (USDC/USDT), 9 (SOL, a maioria dos tokens DeFi). Não pode ser alterado após a criação do 'mint'."
   },
   "transfer-hook": {
     "term": "Transfer Hook",
-    "definition": "A Token-2022 extension that invokes a custom program on every token transfer. The hook program receives the transfer details and can enforce additional logic (royalties, compliance checks, transfer restrictions). The hook program address is set on the mint. Hooks execute via CPI and must conform to the Transfer Hook Interface."
+    "definition": "Uma extensão Token-2022 que invoca um programa personalizado em cada transferência de token. O programa 'hook' recebe os detalhes da transferência e podeDimpuser lógica adicional (royalties, verificações de conformidade, restrições de transferência). O endereço do programa 'hook' é definido no 'mint'. Os 'hooks' são executados via CPI e devem estar em conformidade com a Transfer Hook Interface."
   },
   "confidential-transfers": {
     "term": "Transferências Confidenciais",
-    "definition": "A Token-2022 extension that uses zero-knowledge proofs (Twisted ElGamal encryption over Ristretto255) to hide transfer amounts while keeping the token mint and accounts public. Balances are stored in encrypted form with separate 'pending' and 'available' pools. The account owner can decrypt their balance but others cannot see amounts."
+    "definition": "Uma extensão Token-2022 que usa provas de conhecimento zero (criptografia Twisted ElGamal sobre Ristretto255) para ocultar os valores das transferências, mantendo o 'mint' do token e as contas públicas. Os saldos são armazenados em formato criptografado com pools separados de 'pendente' e 'disponível'. O proprietário da conta pode descriptografar seu saldo, mas outros não podem ver os valores."
   },
   "transfer-fee": {
     "term": "Transfer Fee Extension",
-    "definition": "A Token-2022 extension that automatically withholds a percentage of every transfer as a fee. The fee (basis points + max fee) is configured on the mint by the transfer fee authority. Withheld fees accumulate in recipient token accounts and can be harvested by the withdraw authority. Enables on-chain royalties for fungible tokens."
+    "definition": "Uma extensão Token-2022 que retém automaticamente uma porcentagem de cada transferência como uma taxa. A taxa ('basis points' + taxa máxima) é configurada no 'mint' pela autoridade de taxa de transferência. As taxas retidas acumulam-se nas contas de token do destinatário e podem ser coletadas pela autoridade de retirada. Permite royalties on-chain para tokens fungíveis."
   },
   "permanent-delegate": {
     "term": "Permanent Delegate",
-    "definition": "A Token-2022 extension that designates an authority who can transfer or burn tokens from any token account of that mint, regardless of the account owner. Use cases include regulated stablecoins (clawback), gaming items (reclaiming), and legal compliance. Set at mint initialization and cannot be changed."
+    "definition": "Uma extensão Token-2022 que designa uma autoridade que pode transferir ou queimar tokens de qualquer conta de token desse 'mint', independentemente do proprietário da conta. Os casos de uso incluem 'stablecoins' regulamentadas (recuperação), itens de jogos (reivindicação) e conformidade legal. Definido na inicialização do 'mint' e não pode ser alterado."
   },
   "non-transferable": {
     "term": "Non-Transferable Token",
-    "definition": "A Token-2022 extension that prevents tokens from being transferred between accounts, making them soulbound. Non-transferable tokens can only be minted to and burned from accounts. Use cases include achievement badges, identity credentials, governance participation tokens, and certifications."
+    "definition": "Uma extensão Token-2022 que impede que os tokens sejam transferidos entre contas, tornando-os 'soulbound'. Tokens não transferíveis só podem ser cunhados para e queimados de contas. Os casos de uso incluem emblemas de conquista, credenciais de identidade, tokens de participação em governança e certificações."
   },
   "interest-bearing": {
     "term": "Interest-Bearing Token",
-    "definition": "A Token-2022 extension that applies a continuously compounding interest rate to the display amount of a token without changing the actual on-chain balance. The UI amount is calculated as: amount × e^(rate × elapsed_time). Useful for rebasing tokens and lending receipt tokens."
+    "definition": "Uma extensão Token-2022 que aplica uma taxa de juros composta continuamente ao valor de exibição de um token sem alterar o saldo real on-chain. O valor da UI é calculado como: quantidade × e^(taxa × tempo_decorrido). Útil para rebase de tokens e tokens de recibo de empréstimo."
   },
   "default-account-state": {
     "term": "Default Account State",
-    "definition": "A Token-2022 extension that sets the initial state of all new token accounts for a mint to either Initialized or Frozen. When set to Frozen, new token accounts are frozen by default and must be explicitly thawed by the freeze authority before they can receive or send tokens. Enables KYC/AML gating."
+    "definition": "Uma extensão Token-2022 que define o estado inicial de todas as novas contas de token para um 'mint' como Inicializado ou Congelado. Quando definido como Congelado, as novas contas de token são congeladas por padrão e devem ser explicitamente descongeladas pela 'freeze authority' antes que possam receber ou enviar tokens. Permite a gating KYC/AML."
   },
   "memo-required": {
     "term": "Required Memo on Transfer",
-    "definition": "A Token-2022 extension that requires all incoming transfers to include a memo instruction (via the Memo Program) in the same transaction. If no memo is present, the transfer fails. Used for compliance-driven tokens where transaction metadata must be recorded on-chain."
+    "definition": "Uma extensão Token-2022 que exige que todas as transferências de entrada incluam uma instrução de memorando (via Memo Program) na mesma transação. Se nenhum memorando estiver presente, a transferência falha. Usado para tokens impulsionados pela conformidade, onde os metadados da transação devem ser registrados on-chain."
   },
   "metadata-extension": {
     "term": "Token Metadata Extension",
-    "definition": "A Token-2022 extension that stores token metadata (name, symbol, URI, and custom key-value pairs) directly on the mint account instead of requiring a separate Metaplex metadata account. Reduces account creation costs and simplifies token setup. The update authority can modify metadata fields after creation."
+    "definition": "Uma extensão Token-2022 que armazena metadados de token (nome, símbolo, URI e pares chave-valor personalizados) diretamente na conta 'mint', em vez de exigir uma conta de metadados Metaplex separada. Reduz os custos de criação de conta e simplifica a configuração do token. A 'update authority' pode modificar campos de metadados após a criação."
   },
   "group-pointer": {
     "term": "Group / Member Pointer",
-    "definition": "A Token-2022 extension that enables token grouping by pointing a mint to a group account or member account. The Group Pointer marks a mint as a group, and Member Pointer marks a mint as belonging to a group. Useful for NFT collections and hierarchical token relationships without requiring Metaplex."
+    "definition": "Uma extensão Token-2022 que permite o agrupamento de tokens apontando um 'mint' para uma conta de grupo ou conta de membro. O Group Pointer marca um 'mint' como um grupo, e o Member Pointer marca um 'mint' como pertencente a um grupo. Útil para coleções de NFT e relacionamentos hierárquicos de token sem exigir Metaplex."
   },
   "cpi-guard": {
     "term": "CPI Guard",
-    "definition": "A Token-2022 extension that protects token accounts from certain actions during CPI. When enabled, it blocks approve, close, and transfer operations via CPI while still allowing them in top-level instructions. This prevents malicious programs from draining or closing token accounts during composable calls."
+    "definition": "Uma extensão Token-2022 que protege contas de token de certas ações durante o CPI. Quando habilitada, ela bloqueia operações de aprovação, fechamento e transferência via CPI, enquanto ainda as permite em instruções de nível superior. Isso impede que programas maliciosos drenem ou fechem contas de token durante chamadas composáveis."
   },
   "metaplex-metadata": {
     "term": "Metaplex Token Metadata",
-    "definition": "The Metaplex Token Metadata program (metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s) that attaches rich metadata to any SPL token or NFT. It creates a PDA-derived metadata account storing: name, symbol, URI (pointing to off-chain JSON), creators array, seller fee basis points, and collection info. The de facto standard for NFT metadata on Solana."
+    "definition": "O programa Metaplex Token Metadata (metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s) que anexa metadados ricos a qualquer token SPL ou NFT. Ele cria uma conta de metadados derivada de PDA que armazena: nome, símbolo, URI (apontando para JSON off-chain), array de criadores, 'seller fee basis points' e informações de coleção. O padrão de fato para metadados de NFT na Solana."
   },
   "nft": {
     "term": "NFT (Token Não Fungível)",
-    "definition": "A non-fungible token on Solana—an SPL token with 0 decimals, supply of 1, and revoked mint authority. The NFT's metadata (image, attributes) is stored off-chain (Arweave/IPFS) linked via the Metaplex metadata account's URI field. NFTs can be standard, compressed (cNFT), programmable (pNFT), or Core assets, each with different trade-offs."
+    "definition": "Um token não fungível na Solana — um token SPL com 0 decimais, suprimento de 1 e 'mint authority' revogada. Os metadados do NFT (imagem, atributos) são armazenados off-chain (Arweave/IPFS) vinculados através do campo URI da conta de metadados Metaplex. Os NFTs podem ser padrão, compactados (cNFT), programáveis (pNFT) ou ativos Core, cada um com diferentes trade-offs."
   },
   "master-edition": {
     "term": "Master Edition",
@@ -3501,103 +3501,103 @@
   },
   "sft": {
     "term": "SFT (Semi-Fungible Token)",
-    "definition": "A token type that combines properties of fungible and non-fungible tokens—multiple identical copies exist (like fungible tokens) but they represent a specific asset class (like NFTs). On Solana, SFTs are SPL tokens with 0 decimals but supply greater than 1, with Metaplex metadata attached. Use cases include event tickets, game items with limited editions, and redeemable vouchers."
+    "definition": "Um tipo de token que combina propriedades de tokens fungíveis e não fungíveis — múltiplas cópias idênticas existem (como tokens fungíveis), mas representam uma classe de ativo específica (como NFTs). No Solana, SFTs são SPL tokens com 0 decimais, mas com suprimento maior que 1, e com metadados Metaplex anexados. Casos de uso incluem ingressos para eventos, itens de jogos com edições limitadas e vouchers resgatáveis."
   },
   "minting": {
-    "term": "Minting",
-    "definition": "The process of creating new tokens or NFTs on-chain by invoking the MintTo instruction on an SPL Token mint account. For fungible tokens, minting increases the supply by the specified amount. For NFTs, minting creates the single token and typically revokes mint authority afterward. Minting requires the mint authority's signature and a destination token account to receive the newly created tokens."
+    "term": "Cunhagem (Minting)",
+    "definition": "O processo de criação de novos tokens ou NFTs on-chain, invocando a instrução MintTo em uma conta mint de SPL Token. Para tokens fungíveis, a cunhagem aumenta o suprimento pela quantidade especificada. Para NFTs, a cunhagem cria um único token e geralmente revoga a autoridade de minting posteriormente. A cunhagem requer a assinatura da autoridade de minting e uma conta de token de destino para receber os tokens recém-criados."
   },
   "inscription-solana": {
-    "term": "Inscription (Solana)",
-    "definition": "Data inscribed directly into on-chain Solana account data, inspired by Bitcoin Ordinals. Solana inscriptions store images, text, or other content as raw bytes in account data rather than pointing to off-chain storage. While more expensive than off-chain metadata (requiring rent for storage), inscriptions are fully on-chain and immutable once the account's update authority is revoked. They emerged as an experimental standard in late 2023."
+    "term": "Inscrição (Solana)",
+    "definition": "Dados inscritos diretamente nos dados de uma conta Solana on-chain, inspirados nos Bitcoin Ordinals. As inscrições Solana armazenam imagens, textos ou outros conteúdos como bytes brutos nos dados da conta, em vez de apontar para um armazenamento off-chain. Embora mais caro do que metadados off-chain (exigindo aluguel para armazenamento), as inscrições são totalmente on-chain e imutáveis uma vez que a autoridade de atualização da conta seja revogada. Elas surgiram como um padrão experimental no final de 2023."
   },
   "token-gating": {
     "term": "Token Gating",
-    "definition": "Restricting access to content, features, communities, or experiences based on ownership of specific tokens or NFTs. A dApp or website verifies the user's wallet holds a qualifying token before granting access. On Solana, token gating is implemented by reading token accounts or checking NFT collection membership. Common uses include Discord server access, exclusive content, early feature access, and real-world event entry."
+    "definition": "Restringir o acesso a conteúdo, recursos, comunidades ou experiências com base na posse de tokens ou NFTs específicos. Um dApp ou site verifica se a carteira do usuário possui um token qualificativo antes de conceder acesso. No Solana, o token gating é implementado lendo contas de token ou verificando a participação em coleções de NFT. Usos comuns incluem acesso a servidores Discord, conteúdo exclusivo, acesso antecipado a recursos e entrada em eventos do mundo real."
   },
   "securitize": {
     "term": "Securitize",
-    "definition": "SEC-registered transfer agent and broker-dealer providing infrastructure for digital securities: KYC/AML, transfer restriction enforcement, and secondary market compliance. Transfer agent for BlackRock's BUIDL fund. Enforces compliance through programmable transfer logic."
+    "definition": "Agente de transferência e corretora registrada na SEC que fornece infraestrutura para títulos digitais: KYC/AML, aplicação de restrições de transferência e conformidade com o mercado secundário. Agente de transferência para o fundo BUIDL da BlackRock. Aplica a conformidade através de lógica de transferência programável."
   },
   "baxus": {
     "term": "BAXUS",
-    "definition": "Solana platform for tokenizing fine spirits (whisky, bourbon) and collectibles as digital assets with physical custody in regulated storage. Uses NFTs for individual bottles and fungible tokens for fractionalized casks. One of few Solana RWA protocols focused on alternative assets."
+    "definition": "Plataforma Solana para tokenização de bebidas espirituosas finas (uísque, bourbon) e colecionáveis como ativos digitais com custódia física em armazenamento regulamentado. Usa NFTs para garrafas individuais e tokens fungíveis para barris fracionados. Um dos poucos protocolos Solana RWA focados em ativos alternativos."
   },
   "merkle-airdrop": {
     "term": "Merkle Airdrop",
-    "definition": "Token distribution method using a Merkle tree to efficiently verify eligibility. A Merkle root representing all eligible addresses and amounts is stored on-chain. Recipients submit a Merkle proof to claim tokens, and the program verifies the proof against the root. This allows distributing to millions of addresses with minimal on-chain storage, paying only per actual claim."
+    "definition": "Método de distribuição de tokens usando uma Merkle tree para verificar eficientemente a elegibilidade. Uma Merkle root representando todos os endereços e quantidades elegíveis é armazenada on-chain. Os destinatários enviam uma prova Merkle para reivindicar tokens, e o programa verifica a prova contra a root. Isso permite distribuir para milhões de endereços com armazenamento on-chain mínimo, pagando apenas por cada reivindicação real."
   },
   "utility-nft": {
     "term": "Utility NFT",
-    "definition": "An NFT that provides functional benefits beyond collectible value, such as access passes, membership tokens, in-game items, or governance rights. On Solana, utility NFTs are used for event tickets (Underdog), gaming assets (Star Atlas ships), DAO membership (MonkeDAO), and DeFi position receipts (Meteora LP positions)."
+    "definition": "Um NFT que oferece benefícios funcionais além do valor colecionável, como passes de acesso, tokens de associação, itens de jogo ou direitos de governança. No Solana, utility NFTs são usados para ingressos de eventos (Underdog), ativos de jogos (naves Star Atlas), associação DAO (MonkeDAO) e recibos de posição DeFi (posições LP da Meteora)."
   },
   "nft-rarity": {
-    "term": "NFT Rarity",
-    "definition": "The relative scarcity of specific traits within an NFT collection, calculated by analyzing how frequently each attribute appears. Rarity scores aggregate trait frequencies to rank NFTs. On Solana, platforms like HowRare.is and Magic Eden display rarity rankings. Rarity significantly impacts secondary market pricing and collector behavior."
+    "term": "Raridade de NFT",
+    "definition": "A escassez relativa de características específicas dentro de uma coleção NFT, calculada analisando a frequência com que cada atributo aparece. As pontuações de raridade agregam as frequências das características para classificar os NFTs. No Solana, plataformas como HowRare.is e Magic Eden exibem classificações de raridade. A raridade afeta significativamente os preços do mercado secundário e o comportamento do colecionador."
   },
   "metadata-update-authority": {
-    "term": "Metadata Update Authority",
-    "definition": "The account authorized to modify an NFT's or token's on-chain metadata, including name, symbol, URI, and attributes. In Metaplex's token metadata standard, this authority can update mutable metadata fields. Revoking or transferring update authority is a trust signal — immutable metadata means the creator cannot alter the NFT's properties post-mint."
+    "term": "Autoridade de Atualização de Metadados",
+    "definition": "A conta autorizada a modificar os metadados on-chain de um NFT ou token, incluindo nome, símbolo, URI e atributos. No padrão de metadados de token da Metaplex, essa autoridade pode atualizar campos de metadados mutáveis. Revogar ou transferir a autoridade de atualização é um sinal de confiança — metadados imutáveis significam que o criador não pode alterar as propriedades do NFT após a cunhagem."
   },
   "token-2022-extensions-list": {
-    "term": "Token-2022 Extensions",
-    "definition": "The set of optional features available in Solana's Token-2022 program, each activated per-mint or per-account. Extensions include transfer fees, confidential transfers, transfer hooks, permanent delegate, non-transferable tokens, interest-bearing tokens, default account state, memo required, metadata pointer, group pointer, and CPI guard. Extensions compose — a single mint can enable multiple features simultaneously."
+    "term": "Extensões Token-2022",
+    "definition": "O conjunto de recursos opcionais disponíveis no programa Token-2022 do Solana, cada um ativado por mint ou por conta. As extensões incluem taxas de transferência, transferências confidenciais, transfer hooks, delegado permanente, tokens não transferíveis, tokens com juros, estado de conta padrão, memo obrigatório, ponteiro de metadados, ponteiro de grupo e CPI guard. As extensões se compõem — um único mint pode habilitar múltiplos recursos simultaneamente."
   },
   "soul-bound-token": {
     "term": "Soulbound Token (SBT)",
-    "definition": "A non-transferable token permanently bound to a specific wallet, representing identity, credentials, achievements, or reputation. On Solana, soulbound tokens can be primarily implemented using Token-2022's non-transferable extension or transfer hooks that reject transfers, which prevents any transfer after minting. Used for proof of attendance, skill certifications, and on-chain identity."
+    "definition": "Um token não transferível permanentemente vinculado a uma carteira específica, representando identidade, credenciais, conquistas ou reputação. No Solana, os soulbound tokens podem ser implementados principalmente usando a extensão não transferível do Token-2022 ou transfer hooks que rejeitam transferências, o que impede qualquer transferência após a cunhagem. Usado para prova de presença, certificações de habilidades e identidade on-chain."
   },
   "web3": {
     "term": "Web3",
-    "definition": "The vision of a decentralized internet built on blockchain technology, where users own their data, identity, and digital assets. Web1 was read-only (static pages), Web2 is read-write (platforms like social media), Web3 is read-write-own (permissionless, user-sovereign). Web3 applications use wallets instead of logins and smart contracts instead of centralized servers."
+    "definition": "A visão de uma internet descentralizada construída sobre a tecnologia blockchain, onde os usuários são proprietários de seus dados, identidade e ativos digitais. A Web1 era somente leitura (páginas estáticas), a Web2 é leitura-escrita (plataformas como redes sociais), a Web3 é leitura-escrita-propriedade (sem permissão, soberania do usuário). Os aplicativos Web3 usam carteiras em vez de logins e smart contracts em vez de servidores centralizados."
   },
   "dapp": {
     "term": "dApp (Aplicação Descentralizada)",
-    "definition": "An application with its backend logic running on a blockchain as smart contracts rather than centralized servers. dApps typically have a traditional web frontend that interacts with on-chain programs via RPC. Users authenticate with wallets instead of username/password. Examples: Uniswap (Ethereum DEX), Jupiter (Solana DEX), Magic Eden (NFT marketplace)."
+    "definition": "Um aplicativo com sua lógica de backend rodando em uma blockchain como smart contracts em vez de servidores centralizados. dApps tipicamente possuem um frontend web tradicional que interage com programas on-chain via RPC. Os usuários se autenticam com carteiras em vez de nome de usuário/senha. Exemplos: Uniswap (DEX Ethereum), Jupiter (DEX Solana), Magic Eden (marketplace NFT)."
   },
   "wallet-general": {
     "term": "Carteira",
-    "definition": "Software or hardware that manages cryptographic keys and enables users to sign transactions, view balances, and interact with dApps. Hot wallets (Phantom, Solflare, Backpack) are internet-connected for convenience. Cold wallets (Ledger, Trezor) store keys offline for security. Wallets don't actually 'hold' tokens—they hold the private keys that control on-chain accounts."
+    "definition": "Software ou hardware que gerencia chaves criptográficas e permite aos usuários assinar transações, visualizar saldos e interagir com dApps. Hot wallets (Phantom, Solflare, Backpack) são conectadas à internet para conveniência. Cold wallets (Ledger, Trezor) armazenam chaves offline para segurança. As carteiras não 'seguram' tokens de fato — elas detêm as chaves privadas que controlam as contas on-chain."
   },
   "seed-phrase": {
     "term": "Frase Semente (Mnemônico)",
-    "definition": "A 12 or 24-word human-readable backup of a wallet's master private key, generated using BIP-39 standard. The seed phrase can deterministically regenerate all derived keypairs (BIP-44 derivation paths). Losing the seed phrase means permanently losing access to all associated accounts. Never share, photograph, or store seed phrases digitally in plain text."
+    "definition": "Um backup legível por humanos de 12 ou 24 palavras da chave privada mestra de uma carteira, gerado usando o padrão BIP-39. A frase semente pode regenerar deterministicamente todos os pares de chaves derivados (caminhos de derivação BIP-44). Perder a frase semente significa perder permanentemente o acesso a todas as contas associadas. Nunca compartilhe, fotografe ou armazene frases sementes digitalmente em texto simples."
   },
   "defi-general": {
     "term": "DeFi (Finanças Descentralizadas)",
-    "definition": "Financial services built on blockchain smart contracts that operate without traditional intermediaries (banks, brokers). DeFi includes lending, borrowing, trading, insurance, and derivatives. Key properties: permissionless (anyone can participate), composable (protocols can be combined), transparent (open-source, auditable). Solana DeFi TVL has exceeded $5B, led by Jupiter, Raydium, Marinade, and Kamino."
+    "definition": "Serviços financeiros construídos sobre smart contracts de blockchain que operam sem intermediários tradicionais (bancos, corretores). DeFi inclui empréstimos, tomadas de empréstimos, negociação, seguros e derivativos. Principais propriedades: permissionless (qualquer um pode participar), composable (protocolos podem ser combinados), transparent (código aberto, auditável). O TVL do DeFi no Solana já ultrapassou US$ 5 bilhões, liderado por Jupiter, Raydium, Marinade e Kamino."
   },
   "tvl": {
-    "term": "TVL (Total Value Locked)",
-    "definition": "The total value of cryptocurrency deposited in a DeFi protocol's smart contracts, measured in USD. TVL indicates a protocol's scale and user trust. Calculated by summing all tokens in the protocol's accounts at current market prices. TVL can be inflated by recursive deposits (depositing receipt tokens) and double-counting across protocols."
+    "term": "TVL (Valor Total Bloqueado)",
+    "definition": "O valor total de criptomoeda depositado nos smart contracts de um protocolo DeFi, medido em USD. O TVL indica a escala de um protocolo e a confiança do usuário. Calculado somando todos os tokens nas contas do protocolo pelos preços de mercado atuais. O TVL pode ser inflado por depósitos recursivos (depositar recibos de tokens) e dupla contagem entre protocolos."
   },
   "nft-general": {
     "term": "NFT (Conceito Geral)",
-    "definition": "A unique, non-interchangeable digital token representing ownership of a specific asset—artwork, collectibles, music, game items, domain names, or real-world assets. NFTs are verified on-chain and can be traded on marketplaces. Unlike fungible tokens (where each unit is identical), each NFT has distinct properties. Major Solana NFT marketplaces: Magic Eden, Tensor."
+    "definition": "Um token digital único e não intercambiável que representa a propriedade de um ativo específico — arte, colecionáveis, música, itens de jogos, nomes de domínio ou ativos do mundo real. NFTs são verificados on-chain e podem ser negociados em marketplaces. Ao contrário dos tokens fungíveis (onde cada unidade é idêntica), cada NFT possui propriedades distintas. Principais marketplaces de NFT no Solana: Magic Eden, Tensor."
   },
   "on-chain-off-chain": {
     "term": "On-Chain vs Off-Chain",
-    "definition": "On-chain: data or logic stored and executed directly on the blockchain, providing maximum transparency and immutability but at higher cost. Off-chain: data stored externally (IPFS, Arweave, databases) with only a reference (hash or URI) stored on-chain. The choice depends on cost, size, and trust requirements. NFT images are off-chain; token balances are on-chain."
+    "definition": "On-chain: dados ou lógica armazenados e executados diretamente na blockchain, proporcionando máxima transparência e imutabilidade, mas a um custo mais alto. Off-chain: dados armazenados externamente (IPFS, Arweave, bancos de dados) com apenas uma referência (hash ou URI) armazenada on-chain. A escolha depende dos requisitos de custo, tamanho e confiança. Imagens de NFT são off-chain; saldos de tokens são on-chain."
   },
   "self-custody": {
     "term": "Auto-Custódia",
-    "definition": "The practice of personally controlling your cryptographic private keys rather than entrusting them to a third party (exchange, custodian). Self-custody follows the principle 'not your keys, not your coins.' Hardware wallets and properly secured seed phrases enable self-custody. Risks include key loss (no recovery) and social engineering attacks."
+    "definition": "A prática de controlar pessoalmente suas chaves privadas criptográficas em vez de confiá-las a terceiros (exchange, custodiante). A auto-custódia segue o princípio 'não são suas chaves, não são suas moedas'. Hardware wallets e frases semente devidamente protegidas permitem a auto-custódia. Os riscos incluem perda de chave (sem recuperação) e ataques de engenharia social."
   },
   "dex-general": {
-    "term": "DEX (General Concept)",
-    "definition": "A decentralized exchange allowing peer-to-peer token trading without a centralized order book or custodian. Users trade directly from their wallets. DEXs use automated market makers (AMMs) or on-chain order books. Advantages: no KYC, self-custody, censorship-resistant. Disadvantages: potential for higher slippage, smart contract risk, and MEV extraction."
+    "term": "DEX (Conceito Geral)",
+    "definition": "Uma exchange descentralizada que permite a negociação peer-to-peer de tokens sem um livro de ordens ou custodiante centralizado. Os usuários negociam diretamente de suas carteiras. DEXs usam automated market makers (AMMs) ou livros de ordens on-chain. Vantagens: sem KYC, auto-custódia, resistente à censura. Desvantagens: potencial para maior slippage, risco de smart contract e extração de MEV."
   },
   "cex": {
     "term": "CEX (Centralized Exchange)",
-    "definition": "A traditional cryptocurrency exchange operated by a company that custodies user funds and matches orders on internal systems. Examples: Coinbase, Binance, Kraken. CEXs offer fiat on/off ramps, high liquidity, and familiar UX but require KYC and trust in the operator. Users deposit crypto and trade against the exchange's internal ledger, not directly on-chain."
+    "definition": "Uma exchange de criptomoedas tradicional operada por uma empresa que custodia fundos de usuários e combina ordens em sistemas internos. Exemplos: Coinbase, Binance, Kraken. CEXs oferecem on/off ramps fiduciárias, alta liquidez e UX familiar, mas exigem KYC e confiança no operador. Os usuários depositam cripto e negociam contra o livro razão interno da exchange, não diretamente on-chain."
   },
   "mev-general": {
     "term": "MEV (Maximal Extractable Value)",
-    "definition": "The profit validators/block producers can extract by reordering, inserting, or censoring transactions within a block. MEV includes frontrunning (trading before a large order), sandwich attacks (surrounding a swap with buy/sell), and arbitrage. On Solana, Jito's block engine provides an MEV auction system where searchers submit bundles with tips."
+    "definition": "O lucro que validadores/produtores de blocos podem extrair reordenando, inserindo ou censurando transações dentro de um bloco. O MEV inclui frontrunning (negociar antes de uma grande ordem), ataques de sanduíche (cercar uma troca com compra/venda) e arbitragem. No Solana, o block engine da Jito fornece um sistema de leilão de MEV onde os buscadores enviam bundles com gorjetas."
   },
   "token-standard": {
-    "term": "Token Standard",
-    "definition": "A specification defining how tokens are created and managed on a blockchain. Ethereum: ERC-20 (fungible), ERC-721 (NFT), ERC-1155 (multi-token). Solana: SPL Token (fungible/NFT), Token-2022 (extended features), Metaplex standards (NFT metadata). Standards ensure wallet/marketplace interoperability and composability across the ecosystem."
+    "term": "Padrão de Token",
+    "definition": "Uma especificação que define como os tokens são criados e gerenciados em uma blockchain. Ethereum: ERC-20 (fungível), ERC-721 (NFT), ERC-1155 (multi-token). Solana: SPL Token (fungível/NFT), Token-2022 (recursos estendidos), padrões Metaplex (metadados NFT). Os padrões garantem interoperabilidade de carteira/marketplace e composability em todo o ecossistema."
   },
   "composability": {
     "term": "Composabilidade",

@@ -28,7 +28,7 @@ Return ONLY valid JSON with this exact structure:
 Entries:
 ${JSON.stringify(terms)}`;
 
-    const resp = await fetch("https://ai.lovable.dev/api/chat/completions", {
+    const resp = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

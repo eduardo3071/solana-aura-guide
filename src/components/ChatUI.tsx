@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { searchTerms, GlossaryTerm, allTerms, getTerm } from "@/lib/solana-glossary";
+import { GlossaryTerm } from "@/lib/solana-glossary";
 import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
 import { Send, Bot, User, Sparkles, Loader2, Code2, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";

@@ -1793,7 +1793,7 @@
   },
   "actions": {
     "term": "Solana Actions",
-    "definition": "Una especificación de protocolo que estandariza cómo los servidores web exponen transacciones y mensajes de Solana firmables a través de puntos finales HTTPS, lo que permite que cualquier URL se convierta en un punto de entrada de blockchain interactivo. Las acciones utilizan un handshake GET/POST similar a las solicitudes de transacción de Solana Pay, pero se generalizan más allá de los pagos para admitir operaciones on-chain arbitrarias (votación, staking, interacciones DeFi), y sirven como la contraparte del lado del servidor de los Blinks, que renderizan las acciones como componentes de UI incrustables."
+    "definition": "Una especificación de protocolo que estandariza cómo los servidores web exponen transacciones y mensajes de Solana firmables a través de puntos finales HTTPS, lo que permite que cualquier URL se convierta en un punto de entrada de blockchain interactivo. Las Acciones utilizan un handshake GET/POST similar a las solicitudes de transacción de Solana Pay, pero se generalizan más allá de los pagos para admitir operaciones on-chain arbitrarias (votación, staking, interacciones DeFi), y sirven como la contraparte del lado del servidor de los Blinks, que renderizan las acciones como componentes de UI incrustables."
   },
   "blinks": {
     "term": "Blinks (Blockchain Links)",

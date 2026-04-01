@@ -6,22 +6,31 @@ import { TermDetailPanel } from "@/components/TermDetailPanel";
 import { GlossaryTerm } from "@/lib/solana-glossary";
 import { AnimatePresence } from "framer-motion";
 import { MessageSquare, Code2, FileCode2 } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
-const TABS = [
-  { id: "chat", label: "Copilot", icon: MessageSquare },
-  { id: "explain-code", label: "Explain Code", icon: Code2 },
-  { id: "explain-file", label: "Explain File", icon: FileCode2 },
-] as const;
+const TAB_IDS = ["chat", "explain-code", "explain-file"] as const;
+type TabId = (typeof TAB_IDS)[number];
 
-type TabId = (typeof TABS)[number]["id"];
+const TAB_ICONS = {
+  chat: MessageSquare,
+  "explain-code": Code2,
+  "explain-file": FileCode2,
+} as const;
+
+const TAB_KEYS = {
+  chat: "tab.copilot" as const,
+  "explain-code": "tab.explain_code" as const,
+  "explain-file": "tab.explain_file" as const,
+};
 
 const Copilot = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialTab = searchParams.get("mode") as TabId || "chat";
   const [activeTab, setActiveTab] = useState<TabId>(
-    TABS.some((t) => t.id === initialTab) ? initialTab : "chat"
+    TAB_IDS.includes(initialTab as any) ? initialTab : "chat"
   );
   const [selectedTerm, setSelectedTerm] = useState<GlossaryTerm | null>(null);
+  const { t } = useI18n();
 
   const handleTabChange = (tab: TabId) => {
     setActiveTab(tab);
@@ -36,20 +45,23 @@ const Copilot = () => {
     <div className="h-[calc(100vh-3.5rem)] flex flex-col max-w-6xl mx-auto">
       {/* Tab bar */}
       <div className="border-b border-border px-4 flex gap-1 pt-2">
-        {TABS.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => handleTabChange(tab.id)}
-            className={`flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-t-md transition-colors ${
-              activeTab === tab.id
-                ? "bg-card text-foreground border border-border border-b-transparent -mb-px"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            <tab.icon className="h-3.5 w-3.5" />
-            {tab.label}
-          </button>
-        ))}
+        {TAB_IDS.map((tabId) => {
+          const Icon = TAB_ICONS[tabId];
+          return (
+            <button
+              key={tabId}
+              onClick={() => handleTabChange(tabId)}
+              className={`flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-t-md transition-colors ${
+                activeTab === tabId
+                  ? "bg-card text-foreground border border-border border-b-transparent -mb-px"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Icon className="h-3.5 w-3.5" />
+              {t(TAB_KEYS[tabId])}
+            </button>
+          );
+        })}
       </div>
 
       {/* Content */}

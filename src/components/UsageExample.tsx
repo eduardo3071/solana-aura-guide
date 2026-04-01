@@ -4,6 +4,7 @@ import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
 import { Sparkles, Loader2 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
+import { useI18n } from "@/lib/i18n";
 
 // In-memory cache for usage examples
 const exampleCache = new Map<string, string>();
@@ -18,6 +19,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const abortRef = useRef(false);
+  const { t } = useI18n();
 
   useEffect(() => {
     abortRef.current = false;
@@ -75,7 +77,7 @@ export function UsageExample({ term, onTermClick }: UsageExampleProps) {
     <div className="mt-4">
       <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 flex items-center gap-1.5">
         <Sparkles className="h-3 w-3 text-primary" />
-        Used in Context
+        {t("term.usage")}
       </h3>
       {isLoading && !example ? (
         <div className="space-y-1.5">

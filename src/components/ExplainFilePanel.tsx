@@ -3,8 +3,8 @@ import { searchTerms, GlossaryTerm } from "@/lib/solana-glossary";
 import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
 import { FileCode2, Loader2, Send, Trash2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ReactMarkdown from "react-markdown";
 import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
+import { useI18n } from "@/lib/i18n";
 
 interface ExplainFilePanelProps {
   onTermClick?: (term: GlossaryTerm) => void;
@@ -31,6 +31,7 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
   const [result, setResult] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useI18n();
 
   const handleAnalyze = useCallback(async (inputCode?: string) => {
     const codeToAnalyze = inputCode || code;
@@ -40,7 +41,6 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
     setResult("");
     setIsAnalyzing(true);
 
-    // Extract glossary terms from code for RAG context
     const glossaryContext = buildGlossaryContext(codeToAnalyze);
 
     let content = "";
@@ -69,7 +69,7 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-2">
             <FileCode2 className="h-4 w-4 text-primary" />
-            <span className="text-xs font-semibold text-foreground">Paste Code to Analyze</span>
+            <span className="text-xs font-semibold text-foreground">{t("file.paste_title")}</span>
           </div>
           <div className="flex gap-1.5">
             {code && (
@@ -84,14 +84,14 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
               onClick={() => { setCode(EXAMPLE_CODE); }}
               className="text-[10px] px-2 py-1 rounded bg-secondary text-muted-foreground hover:text-foreground transition-colors"
             >
-              Try Example
+              {t("file.try_example")}
             </button>
           </div>
         </div>
         <textarea
           value={code}
           onChange={(e) => setCode(e.target.value)}
-          placeholder="Paste your Solana / Anchor / Rust / TypeScript code here..."
+          placeholder={t("file.paste_placeholder")}
           className="w-full h-32 bg-secondary border border-border rounded-lg p-3 text-xs font-mono text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none scrollbar-thin"
         />
 
@@ -125,12 +125,12 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
           {isAnalyzing ? (
             <>
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              Analyzing file and glossary context…
+              {t("file.analyzing")}
             </>
           ) : (
             <>
               <Send className="h-3.5 w-3.5" />
-              Explain Entire File
+              {t("file.explain_btn")}
             </>
           )}
         </button>
@@ -152,7 +152,7 @@ export function ExplainFilePanel({ onTermClick }: ExplainFilePanelProps) {
           <div className="flex flex-col items-center justify-center h-full text-center px-4 opacity-60">
             <FileCode2 className="h-10 w-10 text-muted-foreground mb-3" />
             <p className="text-xs text-muted-foreground">
-              Paste code above and click "Explain Entire File" to get a structured breakdown with glossary-powered insights.
+              {t("file.empty_hint")}
             </p>
           </div>
         ) : null}

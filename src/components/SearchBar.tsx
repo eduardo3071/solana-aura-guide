@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import { searchTerms, GlossaryTerm } from "@/lib/solana-glossary";
 import { Search, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useI18n } from "@/lib/i18n";
 
 interface SearchBarProps {
   onSelect: (term: GlossaryTerm) => void;
@@ -25,17 +26,20 @@ const categoryColors: Record<string, string> = {
   "solana-ecosystem": "bg-accent/20 text-accent",
 };
 
-export function SearchBar({ onSelect, placeholder = "Search 1001 Solana terms…" }: SearchBarProps) {
+export function SearchBar({ onSelect, placeholder }: SearchBarProps) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
+  const { t } = useI18n();
+
+  const resolvedPlaceholder = placeholder || t("search.placeholder");
 
   // Debounced search for performance with 1001 terms
   const [debouncedQuery, setDebouncedQuery] = useState("");
   useEffect(() => {
-    const t = setTimeout(() => setDebouncedQuery(query), 100);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setDebouncedQuery(query), 100);
+    return () => clearTimeout(timer);
   }, [query]);
 
   const results = useMemo(() => {
@@ -75,7 +79,7 @@ export function SearchBar({ onSelect, placeholder = "Search 1001 Solana terms…
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           onFocus={() => results.length > 0 && setIsOpen(true)}
-          placeholder={placeholder}
+          placeholder={resolvedPlaceholder}
           className="w-full h-12 pl-11 pr-10 bg-secondary border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 transition-all text-sm"
         />
         {query && (

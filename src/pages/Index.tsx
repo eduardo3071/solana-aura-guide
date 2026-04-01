@@ -16,6 +16,7 @@ const Index = () => {
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   const terms = useMemo(() => {
     return activeCategory ? getTermsByCategory(activeCategory) : getAllTerms();

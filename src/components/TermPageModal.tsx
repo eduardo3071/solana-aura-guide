@@ -5,6 +5,7 @@ import {
   X, ArrowRight, BookOpen, Tag, Sparkles, Code2, Brain,
   MessageSquare, Zap, Globe, Copy, Check,
 } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { useGlossary } from "@/hooks/useGlossary";
 import { useNavigate } from "react-router-dom";
@@ -227,6 +228,16 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
             </div>
           </div>
         )}
+
+        {/* Learning Path button */}
+        <button
+          onClick={() => navigate(`/learn?term=${term.id}`)}
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/20 text-sm font-medium text-foreground hover:from-accent/20 hover:to-primary/20 transition-all group mb-2"
+        >
+          <GraduationCap className="h-4 w-4 text-accent" />
+          {t("learn.start" as any)}
+          <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+        </button>
 
         {/* Knowledge Graph button */}
         <button

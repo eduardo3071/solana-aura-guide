@@ -7,9 +7,12 @@ const translations = {
     // Hero
     "hero.title.before": "Understand",
     "hero.title.solana": "Solana",
-    "hero.title.after": "instantly — powered by real protocol knowledge",
+    "hero.title.after": "instantly.",
     "hero.badge": "terms · 14 categories · Official Solana Glossary",
-    "hero.subtitle": "Instantly search, learn, and understand Solana concepts. Powered by the official @stbr/solana-glossary SDK with real AI assistance.",
+    "hero.subtitle": "From concepts to real code — powered by an intelligent glossary.",
+    "hero.input_placeholder": "Search a term or paste code... Try: ",
+    "hero.code_detected": "Code detected — Explain with AI",
+    "hero.helper_text": "Try: \"PDA\", \"Turbine\", or paste Anchor code",
     // Buttons
     "btn.copilot": "AI Copilot",
     "btn.explain_code": "Explain Code",
@@ -80,6 +83,15 @@ const translations = {
     // Term detail
     "term.related": "Related Terms",
     "term.usage": "Used in Context",
+    "term.ai_insight": "AI Insight",
+    "term.cta_explain": "Explain with AI",
+    "term.cta_simplify": "Simplify (ELI5)",
+    "term.cta_code": "Use in real code",
+    "term.cta_compare": "Compare",
+    "term.cta_graph": "View Knowledge Graph",
+    // Graph
+    "graph.title": "Knowledge Graph",
+    "graph.subtitle": "Explore how concepts connect across the Solana ecosystem.",
     // 404
     "notfound.title": "404",
     "notfound.message": "Oops! Page not found",

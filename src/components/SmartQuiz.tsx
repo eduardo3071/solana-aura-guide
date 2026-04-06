@@ -270,6 +270,17 @@ export function SmartQuiz({ term, onNavigate, onOpenGraph, onExplainCode }: Smar
           </div>
         )}
 
+        {/* Apply What You Learned */}
+        <ApplyCode
+          term={term}
+          wrongTerms={wrongTerms}
+          difficulty={difficulty}
+          mode={mode}
+          onNavigate={onNavigate}
+          onOpenGraph={onOpenGraph}
+          onExplainCode={onExplainCode}
+        />
+
         {/* Actions */}
         <div className="flex gap-2">
           <button

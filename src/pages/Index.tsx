@@ -61,12 +61,12 @@ const Index = () => {
             </p>
           </div>
 
-          <SmartHeroInput onSelectTerm={setSelectedTerm} />
+          <SmartHeroInput onSelectTerm={handleSelectTerm} />
         </div>
       </section>
 
       {/* Content */}
-      <section id="glossary" className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
+      <section id="glossary" ref={glossarySectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-14">
         <div className="mb-5">
           <h2 className="text-sm font-semibold text-foreground mb-2.5 flex items-center gap-2">
             <Search className="h-3.5 w-3.5 text-primary" />
@@ -86,7 +86,7 @@ const Index = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
               {visibleTerms.map((term, i) => (
-                <TermCard key={term.id} term={term} onClick={setSelectedTerm} index={i} />
+                <TermCard key={term.id} term={term} onClick={handleSelectTerm} index={i} />
               ))}
             </div>
             {visibleCount < terms.length && (
@@ -109,7 +109,7 @@ const Index = () => {
                   <TermPageModal
                     term={selectedTerm}
                     onClose={() => setSelectedTerm(null)}
-                    onNavigate={setSelectedTerm}
+                    onNavigate={handleSelectTerm}
                   />
                 </div>
               </div>

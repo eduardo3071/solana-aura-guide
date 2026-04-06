@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback, useRef } from "react";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { TermCard } from "@/components/TermCard";
 import { TermPageModal } from "@/components/TermPageModal";
@@ -13,6 +13,7 @@ const ITEMS_PER_PAGE = 60;
 
 const Index = () => {
   const [selectedTerm, setSelectedTerm] = useState<GlossaryTerm | null>(null);
+  const glossarySectionRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const { t } = useI18n();
@@ -21,6 +22,13 @@ const Index = () => {
   const terms = useMemo(() => {
     return activeCategory ? glossary.getTermsByCategory(activeCategory) : glossary.getAllTerms();
   }, [activeCategory, glossary]);
+
+  const handleSelectTerm = useCallback((term: GlossaryTerm | null) => {
+    setSelectedTerm(term);
+    if (term && glossarySectionRef.current) {
+      glossarySectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
 
   const visibleTerms = useMemo(() => terms.slice(0, visibleCount), [terms, visibleCount]);
 
@@ -53,12 +61,12 @@ const Index = () => {
             </p>
           </div>
 
-          <SmartHeroInput onSelectTerm={setSelectedTerm} />
+          <SmartHeroInput onSelectTerm={handleSelectTerm} />
         </div>
       </section>
 
       {/* Content */}
-      <section id="glossary" className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
+      <section id="glossary" ref={glossarySectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-14">
         <div className="mb-5">
           <h2 className="text-sm font-semibold text-foreground mb-2.5 flex items-center gap-2">
             <Search className="h-3.5 w-3.5 text-primary" />
@@ -78,7 +86,7 @@ const Index = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
               {visibleTerms.map((term, i) => (
-                <TermCard key={term.id} term={term} onClick={setSelectedTerm} index={i} />
+                <TermCard key={term.id} term={term} onClick={handleSelectTerm} index={i} />
               ))}
             </div>
             {visibleCount < terms.length && (
@@ -101,7 +109,7 @@ const Index = () => {
                   <TermPageModal
                     term={selectedTerm}
                     onClose={() => setSelectedTerm(null)}
-                    onNavigate={setSelectedTerm}
+                    onNavigate={handleSelectTerm}
                   />
                 </div>
               </div>

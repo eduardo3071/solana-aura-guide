@@ -167,11 +167,12 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
             <div className="space-y-1.5">
               <Skeleton className="h-3 w-full" />
               <Skeleton className="h-3 w-4/5" />
+              <Skeleton className="h-3 w-3/5" />
             </div>
           ) : (
-            <p className="text-xs text-foreground/80 leading-relaxed italic">
-              "{aiInsight}"
-            </p>
+            <div className="text-xs text-foreground/80 leading-relaxed [&_pre]:bg-[hsl(150_60%_10%)] [&_pre]:border [&_pre]:border-emerald-500/20 [&_pre]:rounded-lg [&_pre]:p-3 [&_pre]:my-2 [&_pre]:overflow-x-auto [&_pre_code]:text-emerald-400 [&_pre_code]:text-[11px] [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_code]:text-primary [&_code]:bg-primary/10 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-[11px] [&_strong]:text-foreground [&_p]:mb-2 [&_p:last-child]:mb-0">
+              <TermHighlightedMarkdown content={aiInsight} onTermClick={onNavigate} />
+            </div>
           )}
         </div>
 

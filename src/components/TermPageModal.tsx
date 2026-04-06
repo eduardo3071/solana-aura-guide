@@ -235,15 +235,15 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
         </button>
 
         {/* Graph view */}
-        <AnimatePresence>
-          {showGraph && (
+        {showGraph && (
+          <Suspense fallback={<div className="h-[400px] flex items-center justify-center"><Skeleton className="w-full h-full rounded-xl" /></div>}>
             <KnowledgeGraph
               centerTerm={term}
               onSelectTerm={onNavigate}
               onClose={() => setShowGraph(false)}
             />
-          )}
-        </AnimatePresence>
+          </Suspense>
+        )}
       </div>
     </motion.div>
   );

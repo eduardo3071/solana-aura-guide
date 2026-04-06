@@ -1,12 +1,11 @@
 import { useState, useMemo } from "react";
-import { SearchBar } from "@/components/SearchBar";
-import { TermCard } from "@/components/TermCard";
 import { CategoryGrid } from "@/components/CategoryGrid";
-import { TermDetailPanel } from "@/components/TermDetailPanel";
+import { TermCard } from "@/components/TermCard";
+import { TermPageModal } from "@/components/TermPageModal";
+import { SmartHeroInput } from "@/components/SmartHeroInput";
 import { GlossaryTerm, Category } from "@/lib/solana-glossary";
 import { AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { MessageSquare, Zap, BookOpen, Search, Code2 } from "lucide-react";
+import { Zap, Search } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { useGlossary } from "@/hooks/useGlossary";
 
@@ -16,7 +15,6 @@ const Index = () => {
   const [selectedTerm, setSelectedTerm] = useState<GlossaryTerm | null>(null);
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
-  const navigate = useNavigate();
   const { t } = useI18n();
   const glossary = useGlossary();
 
@@ -40,47 +38,22 @@ const Index = () => {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_hsl(162_72%_46%_/_0.08),_transparent_60%)]" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-6 relative">
-          <div className="text-center max-w-2xl mx-auto mb-6">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-medium mb-3">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_hsl(262_60%_58%_/_0.05),_transparent_50%)]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-14 pb-10 relative">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-[11px] font-medium mb-4 border border-primary/20">
               <Zap className="h-3 w-3" />
               {glossary.allTerms.length} {t("hero.badge")}
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2.5 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-3 tracking-tight leading-tight">
               {t("hero.title.before")} <span className="gradient-text">{t("hero.title.solana")}</span> {t("hero.title.after")}
             </h1>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-lg mx-auto">
+            <p className="text-base text-muted-foreground leading-relaxed max-w-lg mx-auto">
               {t("hero.subtitle")}
             </p>
           </div>
 
-          <div className="max-w-xl mx-auto mb-5">
-            <SearchBar onSelect={setSelectedTerm} />
-          </div>
-
-          <div className="flex justify-center gap-3">
-            <button
-              onClick={() => navigate("/copilot")}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:opacity-90 transition-all"
-            >
-              <MessageSquare className="h-3.5 w-3.5" />
-              {t("btn.copilot")}
-            </button>
-            <button
-              onClick={() => navigate("/copilot?mode=explain-code")}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-accent-foreground text-xs font-medium hover:opacity-90 transition-all"
-            >
-              <Code2 className="h-3.5 w-3.5" />
-              {t("btn.explain_code")}
-            </button>
-            <a
-              href="#glossary"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-secondary text-secondary-foreground text-xs font-medium hover:bg-surface-hover transition-all"
-            >
-              <BookOpen className="h-3.5 w-3.5" />
-              {t("btn.browse_glossary")}
-            </a>
-          </div>
+          <SmartHeroInput onSelectTerm={setSelectedTerm} />
         </div>
       </section>
 
@@ -123,9 +96,9 @@ const Index = () => {
           {/* Detail panel */}
           <AnimatePresence>
             {selectedTerm && (
-              <div className="hidden lg:block w-80 shrink-0">
-                <div className="sticky top-[4.5rem]">
-                  <TermDetailPanel
+              <div className="hidden lg:block w-96 shrink-0">
+                <div className="sticky top-[4.5rem] max-h-[calc(100vh-5rem)]">
+                  <TermPageModal
                     term={selectedTerm}
                     onClose={() => setSelectedTerm(null)}
                     onNavigate={setSelectedTerm}

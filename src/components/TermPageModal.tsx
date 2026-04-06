@@ -5,7 +5,6 @@ import {
   X, ArrowRight, BookOpen, Tag, Sparkles, Code2, Brain,
   MessageSquare, Zap, Globe, Copy, Check,
 } from "lucide-react";
-import { UsageExample } from "@/components/UsageExample";
 import { useI18n } from "@/lib/i18n";
 import { useGlossary } from "@/hooks/useGlossary";
 import { useNavigate } from "react-router-dom";

@@ -218,7 +218,7 @@ export function SmartQuiz({ term, onNavigate, onOpenGraph }: SmartQuizProps) {
   if (phase === "results") {
     const percentage = Math.round((score / questions.length) * 100);
     const reviewTerms = wrongTerms
-      .map(name => glossary.allTerms().find(t => t.term.toLowerCase() === name.toLowerCase()))
+      .map(name => glossary.allTerms.find(t => t.term.toLowerCase() === name.toLowerCase()))
       .filter(Boolean) as GlossaryTerm[];
 
     return (
@@ -391,7 +391,7 @@ export function SmartQuiz({ term, onNavigate, onOpenGraph }: SmartQuizProps) {
             {q.relatedTerms && q.relatedTerms.length > 0 && selectedOption !== q.correct && (
               <div className="flex flex-wrap gap-1">
                 {q.relatedTerms.map(rt => {
-                  const found = glossary.allTerms().find(t => t.term.toLowerCase() === rt.toLowerCase());
+                  const found = glossary.allTerms.find(t => t.term.toLowerCase() === rt.toLowerCase());
                   if (!found) return null;
                   return (
                     <button

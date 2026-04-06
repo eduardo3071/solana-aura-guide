@@ -23,6 +23,13 @@ const Index = () => {
     return activeCategory ? glossary.getTermsByCategory(activeCategory) : glossary.getAllTerms();
   }, [activeCategory, glossary]);
 
+  const handleSelectTerm = useCallback((term: GlossaryTerm | null) => {
+    setSelectedTerm(term);
+    if (term && glossarySectionRef.current) {
+      glossarySectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
+
   const visibleTerms = useMemo(() => terms.slice(0, visibleCount), [terms, visibleCount]);
 
   const handleCategoryChange = (cat: Category | null) => {

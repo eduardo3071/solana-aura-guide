@@ -55,15 +55,17 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
   const [copiedCode, setCopiedCode] = useState(false);
 
   // Auto-generate AI insight
-  const insightFetched = useRef(false);
+  const insightFetched = useRef<string | null>(null);
   useEffect(() => {
     if (insightCache.has(term.id)) {
       setAiInsight(insightCache.get(term.id)!);
       setInsightLoading(false);
       return;
     }
-    if (insightFetched.current) return;
-    insightFetched.current = true;
+    if (insightFetched.current === term.id) return;
+    insightFetched.current = term.id;
+    setAiInsight("");
+    setInsightLoading(true);
     let content = "";
     streamChat({
       messages: [

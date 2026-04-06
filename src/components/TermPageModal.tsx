@@ -68,7 +68,7 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
       messages: [
         {
           role: "user",
-          content: `Term: "${term.term}" (${term.category}). Definition: "${term.definition}". Related: ${(term.related || []).join(", ")}. Give a ONE sentence insight about how this concept connects to other Solana concepts and when developers typically encounter it. Be specific and practical. Start with "Commonly" or "Typically" or "Often".`,
+          content: `Term: "${term.term}" (${term.category}). Definition: "${term.definition}". Related: ${(term.related || []).join(", ")}. Give a practical insight about how this concept connects to other Solana concepts and when developers typically encounter it. Be specific. Include a short code example (CLI command or Rust/TypeScript snippet) showing real usage. Use markdown with code blocks. Keep it concise (3-5 sentences + code).`,
         },
       ],
       glossaryContext: buildGlossaryContext(term.term, locale),

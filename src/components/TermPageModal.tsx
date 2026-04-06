@@ -1,4 +1,4 @@
-import { useState, useCallback, lazy, Suspense } from "react";
+import { useState, useCallback, useEffect, useRef, lazy, Suspense } from "react";
 import { GlossaryTerm } from "@/lib/solana-glossary";
 import { motion, AnimatePresence } from "framer-motion";
 import {

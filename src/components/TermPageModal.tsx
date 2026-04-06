@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef, lazy, Suspense } from "react";
 import { GlossaryTerm } from "@/lib/solana-glossary";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -8,11 +8,12 @@ import {
 import { UsageExample } from "@/components/UsageExample";
 import { useI18n } from "@/lib/i18n";
 import { useGlossary } from "@/hooks/useGlossary";
-import { KnowledgeGraph } from "@/components/KnowledgeGraph";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
 import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
+
+const KnowledgeGraph = lazy(() => import("@/components/KnowledgeGraph").then(m => ({ default: m.KnowledgeGraph })));
 
 interface TermPageModalProps {
   term: GlossaryTerm;
@@ -54,11 +55,15 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
   const [copiedCode, setCopiedCode] = useState(false);
 
   // Auto-generate AI insight
-  useState(() => {
+  const insightFetched = useRef(false);
+  useEffect(() => {
     if (insightCache.has(term.id)) {
+      setAiInsight(insightCache.get(term.id)!);
       setInsightLoading(false);
       return;
     }
+    if (insightFetched.current) return;
+    insightFetched.current = true;
     let content = "";
     streamChat({
       messages: [
@@ -80,7 +85,7 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
       },
       onError: () => setInsightLoading(false),
     });
-  });
+  }, [term.id]);
 
   const handleCopyDefinition = useCallback(() => {
     navigator.clipboard.writeText(`${term.term}: ${term.definition}`);
@@ -234,15 +239,15 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
         </button>
 
         {/* Graph view */}
-        <AnimatePresence>
-          {showGraph && (
+        {showGraph && (
+          <Suspense fallback={<div className="h-[400px] flex items-center justify-center"><Skeleton className="w-full h-full rounded-xl" /></div>}>
             <KnowledgeGraph
               centerTerm={term}
               onSelectTerm={onNavigate}
               onClose={() => setShowGraph(false)}
             />
-          )}
-        </AnimatePresence>
+          </Suspense>
+        )}
       </div>
     </motion.div>
   );

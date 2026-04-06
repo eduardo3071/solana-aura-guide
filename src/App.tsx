@@ -8,6 +8,7 @@ import { I18nProvider } from "@/lib/i18n";
 import Index from "./pages/Index.tsx";
 import Copilot from "./pages/Copilot.tsx";
 import VSCodeExtension from "./pages/VSCodeExtension.tsx";
+import LearningPath from "./pages/LearningPath.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/copilot" element={<Copilot />} />
+            <Route path="/learn" element={<LearningPath />} />
             <Route path="/vscode" element={<VSCodeExtension />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

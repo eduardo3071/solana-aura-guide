@@ -201,7 +201,7 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
         </div>
 
         {/* Usage Example (AI-generated) */}
-        <UsageExample term={term} onTermClick={onNavigate} />
+        
 
         {/* Related Terms */}
         {related.length > 0 && (

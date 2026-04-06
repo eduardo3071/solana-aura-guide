@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
 import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
+import { SmartQuiz } from "@/components/SmartQuiz";
 
 const KnowledgeGraph = lazy(() => import("@/components/KnowledgeGraph").then(m => ({ default: m.KnowledgeGraph })));
 
@@ -240,6 +241,9 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
           {t("learn.start" as any)}
           <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
         </button>
+
+        {/* Smart Quiz */}
+        <SmartQuiz term={term} onNavigate={onNavigate} onOpenGraph={() => setShowGraph(true)} />
 
         {/* Knowledge Graph button */}
         <button

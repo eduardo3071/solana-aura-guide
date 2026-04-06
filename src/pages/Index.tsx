@@ -13,6 +13,7 @@ const ITEMS_PER_PAGE = 60;
 
 const Index = () => {
   const [selectedTerm, setSelectedTerm] = useState<GlossaryTerm | null>(null);
+  const glossarySectionRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const { t } = useI18n();

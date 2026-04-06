@@ -97,7 +97,7 @@ const Index = () => {
           <AnimatePresence>
             {selectedTerm && (
               <div className="hidden lg:block w-96 shrink-0">
-                <div className="sticky top-[4.5rem] max-h-[calc(100vh-5rem)]">
+                <div className="sticky top-[4.5rem] h-[calc(100vh-5rem)]">
                   <TermPageModal
                     term={selectedTerm}
                     onClose={() => setSelectedTerm(null)}

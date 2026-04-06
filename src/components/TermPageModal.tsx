@@ -243,7 +243,14 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
         </button>
 
         {/* Smart Quiz */}
-        <SmartQuiz term={term} onNavigate={onNavigate} onOpenGraph={() => setShowGraph(true)} />
+        <SmartQuiz
+          term={term}
+          onNavigate={onNavigate}
+          onOpenGraph={() => setShowGraph(true)}
+          onExplainCode={(code) => {
+            navigate("/copilot", { state: { explainCode: code } });
+          }}
+        />
 
         {/* Knowledge Graph button */}
         <button

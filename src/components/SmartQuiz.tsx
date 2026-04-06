@@ -10,6 +10,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
 import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
+import { ApplyCode } from "@/components/ApplyCode";
 
 const QUIZ_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/solana-quiz`;
 
@@ -28,9 +29,10 @@ interface SmartQuizProps {
   term: GlossaryTerm;
   onNavigate: (term: GlossaryTerm) => void;
   onOpenGraph?: () => void;
+  onExplainCode?: (code: string) => void;
 }
 
-export function SmartQuiz({ term, onNavigate, onOpenGraph }: SmartQuizProps) {
+export function SmartQuiz({ term, onNavigate, onOpenGraph, onExplainCode }: SmartQuizProps) {
   const { t, locale } = useI18n();
   const glossary = useGlossary();
   const related = glossary.getRelatedTerms(term.id);
@@ -267,6 +269,17 @@ export function SmartQuiz({ term, onNavigate, onOpenGraph }: SmartQuizProps) {
             </div>
           </div>
         )}
+
+        {/* Apply What You Learned */}
+        <ApplyCode
+          term={term}
+          wrongTerms={wrongTerms}
+          difficulty={difficulty}
+          mode={mode}
+          onNavigate={onNavigate}
+          onOpenGraph={onOpenGraph}
+          onExplainCode={onExplainCode}
+        />
 
         {/* Actions */}
         <div className="flex gap-2">

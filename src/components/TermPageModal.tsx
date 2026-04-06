@@ -55,11 +55,15 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
   const [copiedCode, setCopiedCode] = useState(false);
 
   // Auto-generate AI insight
-  useState(() => {
+  const insightFetched = useRef(false);
+  useEffect(() => {
     if (insightCache.has(term.id)) {
+      setAiInsight(insightCache.get(term.id)!);
       setInsightLoading(false);
       return;
     }
+    if (insightFetched.current) return;
+    insightFetched.current = true;
     let content = "";
     streamChat({
       messages: [
@@ -81,7 +85,7 @@ export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageMo
       },
       onError: () => setInsightLoading(false),
     });
-  });
+  }, [term.id]);
 
   const handleCopyDefinition = useCallback(() => {
     navigator.clipboard.writeText(`${term.term}: ${term.definition}`);

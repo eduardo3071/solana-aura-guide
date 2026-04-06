@@ -1,0 +1,249 @@
+import { useState, useCallback } from "react";
+import { GlossaryTerm } from "@/lib/solana-glossary";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  X, ArrowRight, BookOpen, Tag, Sparkles, Code2, Brain,
+  MessageSquare, Zap, Globe, Copy, Check,
+} from "lucide-react";
+import { UsageExample } from "@/components/UsageExample";
+import { useI18n } from "@/lib/i18n";
+import { useGlossary } from "@/hooks/useGlossary";
+import { KnowledgeGraph } from "@/components/KnowledgeGraph";
+import { useNavigate } from "react-router-dom";
+import { Skeleton } from "@/components/ui/skeleton";
+import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
+import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
+
+interface TermPageModalProps {
+  term: GlossaryTerm;
+  onClose: () => void;
+  onNavigate: (term: GlossaryTerm) => void;
+}
+
+const categoryColors: Record<string, string> = {
+  "core-protocol": "text-primary bg-primary/10",
+  "programming-model": "text-blue-400 bg-blue-500/10",
+  "token-ecosystem": "text-yellow-400 bg-yellow-500/10",
+  "defi": "text-emerald-400 bg-emerald-500/10",
+  "zk-compression": "text-violet-400 bg-violet-500/10",
+  "infrastructure": "text-orange-400 bg-orange-500/10",
+  "security": "text-red-400 bg-red-500/10",
+  "dev-tools": "text-cyan-400 bg-cyan-500/10",
+  "network": "text-teal-400 bg-teal-500/10",
+  "blockchain-general": "text-slate-400 bg-slate-500/10",
+  "web3": "text-pink-400 bg-pink-500/10",
+  "programming-fundamentals": "text-indigo-400 bg-indigo-500/10",
+  "ai-ml": "text-purple-400 bg-purple-500/10",
+  "solana-ecosystem": "text-accent bg-accent/10",
+};
+
+// AI Insight cache
+const insightCache = new Map<string, string>();
+
+export function TermPageModal({ term: rawTerm, onClose, onNavigate }: TermPageModalProps) {
+  const { t, locale } = useI18n();
+  const glossary = useGlossary();
+  const navigate = useNavigate();
+  const term = glossary.localizeTerm(rawTerm);
+  const related = glossary.getRelatedTerms(term.id);
+  const catColor = categoryColors[term.category] || "text-muted-foreground bg-muted";
+
+  const [showGraph, setShowGraph] = useState(false);
+  const [aiInsight, setAiInsight] = useState<string>(insightCache.get(term.id) || "");
+  const [insightLoading, setInsightLoading] = useState(!insightCache.has(term.id));
+  const [copiedCode, setCopiedCode] = useState(false);
+
+  // Auto-generate AI insight
+  useState(() => {
+    if (insightCache.has(term.id)) {
+      setInsightLoading(false);
+      return;
+    }
+    let content = "";
+    streamChat({
+      messages: [
+        {
+          role: "user",
+          content: `Term: "${term.term}" (${term.category}). Definition: "${term.definition}". Related: ${(term.related || []).join(", ")}. Give a ONE sentence insight about how this concept connects to other Solana concepts and when developers typically encounter it. Be specific and practical. Start with "Commonly" or "Typically" or "Often".`,
+        },
+      ],
+      glossaryContext: buildGlossaryContext(term.term, locale),
+      locale,
+      mode: "usage-example",
+      onDelta: (chunk) => {
+        content += chunk;
+        setAiInsight(content);
+      },
+      onDone: () => {
+        insightCache.set(term.id, content);
+        setInsightLoading(false);
+      },
+      onError: () => setInsightLoading(false),
+    });
+  });
+
+  const handleCopyDefinition = useCallback(() => {
+    navigator.clipboard.writeText(`${term.term}: ${term.definition}`);
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 2000);
+  }, [term]);
+
+  const handleExplainWithAI = useCallback(() => {
+    sessionStorage.setItem("copilot-prefill", `Explain the concept "${term.term}" in detail with examples`);
+    navigate("/copilot");
+  }, [term, navigate]);
+
+  const handleSimplify = useCallback(() => {
+    sessionStorage.setItem("copilot-prefill", `Explain "${term.term}" like I'm 5 years old (ELI5)`);
+    navigate("/copilot");
+  }, [term, navigate]);
+
+  const handleUseInCode = useCallback(() => {
+    sessionStorage.setItem("copilot-prefill", `Show me a real code example using "${term.term}" in Solana/Anchor`);
+    navigate("/copilot?mode=explain-code");
+  }, [term, navigate]);
+
+  const handleCompare = useCallback(() => {
+    const relatedName = related[0]?.term || "another concept";
+    sessionStorage.setItem("copilot-prefill", `Compare "${term.term}" with "${relatedName}" in Solana`);
+    navigate("/copilot");
+  }, [term, related, navigate]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 20 }}
+      className="bg-card border border-border rounded-xl overflow-hidden flex flex-col h-full"
+    >
+      {/* Header */}
+      <div className="p-5 border-b border-border">
+        <div className="flex items-start justify-between mb-3">
+          <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${catColor}`}>
+            {t(`cat.${term.category}` as any) || term.category}
+          </span>
+          <button onClick={onClose} className="text-muted-foreground hover:text-foreground transition-colors p-1 rounded-md hover:bg-surface-elevated">
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+
+        <h2 className="text-lg font-bold text-foreground mb-1">{term.term}</h2>
+
+        {term.aliases && term.aliases.length > 0 && (
+          <div className="flex flex-wrap gap-1 mb-3">
+            {term.aliases.map((a) => (
+              <span key={a} className="text-[10px] px-1.5 py-0.5 bg-muted text-muted-foreground rounded-md flex items-center gap-0.5">
+                <Tag className="h-2.5 w-2.5" />
+                {a}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <p className="text-sm text-foreground/80 leading-relaxed">{term.definition}</p>
+
+        <button
+          onClick={handleCopyDefinition}
+          className="mt-2 flex items-center gap-1 text-[10px] text-muted-foreground hover:text-foreground transition-colors"
+        >
+          {copiedCode ? <Check className="h-3 w-3 text-primary" /> : <Copy className="h-3 w-3" />}
+          {copiedCode ? "Copied!" : "Copy"}
+        </button>
+      </div>
+
+      {/* Scrollable content */}
+      <div className="flex-1 overflow-y-auto scrollbar-thin p-5 space-y-5">
+        {/* AI Insight */}
+        <div className="bg-primary/5 border border-primary/10 rounded-lg p-3.5">
+          <div className="flex items-center gap-1.5 mb-2">
+            <Brain className="h-3.5 w-3.5 text-primary" />
+            <span className="text-[11px] font-semibold text-primary">{t("term.ai_insight")}</span>
+          </div>
+          {insightLoading && !aiInsight ? (
+            <div className="space-y-1.5">
+              <Skeleton className="h-3 w-full" />
+              <Skeleton className="h-3 w-4/5" />
+            </div>
+          ) : (
+            <p className="text-xs text-foreground/80 leading-relaxed italic">
+              "{aiInsight}"
+            </p>
+          )}
+        </div>
+
+        {/* AI Action buttons */}
+        <div className="grid grid-cols-2 gap-2">
+          <button onClick={handleExplainWithAI} className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-secondary border border-border text-[11px] font-medium text-foreground hover:bg-surface-hover hover:border-primary/20 transition-all group">
+            <MessageSquare className="h-3.5 w-3.5 text-primary" />
+            {t("term.cta_explain")}
+            <ArrowRight className="h-3 w-3 ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+          </button>
+          <button onClick={handleSimplify} className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-secondary border border-border text-[11px] font-medium text-foreground hover:bg-surface-hover hover:border-primary/20 transition-all group">
+            <Zap className="h-3.5 w-3.5 text-yellow-400" />
+            {t("term.cta_simplify")}
+            <ArrowRight className="h-3 w-3 ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+          </button>
+          <button onClick={handleUseInCode} className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-secondary border border-border text-[11px] font-medium text-foreground hover:bg-surface-hover hover:border-primary/20 transition-all group">
+            <Code2 className="h-3.5 w-3.5 text-accent" />
+            {t("term.cta_code")}
+            <ArrowRight className="h-3 w-3 ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+          </button>
+          <button onClick={handleCompare} className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-secondary border border-border text-[11px] font-medium text-foreground hover:bg-surface-hover hover:border-primary/20 transition-all group">
+            <Sparkles className="h-3.5 w-3.5 text-pink-400" />
+            {t("term.cta_compare")}
+            <ArrowRight className="h-3 w-3 ml-auto text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+          </button>
+        </div>
+
+        {/* Usage Example (AI-generated) */}
+        <UsageExample term={term} onTermClick={onNavigate} />
+
+        {/* Related Terms */}
+        {related.length > 0 && (
+          <div>
+            <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <BookOpen className="h-3 w-3" />
+              {t("term.related")}
+            </h3>
+            <div className="grid grid-cols-1 gap-1.5">
+              {related.map((r) => (
+                <button
+                  key={r.id}
+                  onClick={() => onNavigate(r)}
+                  className="w-full flex items-center gap-2.5 p-2.5 rounded-lg bg-secondary/50 hover:bg-surface-hover text-left transition-all group border border-transparent hover:border-primary/10"
+                >
+                  <ArrowRight className="h-3 w-3 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs font-medium text-foreground truncate group-hover:text-primary transition-colors">{r.term}</p>
+                    <p className="text-[10px] text-muted-foreground truncate">{r.definition.slice(0, 80)}…</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Knowledge Graph button */}
+        <button
+          onClick={() => setShowGraph(true)}
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 text-sm font-medium text-foreground hover:from-primary/20 hover:to-accent/20 transition-all group"
+        >
+          <Globe className="h-4 w-4 text-primary" />
+          {t("term.cta_graph")}
+          <ArrowRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+        </button>
+
+        {/* Graph view */}
+        <AnimatePresence>
+          {showGraph && (
+            <KnowledgeGraph
+              centerTerm={term}
+              onSelectTerm={onNavigate}
+              onClose={() => setShowGraph(false)}
+            />
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
+  );
+}

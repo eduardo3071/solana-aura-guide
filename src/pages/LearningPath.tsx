@@ -17,7 +17,8 @@ import {
 const LearningPath = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { t, locale } = useI18n();
+  const { t: _t, locale } = useI18n();
+  const t = (key: string) => _t(key as any);
   const glossary = useGlossary();
 
   const startTermId = searchParams.get("term") || "proof-of-stake";

@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, lazy, Suspense } from "react";
 import { GlossaryTerm } from "@/lib/solana-glossary";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -8,11 +8,12 @@ import {
 import { UsageExample } from "@/components/UsageExample";
 import { useI18n } from "@/lib/i18n";
 import { useGlossary } from "@/hooks/useGlossary";
-import { KnowledgeGraph } from "@/components/KnowledgeGraph";
 import { useNavigate } from "react-router-dom";
 import { Skeleton } from "@/components/ui/skeleton";
 import { streamChat, buildGlossaryContext } from "@/lib/ai-chat";
 import { TermHighlightedMarkdown } from "@/components/TermHighlightedMarkdown";
+
+const KnowledgeGraph = lazy(() => import("@/components/KnowledgeGraph").then(m => ({ default: m.KnowledgeGraph })));
 
 interface TermPageModalProps {
   term: GlossaryTerm;

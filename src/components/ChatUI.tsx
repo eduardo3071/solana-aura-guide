@@ -49,6 +49,19 @@ export function ChatUI({ onTermClick, mode = "chat" }: ChatUIProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const { t, locale } = useI18n();
 
+  // Auto-send prefilled message from sessionStorage
+  const prefillHandled = useRef(false);
+  useEffect(() => {
+    if (prefillHandled.current) return;
+    const prefill = sessionStorage.getItem("copilot-prefill");
+    if (prefill) {
+      prefillHandled.current = true;
+      sessionStorage.removeItem("copilot-prefill");
+      // Small delay to ensure component is fully mounted
+      setTimeout(() => handleSend(prefill), 100);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const DEMO_QUESTIONS = [
     t("chat.demo.pda"),
     t("chat.demo.accounts"),
